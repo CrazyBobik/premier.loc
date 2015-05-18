@@ -1,0 +1,69 @@
+<div class="b-padded mainForm">
+<form enctype="application/x-www-form-urlencoded" class="ajax-form" method="post" action="/admin/tree/updateseo/id/<?=$this->node['tree_id']?>">
+	<div class="rowElem noborder admin-form-row">
+        <label>Каноническая:</label><div class="formRight">
+        <input class="b-field" id="node_name"  type="text" name="canonical" value="<?=$this->node['tree_meta_canonical']?>">
+        </div>
+        <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder admin-form-row">
+	    <label>Title :</label><div class="formRight">
+        <input class="b-field" id="node_name"  type="text" name="title" value="<?=$this->node['tree_meta_title']?>">
+        </div>
+        <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder admin-form-row">
+        <label>Description:</label>
+        <div class="formRight">
+           <textarea class="class-description" id="id-description" name="description" style="margin: 0px -13px 0px 0px; height: 45px; width: 435px;"><?=$this->node['tree_meta_description']?></textarea>
+        </div>
+        <div class="fix">
+        </div>
+    </div>
+     <div class="rowElem noborder admin-form-row">
+        <label>Keywords:</label>
+        <div class="formRight">
+            <textarea class="class-keywords" id="id-keywords" name="keywords" style="margin: 0px -13px 0px 0px; height: 45px; width: 435px;"><?=$this->node['tree_meta_keywords']?></textarea>
+       </div>
+        <div class="fix">
+        </div>
+    </div>
+    <hr/>
+	<div class="rowElem noborder admin-form-row">
+        <label>Каноническая укр.:</label><div class="formRight">
+        <input class="b-field" id="node_name"  type="text" name="canonical_uk" value="<?=$this->node['tree_meta_canonical_uk']?>">
+        </div>
+        <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder admin-form-row">
+        <label>Title укр.:</label><div class="formRight">
+        <input class="b-field" id="node_name"  type="text" name="title_uk" value="<?=$this->node['tree_meta_title_uk']?>">
+        </div>
+        <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder admin-form-row">
+        <label>Description укр.:</label>
+        <div class="formRight">
+      
+             <textarea class="class-keywords" id="id-keywords" name="description_uk" style="margin: 0px -13px 0px 0px; height: 45px; width: 435px;"><?=$this->node['tree_meta_description_uk']?></textarea>
+      
+        </div>
+        <div class="fix">
+        </div>
+    </div>
+     <div class="rowElem noborder admin-form-row">
+        <label>Keywords укр.:</label>
+        <div class="formRight">
+                  <textarea class="class-keywords" id="id-keywords" name="keywords_uk" style="margin: 0px -13px 0px 0px; height: 45px; width: 435px;"><?=$this->node['tree_meta_keywords_uk']?></textarea>
+        </div>
+        <div class="fix">
+        </div>
+    </div>
+    
+    <input class="b-button greyishBtn submitForm" type="submit" value="Обновить">
+</form>
+<div id="flash-msg-nNote" fd='fdf' class="nNote hideit" style="display:none">
+	<p>
+	</p>
+</div>
+</div>

@@ -1,0 +1,181 @@
+<div id="flash-msg-nNote" class="nNote hideit" style="display:none">
+	<p>
+	</p>
+</div>
+<a class="btnIconLeft mr10 mt5 mb10 flr" title="" onclick="addAdmin()" href="javascript:;">
+<img class="icon" alt="" src="/adm/img/icons/dark/adminUser.png" />
+<span>Новый пользователь</span>
+</a>
+<div class="fix">
+</div>
+<div id="add-admin" style="display:none">
+	<a href="javascript:;" title="Закрыть" class="close-link" onfocus="this.blur();"></a>
+	<h5 id="add-admin-title">
+		Добавление нового пользователя
+	</h5>
+	<form class="mainForm" id="admin-info-form">
+		<table class="add-admin-tbl">
+			<tr>
+				<td>
+					<label for="admin_name">
+						Имя
+					</label>
+					<br />
+					<input type="text" id="admin_name" name="admin_name" />
+				</td>
+				<td>
+					<label for="admin_login">
+						Логин
+					</label>
+					<br />
+					<input type="text" id="admin_login" name="admin_login" />
+				</td>
+				<td rowspan="2">
+					<label for="admin_roles">
+						Роли
+					</label>
+					<br />
+					<select onchange="adminAddRole(this);" class="fll" id="add-roles">
+						<option value="0">
+							Добавить роль
+						</option>
+						<?foreach($this->roles as $v){?>
+							<option id="role-<?=$v['role_name']?>" value="<?=$v['role_id']?>">
+								<?=$v[ 'role_name']?>
+									</option>
+									<?}?>
+										</select>
+										<div id="admin_roles">
+										</div>
+										</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="admin_email">
+													Email
+												</label>
+												<br />
+												<input type="text" id="admin_email" name="admin_email" />
+											</td>
+											<td>
+												<label for="admin_password">
+													Установить пароль
+												</label>
+												<br />
+												<input type="password" id="admin_password" name="admin_password" />
+											</td>
+										</tr>
+										</table>
+										<input type="hidden" id="admin_id" name="admin_id"/>
+										<input type="hidden" id="save_type" name="save_type" value="add"/>
+										<a class="btnIconLeft ml25 mt10" onclick="adminInfoSubmit();" title="" href="javascript:;">
+										<img class="icon" alt="" src="/adm/img/icons/dark/check.png"/>
+										<span>Сохранить</span>
+										</a>
+										</form>
+</div>
+										<div style="margin-top: 8px;" class="table" id="admins-table-wrapper">
+											<div class="head">
+												<h5 class="iFrames">
+													Таблица пользователей
+												</h5>
+											</div>
+											<div class="dataTables_wrapper" id="acl-admins_wrapper">
+												<div class="">
+													<div class="dataTables_filter" id="acl-admins_filter">
+														<label>
+															Поиск:
+															<input type="text" class="srch-input">
+															<div class="srch">
+															</div>
+														</label>
+													</div>
+												</div>
+												<table cellspacing="0" cellpadding="0" border="0" class="display" id="items">
+													<thead>
+														<tr>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+																<div class="DataTables_sort_wrapper">
+																	Имя
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+																<div class="DataTables_sort_wrapper">
+																	Логин
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 183px;">
+																<div class="DataTables_sort_wrapper">
+																	Email
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 244px;">
+																<div class="DataTables_sort_wrapper">
+																	Роли
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 222px;">
+																<div class="DataTables_sort_wrapper">
+																	Управление
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+												<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+													<div id="acl-admins_length" class="dataTables_length">
+														<label>
+															Элементов на страницу:
+															<select name="acl-admins_length" class="on-page-count" size="1">
+                                                                <option value="5" selected="selected">
+																	5
+																</option>
+																<option value="10" selected="selected">
+																	10
+																</option>
+																<option value="25">
+																	25
+																</option>
+																<option value="50">
+																	50
+																</option>
+																<option value="100">
+																	100
+																</option>
+															</select>
+														</label>
+													</div>
+													<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-admins_paginate">
+														<span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled" id="acl-admins_first">
+															Первая
+														</span>
+														<span class="previous fg-button ui-button ui-state-disabled" id="acl-admins_previous">
+															Предыдущая
+														</span>
+														<span>
+															<span class="fg-button ui-button ui-state-disabled">
+																1
+															</span>
+														</span>
+														<span class="next fg-button ui-button ui-state-disabled" id="acl-admins_next">
+															Следующая
+														</span>
+														<span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled" id="acl-admins_last">
+															Последняя
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>

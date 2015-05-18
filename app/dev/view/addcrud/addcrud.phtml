@@ -1,0 +1,51 @@
+<div style="margin: 8px auto; width: 800px;">
+            
+            	<div class="head2">
+            		<h5 class="iFrames">
+                       Генерация нового CRUD
+            		</h5>
+            	</div>  
+                
+                <div id="crud-wrapp-cont">
+                    
+                        <div id="crud-selects-cont">
+                            <select id="crud-select" multiple="">
+                               <option value="">Создать новый CRUD</option>
+                                <?
+                               foreach($this->cruds as $k => $v){?>
+                                    <option value="<?=$k?>"><?=$v?></option>
+                                <?}?>
+                                
+                             </select>  
+                        </div>
+                        
+                        <div id="crud-form-cont">
+                        </div>
+                        
+                       <div class="fix"></div>
+                        
+                </div>
+                  
+                  
+                <script type="text/javascript">
+                    $(function() {
+                       $('#setmodule').on('change', function(){
+                            
+                            if($('#extends option[rel="'+$(this).val()+'"]')){
+                                
+                                $('#extends option').attr('selected', false);
+                                
+                                $('#extends option[rel="'+$(this).val()+'"]').attr('selected', 'selected');  
+                                   
+                            }else{
+                                 $('#extends option').attr('selected', false);
+                                 
+                                 $('#extends option[rel="1"]').attr('selected', 'selected');  
+                            }
+                        })                 
+                    })
+               </script>
+</div>
+        
+        
+        

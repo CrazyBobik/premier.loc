@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script type="text/javascript" async="" charset="UTF-8" src="//cdn.jivosite.com/v1/js/widget_ru_RU.js?rand=100620"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title><?php echo K_SEO::$title ? K_SEO::$title : $meta_t; ?><?=K_Seo::pagePref()?></title>
+    <meta name="title" content="<?php echo K_SEO::$title ? K_SEO::$title : $meta_t; ?>" />
+    <meta name="keywords" content="<?php echo  K_SEO::$keywords ? K_SEO::$keywords : $meta_k; ?>" />
+    <meta name="description" content="<?php echo  K_SEO::$description ? K_SEO::$description : $meta_d; ?><?=K_Seo::pagePref()?>" />
+    <link rel="icon" type="image/png" href="/upload/<?= $this->settings['favicon']?>" />
+    <?php
+
+    if(K_SEO::$canonical){
+	
+        echo '<link rel="canonical" href="'.K_SEO::$canonical.'" />';
+		
+    }
+
+    echo K_SEO::getNext();
+    echo K_SEO::getPrev();
+    ?>
+
+    <link rel="stylesheet" href="/usr/css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/usr/css/styles.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/usr/css/slider.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/usr/css/slider-doc.css" type="text/css" media="screen">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.novostroika.od.ua/11">
+
+    <script src="/usr/js/modernizr.custom.63321.js"></script>
+</head>
+<body>
+<div class="content">
+
+    <div class="head">
+
+        <div class="logo">
+            <img src="/usr/img/logo.png">
+        </div>
+
+        <div class="menu">
+            <div class="enter">
+                <a href="#">
+                    <div class="btn">
+                        <p>Вход</p>
+                        <img src="/usr/img/btn.png">
+                    </div>
+                </a>
+                <div class="clear"></div>
+                <a class="registration" href="#">Регистрация</a>
+            </div>
+            <div class="menu-item">
+                <div class="button-bg">
+                    <img src="/usr/img/menu-item1.png">
+
+                </div >
+                <div class="button-label"><a href="#">О компании</a></div>
+                <div class="button-bg">
+                    <img src="/usr/img/menu-item2.png">
+                </div >
+                <div class="button-label"> <a href="#">Контакты</a></div>
+
+                <div class="button-bg">
+                    <img src="/usr/img/menu-item3.png">
+                </div >
+                <div class="button-label"> <a href="#">Услуги</a></div>
+            </div>
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <div class="slider-content">
+        <img class="left-shadow-top" src="/usr/img/left-shadow.png"/>
+        <img class="left-shadow-bottom" src="/usr/img/left-shadow.png"/>
+        <img class="right-shadow-top" src="/usr/img/right-shadow.png"/>
+        <img class="right-shadow-bottom" src="/usr/img/right-shadow.png"/>
+
+        <div class='slider'>
+            <div class='slidewrapper' data-current=0>
+                <div class='slide'>
+                    <a href="">
+                        <img src="/upload/1.png" width="900px" height="300px"/>
+                        <div class="slide-info">
+                            <p class="info-title">Текст</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                        </div>
+                    </a>
+                </div>
+                <div class='slide'>
+                    <a href="">
+                        <img src="/upload/2.jpg" width="900px" height="300px" />
+                        <div class="slide-info">
+                            <p class="info-title">Текст</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                        </div>
+                    </a>
+                </div>
+                <div class='slide'>
+                    <a href="">
+                        <img src="/upload/3.png" width="900px" height="300px"/>
+                        <div class="slide-info">
+                            <p class="info-title">Текст</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                            <p class="text">text text</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="prev_slide">
+                <img src="/usr/img/left.png">
+            </div>
+            <div class="next_slide">
+                <img src="/usr/img/right.png"/>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="search-panel">
+        <a href="#">
+            <div class="favorites">
+                <div class="fav-label">
+                    <p class="fav-title">Избранное</p>
+                    <p class="fav-text">0 в списке</p>
+                </div>
+            </div>
+        </a>
+
+        <div class="search">
+            <div class="search-img">
+                <p>Поиск</p>
+            </div>
+
+            <div class="search-form">
+                <form action="#" method="post">
+                    <div class="block">
+                        <select>
+                            <option>text1</option>
+                            <option>text1</option>
+                            <option>text1</option>
+                            <option>text1</option>
+                        </select>
+
+                        <select>
+                            <option>text2</option>
+                            <option>text2</option>
+                            <option>text2</option>
+                            <option>text2</option>
+                        </select>
+
+                        <select>
+                            <option>text3</option>
+                            <option>text3</option>
+                            <option>text3</option>
+                            <option>text3</option>
+                        </select>
+
+                        <select>
+                            <option>text4</option>
+                            <option>text4</option>
+                            <option>text4</option>
+                            <option>text4</option>
+                        </select>
+                    </div>
+                    <div class="block">
+                        <select>
+                            <option>text5</option>
+                            <option>text5</option>
+                            <option>text5</option>
+                            <option>text5</option>
+                        </select>
+
+                        <select>
+                            <option>text6</option>
+                            <option>text6</option>
+                            <option>text6</option>
+                            <option>text6</option>
+                        </select>
+
+                        <select>
+                            <option>text7</option>
+                            <option>text7</option>
+                            <option>text7</option>
+                            <option>text7</option>
+                        </select>
+
+                        <select>
+                            <option>text8</option>
+                            <option>text8</option>
+                            <option>text8</option>
+                            <option>text8</option>
+                        </select>
+                    </div>
+                    <div class="block">
+                        <span>ID</span>
+                        <input class="field-id" type="text">
+
+                        <span>от</span>
+                        <input class="field-price" type="text">
+
+                        <span class="label-price">Цена</span>
+
+                        <span>до</span>
+                        <input class="field-price" type="text">
+                    </div>
+                </form>
+            </div>
+
+            <a href="#">
+                <div class="find">
+                    <span>НАЙТИ</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="left-part">
+        <div class="main-menu">
+            <a href="#">
+                <div class="item first active">
+                    <img class="flag" src="/usr/img/flag-bolg.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Болгария</span>
+                    <img class="menu-arr" src="/usr/img/menu-arr.png">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img class="flag" src="/usr/img/flag-turc.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Турция</span>
+                    <img class="menu-arr" src="/usr/img/menu-arr.png">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img class="flag" src="/usr/img/flag-grec.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Греция</span>
+                    <img class="menu-arr" src="/usr/img/menu-arr.png">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img class="flag" src="/usr/img/flag-spain.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Испания</span>
+                    <img class="menu-arr" src="/usr/img/menu-arr.png">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img class="flag" src="/usr/img/flag-franc.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Франция</span>
+                    <img class="menu-arr" src="/usr/img/menu-arr.png">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img class="flag" src="/usr/img/flag-ok.png">
+                    <img class="separ" src="/usr/img/separator-menu.png">
+                    <span>Услуги</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="main-site">
+            <a href="#">
+                <img src="/usr/img/main-site.png" width="210px" height="100px">
+            </a>
+        </div>
+
+        <div class="slider-doc-head">
+            <span>Сертифицированый партнер</span>
+        </div>
+        <div id="slider-doc">
+            <img src="/upload/slide-sert1.jpg" width="100%" alt="Slide 1">
+            <img src="/upload/slide-sert2.jpg" width="100%" alt="Slide 2">
+            <img src="/upload/slide-sert3.jpg" width="100%" alt="Slide 3">
+        </div>
+    </div>
+
+    <div class="main-part">
+        <div class="clear"></div>
+
+        <div class="question">
+            <p>Есть Вопрос?</p>
+            <a href="#">ОНЛАЙН ЗАЯВКА</a>
+        </div>
+
+
+        <div id="mi-slider" class="mi-slider">
+            <ul>
+                <li><a href="#"><img src="/upload/slide1b.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2b.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3b.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1t.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2t.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3t.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1g.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2g.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3g.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1i.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2i.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3i.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1f.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2f.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3f.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+
+
+            <nav>
+                <a href="#">Болгария</a>
+                <a href="#">Турция</a>
+                <a href="#">Греция</a>
+                <a href="#">Испания</a>
+                <a href="#">Франция</a>
+            </nav>
+            <div class="slider-head"></div>
+            <img class="slider-head-img" src="/usr/img/slider-head.png">
+        </div>
+
+        <div id="mi-slider2" class="mi-slider">
+            <ul>
+                <li><a href="#"><img src="/upload/slide1b.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2b.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3b.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1t.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2t.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3t.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1g.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2g.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3g.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1i.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2i.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3i.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="/upload/slide1f.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
+                <li><a href="#"><img src="/upload/slide2f.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
+                <li><a href="#"><img src="/upload/slide3f.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
+            </ul>
+
+
+            <nav>
+                <a href="#">Болгария</a>
+                <a href="#">Турция</a>
+                <a href="#">Греция</a>
+                <a href="#">Испания</a>
+                <a href="#">Франция</a>
+            </nav>
+
+            <div class="slider-head"></div>
+            <img class="slider-head-img" src="/usr/img/slider-head.png">
+        </div>
+    </div>
+
+    <div class="bottom-part">
+
+    </div>
+</div>
+<?php
+
+if (isset($this->content['middle']) && $this->content['middle']) { ?>
+
+    <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
+
+        <?=$this->content['middle'][$i]?>
+
+            <?php } ?>
+
+        <?php } ?>
+
+
+<script type="text/javascript" src="/usr/js/jquery.form.js"></script>
+<script type="text/javascript" src="/usr/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/usr/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/usr/js/slider.js"></script>
+<script type="text/javascript" src="/usr/js/slides.js"></script>
+
+
+<script src="/usr/js/jquery.catslider.js"></script>
+<script>
+    $(function() {
+
+        $( '#mi-slider' ).catslider();
+        $( '#mi-slider2' ).catslider();
+    });
+</script>
+
+
+<script>
+    $(function(){
+        $("#slider-doc").slides({
+            responsive: true
+        });
+    });
+</script>
+
+
+<script type="text/javascript" src="/usr/js/main.js"></script>
+<script type="text/javascript" src="/usr/js/misc.js"></script>
+</body>
+</html>

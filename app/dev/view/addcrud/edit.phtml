@@ -1,0 +1,203 @@
+<form action="/dev/addcrud/save" class="ajax-form crud-form" method="post">  
+                             
+         <table cellspacing="0" cellpadding="0" border="0" class="edit-table" id="con-edit">
+        
+         	<tbody>
+            
+                <tr>
+        			<td>
+        		       Название:
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		       <input type="text" name="name" value="<?=$this->crud['name']?>"/>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		       Таблица:
+        			</td>
+           		</tr>
+         	    <tr>
+        	       	<td>
+        		       <input type="text" name="table" value="<?=$this->crud['table']?>"/>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		       Заголовок:
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		       <input type="text" name="title" value="<?=$this->crud['title']?>"/>
+        			</td>
+        		</tr>
+              
+                <tr>
+        			<td>
+        		       Пвceвдоним таблицы: 
+        			</td>
+           		</tr>
+                
+               	<tr>
+        	       	<td>
+        		        <input type="text" name="alias" value="<?=$this->crud['alias']?>"/>
+        			</td>
+        		</tr>
+              
+                <tr>
+        			<td>
+        		       Первичное поле: 
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		        <input type="text" name="primary" value="<?=$this->crud['primary']?>"/>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		      Максимальная длинна поля:
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		        <input type="text" name="fieldsMaxLen" value="<?=$this->crud['fieldsMaxLen']?>"/>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		    Модель:
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		        <input type="text" name="model" value="<?=$this->crud['model']?>"/>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		     Запрос загрузки:
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		        <textarea cols="50" rows="5"  name="loadQuery" ><?=$this->crud['loadQuery']?> </textarea>
+        			</td>
+        		</tr>
+                
+                <tr>
+        			<td>
+        		     Запрос редактирования: 
+        			</td>
+           		</tr>
+               	<tr>
+        	       	<td>
+        		        <textarea cols="50" rows="5"  name="editQuery" ><?=$this->crud['editQuery']?> </textarea>
+        			</td>
+        		</tr>
+                
+                <tr>
+            		<td>
+        		     Поля 
+        			</td>
+           		</tr>
+                <tr>
+            		<td>
+                       <?php 
+                           $i = 0;
+                           foreach($this->crud['fields'] as $k => $v){ 
+                             
+                       ?>
+                             <div class="crud-field-cont">
+                                  <table cellspacing="0" cellpadding="0" border="0" class="crud-field-table" >
+                                  
+                                        <tr>
+                                			<td>
+                                	       	  Название поля:
+                                			</td>
+                                   	       	<td>
+                                		        <input type="text" name="fieldkey[<?=$i?>]" value="<?=$k?>"/>
+                                			</td>
+                                		</tr>   
+                                        
+                                        <tr>
+                                			<td>
+                                	          Заголовок:
+                                			</td>
+                                   		   	<td>
+                                		        <input type="text" name="lable[<?=$i?>]" value="<?=$v['lable']?>"/>
+                                			</td>
+                                		</tr>  
+                                        
+                                        <tr>
+                                			<td>
+                                	        Тип:
+                                			</td>
+                                   	    	<td>
+                                		        <input type="text" name="type[<?=$i?>]" value="<?=$v['type']?>"/>
+                                			</td>
+                                		</tr>  
+                                        
+                                        <tr>
+                                			<td>
+                                	        Сет в запросе:
+                                			</td>
+                                   	     	<td>
+                                		        <input type="text" name="set[<?=$i?>]" value="<?=$v['set']?>"/>
+                                			</td>
+                                		</tr> 
+                                        
+                                        <tr>
+                                			<td>
+                                	        Алиас таблицы из которой брать значение:
+                                			</td>
+                                   	     	<td>
+                                		        <input type="text" name="alias[<?=$i?>]" value="<?=$v['alias']?>"/>
+                                			</td>
+                                		</tr>  
+                                               
+                                        <tr>
+                                			
+                                	      <td>  Название поля из которого брать значение:
+                                			</td>
+                                   	     	<td>
+                                		        <input type="text" name="field[<?=$i?>]" value="<?=$v['field']?>"/>
+                                			</td>
+                                		</tr>  
+                                        
+                                        <tr>
+                                			<td>
+                                	        Шаблон вывода:
+                                			</td>
+                                   	     	<td>
+                                		        <input type="text" name="template[<?=$i?>]" value="<?=htmlspecialchars($v['template'])?>"/>
+                                			</td>
+                                		</tr>  
+                                      
+                                  </table>
+                           </div>
+                       <?
+                       $i++;
+                       }?>
+               	    </td>
+           		</tr>
+           	</tbody>  
+        </table>
+         
+        <div style="display:none;" class="nNote hideit" id="flash-msg-nNote">
+        	<p>
+            </p>
+        </div>  
+        
+        <input type="submit" value="Сохранить" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+        <input type="button" value="Сгенерировать" id="crud_generate" class="b-button greyishBtn submitForm add_node_button"/>
+                                    
+</form>

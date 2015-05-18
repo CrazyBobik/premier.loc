@@ -1,0 +1,593 @@
+<?php
+$crudTables = array (
+  'users' => 
+  array (
+    'name' => 'users',
+    'table' => 'users',
+    'title' => 'Редактирование пользователей',
+    'alias' => 'u',
+    'primary' => 'id',
+    'fieldsMaxLen' => '64',
+    'model' => 'Site_Model_User',
+    'loadQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` <%alias%>
+                                                                                LEFT JOIN pkt p ON u.pkt=p.id
+                                                                                $where ORDER BY id ASC LIMIT $start, $onPage',
+    'editQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` <%alias%>
+                                                                                LEFT JOIN pkt p ON u.pkt=p.id
+                                                                                WHERE <%prefixid%> = $id',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'width' => '50',
+        'lable' => 'ID',
+        'set' => 'like',
+        'type' => 'int',
+      ),
+      'mail' => 
+      array (
+        'width' => '120',
+        'lable' => 'Email',
+        'set' => 'like',
+        'validate' => 
+        array (
+          'required' => true,
+          0 => 'notEmpty',
+          1 => 'email',
+          2 => 'userExists',
+        ),
+      ),
+      'name' => 
+      array (
+        'width' => '120',
+        'lable' => 'Имя',
+        'set' => 'like',
+        'validate' => 
+        array (
+          'required' => true,
+          0 => 'notEmpty',
+          'minlen' => 3,
+          'maxlen' => 64,
+        ),
+      ),
+      'fam' => 
+      array (
+        'width' => '120',
+        'set' => 'like',
+        'lable' => 'Фамилия',
+        'validate' => 
+        array (
+          'required' => true,
+          0 => 'notEmpty',
+          'minlen' => 3,
+          'maxlen' => 64,
+        ),
+      ),
+      'colpub' => 
+      array (
+        'width' => '50',
+        'lable' => 'Доступно публикаций',
+        'set' => 'between',
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'colpub_all' => 
+      array (
+        'width' => '50',
+        'lable' => 'Всего публикаци',
+        'set' => 'between',
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'balans' => 
+      array (
+        'width' => '50',
+        'lable' => 'Баланс',
+        'set' => 'between',
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'pkt' => 
+      array (
+        'width' => '120',
+        'lable' => 'Пакет',
+        'alias' => 'p',
+        'field' => 'title',
+        'set' => 'add',
+        'otions' => 
+        array (
+          'table' => 'pkt',
+          'value' => 'id',
+          'title' => 'title',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'avatar' => 
+      array (
+        'width' => '100',
+        'lable' => 'Аватар',
+        'template' => '<img height="40" src="/img/avatars/\'.<%value%>.\'"/>',
+      ),
+      'date' => 
+      array (
+        'width' => '120',
+        'lable' => 'Дата регистрации',
+        'type' => 'TIMESTAMP',
+        'set' => 'between',
+      ),
+    ),
+  ),
+  'ads' => 
+  array (
+    'name' => 'ads',
+    'title' => 'Объявления',
+    'table' => 'ads',
+    'alias' => 'a',
+    'primary' => 'id',
+    'fieldsMaxLen' => '10000',
+    'model' => 'Site_Model_Ads',
+    'loadQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` <%alias%>
+                                                                
+                                                                                     LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN transac t ON t.id=<%alias%>.type_transac
+                                                                                     LEFT JOIN ads_sec c ON c.id=<%alias%>.category
+                                                                                     LEFT JOIN ads_subsec p ON p.id=<%alias%>.type_propert
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                    
+                                                                                $where ORDER BY id ASC LIMIT $start, $onPage',
+    'editQuery' => 'SELECT <%fields%>  FROM `<%table%>` <%alias%>
+                                                                
+                                                                                     LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN transac t ON t.id=<%alias%>.type_transac
+                                                                                     LEFT JOIN ads_sec c ON c.id=<%alias%>.category
+                                                                                     LEFT JOIN ads_subsec p ON p.id=<%alias%>.type_propert
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                     
+                                                                                WHERE <%prefixid%> = $id',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'width' => '40',
+        'lable' => 'ID',
+        'set' => 'like',
+        'type' => 'int',
+      ),
+      'date' => 
+      array (
+        'width' => '80',
+        'lable' => 'Дата добавления',
+        'set' => 'between',
+        'type' => 'TIMESTAMP',
+      ),
+      'pub' => 
+      array (
+        'width' => '80',
+        'lable' => 'Дата публикации',
+        'set' => 'between',
+        'type' => 'TIMESTAMP',
+      ),
+      'user' => 
+      array (
+        'width' => '100',
+        'set' => 'add',
+        'lable' => 'Пользователь',
+        'alias' => 'u',
+        'field' => 'mail',
+        'otions' => 
+        array (
+          'table' => 'users',
+          'value' => 'id',
+          'title' => 'mail',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'type_transac' => 
+      array (
+        'width' => '80',
+        'set' => 'add',
+        'lable' => 'Операция',
+        'alias' => 't',
+        'field' => 'title',
+        'otions' => 
+        array (
+          'table' => 'transac',
+          'value' => 'id',
+          'title' => 'title',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'category' => 
+      array (
+        'width' => '80',
+        'lable' => 'Категория',
+        'set' => 'add',
+        'alias' => 'c',
+        'field' => 'title',
+        'otions' => 
+        array (
+          'table' => 'ads_sec',
+          'value' => 'id',
+          'title' => 'title',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'type_propert' => 
+      array (
+        'width' => '80',
+        'lable' => 'Раздел',
+        'set' => 'add',
+        'alias' => 'p',
+        'field' => 'title',
+        'otions' => 
+        array (
+          'table' => 'ads_subsec',
+          'value' => 'id',
+          'title' => 'title',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'region' => 
+      array (
+        'width' => '80',
+        'lable' => 'Область',
+        'set' => 'add',
+        'alias' => 'r',
+        'field' => 'name',
+        'otions' => 
+        array (
+          'table' => 'region',
+          'value' => 'id',
+          'title' => 'name',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+    ),
+  ),
+  'services' => 
+  array (
+    'name' => 'services',
+    'title' => 'Компании',
+    'table' => 'services_cont',
+    'alias' => 's',
+    'primary' => 'id',
+    'fieldsMaxLen' => '10000',
+    'model' => 'Site_Model_Service',
+    'loadQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` `<%alias%>`
+                                                                                
+																					 LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                     LEFT JOIN services t ON t.id=<%alias%>.type
+                                                                                     LEFT JOIN services_list l ON l.id=<%alias%>.category
+                                                                                
+                                                                                $where ORDER BY <%alias%>.id DESC LIMIT $start, $onPage',
+    'editQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` `<%alias%>`
+                                                                                
+																					 LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                     LEFT JOIN services t ON t.id=<%alias%>.type
+                                                                                     LEFT JOIN services_list l ON l.id=<%alias%>.category
+                                                                                                                                                                
+                                                                                WHERE <%prefixid%> = $id',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'width' => '25',
+        'lable' => 'ID',
+        'set' => 'like',
+        'type' => 'int',
+      ),
+      'date' => 
+      array (
+        'width' => '80',
+        'lable' => 'Дата добавления',
+        'set' => 'between',
+        'type' => 'TIMESTAMP',
+      ),
+      'user' => 
+      array (
+        'width' => '100',
+        'set' => 'add',
+        'lable' => 'Пользователь',
+        'alias' => 'u',
+        'field' => 'mail',
+        'otions' => 
+        array (
+          'table' => 'users',
+          'value' => 'id',
+          'title' => 'mail',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+        'template' => '<a href="//\'.<%value%>.\'"/>\'.<%value%>.\'</a>',
+      ),
+      'category' => 
+      array (
+        'width' => '80',
+        'lable' => 'Раздел',
+        'set' => 'add',
+        'alias' => 'l',
+        'field' => 'title',
+        'otions' => 
+        array (
+          'table' => 'services_list',
+          'value' => 'id',
+          'title' => 'title',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'region' => 
+      array (
+        'width' => '80',
+        'lable' => 'Область',
+        'set' => 'add',
+        'alias' => 'r',
+        'field' => 'name',
+        'otions' => 
+        array (
+          'table' => 'region',
+          'value' => 'id',
+          'title' => 'name',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'logo' => 
+      array (
+        'width' => '80',
+        'lable' => 'Лого',
+        'template' => '<img width="70" src="/img/services/thumb/\'.<%value%>.\'"/>',
+      ),
+      'moderation' => 
+      array (
+        'width' => '25',
+        'lable' => 'Утв..',
+        'set' => 'add',
+        'validate' => 
+        array (
+          'int' => true,
+        ),
+      ),
+      'title' => 
+      array (
+        'width' => '50',
+        'lable' => 'Заголовок.',
+        'set' => 'add',
+      ),
+      'site' => 
+      array (
+        'width' => '50',
+        'lable' => 'Сайт',
+        'set' => 'like',
+      ),
+      'text' => 
+      array (
+        'width' => '150',
+        'lable' => 'Текст',
+        'set' => 'like',
+        'crop' => 150,
+        'type' => 'text',
+      ),
+    ),
+  ),
+  'jk' => 
+  array (
+    'name' => 'jk',
+    'title' => 'Новостройки ЖК',
+    'table' => 'novostroyki',
+    'alias' => 'n',
+    'primary' => 'id',
+    'fieldsMaxLen' => '10000',
+    'model' => 'Site_Model_Jk',
+    'loadQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` `<%alias%>`
+                                                                                
+																					 LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                                                                                               
+                                                                                $where ORDER BY <%alias%>.id DESC LIMIT $start, $onPage',
+    'editQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` `<%alias%>`
+                                                                                
+																					 LEFT JOIN users u ON u.id=<%alias%>.user
+                                                                                     LEFT JOIN region r ON r.id=<%alias%>.region
+                                                                                                                                                                                                                                                 
+                                                                                WHERE <%prefixid%> = $id',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'width' => '25',
+        'lable' => 'ID',
+        'set' => 'like',
+        'type' => 'int',
+      ),
+      'date' => 
+      array (
+        'width' => '80',
+        'lable' => 'Дата добавления',
+        'set' => 'between',
+        'type' => 'TIMESTAMP',
+      ),
+      'user' => 
+      array (
+        'width' => '100',
+        'set' => 'add',
+        'lable' => 'Пользователь',
+        'alias' => 'u',
+        'field' => 'mail',
+        'otions' => 
+        array (
+          'table' => 'users',
+          'value' => 'id',
+          'title' => 'mail',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+        'template' => '<a href="//\'.<%value%>.\'"/>\'.<%value%>.\'</a>',
+      ),
+      'region' => 
+      array (
+        'width' => '80',
+        'lable' => 'Область',
+        'set' => 'add',
+        'alias' => 'r',
+        'field' => 'name',
+        'otions' => 
+        array (
+          'table' => 'region',
+          'value' => 'id',
+          'title' => 'name',
+        ),
+        'validate' => 
+        array (
+          0 => 'int',
+        ),
+      ),
+      'jk_name' => 
+      array (
+        'width' => '50',
+        'lable' => 'Наз. жк',
+        'set' => 'like',
+      ),
+      'img' => 
+      array (
+        'width' => '80',
+        'lable' => 'Фото жк',
+        'template' => '<img width="70" src="/img/novostroyki/\'.<%value%>.\'"/>',
+      ),
+      'company_name' => 
+      array (
+        'width' => '50',
+        'lable' => 'Наз. компании',
+        'set' => 'like',
+      ),
+      'company_logo' => 
+      array (
+        'width' => '80',
+        'lable' => 'Лого компании',
+        'template' => '<img width="70" src="/img/companieslogos/thumb/\'.<%value%>.\'.jpg"/>',
+      ),
+      'moderation' => 
+      array (
+        'width' => '25',
+        'lable' => 'Утв..',
+        'set' => 'add',
+        'validate' => 
+        array (
+          'int' => true,
+        ),
+      ),
+      'site' => 
+      array (
+        'lable' => 'Сайт',
+      ),
+      'text' => 
+      array (
+        'width' => '150',
+        'lable' => 'Текст',
+        'set' => 'like',
+        'crop' => 150,
+        'type' => 'text',
+      ),
+      'street' => 
+      array (
+        'lable' => 'Адрес',
+      ),
+      'house' => 
+      array (
+        'lable' => 'Номер дома',
+      ),
+      'sec_num' => 
+      array (
+        'lable' => 'Количество секций',
+      ),
+      'sec_level' => 
+      array (
+        'lable' => 'Количество секций',
+      ),
+      'flat_num' => 
+      array (
+        'lable' => 'Количество квартир',
+      ),
+      'parking' => 
+      array (
+        'lable' => 'Количество квартир',
+      ),
+      'material' => 
+      array (
+        'lable' => 'Материал',
+      ),
+      'code' => 
+      array (
+        'lable' => 'Код телефона',
+      ),
+      'phone' => 
+      array (
+        'lable' => 'Телефон',
+      ),
+      'email' => 
+      array (
+        'lable' => 'Электронная почта',
+      ),
+      'start_date' => 
+      array (
+        'type' => 'TIMESTAMP',
+        'lable' => 'Дата начала строительства',
+      ),
+      'finish_date' => 
+      array (
+        'type' => 'TIMESTAMP',
+        'lable' => 'Дата сдачи',
+      ),
+      'price_from' => 
+      array (
+        'lable' => 'Цена от',
+      ),
+      'price_to' => 
+      array (
+        'lable' => 'Цена до',
+      ),
+      'video_link' => 
+      array (
+        'lable' => 'Видео на youtube',
+      ),
+      'is_complete' => 
+      array (
+        'lable' => 'Объект сдан?',
+      ),
+    ),
+  ),
+);

@@ -1,0 +1,39 @@
+<div style="display: block;">
+    <div class="b-padded mainForm wideForm">
+    <div id="flash-msg-nNote"  class="nNote hideit" style="display:none">
+        <p></p>
+    </div>  
+        <form action="/admin/profile/save" class="ajax-form"  method="post" enctype="multipart/form-data" id="x_form_create">
+            <div class="rowElem noborder admin-form-row">
+                <label>Ваша потча:</label>
+                <div class="formRight">
+                     <input type="text" name="user_email" id="user-email" class="user-email"  value="<?=K_Auth::getUserInfo('user_email')?>" />
+                </div>
+                <div class="fix"></div>
+            </div>
+            <div class="rowElem noborder admin-form-row">
+                <label>Новый пароль:</label>
+                <div class="formRight">
+                <input type="password" name="password1" id="password1" class="password1" />
+                </div>
+                <div class="fix"></div>
+            </div>
+            <div class="rowElem noborder admin-form-row">
+                <label>Повторите пароль:</label>
+                <div class="formRight">
+                <input type="password" name="password2" id="password2" class="password2" />
+                </div><div class="fix">
+                </div>
+            </div>
+            <div class="rowElem noborder admin-form-row">
+                <label>Действующий пароль:</label>
+                <div class="formRight">
+                     <input type="password" name="user_password" id="user-password" class="user-password" />
+                </div>
+                <div class="fix"></div>
+            </div>
+            <input type="submit" value="обновить" id="btnsave" class="b-button greyishBtn submitForm add_type_button" />
+        </form>
+    </div>
+</div>
+

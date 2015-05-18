@@ -1,0 +1,116 @@
+<div style="margin-top: 8px;" class="table" id="commetns-table-wrapper">
+	<div class="head">
+		<h5 class="iFrames">
+			Таблица комментариев
+		</h5>
+	</div>
+	<div class="dataTables_wrapper" id="acl-users_wrapper">
+        	
+			<div class="dataTables_filter" id="acl-users_filter">
+            <a class="drop_filtres" onfocus="this.blur();" title="Сбросить фильтры" href="javascript:;"></a>
+                                                         	Дата, с
+                                        				<input id="date-start" type="text" style="width: 120px;" class="datepickerl"/>
+                                                        </label>
+                                                        <label>
+                                        				    по
+                                                            <input id="date-stop" type="text"  style="width: 120px;" class="datepickerl"/>
+                                               	       	</label>
+                
+                                                            Поиск:
+                                                            <input class="srch-input" type="text" style="width:110px"/>
+                                                            <span class="srchbutton b-button greyishBtn add_node_button"> Поиск </span>
+            </div>
+  			
+
+		<table cellspacing="0" cellpadding="0" border="0" class="display" id="comments-forms">
+			<thead>
+				<tr>
+   	               <th class="ui-state-default" rowspan="1" colspan="1" style="width: 80px;">
+						<div class="DataTables_sort_wrapper">
+			           Дата
+						</div>
+              		</th>
+                	<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+				        Имя
+						</div>
+              		</th>
+                  
+               	<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+				       IP
+						</div>
+              		</th>
+				
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 500px;">
+						<div class="DataTables_sort_wrapper">
+						Комментарий
+			   			</div>
+					</th>
+                    <th class="ui-state-default" rowspan="1" colspan="1" style="width: 160px;;">
+						<div class="DataTables_sort_wrapper">
+						  Статус
+                                                        <select id="comments-status" style="width:110px">
+                                                        <option value="">Любой</option>
+                                                        <option value="опубликован">Опубликован</option>
+                                                        <option value="ожидает публикации">Ожидает публикации</option>
+                                                        </select>
+						</div>
+					</th>
+   			        <th class="ui-state-default" rowspan="1" colspan="1" style="width: 70px;">
+						<div class="DataTables_sort_wrapper">
+							Управление
+							<span class="DataTables_sort_icon">
+							</span>
+						</div>
+					</th>
+   				</tr>
+			</thead>
+			<tbody>
+		</tbody>
+		</table>
+		<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+			<div id="acl-users_length" class="dataTables_length">
+				<label>
+					Элементов на страницу:
+					<select name="acl-users_length" class="on-page-count" size="1">
+						<option value="5" selected="selected">
+							5
+						</option>
+						<option value="10" selected="selected">
+							10
+						</option>
+						<option value="25">
+							25
+						</option>
+						<option value="50">
+							50
+						</option>
+						<option value="100">
+							100
+						</option>
+					</select>
+				</label>
+			</div>
+			<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-users_paginate">
+				<span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled" id="acl-users_first">
+					Первая
+				</span>
+				<span class="previous fg-button ui-button ui-state-disabled" id="acl-users_previous">
+					Предыдущая
+				</span>
+				<span>
+					<span class="fg-button ui-button ui-state-disabled">
+						1
+					</span>
+				</span>
+				<span class="next fg-button ui-button ui-state-disabled" id="acl-users_next">
+					Следующая
+				</span>
+				<span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled" id="acl-users_last">
+					Последняя
+				</span>
+			</div>
+		</div>
+	</div>
+	</div>

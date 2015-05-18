@@ -1,0 +1,84 @@
+
+<div style="margin: 8px auto; width: 800px;">
+            
+            	<div class="head2">
+            		<h5 class="iFrames">
+                        Добавление нового контроллера
+            		</h5>
+            	</div>
+               
+                <form action="/dev/addcontroller/save" class="ajax-form" method="post">      
+                     <table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+                     	<tbody>
+                            <tr>
+                    			<td>
+                    		     Для модуля:
+                    			</td>
+                   				<td colspan="3">
+                                    <select id="setmodule" name="module">
+                                        <?foreach( $this->modules as $v ){?>
+                    		  		    <option value="<?=$v?>"><?=$v?></option>
+                                        <?}?>
+                                    </select>
+                    			</td>
+                                
+                    		</tr>
+                        	<tr>
+                    	       	<td>
+                    		     Название контроллера:
+                    			</td>
+                    			<td>
+                    				<input type="text" name="controller"/>
+                    			</td>
+         	                    <td>
+                    		     Наследовать от:
+                    			</td>
+                    			<td>
+               				        <select id="extends" name="extends"> 
+                                        <?foreach( $this->controllers as $v ){?>
+                                       	    <option value="K_Controller_<?=ucfirst($v)?>" rel="<?=$v?>">K_Controller_<?=ucfirst($v)?></option>
+                                        <?}?> 
+                                        <option value="K_Controller" rel="1">K_Controller</option>
+                                    </select>
+                    			</td>
+                     		</tr>
+                           	<tr>
+                    	       	<td>
+                    		    
+                    			</td>
+                    			<td colspan="3">
+                                
+                    		    	<label><input type="checkbox" checked="checked"  name="addview"/> Создать представление для этого контроллера</label>	
+                    			</td>
+                    		</tr>
+                       	</tbody>  
+                    </table>
+                  <div style="display:none;" class="nNote hideit" id="flash-msg-nNote">
+                	<p>
+                	</p>
+                </div>  <input type="submit" value="Сохранить" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+                </form>
+                
+                <script type="text/javascript">
+                $(function() {
+                   $('#setmodule').on('change', function(){
+                        
+                        if($('#extends option[rel="'+$(this).val()+'"]')){
+                            
+                            $('#extends option').attr('selected', false);
+                            
+                            $('#extends option[rel="'+$(this).val()+'"]').attr('selected', 'selected');  
+                               
+                        }else{
+                             $('#extends option').attr('selected', false);
+                             
+                             $('#extends option[rel="1"]').attr('selected', 'selected');  
+                        }
+                    })                 
+                })
+                   
+                </script>
+</div>
+        
+        
+        

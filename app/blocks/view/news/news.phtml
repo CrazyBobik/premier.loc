@@ -1,0 +1,30 @@
+<div id="catalogue_list">
+
+<?php if(!isset($_GET['sec2'])||empty($_GET['sec2'])){ 
+	/* $r = sr("","news","1=1","",""); 
+	$r = mysql_fetch_array($r); */
+	$res = k_q::query("SELECT * FROM news WHERE 1 ORDER BY date DESC");
+	//$r = mysql_fetch_array($res);
+	?>
+	<?php //echo var_dump($r); exit;?>
+	<div class="news">
+		<h1>Новости</h1>
+		<?php while($top = mysql_fetch_array($res)){ ?>
+		<?php 
+        
+		    //$substring_limited = substr($top['text'],0, 350);        //режем строку от 0 до limit
+ 
+			//$text = substr($substring_limited, 0, strrpos($substring_limited, ' ' ));
+            
+		?>
+			<div class="topic">
+				<div class="t_title"><a href="/news/<?php echo $top['id']; ?>"><?php echo $top['title']; ?></a></div>
+				<div class="intro"><?php echo K_String::htmlСut($top['text'], 300); ?> <br/><span style="text-align: right; display: block;"><a href="/news/<?php echo $top['id']; ?>">Подробнее</a></span></div>
+             	<div class="pub">Опубликовано: <span class="n_date"><?php echo $top['date']; ?></span></div>
+		      
+        	</div>
+		<?php } ?>
+	</div>
+<?php } ?>
+
+</div>

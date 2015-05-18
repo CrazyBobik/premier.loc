@@ -1,0 +1,203 @@
+<div style="margin-top: 8px;" class="table" id="users_table_wrapper">
+	<div class="head">
+		<h5 class="iFrames">
+		    <?=$this->crudTitle?>
+		</h5>
+	</div>
+	<div class="dataTables_wrapper" id="users_crud_wrapper">
+        	
+			<div class="dataTables_filter" id="acl-users_filter">
+                          <a class="drop_filtres" onfocus="this.blur();" title="Сбросить фильтры" href="javascript:;"></a>
+                          <span class="srchbutton b-button greyishBtn add_node_button"> Поиск </span>
+            </div>
+  			
+		<table cellspacing="0" cellpadding="0" border="0" class="display">
+			<thead>
+				<tr>
+                     <th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">ID<br/>
+<input type="text" name="id" id="users_id" value="" style="width:50px;" class="users-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:120px;">
+<div class="DataTables_sort_wrapper">Email<br/>
+<input type="text" name="mail" id="users_mail" <?=isset($_GET['mail'])? 'value="'.strip_tags(htmlspecialchars($_GET["mail"])).'"' : ""?> style="width:120px;" class="users-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:120px;">
+<div class="DataTables_sort_wrapper">Имя<br/>
+<input type="text" name="name" id="users_name" value="" style="width:120px;" class="users-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:120px;">
+<div class="DataTables_sort_wrapper">Фамилия<br/>
+<input type="text" name="fam" id="users_fam" value="" style="width:120px;" class="users-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Доступно публикаций<br/>
+от<input  type="text" name="start-colpub" id="start-users_colpub" value="" style="width:30px;" class="users-field "  /><br/>
+до<input  type="text" name="stop-colpub" id="stop-users_colpub" value="" style="width:30px;" class="users-field "  />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Всего публикаци<br/>
+от<input  type="text" name="start-colpub_all" id="start-users_colpub_all" value="" style="width:30px;" class="users-field "  /><br/>
+до<input  type="text" name="stop-colpub_all" id="stop-users_colpub_all" value="" style="width:30px;" class="users-field "  />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Баланс<br/>
+от<input  type="text" name="start-balans" id="start-users_balans" value="" style="width:30px;" class="users-field "  /><br/>
+до<input  type="text" name="stop-balans" id="stop-users_balans" value="" style="width:30px;" class="users-field "  />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:120px;">
+<div class="DataTables_sort_wrapper">Пакет<br/>
+<select type="text" name="pkt" id="users_pkt" style="width:120px;" class="users-field"  >
+<?=K_jformhelper::options($this->selects->pkt)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:100px;">
+<div class="DataTables_sort_wrapper">Аватар<br/>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Визитки/Объявления<br/>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:120px;">
+<div class="DataTables_sort_wrapper">Дата регистрации<br/>
+от<input  type="text" name="start-date" id="start-users_date" value="" style="width:100px;" class="users-field datepicker"  /><br/>
+до<input  type="text" name="stop-date" id="stop-users_date" value="" style="width:100px;" class="users-field datepicker"  />
+</div>
+</th>
+
+                     
+                    <th class="ui-state-default" rowspan="1" colspan="1" >
+    		             <div class="DataTables_sort_wrapper">Управление</div>
+                    </th>
+            	</tr>
+			</thead>
+			<tbody>
+	       	</tbody>
+		</table>
+		<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+			<div id="acl-users_length" class="dataTables_length">
+				<label>
+					Элементов на страницу:
+					<select name="acl-users_length" class="on-page-count" size="1">
+						<option value="5">
+							5
+						</option>
+						<option value="10" selected="selected">
+							10
+						</option>
+						<option value="25">
+							25
+						</option>
+						<option value="50">
+							50
+						</option>
+						<option value="100">
+							100
+						</option>
+					</select>
+				</label>
+			</div>
+			<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-users_paginate">
+				<span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled" id="acl-users_first">
+					Первая
+				</span>
+				<span class="previous fg-button ui-button ui-state-disabled" id="acl-users_previous">
+					Предыдущая
+				</span>
+				<span>
+					<span class="fg-button ui-button ui-state-disabled">
+						1
+					</span>
+				</span>
+				<span class="next fg-button ui-button ui-state-disabled" id="acl-users_next">
+					Следующая
+				</span>
+				<span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled" id="acl-users_last">
+					Последняя
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+    
+   $('#users_table_wrapper').ajaxLeaf({
+    
+			loadUrl:'/admin/users/load',
+			itemsContainer: '#users_crud_wrapper',
+            collectInfo:function(wrap){
+                
+                     var addInfoArray = [];
+                
+                     wrap.find('.users-field').each(function(){
+                        
+                          addInfoArray.push($(this).attr('name')+'='+$(this).val());
+                       
+                     });
+                  
+                     addInfo = addInfoArray.join('&');
+                         
+               	     return addInfo;
+                     
+			},
+                 
+            dropFiltres:function(wrap){
+                
+                     wrap.find('.users-field').each(function(){
+                        
+                         if($(this).tagName.toLowerCase()=="select"){
+                            
+                            $(this).find('options').attr('selected', false);
+                          
+                         }else{
+                            
+                            $(this).val('');
+                            
+                         }
+                       
+                     });
+                      
+            },    
+                 
+            dropFiltresButtonInd: '.drop_filtres',   
+            srchButtonInd: '.srchbutton',
+   			"renderItems": function(items) {
+    				var itemsHtml = [];
+    				$.each(items, function(id, v) {
+    				itemsHtml.push('<tr class="users_row" id="users-row-' + v.id + '" rel="' + v.idname + '" ><td>' + v.id + '</td><td>' + v.mail + '</td><td>' + v.name + '</td><td>' + v.fam + '</td><td>' + v.colpub + '</td><td>' + v.colpub_all + '</td><td>' + v.balans + '</td><td>' + v.pkt + '</td><td>' + v.avatar +'</td><td>'+(v.serv_id ?'<a href="/admin/services?user='+v.id+'" target="_blank" title="Посмотреть визитки пользователя"><img src="/adm/img/admin/companies.png"/></a>':'')+(v.ads_id ? '<a href="/admin/ads?user='+v.id+'" target="_blank" title="Посмотреть объявления пользователя"><img src="/adm/img/admin/bookLarge.png" /></a>':'')+(v.history ? '<a href="#" target="_blank" title="Пользователь пополнил счёт"><img src="/adm/img/admin/money.png" /></a>':'')+'</td><td>' + v.date + '</td><td><a href="javascript:void(0);" data-id="' + v.id + ' "class="crud-edit"></a><a title="Удалить запись" onclick="delUser(' + v.id + ')" data-id="' + v.id + '" class="crud-delete"></a></td></tr>');
+                    });
+                    
+    				return itemsHtml;
+            }
+   }); 
+
+   $('#users_crud_wrapper').on('click', '.crud-edit', function(){
+            
+            var id = $(this).data('id');
+            
+            $.get('/admin/users/edit','id='+id, function(data){
+                  flyboxOpen(900+44,700, 'Управление', '<div style="padding:0 10px;width:900px;height:700px;overflow-x:auto">'+data+'</div>');
+            },'html');
+                    
+   });
+     
+  /*
+  $("#tree_title").syncTranslit({
+    destination: "tree_name",
+    urlSeparator: "-"
+  });*/
+  
+});
+
+</script>

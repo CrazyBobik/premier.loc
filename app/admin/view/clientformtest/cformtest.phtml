@@ -1,0 +1,132 @@
+<div id="flash-msg-nNote"  class="nNote hideit" style="display:none">
+   <p></p>
+</div>  
+  
+    <a class="btnIconLeft mr10 mt5 mb10 flr" title="" onclick="addRole()" href="javascript:;">
+        <img class="icon" alt="" src="/adm/img/icons/dark/adminUser.png" />
+        <span>Новая роль</span>
+    </a>
+<div class="fix"></div>
+<div id="add-role" class="acl-save-form-add" style="display:none">
+<h5 id="add-role-title">Добавление новой роли</h5>
+    <form class="mainForm" id="role-info-form">
+        <table class="add-role-tbl">
+              <tr>
+               <td>
+                     <label for="role_name">Имя роли</label><br />
+                     <input type="text" id="role_name" name="role_name" />
+               </td>
+               <td>
+                    <label for="role_acl">ACL key</label><br />
+                    <input type="text"  id="role_acl" name="role_acl_key" />
+               </td>
+                <td >
+                   <label for="role_parent">Наследует</label><br />
+                   <select id="role_parent" name="role_parent_id" >
+                   <option value="">Нет предка</option>
+                   <?foreach($this->roles as $v){?>
+                    <option value="<?=$v['role_id']?>"><?=$v['role_name']?></option>
+                   <?}?></select>
+                   <div id="role_roles"></div>
+               </td>
+               </tr>
+         </table>
+          <input type="hidden" id="role_id" name="role_id"/>
+          <input type="hidden" id="save_type" name="save_type" value="add"/>
+          <a class="btnIconLeft ml25 mt10" onclick="roleInfoSubmit();"  title="" href="javascript:;">
+              <img class="icon" alt="" src="/adm/img/icons/dark/check.png"/>
+              <span>Сохранить</span>
+          </a>
+    </form>
+</div>
+
+<div id="rule-role" class="acl-save-form-update" style="display:none">
+<h5 id="rule-role-title">Редактирование доступов для роли: <b></b></h5>
+        <img class="btn14" src="/adm/img/userRemove.png" onclick="addRoleRule()" title="Добавить" alt="Добавить" />
+        <form class="mainForm" id="rule-info-form">
+        
+        <table style="width: 100%" cellpadding="0" cellspacing="0">
+         <thead class="fixedHeader">
+            <tr><th>Ресурс</th><th>Привелегия</th><th>Тип</th><th>Управление</th></tr>
+         </thead>
+        </table>
+
+<div class="scrolableTable">        
+        <table id="acl-rules" class="tableStatic acl-rule-table" width="100%">
+            <tbody class="scrollContent">
+              <tr id="rule-selectors" style="display: none;">
+                    <td>
+                        <select id="rule-resurse" name="rule_resource_id">
+                        <option value="">Выбрать ресурс</option>
+                          <?foreach($this->resurses as $v){?>
+                           <option value="<?=$v['resource_id']?>">
+                           <?=$v['resource_name']==null? 'Весь сайт' : $v['resource_name']  ?>
+                           </option>
+                          <?}?>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rule-privilege" name="rule_privilege_id">
+                        <option value="">Выбрать привелегию</option>
+                         <?foreach($this->privileges as $v){?>
+                           <option value="<?=$v['privilege_id']?>">
+                             <?=$v['privilege_name']==null? 'Полный доступ' : $v['privilege_name']  ?>
+                           </option>
+                         <?}?>
+                        </select>
+                     </td>
+                     <td>
+                        <select id="rule-type" name="rule_type">
+                        <option value="1">Разрешить</option>
+                        <option value="2">Запретить</option>
+                        </select>
+                    </td>
+                    <td>
+                             <img class="btn14" src="/adm/img/userRemove.png" onclick="cancelRoleRule()" title="Отменить" alt="Отменить" />
+                           <img class="btn14" src="/adm/img/userSave.png" onclick="saveRoleRule()" title="Сохранить" alt="Сохранить" />
+                   </td>
+                 </tr>
+          </tbody>  
+         </table>
+</div>      
+           <input type="hidden" id="rule-id" name="rule_id" value=""/>
+           <input type="hidden" id="save-type" name="save_type" value="add"/>
+           <input type="hidden" id="rule_role_id" name="rule_role_id" value=""/>
+        </form>
+</div>
+
+
+ <!-- Dynamic table -->
+        <div class="table" style="margin-top: 8px;">
+            <div class="head"><h5 class="iFrames">Таблица ролей</h5></div>
+            <table id="acl-roles" cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                    <tr>
+                         <tr><th>Роль</td><th>ACL key</th><th>Наследует</th><th>Доступы</th><th>Управление</th></tr>
+                    </tr>
+                </thead>
+                <tbody>
+                     <?foreach($this->roles as $v){?>
+                        <tr id="role-row-<?=$v['role_id']?>">
+                        <td>
+                              <?=$v['role_name']?>
+                        </td>
+                        <td>
+                              <?=$v['role_acl_key']?>
+                        </td>
+                        <td parentid="<?=$v['role_parent_id']?>">
+                            <?=$v['parent']==null? 'Нет предка': $v['parent']?>
+                        </td>
+                        <td>
+                             <?=$v['rule_count']?>
+                        </td>
+                        <td>
+                            <img class="btn14" src="/adm/img/userRemove.png" onclick="delRole('<?=$v['role_id']?>')" title="Удалить" alt="Удалить" />
+                            <img class="btn14" src="/adm/img/formbuilder/edit.png" onclick="editRole('<?=$v['role_id']?>')" title="Редактировать" alt="Редактировать" />
+                            <img class="btn14" src="/adm/img/formbuilder/edit.png" onclick="showRoleRules('<?=$v['role_id']?>')" title="Редактировать доступы" alt="Редактировать доступы" />
+                         </td>
+                        </tr>
+                    <?}?>  
+                </tbody>
+            </table>
+        </div>

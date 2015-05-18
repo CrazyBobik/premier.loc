@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Админка</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
+	<link href="/adm/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/adm/css/misc.css" rel="stylesheet" type="text/css" />
+
+	<!-- js libraries -->
+
+	<script type="text/javascript" src="/adm/js/jquery-2.1.1.min.js"></script>
+             
+	<script type="text/javascript" src="/adm/js/jquery-migrate-1.2.1.min.js"></script>
+                
+	<script type="text/javascript" src="/adm/js/jquery-ui.min.js"></script> 
+
+	<script type="text/javascript" src="/adm/js/fileManager/elfinder.min.js"></script>
+
+	<script type="text/javascript" src="/adm/js/dataTables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="/adm/js/dataTables/colResizable.min.js"></script>
+
+	<script type="text/javascript" src="/adm/js/forms/forms.js"></script>
+	<script type="text/javascript" src="/adm/js/forms/autogrowtextarea.js"></script>
+	<script type="text/javascript" src="/adm/js/forms/autotab.js"></script>
+
+	<script type="text/javascript" src="/adm/js/colorPicker/colorpicker.js"></script>
+
+	<script type="text/javascript" src="/adm/js/uploader/plupload.js"></script>
+	<script type="text/javascript" src="/adm/js/uploader/plupload.html5.js"></script>
+	<script type="text/javascript" src="/adm/js/uploader/plupload.html4.js"></script>
+	<script type="text/javascript" src="/adm/js/uploader/jquery.plupload.queue.js"></script>
+
+
+	<script type="text/javascript" src="/adm/js/jBreadCrumb.1.1.js"></script>
+	<script type="text/javascript" src="/adm/js/cal.min.js"></script>
+
+	<!-- jquery plugins -->
+
+	<script type="text/javascript" src="/adm/js/forms/jquery.validationEngine-en.js"></script>
+	<script type="text/javascript" src="/adm/js/forms/jquery.validationEngine.js"></script>
+
+	<script type="text/javascript" src="/adm/js/jquery.collapsible.min.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery.ToTop.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery.listnav.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery.sourcerer.js"></script>
+
+	<script type="text/javascript" src="/adm/js/jquery.waterfall.js"></script>
+
+	<script type="text/javascript" src="/adm/js/spinner/jquery.mousewheel.js"></script>
+
+	<script type="text/javascript" src="/adm/js/tree/jquery.jstree.js"></script>
+		<link href="/adm/js/tree/jqtree.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="/adm/js/jquery.formbuilder.js"></script>
+		<link rel="stylesheet" media="screen" href="/adm/css/jquery.formbuilder.css"/>
+
+	<script type="text/javascript" src="/adm/js/jquery.form.js"></script>
+	<script type="text/javascript" src="/adm/js/tree/jquery.cookie.js" ></script>
+	<script type="text/javascript" src="/adm/js/tree/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery.synctranslit.min.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery.ajaxleaf.js"></script>
+
+	<script type="text/javascript" src="/adm/plugins/jalert/js/jquery.alerts.js"></script>
+
+		<!-- wysiwyg editor -->
+		<script type="text/javascript" src="/adm/plugins/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript" src="/adm/plugins/ckeditor/adapters/jquery.js"></script>
+		
+		<script type="text/javascript" src="/adm/js/redactor/redactor.js"></script>
+		<link href="/adm/js/redactor/css/redactor.css" rel="stylesheet" type="text/css" />
+				
+		  
+	<!-- jquery plugins end -->
+
+	<!-- jquery-ui plugins -->
+
+	<script type="text/javascript" src="/adm/js/spinner/ui.spinner.js"></script>
+	<script type="text/javascript" src="/adm/js/ui/progress.js"></script>
+	<script type="text/javascript" src="/adm/js/ui/jquery.jgrowl.js"></script>
+	<script type="text/javascript" src="/adm/js/ui/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/adm/js/ui/jquery.alerts.js"></script>
+
+
+	<script type="text/javascript" src="/adm/js/jquery-ui-sliderAccess.js"></script>
+	<script type="text/javascript" src="/adm/js/jquery-ui-timepicker-addon.js"></script>
+
+	<!-- jquery-ui plugins end -->
+
+	<!--  -->
+	<script type="text/javascript" src="/adm/js/misc.js"></script>
+	<script type="text/javascript" src="/adm/js/custom.js"></script>
+	<script type="text/javascript" src="/adm/js/main.js"></script>
+	<script type="text/javascript" src="/adm/js/personal.js"></script>
+			
+</head>
+
+<body>
+
+<!-- Top navigation bar -->
+<div id="topNav">
+    <div class="fixed">
+        <div class="wrapper">
+            <div class="welcome"><span>Добро пожаловать в панель управления сайтом !</span></div>
+            <div class="userNav">
+                <ul>
+                    <li><a href="/admin/" title=""><img src="/adm/img/icons/topnav/mainWebsite.png" alt="" /><span>Главная</span></a></li>
+                  
+                    <?if(K_Access::accessSiteCheck('admin/acl')):?>
+                   
+                    <?endif;?>
+                         <li><a href="/admin/acl/" title=""><img src="/adm/img/icons/topnav/users.png" alt="" /><span>Персонал</span></a></li>
+                    <li><a href="/admin/profile/" title=""><img src="/adm/img/icons/topnav/profile.png" alt="" /><span>Профиль</span></a></li>
+                    
+                      <li><a href="/admin/settings/" title=""><img src="/adm/img/icons/topnav/settings.png" alt="" /><span>Настройки</span></a></li>
+                    
+                    <li><a href="/admin/auth/logout/" title=""><img src="/adm/img/icons/topnav/logout.png" alt="" /><span>Выйти</span></a></li>
+                </ul>
+            </div>
+            <div class="fix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<div id="header" class="<?=$this->bigtable ? 'table-wrapper' :'wrapper'?>">
+
+	 <div class="logo">
+    	<ul> 
+           	<li><a href="/admin/" title="Главная страница админки" onclick=""><img src="/adm/img/logo.png"></a></li>
+        </ul>
+    </div>
+
+    <div class="middleNav">
+    	<ul> 
+            <?php foreach(AdminConfig::$middleNav as $v): ?>     
+        
+             	<li class="<?=$v['class']?>"><a href="<?=$v['href']?>" title="<?=$v['title']?>" <?=isset($v['target'])? 'target="'.$v['target'].'"' : ''?> onclick=""><span  style="background: url(<?=$v['icon']?>) no-repeat 50% 8px;"><?=$v['title']?></span></a></li>
+      
+           <?php endforeach; ?>
+        </ul>
+    </div>
+    <div class="fix"></div>
+    
+</div>
+
+<!-- Content wrapper -->
+<div class="<?=$this->bigtable ? 'table-wrapper' :'wrapper'?>">
+
+	<?php if (isset($this->ajaxed) && $this->ajaxed === true) { ?>
+		<!-- Left navigation -->
+		<div class="leftNav">
+            <div class="tree-warapper">
+                <div class="tree-disable" id="tree-disable-div" style="display:none"></div>
+        			<div class="b-tree">
+                        <b>Элементы сайта:</b><br/>
+                    	<div id="tree">
+                                            
+                        
+            			</div>
+                    </div>
+                </div>
+                   <?if(K_Access::accessSiteCheck('admin/typesmanager')):?>
+        		<div class="b-new-type">
+        				<a href="/admin/typesmanager">Разработка</a>
+                </div>
+                  <?endif;?>
+                    
+                
+		</div>
+		
+		<!-- Content -->
+		<div class="content">
+			<div class="widget tabsRight b-main-tabs">
+				<div class="head"><h5 class="iFrames">Управление сайтом</h5></div>       
+				<ul class="tabs" id="ajax_load_place_tabs">
+					<li><a href="#tab1">Главная</a></li>
+				</ul>
+				
+				<div class="tab_container" id="ajax_load_place_tab_container">
+					<div id="tab1" class="tab_content">
+						Добро пожаловать в систему управления сайтом!
+					</div>
+				</div>	
+				<div class="fix"></div>	 
+			</div>
+		</div>
+	<?php } else {  ?>	
+		<div class="widget tabsRight b-main-tabs">
+			<div class="head"><h5 class="iFrames"><a href="/admin/" title="Вернуться обратно">Вернуться</a></h5></div>  
+                
+			<ul class="<?
+		
+		
+    		if(isset(AdminConfig::$menuTabs[$this->controller]))echo 'static-'?>tabs" >
+            
+            	<?if(isset($this->menuTabs)){
+				
+            	   foreach($this->menuTabs as $k => $v){ ?>
+				    		       
+					<li <?= ($k == $this->activeTab)? 'class="activeTab"' : '';?>">
+						 <?php if( $k == $this->activeTab){?>
+						 
+							<span><?=$v['title']?></span>
+						 
+						 <?}else{?>
+						 
+							<a href="<?=isset($v['href']) ? $v['href'] : '#';?>"><?=$v['title']?></a>
+						 
+						 <?}?>
+					</li>   
+                <?}
+				
+                }
+                else{
+                ?>
+				<li><a href="#tab1"><?=$this->header?></a></li>
+               <?}?>
+              
+			</ul>
+			
+			<div class="tab_container" id="ajax_load_place_tab_container">
+				<div  class="tab_content" id="tab1">
+					<?=$this->context()?>
+				</div>
+			</div>	
+			<div class="fix"></div>	 
+		</div>
+	<?php } ?>
+	
+    <div class="fix"></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<!-- Footer -->
+<div id="footer">
+	<div class="wrapper">
+     </div>
+</div>
+
+<div id="flybox_container" style="display:none;">
+			<div class="flybox" id="flybox_box">
+				<div class="flyboxttl ui-draggable">
+					<div class="flyboxttl_left"><b id="flybox_title"></b></div>
+					<div class="flyboxttl_right">
+                    <div class="flyboxttl_iconbox">
+                       <a class="flyboxttl_close" href="javascript:;" title="Закрыть" onfocus="this.blur();" onclick="flyboxClose();"></a>
+                       <a class="flyboxttl_reload_page" href="javascript:;" title="Закрыть и перезагрузить страницу" onfocus="this.blur();" onclick="flyboxClose(true);"></a>
+    		        </div>
+                    </div>
+            	</div>
+				<div class="flyboxbody"><div class="flyboxbody2" id="flybox_main"></div></div>
+				<div class="flyboxftr"><div class="flyboxftr2"></div></div>
+			</div>
+</div>
+
+<?php//K_Debug::get()->html()?>
+
+</body>
+</html>

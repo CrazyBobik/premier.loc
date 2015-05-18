@@ -1,0 +1,148 @@
+<div style="margin-top: 8px;" class="table" id="addnew-table-wrapper">
+	<div class="head">
+		<h5 class="iFrames">
+			Добавление новости
+		</h5>
+	</div>
+    
+ 	<div class="dataTables_wrapper" id="acl-users_wrapper">
+		<div class="b-padded mainForm">
+			<form action="/admin/addnew/add/" method="post" class="ajax-form" enctype="application/x-www-form-urlencoded" id="x_form_edit">
+               <div class="rowElem noborder admin-full-form-row">
+					<label>
+					Категория новости:
+					</label>
+					<div class="formRight">
+					   <select name="section">
+                         <?foreach($this->sections as $v):?>
+                          <option value="<?=$v['tree_id']?>"><?=$v['tree_title']?></option>
+                         <?endforeach;?>
+                       </select>
+                	</div>
+					<div class="fix">
+					</div>
+				</div>
+            
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Заголовок:
+					</label>
+					<div class="formRight">
+						<input type="text" value="" name="title"  id="title" class="b-field"/>
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+                <div class="rowElem noborder admin-full-form-row">
+					<label>
+						Название для Url *:
+                        <br/>
+                        <span style="color:red;">* по умолчанию транслетерируеться заголовок</span>
+					</label>
+					<div class="formRight">
+						<input type="text" value="" name="url"  id="title" class="b-field"/>
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+                
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Дата публикации:
+					</label>
+					<div class="formRight">
+						<input type="text" value="<?=date('Y-m-d')?>" name="date" placeholder="Введите дату новости... [гггг-мм-дд]" id="date" class="b-field datepicker"/>
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Язык новости:
+					</label>
+					<div class="formRight">
+						<select name="lang" id="news-lang" class="news-lang">
+							<option selected="selected" value="ua" treeid="">
+								ua
+							</option>
+							<option value="en" treeid="">
+								en
+							</option>
+						</select>
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Главное изображение новости:
+					</label>
+					<div class="formRight">
+						<input type="file" name="image" id="image" class="b-file" />
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Автор:
+					</label>
+					<div class="formRight">
+						<input type="text" name="author" id="new-author" class="new-author" />
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+					Ссылка на источник:
+					</label>
+					<div class="formRight">
+						<input type="text" name="sourse_link" id="source-link" class="source-link" />
+					</div>
+					<div class="fix">
+					</div>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					Содержание:
+							<textarea name="content" id="content" class="b-wysiwyg wysiwyg-redactor" style="width: 100%; display: none;">
+						
+							</textarea>
+                            
+                <script type="text/javascript">
+				$(".wysiwyg-redactor").redactor({
+				        imageUpload: "/admin/api/uploadImage",
+				        autoformat: false,
+                        cleanUp: false,
+					    convertDivs: false,
+                        removeClasses: false,
+                        removeStyles: true,
+                        convertLinks: false,
+                        buttons: ["html", "|", "formatting", "|", "bold", "italic" , "deleted","|","norderedlist", "orderedlist", "outdent", "indent", "|","image","video","table", "link", "|","fontcolor", "backcolor", "|","alignleft", "aligncenter", "alignright", "justify", "|","horizontalrule", "fullscreen"] 
+				});
+				</script>
+				</div>
+				<div class="rowElem noborder admin-full-form-row">
+					<label>
+						Фотогалерея:
+					</label>
+					<div class="formRight">
+						<div class="multifile" data-filename="gallery" id="news-gallery">
+						</div>
+					</div>
+                    
+                    <script type="text/javascript"> 
+                            $(function(){
+                                 $('#news-gallery').multifile(); 
+                            });
+                    </script>
+					<div class="fix">
+					</div>
+				</div>
+				<input type="submit" value="Сохранить новость" id="save_button" class="b-button greyishBtn submitForm"/>
+            
+			</form> 
+           <div style="display: none;" class="nNote hideit" id="flash-msg-nNote"><p></p></div>
+		</div>
+	</div>
+</div>

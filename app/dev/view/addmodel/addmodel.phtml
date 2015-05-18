@@ -1,0 +1,76 @@
+<div style="margin: 8px auto; width: 800px;">
+
+            	<div class="head2">
+            		<h5 class="iFrames">
+                        Добавление новой модели
+            		</h5>
+            	</div>
+                
+<form action="/dev/addmodel/save" class="ajax-form" method="post">                
+    <table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+      	<tbody>
+             <tr>
+    			<td>
+    		     Для модуля:
+    			</td>
+   				<td>
+                    <select  name="module">
+                        <?foreach( $this->modules as $v ){?>
+                            <option value="<?=$v?>"><?=$v?></option>
+                        <?}?>
+                    </select>
+    			</td>
+       		</tr>
+
+           	<tr>
+    			<td style="width: 250px;">
+    		     Название модели:
+    			</td>
+   			    <td>
+              		<input type="text" name="model"/>
+    			</td>
+    		</tr>
+    		<tr>  
+    			<td>
+                 Название таблицы:
+    			</td>
+    			<td> 
+                    <select name="table" id="table">
+                        <?foreach( $this->tables as $v ){?>
+    		  		        <option value="<?=$v['table']?>" data-primary="<?=$v['primary']?>"><?=$v['table']?></option>
+                        <?}?>
+                    </select>
+          		</td>
+    		</tr>
+            <tr>
+    			<td>
+    		      Название первичного ключа в таблице:
+    			</td>
+    			<td>
+                	<input type="text" name="primary" id="primary" />
+    			</td>
+    		</tr>
+       	</tbody>  
+    </table>
+    
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>    
+     
+<input type="submit" value="Сохранить" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+</form>
+                <script type="text/javascript">
+                    $(function(){
+                       $('#table').on('change', function(){
+                            
+                           $('#primary').val($(this).find('option:selected').data('primary'));
+                       
+                        })                 
+                    })
+                </script>
+
+</div>
+        
+        
+        

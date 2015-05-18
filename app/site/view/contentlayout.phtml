@@ -1,0 +1,15 @@
+       	<?php if (isset($this->content['middle']) && $this->content['middle']) { ?>
+        					
+        		<?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
+        							
+        				<?=$this->content['middle'][$i]?>
+        						
+        		<?php } ?>
+                
+       	<?php } ?>
+         
+        <div class="content-all-wrapper-bcrumbs">
+	      <?=K_Crumbs::Render()?>    
+        </div>    
+   
+   <div class="cl"></div>

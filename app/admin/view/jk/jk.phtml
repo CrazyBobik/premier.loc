@@ -1,0 +1,219 @@
+<div style="margin-top: 8px;" class="table" id="jk_table_wrapper">
+	<div class="head">
+		<h5 class="iFrames">
+		    <?=$this->crudTitle?>
+		</h5>
+	</div>
+	<div class="dataTables_wrapper" id="jk_crud_wrapper">
+        	
+			<div class="dataTables_filter" id="acl-users_filter">
+                          <a class="drop_filtres" onfocus="this.blur();" title="Сбросить фильтры" href="javascript:;"></a>
+                          <span class="srchbutton b-button greyishBtn add_node_button"> Поиск </span>
+            </div>
+  			
+		<table cellspacing="0" cellpadding="0" border="0" class="display">
+			<thead>
+				<tr>
+                     <th class="ui-state-default" rowspan="1" colspan="1" style="width:25px;">
+<div class="DataTables_sort_wrapper">ID<br/>
+<input type="text" name="id" <?=isset($_GET['id'])? 'value="'.strip_tags(htmlspecialchars($_GET["id"])).'"' : ""?>  id="jk_id" style="width:25px;" class="jk-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<div class="DataTables_sort_wrapper">Дата добавления<br/>
+от<input  type="text" name="start-date" id="start-jk_date" value="" style="width:60px;" class="jk-field datepicker"  /><br/>
+до<input  type="text" name="stop-date" id="stop-jk_date" value="" style="width:60px;" class="jk-field datepicker"  />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:100px;">
+<div class="DataTables_sort_wrapper">Пользователь<br/>
+<select type="text" name="user" id="jk_user" style="width:100px;"  class="jk-field"  >
+<?=K_jformhelper::options($this->selects->user, isset($_GET['user'])? strip_tags(htmlspecialchars($_GET["user"])) : null)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<div class="DataTables_sort_wrapper">Область<br/>
+<select type="text" name="region" id="jk_region" style="width:80px;"  class="jk-field"  >
+<?=K_jformhelper::options($this->selects->region, isset($_GET['region'])? strip_tags(htmlspecialchars($_GET["region"])) : null)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Наз. жк<br/>
+<input type="text" name="jk_name" <?=isset($_GET['jk_name'])? 'value="'.strip_tags(htmlspecialchars($_GET["jk_name"])).'"' : ""?>  id="jk_jk_name" style="width:50px;" class="jk-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<div class="DataTables_sort_wrapper">Фото жк<br/>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Наз. компании<br/>
+<input type="text" name="company_name" <?=isset($_GET['company_name'])? 'value="'.strip_tags(htmlspecialchars($_GET["company_name"])).'"' : ""?>  id="jk_company_name" style="width:50px;" class="jk-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<div class="DataTables_sort_wrapper">Лого компании<br/>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:25px;">
+<div class="DataTables_sort_wrapper">Утв..<br/>
+<input type="text" name="moderation" <?=isset($_GET['moderation'])? 'value="'.strip_tags(htmlspecialchars($_GET["moderation"])).'"' : ""?>  id="jk_moderation" style="width:25px;" class="jk-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:150px;">
+<div class="DataTables_sort_wrapper">Текст<br/>
+<input type="text" name="text" <?=isset($_GET['text'])? 'value="'.strip_tags(htmlspecialchars($_GET["text"])).'"' : ""?>  id="jk_text" style="width:150px;" class="jk-field" />
+</div>
+</th>
+
+                     
+                    <th class="ui-state-default" rowspan="1" colspan="1" >
+    		             <div class="DataTables_sort_wrapper">Управление</div>
+                    </th>
+            	</tr>
+			</thead>
+			<tbody>
+	       	</tbody>
+		</table>
+		<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+			<div id="acl-users_length" class="dataTables_length">
+				<label>
+					Элементов на страницу:
+					<select name="acl-users_length" class="on-page-count" size="1">
+						<option value="5">
+							5
+						</option>
+						<option value="10" selected="selected">
+							10
+						</option>
+						<option value="25">
+							25
+						</option>
+						<option value="50">
+							50
+						</option>
+						<option value="100">
+							100
+						</option>
+					</select>
+				</label>
+			</div>
+			<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-users_paginate">
+				<span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled" id="acl-users_first">
+					Первая
+				</span>
+				<span class="previous fg-button ui-button ui-state-disabled" id="acl-users_previous">
+					Предыдущая
+				</span>
+				<span>
+					<span class="fg-button ui-button ui-state-disabled">
+						1
+					</span>
+				</span>
+				<span class="next fg-button ui-button ui-state-disabled" id="acl-users_next">
+					Следующая
+				</span>
+				<span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled" id="acl-users_last">
+					Последняя
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+    
+   $('#jk_table_wrapper').ajaxLeaf({
+    
+			loadUrl:'/admin/jk/load',
+			itemsContainer: '#jk_crud_wrapper',
+            collectInfo:function(wrap){
+                
+                     var addInfoArray = [];
+                
+                     wrap.find('.jk-field').each(function(){
+                        
+                          addInfoArray.push($(this).attr('name')+'='+$(this).val());
+                       
+                     });
+                  
+                     addInfo = addInfoArray.join('&');
+                         
+               	     return addInfo;
+                     
+			},
+                 
+            dropFiltres:function(wrap){
+                
+                     wrap.find('.jk-field').each(function(){
+                        
+                         if($(this).tagName.toLowerCase()=="select"){
+                            
+                            $(this).find('options').attr('selected', false);
+                          
+                         }else{
+                            
+                            $(this).val('');
+                            
+                         }
+                       
+                     });
+                      
+            },    
+                 
+            dropFiltresButtonInd: '.drop_filtres',   
+            srchButtonInd: '.srchbutton',
+   			"renderItems": function(items) {
+    				var itemsHtml = [];
+    				$.each(items, function(id, v) {
+    				itemsHtml.push('<tr class="jk_row" id="jk-row-' + v.id + '" rel="' + v.idname + '" ><td>' + v.id + '</td><td>' + v.date + '</td><td>' + v.user + '</td><td>' + v.region + '</td><td>' + v.jk_name + '</td><td>' + v.img + '</td><td>' + v.company_name + '</td><td>' + v.company_logo + '</td><td>' + v.moderation + '</td><td>' + v.text + '</td><td><a href="javascript:void(0);" data-id="' + v.id + ' "class="crud-edit"></a><a title="Удалить запись" href="javascript:void(0);" data-id="' + v.id + '" class="crud-delete"></a></td></tr>');
+                    });
+                    
+    				return itemsHtml;
+            }
+   }); 
+
+   $('#jk_crud_wrapper').on('click', '.crud-edit', function(){
+            
+            var id = $(this).data('id');
+            
+            $.get('/admin/jk/edit','id='+id, function(data){
+                  flyboxOpen(900+44,700, 'Управление', '<div style="padding:0 10px;width:900px;height:700px;overflow-x:auto">'+data+'</div>');
+            },'html');
+                    
+   });
+     
+   $('#jk_crud_wrapper').on('click', '.crud-delete', function(){
+            
+        var id = $(this).data('id');
+          
+		
+		if (confirm("Вы действительно хотите удалить эту запись?")) {
+			
+            $.post('/admin/jk/remove',{id:id}, function(data){
+                if(data.error){
+				
+				 	alert(data.msg);			 
+				 
+				}else{
+				
+					$('#<%crudName%>-row-'+data.id).remove();
+				 
+				}
+				
+            },'json');
+        }
+		
+   });	 
+	 
+  /*
+  $("#tree_title").syncTranslit({
+    destination: "tree_name",
+    urlSeparator: "-"
+  });*/
+  
+});
+
+</script>

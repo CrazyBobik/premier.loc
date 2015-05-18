@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-10 13:14+0300\n"
+"PO-Revision-Date: 2012-09-10 13:23+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: Z:\\home\\192.168.1.106\\application\n"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:41
+msgid "capcha_check"
+msgstr "Захистний код"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:41
+msgid "capcha_error"
+msgstr "невірний код з картинки"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:54
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:105
+msgid "name"
+msgstr "Ім’я"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:56
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:107
+msgid "your_comment"
+msgstr "Ваш коментар"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:57
+msgid "new_id"
+msgstr "ідентифікатор новини"
+
+#: Z:\home\192.168.1.106\application/api/controller/index.php:97
+msgid "comment_is_add"
+msgstr "Ваш коментар доданий і буде опублікований після перевірки модератором"
+
+#: Z:\home\192.168.1.106\application/default/helpers/paginator.php:37
+msgid "page_prev"
+msgstr "Попередня"
+
+#: Z:\home\192.168.1.106\application/default/helpers/paginator.php:62
+msgid "page_next"
+msgstr "Наступна"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:6
+msgid "news_gallery_title"
+msgstr "Галерея"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:11
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:68
+#: Z:\home\192.168.1.106\application/blocks/templates/newscatalog/index.phtml:13
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:11
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:45
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:11
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:165
+#: Z:\home\192.168.1.106\application/typebloks/templates/section/list.phtml:11
+#: Z:\home\192.168.1.106\application/typebloks/templates/section/list.phtml:41
+msgid "main"
+msgstr "Головна"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:13
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:70
+msgid "news_gallery_bcrumbs"
+msgstr "Галерея"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/gallery/index.phtml:58
+msgid "news_gallery_no_images"
+msgstr "У галереї поки не було додано жодної картинки"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/lastcomments/index.phtml:1
+msgid "last_comments"
+msgstr "Останні коментарі"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/mainnews/index.phtml:5
+msgid "main_news"
+msgstr "Головні новини"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/mainnews/index.phtml:45
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:35
+msgid "download_pdf"
+msgstr "Завантажити електронну версію "
+
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:6
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:13
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:47
+msgid "newspapers_archiv"
+msgstr "Архів газет"
+
+#: Z:\home\192.168.1.106\application/blocks/templates/newspaperspdf/index.phtml:24
+msgid "year"
+msgstr "рік"
+
+#: Z:\home\192.168.1.106\application/default/templates/layout.phtml:46
+msgid "main_title"
+msgstr ""
+"Видається за інформаційної підтримки Державної міграційної служби України та "
+"за сприянням благодійного фонду допомоги біженцям та переселенцям «Співчуття»"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:34
+msgid "new_author"
+msgstr "автор"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:34
+msgid "new_source"
+msgstr "джерело"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:77
+msgid "comments"
+msgstr "Комментарі"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:95
+msgid "no_comments"
+msgstr "Коментарів ще не було"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:100
+msgid "add_comment"
+msgstr "Додати коментар"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:108
+msgid "insert_image_code"
+msgstr "Введiть код зображений на малюнку"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:126
+msgid "add_comment_button"
+msgstr "Додаты"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/news/item.phtml:139
+msgid "related_news"
+msgstr "Схожі новини"
+
+#: Z:\home\192.168.1.106\application/typebloks/templates/section/list.phtml:35
+msgid "no_section_news"
+msgstr "У цьому розділі ще немає новин"

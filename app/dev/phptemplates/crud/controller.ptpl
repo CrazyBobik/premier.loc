@@ -1,0 +1,154 @@
+<?php
+class Admin_Controller_<%controllerName%> extends K_Controller_Admin {
+  
+    protected function indexAction(){
+      
+   	    $this->view->title = '<%title%>';
+    
+        //[%selects-index%]
+           <%selects%>
+        //[%/selects-index%]
+           
+        $this->render('<%template%>');  
+    }
+
+    public function loadAction(){
+      
+        //[%preaperPage%]
+        $page = intval($_POST['page']);
+        $onPage = intval($_POST['onPage']);
+        
+        if ($page) {
+
+            if (! $onPage) {
+                $onPage = 10;
+            }
+
+            $start = $page * $onPage - $onPage;
+
+        } else {
+            
+            $start = 0;
+            $page = 1;
+            $onPage = 10;
+            
+        }   
+              
+        $where = K_ws::get($_POST)->fromConfig($this->crudConfig->whereSets());
+      
+        if ($where && count($where)){
+            
+            $where = ' WHERE ' . implode(' AND ', $where);
+            
+        }else{
+            
+            $where='';
+        } 
+        //[%/preaperPage%]
+        
+        //[%loadQuery%]
+	    $itemsRes = K_q::query("<%loadQuery%>");
+        //[%/loadQuery%] 
+                
+        $countItems = K_q::one("SELECT FOUND_ROWS() as countItems;",'countItems');
+     
+        $items = array();
+     
+        foreach ($itemsRes as $v){
+            
+            //[%loadArray%]
+                <%itemArray%>
+            //[%loadArray%]
+            
+            $items[] = $itemRow;
+            
+        }
+
+        $returnJson = array(
+            'error' => false,
+            'items' => $items,
+            'countItems' => $countItems
+            );
+
+        $this->putJSON($returnJson);
+     }
+   
+    
+     public function editAction(){
+        
+        $this->disableLayout = true;
+        
+        $id = intval($_GET['id']); 
+    
+        $itemModel = new  <%model%>;
+        
+        // LEFT JOIN obj_rooms r ON r.id = o.id
+        
+        $this->view->item= $itemModel->row("<%editQuery%>");
+                                    
+        //[%selects-edit%]                            
+            <%selectsEdit%>     
+        //[%selects-edit%]
+  		
+		$this->render('edit');
+		
+    } 
+    
+    public function saveAction(){
+        
+        $id = intval($_POST[$this->crudConfig->primary()]);  
+   
+        $lables = $this->crudConfig->lables();
+        
+        $data = $this->crudConfig->data($_POST);
+              
+        $validate = $this->crudConfig->validate();
+          
+        $itemModel = new <%model%>;
+        
+        if ($itemModel->isValidRow($data, $validate)){
+          
+            if($id){
+                 
+               $itemModel->update($data, array($this->crudConfig->primary()=>$id));
+               
+               $jsonReturn['error'] = false;
+               $jsonReturn['msg'] = "Запись успешно обновлёна"; 
+               $jsonReturn['callback'] = 'function callback(){setTimeout(function(){reloadFlyForm("/admin/<%controller%>/edit?id='.$id.'"); $("#<%tableWarapperId%>").ajaxLeaf().reload()},1500);}';
+               $jsonReturn['clean'] = false;
+               
+            }else{
+                
+               $id = $itemModel->save($data);
+               $jsonReturn['error'] = false;
+               $jsonReturn['msg'] = "Запись успешно добавленна";
+               $jsonReturn['callback'] = 'function callback(){setTimeout(function(){$("#<%tableWarapperId%>").ajaxLeaf().reload()},500);}';
+            
+          
+            }
+      
+        } else {
+       
+            $jsonReturn['error'] = true;
+            $jsonReturn['errormsg'] = $itemModel->getErrorsD($lables);
+      
+        }
+        
+        $this->putJSON($jsonReturn);
+  }
+
+  public function removeAction(){
+    
+        $itemModel = new <%model%>;
+        $id = intval($_POST[$this->crudConfig->primary()]);
+     
+        if($id){
+            $itemModel->removeID($id);
+            $this->putJSON(array('error' => false));
+        }else{
+            $this->putJSON(array('error' => true, 'msg' => 'Неправильный индитификатор', 'id' => $id));
+        }
+        
+  }
+   
+}

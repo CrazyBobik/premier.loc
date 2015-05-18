@@ -1,0 +1,139 @@
+<div class="news_block">
+	<div class="left-block-title">Новости</div>
+	<div class="news-cont">
+		<?php $result = k_q::query("SELECT * FROM news ORDER BY date DESC LIMIT 5"); foreach ($result as $top){ ?>
+	   
+			<?php //$substring_limited = substr($top['text'],0, 150);
+				//$text = substr($substring_limited, 0, strrpos($substring_limited, ' ' )); ?>
+				
+				<div class="n_prev">
+					<ul class="tit2">
+					<li><a class="tit2" href="/news/<?php echo $top['id']; ?>">
+						<?php 
+							$text = substr($top['title'], -1, 1);
+								if ($text == '.') {
+									$text2 = substr($top['title'], 0, -1);
+									echo $text2.'<span class="tit2span">&nbsp;...</span>';
+								}
+								else {
+									echo $top['title'].'<span class="tit2span">&nbsp;…</span>';
+								}
+							 
+						?>
+					</a></li>
+					</ul>
+				</div>
+		
+		<?php } ?>	
+	</div>
+</div>
+	
+
+<div class="left_block l_menu">
+
+    <a href="javascript:void(0)" class="nedv2">Недвижимость Украины</a>
+
+<?php 
+	
+		$obj = K_TreeQuery::crt("/sity-page/")->idIndex(true)->types(array('city','nedvijimost'))->go();
+
+		foreach($obj as $v){
+		
+			if($v['tree_type']=="nedvijimost"){
+			
+				if($v['pub']=="Да"){
+					$newObj[$v['tree_pid']]['tree_childs'][]=$v;
+				}
+				
+			}elseif($v['tree_type']=='city'){
+			
+				if($v['pub']=="Да"){		
+					$newObj[$v['tree_id']]=$v;
+				}
+			}
+			
+		}
+		
+		//var_dump($newObj);
+		
+		$menuHtml='<ul>';
+				
+		foreach($newObj as $v){
+		
+			$firstArenda = false;
+			$firstObmen = false;
+			
+			if($v['tree_type']=="city"){
+			
+				$menuHtml2 = '<ul class="menu-2-level" id="menu-id-'.$v['tree_id'].'" style="display: none">';
+		
+				foreach($v['tree_childs'] as $s){
+			
+					if(!$firstArenda && strpos($s['tree_name'],'arenda')!==false){
+					
+						$menuHtml2.='<li class="hr-separator"></li>';
+						$firstArenda = true;
+						
+					}
+					
+					if(!$firstObmen && strpos($s['tree_name'],'obmen')!==false){
+					
+						$menuHtml2.='<li  class="hr-separator"></li>';
+						$firstObmen = true;
+						
+					}
+			
+					$menuHtml2.='<li><a href="/'.$s['tree_name'].'">'.$s['tree_title'].'</a></li>';
+						
+				}
+				
+				$menuHtml2.= '</ul>';
+				
+		    	$menuHtml.='<li><div class="open-plus open-ent" rel="menu-id-'.$v['tree_id'].'"></div><a class="menu-link" href="/'.$v['tree_name'].'">'.$v['tree_title'].'</a>'.$menuHtml2.'</li>';
+			
+			}
+		
+		}
+			
+		$menuHtml2 .= '</ul>';
+		
+		$menuHtml.='</ul>';
+		//var_dump($menuHtml);
+	
+
+ ?>
+	
+	<div class="menudiv" style="display:none">
+		<?=$menuHtml?>
+	</div>
+
+</div>
+
+<div class="left_block baner ban1">
+<?php 
+	$s=sr("","baners","system='ltop' and end>='".date("Y-m-d")."'","pos",""); 
+	$ban1=0; while($r=mysql_fetch_array($s)){ $ban1++; 
+		?>
+		<a href="<?php echo $r['lin'] ?>" target="new_blank"><img src="/img/ban_img/<?php echo $r['img'] ?>"/></a>
+		<?
+	} 
+?>
+</div>
+
+<div class="left_block baner ban2">
+<?php 
+	$s=sr("","baners","system='lbot' and end>='".date("Y-m-d")."'","pos",""); 
+	$ban2=0; while($r=mysql_fetch_array($s)){ $ban2++; 
+		?>
+		<a href="<?php echo $r['lin'] ?>" target="new_blank"><img src="/img/ban_img/<?php echo $r['img'] ?>"/></a>
+		<?
+	} 
+?>
+</div>
+
+<style type="text/css">
+<?php 
+if($ban1==0) echo '.ban1{display: none}';
+if($ban2==0) echo '.ban2{display: none}';
+?>
+</style>

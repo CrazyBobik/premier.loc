@@ -1,0 +1,168 @@
+<div style="margin-top: 8px;" class="table" id="<%tableWarapperId%>">
+	<div class="head">
+		<h5 class="iFrames">
+		    <?=$this->crudTitle?>
+		</h5>
+	</div>
+	<div class="dataTables_wrapper" id="<%crudWarapperId%>">
+        	
+			<div class="dataTables_filter" id="acl-users_filter">
+                          <a class="drop_filtres" onfocus="this.blur();" title="Сбросить фильтры" href="javascript:;"></a>
+                          <span class="srchbutton b-button greyishBtn add_node_button"> Поиск </span>
+            </div>
+  			
+		<table cellspacing="0" cellpadding="0" border="0" class="display">
+			<thead>
+				<tr>
+                     <%header%>
+                     
+                    <th class="ui-state-default" rowspan="1" colspan="1" >
+    		             <div class="DataTables_sort_wrapper">Управление</div>
+                    </th>
+            	</tr>
+			</thead>
+			<tbody>
+	       	</tbody>
+		</table>
+		<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+			<div id="acl-users_length" class="dataTables_length">
+				<label>
+					Элементов на страницу:
+					<select name="acl-users_length" class="on-page-count" size="1">
+						<option value="5">
+							5
+						</option>
+						<option value="10" selected="selected">
+							10
+						</option>
+						<option value="25">
+							25
+						</option>
+						<option value="50">
+							50
+						</option>
+						<option value="100">
+							100
+						</option>
+					</select>
+				</label>
+			</div>
+			<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-users_paginate">
+				<span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled" id="acl-users_first">
+					Первая
+				</span>
+				<span class="previous fg-button ui-button ui-state-disabled" id="acl-users_previous">
+					Предыдущая
+				</span>
+				<span>
+					<span class="fg-button ui-button ui-state-disabled">
+						1
+					</span>
+				</span>
+				<span class="next fg-button ui-button ui-state-disabled" id="acl-users_next">
+					Следующая
+				</span>
+				<span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled" id="acl-users_last">
+					Последняя
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+    
+   $('#<%tableWarapperId%>').ajaxLeaf({
+    
+			loadUrl:'/admin/<%controller%>/load',
+			itemsContainer: '#<%crudWarapperId%>',
+            collectInfo:function(wrap){
+                
+                     var addInfoArray = [];
+                
+                     wrap.find('.<%fieldClass%>').each(function(){
+                        
+                          addInfoArray.push($(this).attr('name')+'='+$(this).val());
+                       
+                     });
+                  
+                     addInfo = addInfoArray.join('&');
+                         
+               	     return addInfo;
+                     
+			},
+                 
+            dropFiltres:function(wrap){
+                
+                     wrap.find('.<%fieldClass%>').each(function(){
+                        
+                         if($(this).tagName.toLowerCase()=="select"){
+                            
+                            $(this).find('options').attr('selected', false);
+                          
+                         }else{
+                            
+                            $(this).val('');
+                            
+                         }
+                       
+                     });
+                      
+            },    
+                 
+            dropFiltresButtonInd: '.drop_filtres',   
+            srchButtonInd: '.srchbutton',
+   			"renderItems": function(items) {
+    				var itemsHtml = [];
+    				$.each(items, function(id, v) {
+    				itemsHtml.push(<%rowRender%>);
+                    });
+                    
+    				return itemsHtml;
+            }
+   }); 
+
+   $('#<%crudWarapperId%>').on('click', '.crud-edit', function(){
+            
+            var id = $(this).data('id');
+            
+            $.get('/admin/<%controller%>/edit','id='+id, function(data){
+                  flyboxOpen(900+44,700, 'Управление', '<div style="padding:0 10px;width:900px;height:700px;overflow-x:auto">'+data+'</div>');
+            },'html');
+                    
+   });
+     
+   $('#<%crudWarapperId%>').on('click', '.crud-delete', function(){
+            
+        var id = $(this).data('id');
+          
+		
+		if (confirm("Вы действительно хотите удалить эту запись?")) {
+			
+            $.post('/admin/<%controller%>/remove',{id:id}, function(data){
+                if(data.error){
+				
+				 	alert(data.msg);			 
+				 
+				}else{
+				
+					$('#<%crudName%>-row-'+data.id).remove();
+				 
+				}
+				
+            },'json');
+        }
+		
+   });	 
+	 
+  /*
+  $("#tree_title").syncTranslit({
+    destination: "tree_name",
+    urlSeparator: "-"
+  });*/
+  
+});
+
+</script>

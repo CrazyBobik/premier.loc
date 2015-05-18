@@ -1,0 +1,97 @@
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+                   	<?=$_GET['transactionid']=='add' ? 'Операция № </b>'.$this->transactionRow['id'].'</b> ' : 'Новая операция'?>
+            		</h5>
+            	</div>
+<form action="/admin/transactions/save/id/<?=$this->transactionRow['id']?>" class="ajax-form" method="post">                
+<table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+                <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+						Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+		<tr>
+			<td>
+			  Название организации
+			</td>
+			<td>
+            
+            <?if($this->transactionRow['id']):?>
+               <?=$this->organizations[$this->transactionRow['organization']]?>
+                  <input type="hidden" value="<?=$this->transactionRow['organization']?>" name="organization"/>
+            <?else:?>
+               <select name="organization" id="trans-org" class="con-select">
+                             <option value="" >Выберите организацию</option>
+                              <?php foreach($this->organizations as $k=>$v):?>
+                               <option value="<?=$k?>" ><?=$v?>(<?=$k?></option>
+                             <?php endforeach;?>
+               </select>
+            <?endif;?>
+        	</td>
+		</tr>
+ 	      <tr>
+			<td>
+		      Клиент
+			</td>
+			<td>
+                <select name="client" id="trans-client" class="con-select">
+                             <option value="" >Выберите плательщика</option>
+                              <?php foreach($this->clients as $k=>$v):?>
+                               <option data-org="<?=$v['client_organization']?>" value="<?=$k?>" ><?=$v['client_fio']?></option>
+                             <?php endforeach;?>
+                </select>
+        	</td>
+		</tr>
+        
+        
+		<tr>
+			<td>
+  	    Сумма перевода
+			</td>
+			<td>
+                <input type="text" value="<?=$this->transactionRow['pay_amount']?>" name="pay_amount"/>
+  			</td>
+		</tr>
+		<tr>
+			<td>
+	   	Способ оплаты
+			</td>
+			<td>
+               <select name="pay_method" class="con-select">
+                        <option value="invoise">Счёт-фактура</option>
+                        <option value="card" >Электронный перевод</option>
+               </select>
+			</td>
+		</tr>
+        <tr>
+			<td>
+	     Комментарий
+			</td>
+			<td>
+              <textarea cols="80" rows="10" name="comment"></textarea>
+			</td>
+		</tr>
+</tbody>
+</table>
+<input type="submit" value="Зачислить" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+</form>
+</div>
+        
+        
+        

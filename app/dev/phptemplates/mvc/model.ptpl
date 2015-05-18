@@ -1,0 +1,9 @@
+<?php
+
+class <%module%>_Model_<%model%> extends Model {
+    var $name = '<%table%>';
+    var $primary = '<%primary%>';
+	
+	<%methods%>
+	 
+}

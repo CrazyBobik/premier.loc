@@ -1,0 +1,1 @@
+<?php defined('K_PATH') or die('DIRECT ACCESS IS NOT ALLOWED');class K_Tree_Model extends Model {    public $name = 'tree';    public $primary = 'tree_id';}

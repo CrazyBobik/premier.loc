@@ -1,0 +1,73 @@
+<?if(count($this->items)>0){?>
+<div class="main-news-cont">
+<?if(count($this->items)==1){
+	$item=$this->items[0];
+?>
+<div class="on-main-one-header">
+<div class="main-new-header" style="color:<?=$item['hexcolor']?>;font-size:<?=$item['fontsize']?>;font-family:<?=$item['fontname']?>"><?=$item['header']?></div>
+</div>
+<div class="on-main-one-news">
+		<div id="product">
+				
+			
+				<br/>
+				
+				<div class="main-new-img">
+					<?if(!empty($item['img'])){?>
+						<div class="main-new-img"><img src="/upload/<?=$item['img']?>"
+						<?=$item['img-width']? ' width="'.$item['img-width'].'"':''?>
+						<?=$item['img-hight']? ' height="'.$item['img-hight'].'"':''?>></div>
+					<?}?>
+				</div>
+				
+				<div class="main-new-introtext">
+					<?=$item['text']?>
+				
+					<div class="main-new-link">
+						<a class="more-link" href="<?=$item['more']?>"><?=t('Узнать больше»','See more»')?></a>
+					</div>
+				
+				</div>
+		</div>
+		<div style="clear:both"></div>
+</div>
+<br/>
+<?}else{
+
+	foreach($this->items as $item){
+	
+?>
+	<div class="on-main-two-news">	
+	
+		<div id="product">
+				<div class="main-new-header" style="color:<?=$item['hexcolor']?>;font-size:<?=$item['fontsize']?>;font-family;<?=$item['fontname']?>"><?=$item['header']?></div>
+			
+				<br/>
+				
+				<div class="main-new-img">
+					<?if(!empty($item['img'])){?>
+						<div class="main-new-img"><img src="/upload/<?=$item['img']?>"
+						<?=$item['img-width']? ' width="'.$item['img-width'].'"':''?>
+						<?=$item['img-hight']? ' height="'.$item['img-hight'].'"':''?>></div>
+					<?}?>
+				</div>
+				
+				<div class="main-new-introtext">
+					<?=$item['text']?>
+				
+					<div class="main-new-link">
+						<a class="more-link" href="<?=$item['more']?>"><?=t('Узнать больше»','See more»')?></a>
+					</div>
+				
+				</div>
+		</div>
+		<div style="clear:both"></div>
+				
+	</div>				
+	<?}?>
+
+	<div style="clear:both"></div>
+<?}?>
+</div>
+<hr>
+<?}?>

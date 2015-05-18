@@ -1,0 +1,241 @@
+/* jquery.formbuilder css */
+
+.frmb-control { }
+
+.frmb-submit { 
+	margin-left: 15px;
+    background: url("../img/middlebg.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #D5D5D5;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 2px 1px #FFFFFF;
+    color: #595858;
+    display: block;
+    font-size: 12px;
+    position: relative;
+	padding: 10px !important;
+}
+
+.frmb-submit:hover {
+	box-shadow: 0 0 5px #8FB5CF;
+}
+
+ul.frmb {
+	padding-left: 0px;
+	list-style-type: none;
+	margin-bottom: 15px;
+}
+
+.frmb li {
+	margin-bottom: 5px;
+	padding: 15px;
+	border: 1px solid #D5D5D5;
+}
+
+.frmb li:hover {
+	border: 1px solid #8DB2CD;
+	background: #E9FFFD;
+}
+
+.frmb .legend .toggle-form {
+	float: right;
+}
+
+.fld-values {
+	padding: 5px;
+}
+
+.fld-values label {
+    height: 20px;
+	width: 20%;
+	float: left;
+	margin: 3px;
+	margin-left: 5px;
+	line-height: 20px;
+	text-align: right;
+	margin-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: #1C4257;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.fld-values .false-label {
+	width: 20%;
+	float: left;
+	margin-left: 5px;
+	line-height: 24px;
+}
+
+.fld-values input[type=text] {
+    margin: 3px;
+    height: 20px;
+	float: left;
+	width: 70%;
+	padding: 3px;
+}
+
+.fld-values .fields {
+	width: 70%;
+	float: left;
+}
+
+.fld-values .fields input[type=checkbox],
+.fld-values .fields input[type=radio] {
+	float: left;
+	margin-right: 10px;
+    margin-top: 5px;
+}
+
+.fld-values .false-label,
+.fld-values .fields { margin-top: 10px }
+
+.fld-values .fields div {
+	clear: both;
+	float: left;
+	width: 99%;
+}
+
+.fld-values .fields input[type=text] {
+	width: 75%;
+}
+
+.fld-values .fields label.auto {
+	width: auto;
+	margin: 0 0 5px 0;
+}
+
+.fld-values .fields .remove {
+	margin-left: 10px;
+	line-height: 24px;
+}
+
+.fld-values .fields .add-area {
+	position: relative;
+	left: -30px;
+	line-height: 0;
+	margin-top: -20px;
+}
+
+.fld-values .fields .add-area .add {
+	clear: both;
+}
+
+.fld-values:after,
+.frm-fld:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.fld-values,
+.frm-fld { display: inline-block }
+
+.fld-values,
+.frm-fld { display: block }
+
+.del-button {
+	float: right;
+	margin-right: 10px;
+	background: url("../img/formbuilder/delete.png") no-repeat;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.toggle-form.closed {
+	float: right;
+	background: url("../img/formbuilder/show.png") no-repeat;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.toggle-form.open {
+	float: right;
+	background: url("../img/formbuilder/hide.png") no-repeat;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.up-button {
+	background: url("../img/formbuilder/up.png") center center no-repeat;
+	margin-right: 30px !important;
+}
+.down-button {
+	background: url("../img/formbuilder/down.png") center center no-repeat;
+}
+
+.up-button, .down-button {
+	float: right;
+	margin-right: 10px;
+	padding: 3px;
+	background-color: #ffffff;
+	border: 1px solid #D5D5D5;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: -2px;
+}
+
+.del-button, .toggle-form {
+	opacity: 0.3;
+}
+
+.del-button:hover, .toggle-form:hover {
+	opacity: 1.0;
+}
+
+/* html display helpers */
+textarea, .multi-row span { display: block; }
+
+.validatebox {
+    border: 1px solid #cfcfcf;
+    background-color: #f5f5f5;
+    display: inline-block;
+    margin: 3px;
+    padding: 5px;
+    line-height: 15px;
+	cursor: default;
+}
+.validatebox b {
+    color: #000000;
+    float: left;
+}
+.validatebox a {
+    background-image: url("../img/close.gif");
+    display: block;
+    float: right;
+    height: 15px;
+    width: 15px;
+	margin-left: 5px;
+}
+.validatebox a:hover {
+    background-position: left bottom;
+}
+
+.frm-holder {
+	display: none;
+}
+
+.frmb-control {
+	margin: 15px;
+	padding: 5px;
+}
+
+.validate-select {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5px;
+}
+
+#result-message {
+	margin-top:15px; 
+	padding: 10px; 
+	display: block; 
+	border: 1px solid #339935;
+	background: #CFFFCD;
+	font-weight: bold;
+	cursor: default;
+	display: none;
+}

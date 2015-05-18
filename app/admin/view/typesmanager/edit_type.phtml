@@ -1,0 +1,5 @@
+<div class="b-padded mainForm wideForm">
+
+	<?=$this->generateForm($this->formStructure['form_structure'], (isset($this->type) ? $this->type : array()), array('/admin/typesmanager/'.($this->actionType == 'create' ? $this->actionType : $this->actionType.'/id/'.$this->type['type_id']), 'post', $this->actionType, 'multipart/form-data'), $this->formTemplate)?>
+
+</div>

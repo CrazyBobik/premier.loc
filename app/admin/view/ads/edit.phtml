@@ -1,0 +1,114 @@
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+                    
+                     <?=$this->item? "Редактирование записи":'Добавление запсии'?>
+                     
+            		</h5>
+            	</div>
+<form action="/admin/ads/save/id/<?=$this->item['id']?>" class="ajax-form" method="post">                
+<table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+            <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+					    Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+      <a></a>
+        
+      <?if($this->item): ?>
+      
+		<tr>
+			<td>
+			ID
+			</td>
+			<td>
+		       <?=htmlspecialchars(strip_tags($this->item['id']))?>
+               <input type="hidden" name="id" value="<?=htmlspecialchars(strip_tags($this->item['id']))?>"/>
+			</td>
+		</tr>
+        
+      <?endif;?>
+      
+      <tr>
+                                            			<td>
+                                            	           	Дата добавления
+                                            			</td>
+                                            			<td>
+<input type="text" name="date" id="ads_date" value="<?=$this->item["date"]?>" class="ads-field datepicker" />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Дата публикации
+                                            			</td>
+                                            			<td>
+<input type="text" name="pub" id="ads_pub" value="<?=$this->item["pub"]?>" class="ads-field datepicker" />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Пользователь
+                                            			</td>
+                                            			<td>
+<select type="text" name="user" id="ads_user"  class="ads-field"  >
+<?=K_jformhelper::options($this->selects->user, $this->item["user"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Операция
+                                            			</td>
+                                            			<td>
+<select type="text" name="type_transac" id="ads_type_transac"  class="ads-field"  >
+<?=K_jformhelper::options($this->selects->type_transac, $this->item["type_transac"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Категория
+                                            			</td>
+                                            			<td>
+<select type="text" name="category" id="ads_category"  class="ads-field"  >
+<?=K_jformhelper::options($this->selects->category, $this->item["category"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Раздел
+                                            			</td>
+                                            			<td>
+<select type="text" name="type_propert" id="ads_type_propert"  class="ads-field"  >
+<?=K_jformhelper::options($this->selects->type_propert, $this->item["type_propert"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Область
+                                            			</td>
+                                            			<td>
+<select type="text" name="region" id="ads_region"  class="ads-field"  >
+<?=K_jformhelper::options($this->selects->region, $this->item["region"])?></select>
+</td>
+                                                		</tr>      
+    
+             
+</tbody>
+
+</table>
+
+<input type="submit" value="<?=$this->item? "Обновить":'Создать'?>" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>
+</form>
+
+</div>
+        
+   
+        

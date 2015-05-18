@@ -1,0 +1,171 @@
+<div class="b-padded mainForm wideForm">
+    <div> 
+            <form id="x_form_create" enctype="multipart/form-data" method="post" action="/admin/typesmanager/create">
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Заголовок:
+                            </label>
+                            <div class="formRight">
+                                    <input class="b-field" id="type_desc" placeholder="Введите заголовок..." type="text" name="type_desc">
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Название:
+                            </label>
+                            <div class="formRight">
+                                    <input class="b-field" id="type_name" placeholder="Введите название типа... [a-z]" type="text" name="type_name">
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Родительские элементы:
+                            </label>
+                            <div class="formRight" style="margin-right: 0; width: 662px;">
+                                    <script type="text/javascript">
+                                             
+                               $('#').off('.formsel'); 
+                               $('#').on('change.formsel',function(){selectLoad(this,'#type_parent_elements','','')});
+                               
+                                    </script>
+                                    <select class="b-select multiple" multiple="" id="type_parent_elements" name="type_parent_elements">
+                                          
+                                            <option  value="Все">
+                                                    Все
+                                            </option> 
+                                            <option  value="Нет">
+                                                    Нет
+                                            </option>
+                                            
+                                            <?foreach($this->types as $v):?>
+                                         
+                                                <option value="<?=$v['type_name']?>">
+                                                      <?=$v['type_name']?>
+                                                </option>
+                                         
+                                            <?endforeach;?>
+                                    </select>
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Дочерние элементы:
+                            </label>
+                            <div class="formRight" style="margin-right: 0; width: 662px;">
+                                    <script type="text/javascript">
+                                             
+                               $('#').off('.formsel'); 
+                               $('#').on('change.formsel',function(){selectLoad(this,'#type_children_elements','','')});
+                               
+                                    </script>
+                                    <select class="b-select multiple" multiple="" id="type_children_elements" name="type_children_elements">
+                                            <option treeid="" value="Все">
+                                                    Все
+                                            </option>
+                                            <option treeid="" value="Нет">
+                                                    Нет
+                                            </option>
+                                              
+                                            <?foreach($this->types as $v):?>
+                                         
+                                                <option  value="<?=$v['type_name']?>">
+                                                      <?=$v['type_name']?>
+                                                </option>
+                                         
+                                            <?endforeach;?>
+                                    </select>
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Иконка:
+                            </label>
+                            <div class="formRight" style="margin-right: 0; width: 662px;">
+                                    <input class="b-file" id="icon" type="file" name="icon">
+                                    <input type="checkbox" name="icon_delete">
+                                    Удалить файл
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    HMVC:
+                            </label>
+                            <div class="formRight">
+                                    <label>
+                                            <input class="ck-hmvc" id="ck-hmvc" type="checkbox" name="ck_hmvc" value="Создать модуль HMVC для этого типа"/>
+                                            Создать модуль HMVC для этого типа &nbsp;
+                                    </label>
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                    <div class="rowElem noborder admin-form-row">
+                            <label>
+                                    Супертип:
+                            </label>
+                            <div class="formRight">
+                                    <label>
+                                            <input class="stype" id="stype" type="radio" name="stype" value="1" />
+                                            Обычный &nbsp;
+                                    </label>
+                                    <label>
+                                            <input class="stype" id="stype" type="radio" name="stype" value="2" />
+                                            Пустышка (не будут создаватся интемы для этого типа) &nbsp;
+                                    </label>
+                                    <label>
+                                            <input class="stype" id="stype" type="radio" name="stype" value="3" />
+                                            Холдер (сам в себе содержит несколько итемов одного типа) &nbsp;
+                                    </label>
+                                    <label>
+                                            <input class="seotype" id="stype" type="checkbox" name="seo" />
+                                            Сео тип &nbsp;
+                                    </label>
+                            </div>
+                            <div class="fix">
+                            </div>
+                    </div>
+                   <?php  K_Loader::load('formbuilder', APP_PATH . '/plugins');
+                    $form_builder = new Formbuilder(unserialize($elementData));
+                
+                    echo '
+    				<div id="my-form-builder"></div>
+    				<input type="hidden" name="type_fields" id="f_type_fields"></div>
+    				
+    				<script type="text/javascript">		
+    					$("#my-form-builder").formbuilder({
+    						"save_url": false,
+    						"load_url": false,
+    						"preview_url": false,
+    						"saveInDom": true,
+    						' . (! empty($elementData) ? '"load_source": ' . $form_builder->render_json(false) . ',' : '') . '
+    						"domElementId": "f_type_fields",
+    						"useJson" : true 
+    					});
+    				</script>
+    				'; ?>
+                    <input class="b-button greyishBtn submitForm add_type_button" id="add_button" type="submit" value="Добавить"/>        
+                    <div style="margin: 0 auto; width: 90%; display: none; opacity: 0.0;" class="nNote nSuccess hideit" id="x_formsuccess_create">
+                       <p></p>
+                    </div>
+                    
+                    <script type="text/javascript">
+                       $("#x_form_create").ajaxForm({success: function(responseText, statusText, xhr, $form){ $("#x_formsuccess_create").css("display", "block").animate({"opacity": 1.0}, 2000).html("<p>"+responseText+"</p>"); }});
+                    </script>         
+             </form>
+             
+        <div class="fix">
+        </div>
+    
+    </div>
+</div>
+   

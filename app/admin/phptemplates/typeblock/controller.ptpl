@@ -1,0 +1,16 @@
+<?php 
+class Typebloks_Controller_<%type%>  extends Controller {
+	
+	public $helpers = array('paginator');
+
+	public function itemAction() {
+	  	 $this->view->node=$this->getParam('node');
+         $this->render('item');
+ 	}
+     
+	public function listAction() {
+	   	 $this->view->nodes=$this->getParam('node');
+         $this->render('list');
+	}
+
+}

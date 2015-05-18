@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'PTSansCaptionBold';
+    src: url('ptc75f.eot');
+    src: url('ptc75f.eot?#iefix') format('embedded-opentype'),
+         url('ptc75f.woff') format('woff'),
+         url('ptc75f.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

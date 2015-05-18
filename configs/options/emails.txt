@@ -1,0 +1,1 @@
+a:5:{s:14:"request_emails";s:19:"d@div-studio.com.ua";s:15:"register_emails";s:19:"d@div-studio.com.ua";s:15:"callback_emails";s:19:"d@div-studio.com.ua";s:13:"noreply_email";s:25:"noreply@div-studio.com.ua";s:4:"save";s:18:"Сохранить";}

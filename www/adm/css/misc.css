@@ -1,0 +1,183 @@
+/*******Флай бокс ********/
+#flybox_flybox_container {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+.flyboxbackgr {
+	position:fixed;
+	_position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:black;
+	opacity:0.75;
+	_filter:alpha(opacity=75);
+	z-index:1000;
+}
+.flybox {
+    left: 100px;
+    position: absolute;
+    text-align: left;
+    top: 100px;
+    z-index: 1100;
+}
+.flybox .flyboxttl {
+	height: 38px;
+	position:relative;
+}
+.flybox .flyboxttl_left {
+	height: 38px;
+	background-image:url('../img/flybox/flyboxttl.png');
+	margin-right:100px;
+}
+.flybox .flyboxttl_left b {
+	display:block;
+	float:left;
+	color:#444;
+	margin-top:18px;
+	margin-left:19px;
+}
+.flybox .flyboxttl_right {
+	height: 38px;
+	background-image:url('../img/flybox/flyboxttl_right.png');
+	width:100px;
+	position:absolute;
+	top:0px;
+	right:0px;
+   
+}
+
+.flyboxttl_iconbox {
+    padding-right: 15px;	
+}
+
+.flyboxttl_close {
+   	background-image:url('../img/flybox/flybox_close.gif');
+	
+}
+
+.flyboxttl_reload_page {
+	background-image:url('../img/flybox/flybox_reload_page.png');
+	
+}
+.flyboxttl_reload_page,.flyboxttl_close {
+    float:right;
+	display:block;
+	width:17px;
+	height:17px;
+	background-position:top left;
+	margin-top:17px;
+	margin-left: 4px;
+}
+
+.flyboxttl_close:hover, .flyboxttl_reload_page:hover {
+	background-position:bottom left;
+}
+
+.flybox .flyboxbody {
+	background-image:url('../img/flybox/flyboxbody.png');
+	background-position:top left;
+	background-repeat:repeat-y;
+}
+.flybox .flyboxbody2 {
+	background-image:url('../img/flybox/flyboxbody2.png');
+	background-position:top right;
+	background-repeat:repeat-y;
+	margin-left:11px;
+	border-left:1px solid black;
+	padding-right:12px;
+}
+.flybox .flyboxftr {
+	background-image:url('../img/flybox/flyboxftr.png');
+	background-position:top left;
+	background-repeat:repeat-y;
+	height:17px;
+}
+.flybox .flyboxftr2 {
+	background-image:url('../img/flybox/flyboxftr_right.png');
+	background-position:top right;
+	background-repeat:repeat-y;
+	margin-left:17px;
+	height:17px;
+}
+.flyboxattachment {
+	padding:5px;
+}
+.flyboxdata {
+	padding:10px;
+	background-image:url('../img/flybox/flyboxdata.gif');
+	background-position:top left;
+	background-repeat:repeat-x;
+	padding-bottom:7px;
+	color:#666;
+	font-size:11px;
+}
+
+.flyboxdata b {
+	font-size:12px;
+	color:#222;
+}
+
+/***** jAlert *****/
+
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 5px #999;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	color: #666;
+	background: #CCC url(/amd/plugins/img/title.gif) top repeat-x;
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(/amd/plugins/img/info.gif);
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(/amd/plugins/img/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(/amd/plugins/img/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(/amd/plugins/img/help.gif);
+}
+
+#popup_message {
+	padding-left: 48px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}

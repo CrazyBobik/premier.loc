@@ -1,0 +1,49 @@
+AddDefaultCharset utf-8
+
+RewriteEngine On
+RewriteBase /
+
+# Rewrite www.domain.com -> domain.com -- used with SEO Strict URLs plugin
+ RewriteCond %{HTTP_HOST} .
+ RewriteCond %{HTTP_HOST} !^premier\.loc [NC]
+ RewriteRule (.*) http://premier.loc/$1 [R=301,L]
+
+#Rewrite used with SEO Strict URLs plugin
+ RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|shtml|html|aspx|htm)(.*)\ HTTP/ 
+    RewriteRule ^index\.(php|shtml|html|aspx|htm)(.*)$ http://premier.loc/$2 [R=301,L]
+ 
+#Без слеша на конце
+ RewriteCond %{REQUEST_URI} !^/admin/
+ RewriteCond %{REQUEST_URI} !/adm/plugins/ckfinder/ckfinder.html(.*)
+ RewriteCond %{REQUEST_URI} !/adm/plugins/ckfinder/core/connector/php/connector.php(.*)
+ RewriteCond %{REQUEST_URI} !^/ajax/
+ RewriteCond %{REQUEST_URI} !^/images/
+ RewriteCond %{REQUEST_URI} !^/upload/
+ RewriteRule ^(.*)\/$ /$1 [R=301,L]
+
+
+# to index.php and set the cultureKey parameter
+   
+RewriteRule !\.(js|ico|txt|gif|jpg|png|css|swf|eot|woff|ttf|pdf|zip|dll)$ index.php [L]
+
+
+Options -Indexes
+
+php_flag magic_quotes_gpc off
+php_flag register_globals off
+php_flag short_open_tag on
+
+<Files "*.ini">
+ Order allow,deny
+ Deny from all
+</Files>
+
+<Files "*.tmp">
+ Order allow,deny
+ Deny from all
+</Files>
+
+<Files "*.inc">
+ Order allow,deny
+ Deny from all
+</Files>

@@ -1,0 +1,9 @@
+FORM_VALIDATE_NOT_EMPTY = Это поле не должно быть пустым
+FORM_VALIDATE_REQUIRED = Это обязательное для заполнения поле
+FORM_VALIDATE_REGEX_FORMAT = Ошибочный формат данных
+FORM_VALIDATE_EMAIL_FORMAT = Ошибочный формат электронной почты
+FORM_VALIDATE_NOT_INT = Ошибочный формат данных, укажите целое число
+FORM_VALIDATE_NOT_FLOAT = Ошибочный формат данных, укажите целое или вещественное число
+FORM_VALIDATE_NOT_NUMERIC = Ошибочный формат данных, укажите число
+FORM_VALIDATE_NOT_STRING = Ошибочный формат данных, укажите строку
+FORM_VALIDATE_MAX_LENGTH = Превышено максимальное количество символов для этого поля

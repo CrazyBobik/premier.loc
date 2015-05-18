@@ -1,0 +1,16 @@
+<?php 
+class Typebloks_Controller_<%Type%>  extends Controller {
+	
+	public $helpers =array('');
+
+	public function itemAction() {
+	  	 $this->view->node=$this->getParam('node');
+         $this->render('item');
+ 	}
+     
+	public function listAction() {
+	   	 $this->view->nodes=$this->getParam('node');
+         $this->render('list');
+	}
+
+}

@@ -1,0 +1,224 @@
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+            		 Информация о пользователе № </b><?=$this->clientRow['id']?></b>
+            		</h5>
+            	</div>
+<table cellspacing="0" cellpadding="0" border="0" class="display" id="user-admin">
+                <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+						Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+		<tr>
+			<td>
+			    Фио
+			</td>
+			<td>
+				 <?=$this->clientRow['fio']?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Название организации
+			</td>
+			<td>
+		        <?=$this->clientRow['organization']?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			    Email
+			</td>
+			<td>
+			    <?=$this->clientRow['email']?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Телефон
+			</td>
+			<td>
+			    <?=$this->clientRow['phone']?>
+			</td>
+		</tr>
+        	<tr>
+			<td>
+				Skype
+			</td>
+			<td>
+			    <?=$this->clientRow['skype']?>
+			</td>
+		</tr>
+        	<tr>
+			<td>
+				Способ оплаты
+			</td>
+			<td>
+   			 <?=$this->clientRow['pay_method']?>
+			</td>
+		</tr>
+        	<tr>
+			<td>
+				Дата регистрации
+			</td>
+			<td>
+			    <?=$this->clientRow['date_registration']?>
+			</td>
+		</tr>
+        	<tr>
+			<td>
+				Дата последней оплаты
+			</td>
+			<td>
+			    <?=$this->clientRow['date_last_pay']?>
+			</td>
+		</tr>
+        	<tr>
+			<td>
+				Баланс средств
+			</td>
+			<td>
+			    <?=$this->clientRow['pay_balance']?>
+			</td>
+		</tr>
+        
+        </tr>
+        	<tr>
+			<td>
+			   Уровень доступа
+			</td>
+			<td>
+      		    <?if($this->clientRow['level']=='admin'){     
+      		        
+                     echo 'Администратор';   
+                     
+                    }else if ($this->clientRow['level']=='group-admin'){
+                        
+                     echo 'Администратор группы';   
+                     
+                    }else{
+                        
+                     echo 'Пользователь'; 
+                       
+                    }
+                ?>
+			</td>
+		</tr>
+        </tr>
+        	<tr>
+			<td>
+			   Статус
+			</td>
+			<td>
+			    <?if($this->clientRow['status']=='active'){    
+			     
+                     echo 'Активирован';   
+                     
+                    }else if ($this->clientRow['status']=='wait-active'){
+                        
+                     echo 'Ожидает активации';   
+                     
+                    }else{
+                        
+                     echo 'Заблокирован';   
+                     
+                    }
+                ?>
+			</td>
+		</tr>
+        </tr>
+        	</tbody>
+</table>
+</div>
+				Связанные с акаунтом пользователи<br/>
+              
+                <?php if($this->clientAdmin): ?>
+                
+            <div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+            		  Администратор пользователя
+            		</h5>
+            	</div>
+               <table cellspacing="0" cellpadding="0" border="0" class="display" id="user-admin">
+                <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+							Ф.И.О
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+							Email
+						</div>
+					</th>
+		           <th class="ui-state-default" rowspan="1" colspan="1" style="width: 144px;">
+						<div class="DataTables_sort_wrapper">
+					        Статус
+						</div>
+					</th>
+      			</tr>
+			</thead>
+            <tbody>
+                  <tr><td><?=$this->clientAdmin['fio']?></td><td><?=$this->clientAdmin['email']?></td><td><?=$this->clientAdmin['status']?></td></tr>
+     		</tbody>
+		    </table>
+          </div>
+                   <? endif; ?>
+                
+             <div style="margin-top: 8px;" class="table" >
+            	<div class="head">
+            		<h5 class="iFrames">
+            		   Группа пользователя
+            		</h5>
+            	</div>
+               <table cellspacing="0" cellpadding="0" border="0" class="display" id="user-group-users">
+                <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+							Ф.И.О
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+							Email
+						</div>
+					</th>
+			        <th class="ui-state-default" rowspan="1" colspan="1" style="width: 144px;">
+						<div class="DataTables_sort_wrapper">
+							Уровень
+						</div>
+					</th>
+                    <th class="ui-state-default" rowspan="1" colspan="1" style="width: 144px;">
+						<div class="DataTables_sort_wrapper">
+					        Статус
+						</div>
+					</th>
+      			</tr>
+			</thead>
+            <tbody>
+                 <?php foreach($this->clientGgoup as $v): ?>
+                  <tr><td><?=$v['fio']?></td><td><?=$v['email']?></td><td></td><td></td></tr>
+                 <? endforeach; ?>
+     		</tbody>
+		  </table>
+          </div>
+     
+        
+        
+        
+        

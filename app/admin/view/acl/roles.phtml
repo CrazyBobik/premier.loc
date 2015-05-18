@@ -1,0 +1,203 @@
+   <a class="btnIconLeft mr10 mt5 mb10 flr" title="Новая роль" onclick="addRole()" href="javascript:;">
+        <img class="icon" alt="" src="/adm/img/icons/dark/adminUser.png" />
+        <span>Новая роль</span>
+    </a>
+    
+     <a class="btnIconLeft mr10 mt5 mb10 fll" id="acl-reload-button" title="Не забудте обновить ACL"  onclick="aclReload()" href="javascript:;">
+        <img class="icon" alt="" src="/adm/img/icons/dark/refresh.png" />
+        <span>Обновить ACL</span>
+    </a>
+    
+ <div id="flash-msg-nNote"  class="nNote hideit" style="display:none">
+   <p></p>
+</div>     
+    
+<div class="fix"></div>
+<div id="add-role" class="acl-save-form-add" style="display:none">
+<a href="javascript:;" title="Закрыть" class="close-link" onfocus="this.blur();"></a>
+<h5 id="add-role-title">Добавление новой роли</h5>
+    <form class="mainForm" id="role-info-form">
+        <table class="add-role-tbl">
+              <tr>
+               <td>
+                     <label for="role_name">Имя роли</label><br />
+                     <input type="text" id="role_name" name="role_name" />
+               </td>
+               <td>
+                    <label for="role_acl">ACL key</label><br />
+                    <input type="text"  id="role_acl" name="role_acl_key" />
+               </td>
+                <td >
+                   <label for="role_parent">Наследует</label><br />
+                   <select id="role_parent" name="role_parent_id" >
+                   <option value="">Нет предка</option>
+                   <?foreach($this->roles as $v){?>
+                    <option value="<?=$v['role_id']?>"><?=$v['role_name']?></option>
+                   <?}?></select>
+                   <div id="role_roles"></div>
+               </td>
+               </tr>
+         </table>
+          <input type="hidden" id="role_id" name="role_id"/>
+          <input type="hidden" id="save_type" name="save_type" value="add"/>
+          <a class="btnIconLeft ml25 mt10" onclick="roleInfoSubmit();"  title="" href="javascript:;">
+              <img class="icon" alt="" src="/adm/img/icons/dark/check.png"/>
+              <span>Сохранить</span>
+          </a>
+    </form>
+</div>
+
+<div id="rule-role" class="acl-save-form-update" style="display:none">
+<a href="javascript:;" title="Закрыть" class="close-link" onfocus="this.blur();"></a>
+<h5 id="rule-role-title">Редактирование доступов для роли: <b></b></h5>
+<a href="javascript:;" onclick="addRoleRule()" title="" class="btnIconLeft mr10 mt5 mb10 flr">
+        <img src="/adm/img/icons/dark/add.png" title="Добавить доступ"  class="icon">
+        <span>Добавить</span>
+    </a>
+    <div class="fix"></div>
+   
+        <form class="mainForm" id="rule-info-form">
+        
+        <table style="width: 100%" cellpadding="0" cellspacing="0">
+         <thead class="fixedHeader">
+            <tr><th>Ресурс</th><th>Привелегия</th><th>Тип</th><th>Управление</th></tr>
+         </thead>
+        </table>
+
+<div class="scrolableTable">        
+        <table id="acl-rules" class="acl-rule-table" width="100%">
+            <tbody class="scrollContent">
+              <tr id="rule-selectors" style="display: none;">
+                    <td>
+                        <select id="rule-resurse" name="rule_resource_id">
+                        <option value="">Выбрать ресурс</option>
+                          <?foreach($this->resurses as $v){?>
+                           <option value="<?=$v['resource_id']?>">
+                           <?=$v['resource_name']==null? 'Весь сайт' : $v['resource_name']  ?>
+                           </option>
+                          <?}?>
+                          
+                          <?foreach($this->treeResurses as $v){?>
+                           <option value="t_<?=$v['tree_id']?>">
+                           <?=str_repeat('&nbsp;&nbsp;',$v['tree_level']).$v['tree_title']?>
+                           </option>
+                          <?}?>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rule-privilege" name="rule_privilege_id">
+                        <option value="">Выбрать привелегию</option>
+                         <?foreach($this->privileges as $v){?>
+                           <option value="<?=$v['privilege_id']?>">
+                             <?=$v['privilege_name']==null? 'Полный доступ' : $v['privilege_name']  ?>
+                           </option>
+                         <?}?>
+                        </select>
+                     </td>
+                     <td>
+                        <select id="rule-type" name="rule_type">
+                        <option value="1">разрешить</option>
+                        <option value="2">запретить</option>
+                        </select>
+                    </td>
+                    <td>
+                             <img class="table-btn" src="/adm/img/userRemove.png" onclick="cancelRoleRule()" title="Отменить" alt="Отменить" />
+                           <img class="table-btn" src="/adm/img/userSave.png" onclick="saveRoleRule()" title="Сохранить" alt="Сохранить" />
+                   </td>
+                 </tr>
+          </tbody>  
+         </table>
+</div>      
+           <input type="hidden" id="rule-id" name="rule_id" value=""/>
+           <input type="hidden" id="save-type" name="save_type" value="add"/>
+           <input type="hidden" id="rule_role_id" name="rule_role_id" value=""/>
+        </form>
+</div>
+	                            <div style="margin-top: 8px;" class="table" id="roles-table-wrapper">
+											<div class="head">
+												<h5 class="iFrames">
+													Таблица ролей
+												</h5>
+											</div>
+											<div class="dataTables_wrapper" id="acl-users_wrapper">
+												<div class="">
+													<div class="dataTables_filter" id="acl-users_filter">
+														<label>
+															Поиск:
+															<input type="text" class="srch-input">
+															<div class="srch">
+															</div>
+														</label>
+													</div>
+												</div>
+												<table cellspacing="0" cellpadding="0" border="0" class="display" id="acl-roles">
+													<thead>
+														<tr>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+														        <div class="DataTables_sort_wrapper">
+																	Роль
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+																<div class="DataTables_sort_wrapper">
+																	ACL key
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 183px;">
+																<div class="DataTables_sort_wrapper">
+																	Наследует
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 244px;">
+																<div class="DataTables_sort_wrapper">
+																	Доступы
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+															<th class="ui-state-default" rowspan="1" colspan="1" style="width: 222px;">
+																<div class="DataTables_sort_wrapper">
+																	Управление
+																	<span class="DataTables_sort_icon">
+																	</span>
+																</div>
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+												<div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+													<div id="acl-users_length" class="dataTables_length">
+														<label>
+															Элементов на страницу:
+															<select name="acl-users_length" class="on-page-count" size="1">
+                                                                <option value="5" selected="selected">
+																	5
+																</option>
+																<option value="10" selected="selected">
+																	10
+																</option>
+																<option value="25">
+																	25
+																</option>
+																<option value="50">
+																	50
+																</option>
+																<option value="100">
+																	100
+																</option>
+															</select>
+														</label>
+													</div>
+													<div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="acl-users_paginate">
+											    	</div>
+												</div>
+											</div>
+										</div>

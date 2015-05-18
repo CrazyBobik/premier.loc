@@ -1,0 +1,124 @@
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+                    
+                     <?=$this->item? "Редактирование записи":'Добавление запсии'?>
+                     
+            		</h5>
+            	</div>
+<form action="/admin/users/save/id/<?=$this->item['id']?>" class="ajax-form" method="post">                
+<table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+            <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+					    Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+      <a></a>
+        
+      <?if($this->item): ?>
+      
+		<tr>
+			<td>
+			ID
+			</td>
+			<td>
+		       <?=htmlspecialchars(strip_tags($this->item['id']))?>
+               <input type="hidden" name="id" value="<?=htmlspecialchars(strip_tags($this->item['id']))?>"/>
+			</td>
+		</tr>
+        
+      <?endif;?>
+      
+      <tr>
+                                            			<td>
+                                            	           	Email
+                                            			</td>
+                                            			<td>
+<input type="text" name="mail" id="users_mail" value="<?=$this->item["mail"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Имя
+                                            			</td>
+                                            			<td>
+<input type="text" name="name" id="users_name" value="<?=$this->item["name"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Фамилия
+                                            			</td>
+                                            			<td>
+<input type="text" name="fam" id="users_fam" value="<?=$this->item["fam"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Доступно публикаций
+                                            			</td>
+                                            			<td>
+<input type="text" name="colpub" id="users_colpub" value="<?=$this->item["colpub"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Всего публикаци
+                                            			</td>
+                                            			<td>
+<input type="text" name="colpub_all" id="users_colpub_all" value="<?=$this->item["colpub_all"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Баланс
+                                            			</td>
+                                            			<td>
+<input type="text" name="balans" id="users_balans" value="<?=$this->item["balans"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Пакет
+                                            			</td>
+                                            			<td>
+<select type="text" name="pkt" id="users_pkt"  class="users-field"  >
+<?=K_jformhelper::options($this->selects->pkt, $this->item["pkt"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Аватар
+                                            			</td>
+                                            			<td>
+<input type="text" name="avatar" id="users_avatar" value="<?=$this->item["avatar"]?>" class="users-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Дата регистрации
+                                            			</td>
+                                            			<td>
+<input type="text" name="date" id="users_date" value="<?=$this->item["date"]?>" class="users-field datepicker" />
+</td>
+                                                		</tr>      
+    
+             
+</tbody>
+
+</table>
+
+<input type="submit" value="<?=$this->item? "Обновить":'Создать'?>" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>
+</form>
+
+</div>
+        
+   
+        

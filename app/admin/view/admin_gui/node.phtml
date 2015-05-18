@@ -1,0 +1,13 @@
+<div class="b-padded mainForm">
+
+	<div style="padding: 19px;" class="b-node_information node_information-<?=$this->node['tree_id']?>">
+			
+		<div>
+			[ <b><?=$this->node['tree_link']?></b> ]
+		</div>
+			
+	</div>
+
+	<?=$this->generateForm($this->formStructure['form_structure'], $this->node, array('/admin/tree/update/id/'.$this->node['tree_id'], 'post', 'node', 'application/x-www-form-urlencoded'), $this->formTemplate)?>
+
+</div>

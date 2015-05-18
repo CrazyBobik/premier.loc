@@ -1,0 +1,126 @@
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+                    
+                     <?=$this->item? "Редактирование записи":'Добавление запсии'?>
+                     
+            		</h5>
+            	</div>
+<form action="/admin/services/save" class="ajax-form" method="post">           
+<input tyle="hidden" name="id" value="<?=$this->item['id']?>" />     
+<table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+            <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+					    Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+      <a></a>
+        
+      <?if($this->item): ?>
+      
+		<tr>
+			<td>
+			ID
+			</td>
+			<td>
+		       <?=htmlspecialchars(strip_tags($this->item['id']))?>
+               <input type="hidden" name="id" value="<?=htmlspecialchars(strip_tags($this->item['id']))?>"/>
+			</td>
+		</tr>
+        
+      <?endif;?>
+      
+      <tr>
+                                            			<td>
+                                            	           	Дата добавления
+                                            			</td>
+                                            			<td>
+<input type="text" name="date" id="services_date" value="<?=strip_tags(htmlspecialchars($this->item["date"]))?>" class="services-field datepicker" />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Пользователь
+                                            			</td>
+                                            			<td>
+<select type="text" name="user" id="services_user"  class="services-field"  >
+<?=K_jformhelper::options($this->selects->user, $this->item["user"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Раздел
+                                            			</td>
+                                            			<td>
+<select type="text" name="category" id="services_category"  class="services-field"  >
+<?=K_jformhelper::options($this->selects->category, $this->item["category"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Область
+                                            			</td>
+                                            			<td>
+<select type="text" name="region" id="services_region"  class="services-field"  >
+<?=K_jformhelper::options($this->selects->region, $this->item["region"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Лого
+                                            			</td>
+                                            			<td>
+<input type="text" name="logo" id="services_logo" value="<?=strip_tags(htmlspecialchars($this->item["logo"]))?>" class="services-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Утв..
+                                            			</td>
+                                            			<td>
+<input type="text" name="moderation" id="services_moderation" value="<?=strip_tags(htmlspecialchars($this->item["moderation"]))?>" class="services-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Заголовок.
+                                            			</td>
+                                            			<td>
+<input type="text" name="title" id="services_title" value="<?=strip_tags(htmlspecialchars($this->item["title"]))?>" class="services-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Сайт
+                                            			</td>
+                                            			<td>
+<input type="text" name="site" id="services_site" value="<?=strip_tags(htmlspecialchars($this->item["site"]))?>" class="services-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Текст
+                                            			</td>
+                                            			<td>
+<textarea name="text" rows="10" cols="50" id="services_text" class="services-field"><?=strip_tags(htmlspecialchars($this->item["text"]))?></textarea></td>
+                                                		</tr>      
+    
+             
+</tbody>
+
+</table>
+
+<input type="submit" value="<?=$this->item? "Обновить":'Создать'?>" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>
+</form>
+
+</div>
+        
+   
+        

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>It's Brain - premium admin HTML template by Eugene Kopyov</title>
+
+<link href="/adm/css/main.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
+
+<script src="/adm/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/adm/js/spinner/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/adm/js/spinner/ui.spinner.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+
+<script type="text/javascript" src="/adm/js/fileManager/elfinder.min.js"></script>
+
+<script type="text/javascript" src="/adm/js/wysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="/adm/js/wysiwyg/wysiwyg.image.js"></script>
+<script type="text/javascript" src="/adm/js/wysiwyg/wysiwyg.link.js"></script>
+<script type="text/javascript" src="/adm/js/wysiwyg/wysiwyg.table.js"></script>
+
+<script type="text/javascript" src="/adm/js/tree/tree.jquery.js"></script>
+<script type="text/javascript" src="/adm/js/jquery.cookie.js"></script>
+<link href="/adm/js/tree/jqtree.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/adm/js/custom.js"></script>
+<script type="text/javascript" src="/adm/js/main.js"></script>
+
+</head>
+
+<body>
+
+<!-- Top navigation bar -->
+<div id="topNav">
+    <div class="fixed">
+        <div class="wrapper">
+            <div class="welcome"><a href="#" title=""><img src="/adm/img/userPic.png" alt="" /></a><span>Howdy, Eugene!</span></div>
+            <div class="userNav">
+                <ul>
+                    <li><a href="#" title=""><img src="/adm/img/icons/topnav/profile.png" alt="" /><span>Profile</span></a></li>
+                    <li><a href="#" title=""><img src="/adm/img/icons/topnav/tasks.png" alt="" /><span>Tasks</span></a></li>
+                    <li class="dd"><img src="/adm/img/icons/topnav/messages.png" alt="" /><span>Messages</span><span class="numberTop">8</span>
+                        <ul class="menu_body">
+                            <li><a href="#" title="">new message</a></li>
+                            <li><a href="#" title="">inbox</a></li>
+                            <li><a href="#" title="">outbox</a></li>
+                            <li><a href="#" title="">trash</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" title=""><img src="/adm/img/icons/topnav/settings.png" alt="" /><span>Settings</span></a></li>
+                    <li><a href="/admin/auth/logout" title=""><img src="/adm/img/icons/topnav/logout.png" alt="" /><span>Logout</span></a></li>
+                </ul>
+            </div>
+            <div class="fix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<div id="header" class="wrapper">
+    <div class="logo"><a href="/" title=""><img src="/adm/img/loginLogo.png" alt="" /></a></div>
+    <div class="middleNav">
+    	<ul>
+        	<li class="iMes"><a href="#" title=""><span>Support tickets</span></a><span class="numberMiddle">9</span></li>
+            <li class="iStat"><a href="#" title=""><span>Statistics</span></a></li>
+            <li class="iUser"><a href="#" title=""><span>User list</span></a></li>
+            <li class="iOrders"><a href="#" title=""><span>Billing panel</span></a></li>
+        </ul>
+    </div>
+    <div class="fix"></div>
+</div>
+
+
+<!-- Content wrapper -->
+<div class="wrapper">
+	
+	<?php if (isset($this->ajaxed) && $this->ajaxed === true) { ?>
+		<!-- Left navigation -->
+		<div class="leftNav">
+			<div class="b-tree" id="tree">
+			</div>
+			<div class="b-new-type">
+				<a href="/admin/types/add">Добавить новый тип</a>
+			</div>
+		</div>
+		
+		<!-- Content -->
+		<div class="content">
+			<div class="b-content-load" id="ajax_load_place">
+				<h3 style="text-align: center;">Управление сайтом</h3>
+			</div>
+		</div>
+	<?php } else {  ?>
+		<!-- Content -->
+		<div class="content" style="width:978px;">
+			<div class="b-content-load">
+			     <?=$this->context()?>
+			</div>
+		</div>
+	<?php } ?>
+	
+    <div class="fix"></div>
+</div>
+
+<!-- Footer -->
+<div id="footer">
+	<div class="wrapper">
+    </div>
+</div>
+
+</body>
+</html>

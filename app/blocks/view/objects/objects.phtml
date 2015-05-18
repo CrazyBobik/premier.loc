@@ -1,0 +1,38 @@
+<div class="content">
+
+    <div class="block">
+
+        <div class="p_cont">
+            <h1>Сданные новостройки</h1>
+            <script type="text/javascript" src="//yandex.st/share/share.js"
+                    charset="utf-8"></script>
+            <div class="yashare-auto-init" data-yashareL10n="ru"
+                 data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,surfingbird">
+            </div>
+
+        </div>
+
+        <div class="list">
+
+            <?php foreach ($this->obj as $v) { ?>
+            <div class="item">
+                <div class="image"><img src="/upload/<?= $v['image']?>" width="150px" /></div>
+                <div class="descr">
+                    <div class="title"><?= $v['name_build']?></div>
+                    <div class="intro"><?= $v['text']?></div>
+                    <div class="more"><a href="<?= $v['tree_name']?>">Подробнее</a></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <?php } ?>
+        </div>
+
+        <?
+        $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
+
+        echo K_paginator::simple($this -> page, $this -> pages, $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
+        ?>
+
+    </div>
+    <div class="kran_cont"></div>
+</div>
