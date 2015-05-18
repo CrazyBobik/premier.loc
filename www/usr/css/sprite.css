@@ -1,0 +1,97 @@
+.logo {
+    background: url("/usr/img/sprite.png") 0 69px;
+    width: 249px;
+    height: 69px;
+}
+.button-bg {
+    background: url("/usr/img/sprite.png") -28px -125px;
+}
+.button-bg-img1 {
+    width: 32px;
+    height: 28px;
+    background: url("/usr/img/sprite.png") -23px -173px;
+}
+.button-bg-img2 {
+    width: 33px;
+    height: 26px;
+    background: url("/usr/img/sprite.png") -60px -173px;
+}
+.button-bg-img3 {
+    width: 28px;
+    height: 25px;
+    background: url("/usr/img/sprite.png") -97px -173px;
+}
+.enter-img {
+    width: 32px;
+    height: 27px;
+    background: url("/usr/img/sprite.png") 0 0;
+}
+.left-shadow {
+    width: 265px;
+    height: 48px;
+    background: url("/usr/img/sprite.png") 10px -251px;
+}
+.right-shadow {
+    width: 265px;
+    height: 48px;
+    background: url("/usr/img/sprite.png") 10px -201px;
+}
+.prev_slide-img {
+    width: 32px;
+    height: 59px;
+    background: url("/usr/img/sprite.png") -223px -126px;
+}
+.next_slide-img {
+    width: 32px;
+    height: 59px;
+    background: url("/usr/img/sprite.png") -189px -126px;
+}
+.favorites {
+    background: url("/usr/img/sprite.png") -32px -8px;
+}
+.favorites-img-active {
+    background: url("/usr/img/sprite.png") -130px -163px;
+}
+.flag-b {
+    background: url("/usr/img/sprite.png") 0 -27px;
+}
+.flag-t {
+    background: url("/usr/img/sprite.png") 0 -118px;
+}
+.flag-g {
+    background: url("/usr/img/sprite.png") 0 -74px;
+}
+.flag-i {
+    background: url("/usr/img/sprite.png") 0 -96px;
+}
+.flag-f {
+    background: url("/usr/img/sprite.png") 0 -50px;
+}
+.flag-ok {
+    background: url("/usr/img/sprite.png") 0 -141px;
+}
+.separ {
+    width: 2px;
+    height: 25px;
+    background: url("/usr/img/sprite.png") 0 0;
+}
+.menu-arr {
+    width: 21px;
+    height: 21px;
+    background: url("/usr/img/sprite.png") 0 -165px;
+}
+.search-img {
+    background: url("/usr/img/sprite.png") 0 -300px;
+}
+.find {
+    background: url("/usr/img/sprite.png") -149px -122px;
+}
+.find:hover {
+    background: url("/usr/img/sprite.png") -110px -124px;
+}
+.slider-head-img {
+    background: url("/usr/img/sprite.png") -5px -299px;
+}
+.bottom-down-img {
+    background: url("/usr/img/sprite.png") 9px -344px;
+}
