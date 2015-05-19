@@ -94,17 +94,11 @@
             </div>
         </a>
 
-<?php
-
-if ($this->content['left']) { ?>
-
-    <?php for ($i = 0; $i < sizeof($this->content['left']); $i++) { ?>
-
-        <?=$this->content['left'][$i]?>
-
-    <?php } ?>
-
-<?php } ?>
+        <?php if ($this->content['left']) { ?>
+            <?php for ($i = 0; $i < sizeof($this->content['left']); $i++) { ?>
+                <?=$this->content['left'][$i]?>
+            <?php } ?>
+        <?php } ?>
 
 
     <div class="main-part">
@@ -197,132 +191,14 @@ if ($this->content['left']) { ?>
         </div>
         <div class="clear"></div>
 
-        <div class="question">
-            <p>Есть Вопрос?</p>
-            <a href="#">ОНЛАЙН ЗАЯВКА</a>
-        </div>
+        <?php if ($this->content['middle']) { ?>
+            <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
+                <?=$this->content['middle'][$i]?>
+            <?php } ?>
+        <?php } ?>
 
 
-        <div id="mi-slider" class="mi-slider">
-            <ul>
-                <li><a href="#"><img src="/upload/slide1b.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2b.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3b.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1t.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2t.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3t.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1g.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2g.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3g.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1i.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2i.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3i.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1f.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2f.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3f.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-
-
-            <nav>
-                <a href="#">Болгария</a>
-                <a href="#">Турция</a>
-                <a href="#">Греция</a>
-                <a href="#">Испания</a>
-                <a href="#">Франция</a>
-            </nav>
-            <div class="slider-head"></div>
-            <div class="slider-head-img"></div>
-        </div>
-
-        <div id="mi-slider2" class="mi-slider">
-            <ul>
-                <li><a href="#"><img src="/upload/slide1b.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2b.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3b.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1t.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2t.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3t.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1g.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2g.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3g.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1i.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2i.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3i.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-            <ul>
-                <li><a href="#"><img src="/upload/slide1f.jpg" alt="img01"><h4>2 уровневый дом</h4></a></li>
-                <li><a href="#"><img src="/upload/slide2f.jpg" alt="img02"><h4>Дом на побереже</h4></a></li>
-                <li><a href="#"><img src="/upload/slide3f.jpg" alt="img03"><h4>3-комнатная квартира</h4></a></li>
-            </ul>
-
-
-            <nav>
-                <a href="#">Болгария</a>
-                <a href="#">Турция</a>
-                <a href="#">Греция</a>
-                <a href="#">Испания</a>
-                <a href="#">Франция</a>
-            </nav>
-
-            <div class="slider-head"></div>
-            <div class="slider-head-img"></div>
-        </div>
     </div>
-    <div class="clear"></div>
-
-
-    <div class="bottom-part">
-        <div class="top-part"></div>
-        <div class="down-part"></div>
-        <div class="bottom-down-img">
-            <span>Архив новостей</span>
-        </div>
-
-        <div class="bottom-left-part">
-            <div class="bottom-news-head">
-                <span>Новости зарубежной недвижимости</span>
-            </div>
-            <div class="bottom-news">
-                <img src="/upload/bottom-news1.jpg">
-                <div class="bottom-news-text">
-                    <p>Text text text</p>
-                </div>
-
-                <div class="clear"></div>
-            </div>
-        </div>
-
-        <div class="bottom-right-part">
-            <div class="bottom-news-head">
-                <span>Новости компании</span>
-            </div>
-            <div class="bottom-news">
-                <img src="/upload/bottom-news2.jpg">
-                <div class="bottom-news-text">
-                    <p>Text text text</p>
-                </div>
-
-                <div class="clear"></div>
-            </div>
-        </div>
-
-        <div class="clear"></div>
-    </div>
-</div>
 
 
 <script type="text/javascript" src="/usr/js/jquery.form.js"></script>

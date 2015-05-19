@@ -479,9 +479,6 @@ class Site_Controller_Index extends Controller {
 
                 if(!in_array($typeBlocks[$i]['tree_type'], $noLoadBlockTypes)){
 
-
-
-
                     if ($typeBlocks[$i]['tree_type'] != 'block') {
 
                         $block = $this->HMVCblock($typeBlocks[$i], $typeBlocks[$i]['tree_type']);
@@ -516,42 +513,39 @@ class Site_Controller_Index extends Controller {
                 }
             }
         }
-
-
-
         ///Дозагрузка блоков в контент
-                                    
+
             foreach ($nodes as $nodeKey => $node){
 
-					if ($node['tree_type'] == 'block') {
-					
-                        if (!empty($node['action'])) {
+                 if($node['tree_pid']==$parentNode['tree_id'] && $node['tree_type']=='block') {
 
-							$block = $this->HMVCblock($this->nodeItem, $node['action']);
-                            
-						} 
-						 elseif( $node['template'] == 'Без шаблона' ){/// @todo когда сделаю селекты, переделать на нормальный латинский токен
-                            
-                             $block = $this->loadBlock( $node, false ); 
-                            
-                        }elseif(!$node['template'] || $node['template'] == 'Стандартный шаблон старшего модуля'){
-                            
-                             $block = $this->loadBlock($node, $blockType); 
-                                                        
-                        }else{
-                            
-                             $block = $this->loadBlock($node,$node['template']);
-                      
-                        }
-                       
-                    } 
-                  
-                    //$this->{'b_' . self::blockActionToMethod($node['action'])}($node);
-                    $rBlocks['middle'][] = $block;
-               
+                     if ($node['tree_type'] == 'block') {
+
+                         if (!empty($node['action'])) {
+
+                             $block = $this->HMVCblock($this->nodeItem, $node['action']);
+
+                         } elseif ($node['template'] == 'Без шаблона') {/// @todo когда сделаю селекты, переделать на нормальный латинский токен
+
+                             $block = $this->loadBlock($node, false);
+
+                         } elseif (!$node['template'] || $node['template'] == 'Стандартный шаблон старшего модуля') {
+
+                             $block = $this->loadBlock($node, $blockType);
+
+                         } else {
+
+                             $block = $this->loadBlock($node, $node['template']);
+
+                         }
+
+                     }
+
+                     //$this->{'b_' . self::blockActionToMethod($node['action'])}($node);
+                     $rBlocks['middle'][] = $block;
+                 }
 			}
-		    
-        
+
         return $rBlocks;
     }
     

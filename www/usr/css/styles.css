@@ -349,6 +349,9 @@
     width: 75%;
     margin-left: 5px;
 }
+.bottom-part .bottom-news .news-date {
+    float: right;
+}
 
 .clear {
     clear: both

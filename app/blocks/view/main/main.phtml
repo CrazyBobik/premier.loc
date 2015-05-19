@@ -1,0 +1,51 @@
+    <div class="question">
+        <p>Есть Вопрос?</p>
+        <a href="#">ОНЛАЙН ЗАЯВКА</a>
+    </div>
+
+
+    <div id="mi-slider" class="mi-slider">
+        <?php
+        $first = array_shift($this->slider);
+        foreach($first['tree_childs'] as $country) { ?>
+            <ul>
+                <?php foreach($country['tree_childs'] as $v) { ?>
+                    <li><a href="#"><img src="/upload/<?= $v['image']?>"><h4><?= $v['name_build'] ?></h4></a></li>
+                <?php }?>
+            </ul>
+        <?php } ?>
+
+        <nav>
+            <?php foreach($first['tree_childs'] as $country) { ?>
+                <a href="#"><?= $country['tree_title'] ?></a>
+            <?}?>
+        </nav>
+
+        <div class="slider-head"></div>
+        <div class="slider-head-img"></div>
+    </div>
+
+    <div id="mi-slider2" class="mi-slider">
+        <?php
+        $first = array_shift($this->slider2);
+        foreach($first['tree_childs'] as $country) { ?>
+            <ul>
+                <?php foreach($country['tree_childs'] as $v) { ?>
+                    <li><a href="#"><img src="/upload/<?= $v['image']?>"><h4><?= $v['name_build'] ?></h4></a></li>
+                <?php }?>
+            </ul>
+        <?php } ?>
+
+        <nav>
+            <?php foreach($first['tree_childs'] as $country) { ?>
+                <a href="#"><?= $country['tree_title'] ?></a>
+            <?}?>
+        </nav>
+
+        <div class="slider-head"></div>
+        <div class="slider-head-img"></div>
+    </div>
+
+    <!--Конец main-part-->
+</div>
+<div class="clear"></div>

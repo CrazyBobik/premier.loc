@@ -1,38 +1,41 @@
-<div class="content">
+<div class="bottom-part">
+    <div class="top-part"></div>
+    <div class="down-part"></div>
+    <div class="bottom-down-img">
+        <span>Архив новостей</span>
+    </div>
 
-    <div class="block">
-
-        <div class="p_cont">
-            <h1>Новости</h1>
-            <script type="text/javascript" src="//yandex.st/share/share.js"
-                    charset="utf-8"></script>
-            <div class="yashare-auto-init" data-yashareL10n="ru"
-                 data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,surfingbird">
-            </div>
-
+    <div class="bottom-left-part">
+        <div class="bottom-news-head">
+            <span>Новости зарубежной недвижимости</span>
         </div>
-
-        <div class="list">
-
-            <?php foreach ($this->news as $v) { ?>
-                <div class="item">
-                    <div class="image"><img src="/upload/<?= $v['image'] ?>" width="150px" /></div>
-                    <div class="descr">
-                        <div class="title"><?= $v['head'] ?></div>
-                        <div class="intro"><?= $v['text'] ?></div>
-                        <div class="more"><a href="<?= $v['tree_name']?>">Подробнее</a></div>
+            <?php foreach ($this->newsOut as $news) { ?>
+                <div class="bottom-news">
+                    <img src="/upload/<?= $news['image'] ?>">
+                    <div class="bottom-news-text">
+                        <p><?= $news['text'] ?></p>
                     </div>
+                    <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
                     <div class="clear"></div>
                 </div>
-            <?php } ?>
-        </div>
-
-        <?
-        $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
-
-        echo K_paginator::simple($this -> page, $this -> pages, $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
-        ?>
-
+            <?php }?>
     </div>
-    <div class="kran_cont"></div>
+
+    <div class="bottom-right-part">
+        <div class="bottom-news-head">
+            <span>Новости компании</span>
+        </div>
+            <?php foreach ($this->newsIn as $news) { ?>
+                <div class="bottom-news">
+                    <img src="/upload/<?= $news['image'] ?>">
+                    <div class="bottom-news-text">
+                        <p><?= $news['text'] ?></p>
+                    </div>
+                    <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
+                    <div class="clear"></div>
+                </div>
+            <?php }?>
+    </div>
+
+    <div class="clear"></div>
 </div>
