@@ -81,17 +81,6 @@
     </div>
 
     <div id="top-slider"></div>
-<?php
-
-if (isset($this->content['middle']) && $this->content['middle']) { ?>
-
-    <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
-
-        <?=$this->content['middle'][$i]?>
-
-            <?php } ?>
-
-        <?php } ?>
 
     <div class="left-part">
         <a href="#">
@@ -105,71 +94,17 @@ if (isset($this->content['middle']) && $this->content['middle']) { ?>
             </div>
         </a>
 
-        <div class="main-menu">
-            <a href="#">
-                <div class="item first active">
-                    <div class="flag-b"></div>
-                    <div class="separ"></div>
-                    <span>Болгария</span>
-                    <div class="menu-arr"></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <div class="flag-t"></div>
-                    <div class="separ"></div>
-                    <span>Турция</span>
-                    <div class="menu-arr"></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <div class="flag-g"></div>
-                    <div class="separ"></div>
-                    <span>Греция</span>
-                    <div class="menu-arr"></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <div class="flag-i"></div>
-                    <div class="separ"></div>
-                    <span>Испания</span>
-                    <div class="menu-arr"></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <div class="flag-f"></div>
-                    <div class="separ"></div>
-                    <span>Франция</span>
-                    <div class="menu-arr"></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <div class="flag-ok"></div>
-                    <div class="separ"></div>
-                    <span>Услуги</span>
-                </div>
-            </a>
-        </div>
+<?php
 
-        <div class="main-site">
-            <a href="#">
-                <img src="/upload/main-site.png" width="210px" height="100px">
-            </a>
-        </div>
+if ($this->content['left']) { ?>
 
-        <div class="slider-doc-head">
-            <span>Сертифицированый партнер</span>
-        </div>
-        <div id="slider-doc">
-            <img src="/upload/slide-sert1.jpg" width="100%" alt="Slide 1">
-            <img src="/upload/slide-sert2.jpg" width="100%" alt="Slide 2">
-            <img src="/upload/slide-sert3.jpg" width="100%" alt="Slide 3">
-        </div>
-    </div>
+    <?php for ($i = 0; $i < sizeof($this->content['left']); $i++) { ?>
+
+        <?=$this->content['left'][$i]?>
+
+    <?php } ?>
+
+<?php } ?>
 
 
     <div class="main-part">

@@ -358,22 +358,175 @@ class Site_Controller_Index extends Controller {
         
             'footer' => false
         );
-       
-       
-         
-         ///Дозагрузка блоков в контент
+
+        foreach ($nodes as $nodeKey => $node) {
+            if ($node['tree_pid'] == $parentNode['tree_id'] && ($node['tree_type'] == 'column' || $node['tree_type'] == 'list' )) {
+                if ($node['tree_name'] == 'left') {
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'left';
+                    $doNotLoadBaseBlock['left'] = true;
+                }
+                elseif ($node['tree_name'] == 'right') {
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'right';
+                    $doNotLoadBaseBlock['right'] = true;
+                }
+                elseif ($node['tree_name'] == 'middle') {
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'middle';
+                    $doNotLoadBaseBlock['middle'] = true;
+                }
+                elseif ($node['tree_name'] == 'widgets') {
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'widgets';
+                    $doNotLoadBaseBlock['widgets'] = true;
+                }
+
+                elseif ($node['tree_name'] == 'content') {
+
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'content';
+                    // $doNotLoadBaseBlock['content'] = true;
+                }
+
+                elseif ($node['tree_name'] == 'footer') {
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'footer';
+                    $doNotLoadBaseBlock['footer'] = true;
+                }
+                else{
+                    $lastBlock = $node['tree_id'];
+                    $lastBlockName = 'middle';
+                    $doNotLoadBaseBlock['middle'] = true;
+                    $blocks[$lastBlockName][] = $node;
+                }
+            } else{
+
+                if ($lastBlock && $lastBlockName && $node['tree_pid'] == $lastBlock) {
+
+                    $blocks[$lastBlockName][] = $node;
+                }
+            }
+        }
+
+
+        $links = array();
+
+        foreach ($doNotLoadBaseBlock as $blockType => $dontLoadBlocks) {
+            if (!$dontLoadBlocks) {
+                $links[] = $blockType;
+            }
+        }
+
+        if (sizeof($links) > 0) {
+            $baseNodes = K_TreeQuery::crt('/system-pages/baseblocks/')->go(array('aliases'=>true));
+
+            foreach ($baseNodes as $nodeKey => $node) {
+                if ($node['tree_pid'] == $baseNodes[0]['tree_id'] && ($node['tree_type'] == 'column' || $node['tree_type'] == 'list' )) {
+                    if (in_array($node['tree_name'], $links)) {
+
+                        if ($node['tree_name'] == 'left') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'left';
+                            $doNotLoadBaseBlock['left'] = false;
+                        }
+
+                        if ($node['tree_name'] == 'right') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'right';
+                            $doNotLoadBaseBlock['right'] = false;
+                        }
+
+                        if ($node['tree_name'] == 'middle') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'middle';
+                            $doNotLoadBaseBlock['middle'] = false;
+                        }
+
+                        if ($node['tree_name'] == 'widgets') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'widgets';
+                            $doNotLoadBaseBlock['widgets'] = false;
+                        }
+
+                        if ($node['tree_name'] == 'content') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'content';
+                            $doNotLoadBaseBlock['content'] = false;
+                        }
+
+                        if ($node['tree_name'] == 'footer') {
+                            $lastBlock = $node['tree_id'];
+                            $lastBlockName = 'footer';
+                            $doNotLoadBaseBlock['footer'] = false;
+                        }
+                    }
+                } elseif ($lastBlock && $lastBlockName && !$doNotLoadBaseBlock[$lastBlockName] && $node['tree_pid'] == $lastBlock) {
+                    $blocks[$lastBlockName][] = $node;
+                }
+            }
+        }
+
+        $noLoadBlockTypes = array('folder', 'page', 'list','column');
+
+        ///Загрузка блоков по модулям
+
+        foreach ($blocks as $blockType => $typeBlocks){
+
+            $countElements = sizeof($typeBlocks);
+
+            for ($i = 0; $i < $countElements; $i++) {
+
+                if(!in_array($typeBlocks[$i]['tree_type'], $noLoadBlockTypes)){
+
+
+
+
+                    if ($typeBlocks[$i]['tree_type'] != 'block') {
+
+                        $block = $this->HMVCblock($typeBlocks[$i], $typeBlocks[$i]['tree_type']);
+
+                    } elseif (isset($typeBlocks[$i]['content']) && $typeBlocks[$i]['content']) {
+
+
+                        if( $typeBlocks[$i]['template'] == 'Без шаблона' ){/// @todo когда сделаю селекты, переделать на нормальный латинский токен
+
+                            $block = $this->loadBlock( $typeBlocks[$i], false );
+
+                        }elseif(!$typeBlocks[$i]['template'] || $typeBlocks[$i]['template'] == 'Стандартный шаблон старшего модуля'){
+
+                            $block = $this->loadBlock($typeBlocks[$i], $blockType);
+
+
+                        }else{
+
+                            $block = $this->loadBlock($typeBlocks[$i], $typeBlocks[$i]['template']);
+
+                        }
+
+                    } elseif (!empty($typeBlocks[$i]['action'])) {
+
+                        $block = $this->HMVCblock($this->nodeItem, $typeBlocks[$i]['action']);
+
+                    }
+
+                    // $this->{'b_' . self::blockActionToMethod($typeBlocks[$i]['action'])}($typeBlocks[$i]);
+                    $rBlocks[$blockType][$i] = $block;
+
+                }
+            }
+        }
+
+
+
+        ///Дозагрузка блоков в контент
                                     
             foreach ($nodes as $nodeKey => $node){
-                
-				
-				
-				
+
 					if ($node['tree_type'] == 'block') {
 					
                         if (!empty($node['action'])) {
-                     
-					
-					 
+
 							$block = $this->HMVCblock($this->nodeItem, $node['action']);
                             
 						} 

@@ -1,0 +1,17 @@
+<div class="main-menu">
+    <?php foreach ($this->menu as $v) { ?>
+    <a href="#">
+        <div class="item
+        <?php
+            if ($v['first'] === 'да'){
+                echo "first";
+            }
+        ?>">
+            <div class="<?= $v['class'] ?>"></div>
+            <div class="separ"></div>
+            <span><?= $v['name'] ?></span>
+            <div class="menu-arr"></div>
+        </div>
+    </a>
+    <?php } ?>
+</div>
