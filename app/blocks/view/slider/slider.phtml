@@ -1,11 +1,29 @@
-<div class="content">
+<div class="slider-content">
+    <div class="left-shadow left-shadow-top"></div>
+    <div class="left-shadow left-shadow-bottom"></div>
+    <div class="right-shadow right-shadow-top"></div>
+    <div class="right-shadow right-shadow-bottom"></div>
 
-    <div class="slider-wrapper theme-default">
-        <div id="slider" class="nivoSlider">
-            <?php foreach ($this->slider as $v) {?>
+    <div class='slider'>
+        <div class='slidewrapper' data-current=0>
+            <?php foreach ($this->slider as $v) { ?>
+            <div class='slide'>
                 <a href="">
-                    <img src="/upload/<?= $v['image']?>" width="900px" />
+                    <img src="/upload/<?= $v['img'] ?>" width="900px" height="300px"/>
+                    <div class="slide-info">
+                        <p class="info-title"><?= $v['title'] ?></p>
+                        <p class="text"><?= $v['text'] ?></p>
+                    </div>
                 </a>
-            <?php }?>
+            </div>
+            <?php } ?>
+        </div>
+
+        <div class="prev_slide">
+            <div class="prev_slide-img"></div>
+        </div>
+        <div class="next_slide">
+            <div class="next_slide-img"></div>
         </div>
     </div>
+</div>

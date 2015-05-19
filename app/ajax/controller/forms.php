@@ -93,5 +93,4 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
 
         $this->putJSON($jsonReturn);
     }
-
 }

@@ -80,64 +80,23 @@
         <div class="clear"></div>
     </div>
 
+    <div id="top-slider"></div>
+<?php
 
-    <div class="slider-content">
-        <div class="left-shadow left-shadow-top"></div>
-        <div class="left-shadow left-shadow-bottom"></div>
-        <div class="right-shadow right-shadow-top"></div>
-        <div class="right-shadow right-shadow-bottom"></div>
+if (isset($this->content['middle']) && $this->content['middle']) { ?>
 
-        <div class='slider'>
-            <div class='slidewrapper' data-current=0>
-                <div class='slide'>
-                    <a href="">
-                        <img src="/upload/1.png" width="900px" height="300px"/>
-                        <div class="slide-info">
-                            <p class="info-title">Текст</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                        </div>
-                    </a>
-                </div>
-                <div class='slide'>
-                    <a href="">
-                        <img src="/upload/2.jpg" width="900px" height="300px" />
-                        <div class="slide-info">
-                            <p class="info-title">Текст</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                        </div>
-                    </a>
-                </div>
-                <div class='slide'>
-                    <a href="">
-                        <img src="/upload/3.png" width="900px" height="300px"/>
-                        <div class="slide-info">
-                            <p class="info-title">Текст</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                            <p class="text">text text</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+    <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
 
-            <div class="prev_slide">
-                <div class="prev_slide-img"></div>
-            </div>
-            <div class="next_slide">
-                <div class="next_slide-img"></div>
-            </div>
-        </div>
-    </div>
+        <?=$this->content['middle'][$i]?>
 
+            <?php } ?>
+
+        <?php } ?>
 
     <div class="left-part">
         <a href="#">
             <div class="favorites">
-                <div class="favorites-img favorites-img-active"></div>
+                <div class="favorites-img"></div>
 
                 <div class="fav-label">
                     <p class="fav-title">Избранное</p>
@@ -429,23 +388,11 @@
         <div class="clear"></div>
     </div>
 </div>
-<?php
-
-if (isset($this->content['middle']) && $this->content['middle']) { ?>
-
-    <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
-
-        <?=$this->content['middle'][$i]?>
-
-            <?php } ?>
-
-        <?php } ?>
 
 
 <script type="text/javascript" src="/usr/js/jquery.form.js"></script>
 <script type="text/javascript" src="/usr/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="/usr/js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="/usr/js/slider.js"></script>
 <script type="text/javascript" src="/usr/js/slides.js"></script>
 
 

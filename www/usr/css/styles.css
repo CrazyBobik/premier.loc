@@ -51,7 +51,9 @@
 .button-label a {
     text-decoration: none;
     font-size: 20px;
-    color: #00ffff;
+    color: #1b5fb3;
+    position: relative;
+    left: -15px;
 }
 
 .enter {

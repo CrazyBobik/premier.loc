@@ -11,7 +11,7 @@ class Blocks_Controller_Slider extends K_Controller_Blocks {
 	
 	public function indexAction() {
 
-        $this->view->slider = K_TreeQuery::crt("/slider/")->type(array('image'))->go();
+        $this->view->slider = K_TreeQuery::crt("/slider/")->type(array('slideritem'))->go();
 
 		$this->render('slider'); 
  	}

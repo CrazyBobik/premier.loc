@@ -150,7 +150,7 @@ $(function(){
 					worked = element.dispatchEvent(e);
 				} else if (element.fireEvent) { // ie
 					worked = element.fireEvent("onmousedown");
-}
+        }
 			//   $('#otherlangs').trigger('mousedown')
 			   
 			 }, 
@@ -160,5 +160,58 @@ $(function(){
 			   
 			 }
 	);
-		 
+    // слайдер в шапке на главной
+    if($('#top-slider').length>0){
+        $.ajax({
+            url:'/ajax/loadslider/topslider',
+            dataType: "html",
+            success: function(data){
+                $('#top-slider').html(data);
+                setTimeout(function(){
+
+                    var slideWidth=900;
+                    var sliderTimer;
+
+                    $(function(){
+
+                        $('.slidewrapper').width($('.slidewrapper').children().size()*slideWidth);
+                        sliderTimer = setInterval(nextSlide, 3000);
+
+                        $('.slider').hover(function(){
+                            clearInterval(sliderTimer);
+                        },function(){
+                            sliderTimer = setInterval(nextSlide, 3000);
+                        });
+
+                        $('.next_slide').on('click', function(){
+                            nextSlide();
+                        });
+
+                        $('.prev_slide').on('click', function(){
+                            prevSlide();
+                        });
+                    });
+
+                    var nextSlide = function(){
+                        var currentSlide=parseInt($('.slidewrapper').data('current'));
+                        currentSlide++;
+                        if(currentSlide>=$('.slidewrapper').children().size()){
+                            currentSlide=0;
+                        }
+                        $('.slidewrapper').animate({left: -currentSlide*slideWidth},900).data('current',currentSlide);
+                    };
+                    var prevSlide = function (){
+                        var currentSlide=parseInt($('.slidewrapper').data('current'));
+                        currentSlide--;
+                        if(currentSlide<0){
+                            currentSlide=$('.slidewrapper').children().size()-1;
+                        }
+                        $('.slidewrapper').animate({left: -currentSlide*slideWidth},900).data('current',currentSlide);
+                    };
+                },500);
+            }
+        });
+    }
+
+
 });
