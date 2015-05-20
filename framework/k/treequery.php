@@ -739,5 +739,28 @@ class K_TreeQuery {
             
  		return $rAllResults;
 	}
+
+    public static function getNodes($idArray, $type)
+    {
+        $result = array();
+        $data   = array();
+        $rData  = array();
+
+        $query = new K_Db_Query();
+        $result = $query->q('SELECT `tr`.*, `ty`.* FROM `tree` AS `tr` LEFT JOIN `type_'.$type.'` AS `ty` ON tr.tree_id  = ty.type_'.$type.'_id  WHERE tr.tree_id in ('.implode(',',$idArray).')');
+
+//        var_dump('SELECT `tr`.*, `ty`.* FROM `tree` AS `tr` LEFT JOIN `type_'.$type.'` AS `ty` ON tr.tree_id  = ty.type_'.$type.'_id  WHERE tr.tree_id in ('.implode(',',$idArray).')');
+
+        for ($i = 0; $i < sizeof($result); $i++)
+        {
+            $data[$i] = $result[$i]->toArray();
+
+            foreach ($data[$i] as $typeField => $typeValue)
+            {
+                $rData[$i][str_replace('type_'.$type.'_', '', $typeField)] = $typeValue;
+            }
+        }
+        return $rData;
+    }
 }
 ?>
