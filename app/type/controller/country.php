@@ -4,7 +4,7 @@ class Type_Controller_Country extends Controller {
 
 	/* {public} */
 	public $layout = 'layout';
-	public static $allowedChildren = array('Все');
+	public static $allowedChildren = array('region');
 	public static $allowedParents = array('Все');
 	public static $fields = array('0', '1', '2', '3');
 

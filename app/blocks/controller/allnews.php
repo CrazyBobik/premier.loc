@@ -13,7 +13,7 @@ class Blocks_Controller_Allnews  extends K_Controller_Blocks {
         $news = K_Registry::read('news');
 
         // how many records per page
-        $size = 1;
+        $size = 10;
 
         // we get the current page from $_GET
         if (isset($_GET['page'])){

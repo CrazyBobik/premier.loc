@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed-version-format>0.1</feed-version-format>
+<realties>
+<realty>
+    <id>1234</id>
+    <country>Болгария</country>
+    <region>Регион</region>
+    <city>Город</city>
+    <market>Первичный</market>
+    <type>Квартира</type>
+    <all_sq>60</all_sq>
+    <living_sq>40</living_sq>
+    <kithcen_sq>20</kithcen_sq>
+    <price>60000</price>
+    <cur>Доллар</cur>
+    <to_sea>2</to_sea>
+    <to_airport>5</to_airport>
+    <rooms>2</rooms>
+    <floor>3</floor>
+    <all_floors>10</all_floors>
+    <garden>Да</garden>
+    <bath_rooms>1</bath_rooms>
+    <state>под ремонт</state>
+    <description><![CDATA[Описание без html
+        тегов и спецсимволов]]></description>
+    <photos>
+        <url>http://example.com/images/image1.jpg</url>
+        <url>http://example.com/images/image2.jpg</url>
+        <url>http://example.com/images/image3.jpg</url>
+    </photos>
+</realty>
+
+<realty>
+    ........
+</realty>
+........
+........
+........
+<realty>
+    ........
+</realty>
+</realties>
