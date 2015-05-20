@@ -233,6 +233,22 @@
     right: 6px;
     top: 6px;
 }
+.main-menu .sub-menu {
+    display: none;
+}
+.main-menu .sub-menu .sub-item:hover {
+    background: linear-gradient(to top, #6f3c70, #307ad5);
+}
+.main-menu .sub-menu .sub-item {
+    background-color: #2163b7;
+    width: 210px;
+    height: 30px;
+    padding: 5px 0 0 20px;
+    margin: 5px 0 0 5px;
+}
+.main-menu .sub-menu .sub-item span {
+    color: #fff;
+}
 
 .left-part .main-site {
     float: left;

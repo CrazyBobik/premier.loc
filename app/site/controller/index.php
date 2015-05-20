@@ -273,18 +273,18 @@ class Site_Controller_Index extends Controller {
 								
 
         //********************  Статья отдельно.
-//			$articleNode = K_TreeQuery::gOne('/articles'.$link, 'articles');
-//
-//			if(!empty($articleNode)){
-//
-//				// если есть статья с такой ссылкой переходим на неё
-//				K_Registry::write('articles', $articleNode);
-//				K_Seo::set($articleNode);
-//
-//				return $link = '/system-pages/articles/';
-//
-//			}
-//
+        $articleNode = K_TreeQuery::gOne('/articles'.$link, 'articles');
+
+        if(!empty($articleNode)){
+
+            // если есть статья с такой ссылкой переходим на неё
+            K_Registry::write('articles', $articleNode);
+            K_Seo::set($articleNode);
+
+            return $link = '/system-pages/articles/';
+
+        }
+
         //********************  Новость отдельно.
         $newsNode = K_TreeQuery::gOne('/news/news-out'.$link, 'news');
 
@@ -307,10 +307,10 @@ class Site_Controller_Index extends Controller {
 
         //********************  Все новости.
         if ($link === "/ru/news-out/"){
-            $news = "/news/news-out/";
+            $news = "/news/news-out/ru/";
             K_Registry::write('news', $news);
 
-            return $link = '/pages/ru/news/ru/';
+            return $link = '/pages/ru/news/';
         } elseif ($link === "/ru/news-in/"){
             $news = "/news/news-compain/ru/";
             K_Registry::write('news', $news);

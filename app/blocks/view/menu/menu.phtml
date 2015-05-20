@@ -1,17 +1,38 @@
 <div class="main-menu">
     <?php foreach ($this->menu as $v) { ?>
-    <a href="#">
-        <div class="item
-        <?php
-            if ($v['first'] === 'да'){
+        <div class="menu-list">
+            <div class="item
+        <?php if ($v['first'] === 'да'){
                 echo "first";
-            }
-        ?>">
-            <div class="<?= $v['class'] ?>"></div>
-            <div class="separ"></div>
-            <span><?= $v['name'] ?></span>
-            <div class="menu-arr"></div>
+            } ?>">
+                <a href="#">
+                    <div class="<?= $v['class'] ?>"></div>
+                    <div class="separ"></div>
+                    <span><?= $v['name'] ?></span>
+                </a>
+                <div rel="<?= $v['tree_name'] ?>" class="menu-arr hide-control-open"></div>
+            </div>
+
+            <div class="sub-menu">
+                <a href="#">
+                    <div class="sub-item">
+                        <span>Ссылка 1</span>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="sub-item">
+                        <span>Ссылка 2</span>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="sub-item">
+                        <span>Ссылка 3</span>
+                    </div>
+                </a>
+
+            </div>
         </div>
-    </a>
     <?php } ?>
 </div>
