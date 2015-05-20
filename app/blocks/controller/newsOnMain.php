@@ -26,9 +26,23 @@ class Blocks_Controller_NewsOnMain  extends K_Controller_Blocks {
 //        list($this->view->news, $this->view->countItems)  = K_TreeQuery::crt("/news/ru/")->type(array('news'))->limitLikeSql($pag_info['start'], $pag_info['onPage'])->go(array('childs'=>true,'count'=>true,'orderby'=>'DESC'));
 //        $this->view->pages = ceil($this->view->countItems/$pag_info['onPage']);
 
-        $this->view->newsOut = K_TreeQuery::crt("/news/news-out/")->type(array("news"))->go();
-        $this->view->newsIn = K_TreeQuery::crt("/news/news-compain/")->type(array("news"))->go();
+        $this->view->newsId = K_TreeQuery::gOne('/settings/newsOnMain/', 'newsonmain');
 
+
+        $idsArray[]=$this->view->newsId['znew1'];
+        $idsArray[]=$this->view->newsId['znew2'];
+        $idsArray[]=$this->view->newsId['znew3'];
+
+        $this->view->newsz = K_TreeQuery::getNodes($idsArray, 'news');
+
+        $idsArray = array();
+        $idsArray[]=$this->view->newsId['knew1'];
+        $idsArray[]=$this->view->newsId['knew2'];
+        $idsArray[]=$this->view->newsId['knew3'];
+
+        $this->view->newsk = K_TreeQuery::getNodes($idsArray, 'news');
+
+        $this->render('newsOnMain');
 		$this->render('newsOnMain'); 
  	}
   
