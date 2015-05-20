@@ -1,27 +1,9 @@
-<div class="content">
+<div class="one-news">
 
-    <div class="block">
+    <div class="image"><img src="/upload/<?= $this->novostroy['image'] ?>"/></div>
+    <div class="title"><?= $this->novostroy['name_build'] ?></div>
+    <div class="clear"></div>
 
-        <div class="p_cont">
-            <h1>Новострой</h1>
-            <script type="text/javascript" src="//yandex.st/share/share.js"
-                    charset="utf-8"></script>
-            <div class="yashare-auto-init" data-yashareL10n="ru"
-                 data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,surfingbird">
-            </div>
+    <div class="intro"><?= $this->novostroy['fullText'] ?></div>
 
-        </div>
-
-        <div class="list">
-            <div class="item">
-                <div class="image"><img src="/upload/<?= $this->novostroy['image'] ?>" width="150px" /></div>
-                <div class="descr">
-                    <div class="title"><?= $this->novostroy['name_build'] ?></div>
-                    <div class="intro"><?= $this->novostroy['fullText'] ?></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    <div class="kran_cont"></div>
 </div>

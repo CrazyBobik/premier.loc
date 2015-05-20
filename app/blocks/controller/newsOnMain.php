@@ -42,7 +42,6 @@ class Blocks_Controller_NewsOnMain  extends K_Controller_Blocks {
 
         $this->view->newsk = K_TreeQuery::getNodes($idsArray, 'news');
 
-        $this->render('newsOnMain');
 		$this->render('newsOnMain'); 
  	}
   

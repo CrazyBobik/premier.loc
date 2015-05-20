@@ -1,0 +1,19 @@
+<div class="one-news">
+
+    <h1>Новости</h1>
+
+    <?php foreach ($this->news as $v) { ?>
+        <div class="image"><img src="/upload/<?= $v['image'] ?>" width="150px" /></div>
+        <div class="title"><?= $v['head'] ?></div>
+        <div class="clear"></div>
+
+        <div class="intro"><?= $v['text'] ?></div>
+        <div class="more"><a href="<?= $v['tree_name'] ?>">Читать далее...</a></div>
+    <?php } ?>
+
+    <?
+    $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
+
+    echo K_paginator::simple($this -> page, $this -> pages, $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
+    ?>
+</div>

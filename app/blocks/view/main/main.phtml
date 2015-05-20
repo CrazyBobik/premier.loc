@@ -10,7 +10,12 @@
         foreach($first['tree_childs'] as $country) { ?>
             <ul>
                 <?php foreach($country['tree_childs'] as $v) { ?>
-                    <li><a href="#"><img src="/upload/<?= $v['image']?>"><h4><?= $v['name_build'] ?></h4></a></li>
+                    <li>
+                        <a href="<?= $v['tree_name'] ?>">
+                            <img src="/upload/<?= $v['image']?>">
+                            <h4><?= $v['name_build'] ?></h4>
+                        </a>
+                    </li>
                 <?php }?>
             </ul>
         <?php } ?>
@@ -31,7 +36,12 @@
         foreach($first['tree_childs'] as $country) { ?>
             <ul>
                 <?php foreach($country['tree_childs'] as $v) { ?>
-                    <li><a href="#"><img src="/upload/<?= $v['image']?>"><h4><?= $v['name_build'] ?></h4></a></li>
+                    <li>
+                        <a href="<?= $v['tree_name'] ?>">
+                            <img src="/upload/<?= $v['image']?>">
+                            <h4><?= $v['name_build'] ?></h4>
+                        </a>
+                    </li>
                 <?php }?>
             </ul>
         <?php } ?>

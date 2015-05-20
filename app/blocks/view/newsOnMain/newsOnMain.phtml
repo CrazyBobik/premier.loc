@@ -7,12 +7,13 @@
 
     <div class="bottom-left-part">
         <div class="bottom-news-head">
-            <a href="#">
+            <a href="/news-out">
                 <span>Новости зарубежной недвижимости</span>
             </a>
         </div>
-            <?php foreach ($this->newsz as $news) { ?>
-                <a href="#">
+            <?php foreach ($this->newsz as $news) {?>
+
+                <a href="<?= $news['tree_name'] ?>">
                     <div class="bottom-news">
                         <img src="/upload/<?= $news['image'] ?>">
                         <div class="bottom-news-text">
@@ -27,12 +28,12 @@
 
     <div class="bottom-right-part">
         <div class="bottom-news-head">
-            <a href="#">
+            <a href="/news-in">
                 <span>Новости компании</span>
             </a>
         </div>
             <?php foreach ($this->newsk as $news) { ?>
-                <a href="#">
+                <a href="<?= $news['tree_name'] ?>">
                     <div class="bottom-news">
                         <img src="/upload/<?= $news['image'] ?>">
                         <div class="bottom-news-text">
