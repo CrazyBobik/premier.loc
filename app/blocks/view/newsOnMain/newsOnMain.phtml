@@ -7,33 +7,41 @@
 
     <div class="bottom-left-part">
         <div class="bottom-news-head">
-            <span>Новости зарубежной недвижимости</span>
+            <a href="#">
+                <span>Новости зарубежной недвижимости</span>
+            </a>
         </div>
             <?php foreach ($this->newsz as $news) { ?>
-                <div class="bottom-news">
-                    <img src="/upload/<?= $news['image'] ?>">
-                    <div class="bottom-news-text">
-                        <p><?= $news['text'] ?></p>
+                <a href="#">
+                    <div class="bottom-news">
+                        <img src="/upload/<?= $news['image'] ?>">
+                        <div class="bottom-news-text">
+                            <p><?= $news['text'] ?></p>
+                        </div>
+                        <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
+                        <div class="clear"></div>
                     </div>
-                    <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
-                    <div class="clear"></div>
-                </div>
+                </a>
             <?php }?>
     </div>
 
     <div class="bottom-right-part">
         <div class="bottom-news-head">
-            <span>Новости компании</span>
+            <a href="#">
+                <span>Новости компании</span>
+            </a>
         </div>
             <?php foreach ($this->newsk as $news) { ?>
-                <div class="bottom-news">
-                    <img src="/upload/<?= $news['image'] ?>">
-                    <div class="bottom-news-text">
-                        <p><?= $news['text'] ?></p>
+                <a href="#">
+                    <div class="bottom-news">
+                        <img src="/upload/<?= $news['image'] ?>">
+                        <div class="bottom-news-text">
+                            <p><?= $news['text'] ?></p>
+                        </div>
+                        <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
+                        <div class="clear"></div>
                     </div>
-                    <p class="news-date"><?= date("j-m-Y", strtotime($news['date'])) ?></p>
-                    <div class="clear"></div>
-                </div>
+                </a>
             <?php }?>
     </div>
 

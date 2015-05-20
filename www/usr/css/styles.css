@@ -48,7 +48,7 @@
     position: relative;
     padding: 20px 5px 0 0;
 }
-.button-label a {
+.button-label span {
     text-decoration: none;
     font-size: 20px;
     color: #1b5fb3;
@@ -327,6 +327,8 @@
 }
 .bottom-part .bottom-news-head {
     text-align: center;
+}
+.bottom-part .bottom-news-head span {
     font-size: 20px;
     color: #1b5fb3;
     border-radius: 5px;
