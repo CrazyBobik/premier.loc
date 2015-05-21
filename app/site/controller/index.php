@@ -272,7 +272,9 @@ class Site_Controller_Index extends Controller {
         //var_dump(allconfig::$contentLang.'/searche/');
 
         //********************  Страна отдельно.
-        $countryNode = K_TreeQuery::gOne('/allcountry'.$link);
+
+
+        $countryNode = K_TreeQuery::gOne('/allcountry/'.K_Url::URLLangLink($link));
 
         if(!empty($countryNode)){
 

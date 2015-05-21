@@ -8,6 +8,7 @@
     <city>Город</city>
     <market>Первичный</market>
     <type>Квартира</type>
+    <area>70</area>
     <all_sq>60</all_sq>
     <living_sq>40</living_sq>
     <kithcen_sq>20</kithcen_sq>

@@ -301,23 +301,29 @@ class AllConfig{
 		static public $sr = array();
 				
 		static public $site;
-        
-        // разные установки, которые используют дефайны              
-        static function set(){
+
+    public $cur_ru = array("Долар"=>1, "Евро"=>2, "Гривна"=>3, "Рубль"=>4);
+    public $cur_en = array("USD"=>1, "EUR"=>2, "UAN"=>3, "RUB"=>4);
+    public $market_ru = array("Первичный"=>1, "Вторичный"=>2);
+    public $garden_ru = array("нет", "да");
+    public $state_ru = array("Под ремонт"=>1, "От строителей"=>2, "С ремонтом"=>3, "Жилое"=>4);
+
+    // разные установки, которые используют дефайны
+    static function set(){
             
-           	  self::$adsImgPaths['temp'] = TEMP_PATH.'/';
-			  self::$adsImgPaths['original'] = BACKUP_PATH."/original_images/";
-          	  self::$adsImgPaths['big'] =  WWW_PATH."/img/apartment/";
-          	  self::$adsImgPaths['thumb'] = self::$adsImgPaths['big'].'/thumb/';
-              self::$adsImgPaths['watermark'] = WWW_PATH."/img/system/w.png";
-              self::$adsImgPaths['watermarkImport'] = WWW_PATH."/img/system/w_i.png";
+        self::$adsImgPaths['temp'] = TEMP_PATH.'/';
+        self::$adsImgPaths['original'] = BACKUP_PATH."/original_images/";
+        self::$adsImgPaths['big'] =  WWW_PATH."/img/apartment/";
+        self::$adsImgPaths['thumb'] = self::$adsImgPaths['big'].'/thumb/';
+        self::$adsImgPaths['watermark'] = WWW_PATH."/img/system/w.png";
+        self::$adsImgPaths['watermarkImport'] = WWW_PATH."/img/system/w_i.png";
 			  
-			  self::$site = 'http://'.self::$domen;
+        self::$site = 'http://'.self::$domen;
            
-        }             
- 
+    }
+
 }
-  
+
 AllConfig::set();  
   
 ?>

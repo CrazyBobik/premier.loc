@@ -24,6 +24,13 @@ class AdminConfig{
                                     'title'=>'Перезагрузить',
                                     'href'=>'javascript:window.location.reload();',
                                    
+								),
+            'Обекты' => array(
+									'class'=>'iAll',
+                                    'icon'=>'/adm/img/admin/home2.png',
+                                    'title'=>'Обекты',
+                                    'href'=>'/admin/objects'
+
 								)
     
         );  
@@ -31,21 +38,35 @@ class AdminConfig{
         public static $menuTabs = array(
                                  
        
-				  'Персонал' =>array('controllers'=>array('acl'),
+            'Персонал' =>array('controllers'=>array('acl'),
 												   
-													 'menuTabs'=>array(   
+                'menuTabs'=>array(
 													 
-																	 'acl'=> array('title'=>'Сотрудники',
-																					 'href'=>'/admin/acl'
-																					 ),
+                    'acl'=> array('title'=>'Сотрудники',
+                        'href'=>'/admin/acl'
+                    ),
 																					 
-																	 'roles'=> array('title'=>'Заявки на смену пакета',
-																					  'href'=>'/admin/acl/roles'
-																					 ),
+                    'roles'=> array('title'=>'Заявки на смену пакета',
+                        'href'=>'/admin/acl/roles'
+                    ),
 													
-																  )
-													),				
-									
+                )
+            ),
+            'Обекты' =>array('controllers'=>array('objects', 'import'),
+
+                'menuTabs'=>array(
+
+                    'acl'=> array('title'=>'Обекты',
+                        'href'=>'/admin/acl'
+                    ),
+
+                    'import'=> array('title'=>'Выгрузки',
+                        'href'=>'/admin/import'
+                    ),
+
+                )
+            ),
+
         );
         
         // config настроек 

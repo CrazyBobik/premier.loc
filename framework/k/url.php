@@ -32,6 +32,20 @@ class K_Url {
 
     }
 
+    public static function URLLangLink($link){
+
+        $link = trim($link, '/');
+
+        $arr = explode('/', $link);
+        foreach ($arr as $v){
+            if ($v != AllConfig::$contentLang){
+                $array[] = $v;
+            }
+        }
+
+        return implode('/', $array)."/";
+    }
+
     // Get K_Url saved instance for this url
     public static function get() {
 

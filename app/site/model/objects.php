@@ -1,7 +1,7 @@
 <?php
 
 class Site_Model_Objects extends Model {
-    var $name = 'ads';
+    var $name = 'objects';
     var $primary = 'id';
 
     var $arrayCountry = array();
