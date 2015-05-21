@@ -272,7 +272,7 @@ class Site_Controller_Index extends Controller {
         //var_dump(allconfig::$contentLang.'/searche/');
 
         //********************  Страна отдельно.
-        $countryNode = K_TreeQuery::gOne('/allcountry'.$link, 'country');
+        $countryNode = K_TreeQuery::gOne('/allcountry'.$link);
 
         if(!empty($countryNode)){
 
@@ -283,6 +283,18 @@ class Site_Controller_Index extends Controller {
             return $link = '/system-pages/onecountry/';
 
         }
+//        //********************  Регион отдельно.
+//        $regionNode = K_TreeQuery::gOne('/allcountry'.$link, 'region');
+//
+//        if(!empty($regionNode)){
+//
+//            // если есть страна с такой ссылкой переходим на неё
+//            K_Registry::write('region', $regionNode);
+//            K_Seo::set($regionNode);
+//
+//            return $link = '/system-pages/oneregion/';
+//
+//        }
 
 
         //********************  Статья отдельно.

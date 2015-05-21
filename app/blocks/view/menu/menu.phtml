@@ -8,7 +8,7 @@
             if (K_Url::get()->expPath[0] == $v['tree_name']){
                 echo "active";
             } ?>">
-                <a href="<?= $v['tree_name'] ?>">
+                <a href="/<?= $v['tree_name'] ?>">
                     <div class="<?= $v['class'] ?>"></div>
                     <div class="separ"></div>
                     <span><?= $v['name'] ?></span>
@@ -20,24 +20,13 @@
             </div>
 
             <div class="sub-menu">
-                <a href="#">
-                    <div class="sub-item">
-                        <span>Ссылка 1</span>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="sub-item">
-                        <span>Ссылка 2</span>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="sub-item">
-                        <span>Ссылка 3</span>
-                    </div>
-                </a>
-
+                <?php foreach ($this->regionForCountry[$v['tree_name']] as $reg) {?>
+                    <a href="/<?= $v['tree_name'] ?>/<?= $reg['tree_name'] ?>">
+                        <div class="sub-item">
+                            <span><?= $reg['tree_title'] ?></span>
+                        </div>
+                    </a>
+                <?php } ?>
             </div>
         </div>
     <?php } ?>
