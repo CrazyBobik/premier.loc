@@ -3,14 +3,20 @@
         <div class="menu-list">
             <div class="item
         <?php if ($v['first'] === 'да'){
-                echo "first";
+                echo "first ";
+            }
+            if (K_Url::get()->expPath[0] == $v['tree_name']){
+                echo "active";
             } ?>">
                 <a href="<?= $v['tree_name'] ?>">
                     <div class="<?= $v['class'] ?>"></div>
                     <div class="separ"></div>
                     <span><?= $v['name'] ?></span>
+                    <div class="link-area"></div>
                 </a>
-                <div rel="<?= $v['tree_name'] ?>" class="menu-arr hide-control-open"></div>
+                <?php if ($v['tree_name'] !== 'service') { ?>
+                    <div rel="<?= $v['tree_name'] ?>" class="menu-arr hide-control-open"></div>
+                <?php } ?>
             </div>
 
             <div class="sub-menu">

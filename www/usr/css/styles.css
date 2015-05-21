@@ -228,6 +228,10 @@
     color: #fff;
     font-size: 18px;
 }
+.main-menu .link-area {
+    width: 175px;
+    height: 35px;
+}
 .main-menu .item .menu-arr {
     position: absolute;
     right: 6px;
@@ -235,13 +239,14 @@
 }
 .main-menu .sub-menu {
     display: none;
+    margin-left: 15px;
 }
 .main-menu .sub-menu .sub-item:hover {
     background: linear-gradient(to top, #6f3c70, #307ad5);
 }
 .main-menu .sub-menu .sub-item {
     background-color: #2163b7;
-    width: 210px;
+    width: 195px;
     height: 30px;
     padding: 5px 0 0 20px;
     margin: 5px 0 0 5px;
