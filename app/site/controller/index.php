@@ -270,7 +270,20 @@ class Site_Controller_Index extends Controller {
 
     private function preRouter($link){
         //var_dump(allconfig::$contentLang.'/searche/');
-								
+
+        //********************  Страна отдельно.
+        $countryNode = K_TreeQuery::gOne('/allcountry'.$link, 'country');
+
+        if(!empty($countryNode)){
+
+            // если есть страна с такой ссылкой переходим на неё
+            K_Registry::write('country', $countryNode);
+            K_Seo::set($countryNode);
+
+            return $link = '/system-pages/onecountry/';
+
+        }
+
 
         //********************  Статья отдельно.
         $articleNode = K_TreeQuery::gOne('/articles'.$link, 'articles');

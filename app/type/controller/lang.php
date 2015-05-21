@@ -4,7 +4,7 @@ class Type_Controller_Lang extends Controller {
 
 	/* {public} */
 	public $layout = 'layout';
-	public static $allowedChildren = array('articles','news','novostoy');
+	public static $allowedChildren = array('articles','news','novostoy','country');
 	public static $allowedParents = array('Все');
 	public static $fields = array('0');
 

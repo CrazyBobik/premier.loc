@@ -376,6 +376,19 @@
     text-align: right;
 }
 
+.country-block {
+    max-width: 750px;
+    padding-left: 25px;
+}
+.country-block .country-head {
+    background: linear-gradient(to top, #286ec5, #b9d5f5);
+    color: #fff;
+    font-size: 20px;
+}
+.country-block .country-text{
+    text-align: left;
+}
+
 .paginator{width:100%;color:#00f;font-family: "Calibri";font-size:18px;margin:40px 0 10px 0;}
 .paginator p {float:right;}
 .paginator ul{list-style:none;margin:0;padding:0; float: right}

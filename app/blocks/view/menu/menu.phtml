@@ -1,11 +1,11 @@
 <div class="main-menu">
-    <?php foreach ($this->menu as $v) { ?>
+    <?php foreach ($this->menu as $v) {?>
         <div class="menu-list">
             <div class="item
         <?php if ($v['first'] === 'да'){
                 echo "first";
             } ?>">
-                <a href="#">
+                <a href="<?= $v['tree_name'] ?>">
                     <div class="<?= $v['class'] ?>"></div>
                     <div class="separ"></div>
                     <span><?= $v['name'] ?></span>
