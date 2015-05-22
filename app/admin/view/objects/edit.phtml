@@ -53,8 +53,24 @@
                                             	           	Регион
                                             			</td>
                                             			<td>
-<select type="text" name="category" id="objects_category"  class="objects-field"  >
-<?=K_jformhelper::options($this->selects->category, $this->item["category"])?></select>
+<select type="text" name="region" id="objects_region"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->region, $this->item["region"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Город
+                                            			</td>
+                                            			<td>
+<select type="text" name="city" id="objects_city"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->city, $this->item["city"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Рынок
+                                            			</td>
+                                            			<td>
+<select type="text" name="market" id="objects_market"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->market, $this->item["market"])?></select>
 </td>
                                                 		</tr><tr>
                                             			<td>
@@ -66,10 +82,96 @@
 </td>
                                                 		</tr><tr>
                                             			<td>
-                                            	           	площадь
+                                            	           	Пл.
                                             			</td>
                                             			<td>
 <input type="text" name="area" id="objects_area" value="<?=strip_tags(htmlspecialchars($this->item["area"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	вся жилая пл.
+                                            			</td>
+                                            			<td>
+<input type="text" name="all_sq" id="objects_all_sq" value="<?=strip_tags(htmlspecialchars($this->item["all_sq"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	жилая пл.
+                                            			</td>
+                                            			<td>
+<input type="text" name="living_sq" id="objects_living_sq" value="<?=strip_tags(htmlspecialchars($this->item["living_sq"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	пл. кухни
+                                            			</td>
+                                            			<td>
+<input type="text" name="kithcen_sq" id="objects_kithcen_sq" value="<?=strip_tags(htmlspecialchars($this->item["kithcen_sq"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	цена
+                                            			</td>
+                                            			<td>
+<input type="text" name="price" id="objects_price" value="<?=strip_tags(htmlspecialchars($this->item["price"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Валюта
+                                            			</td>
+                                            			<td>
+<select type="text" name="cur" id="objects_cur"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->cur, $this->item["cur"])?></select>
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	раст. до моря
+                                            			</td>
+                                            			<td>
+<input type="text" name="to_sea" id="objects_to_sea" value="<?=strip_tags(htmlspecialchars($this->item["to_sea"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	раст. до аероп.
+                                            			</td>
+                                            			<td>
+<input type="text" name="to_airport" id="objects_to_airport" value="<?=strip_tags(htmlspecialchars($this->item["to_airport"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	кол. ком.
+                                            			</td>
+                                            			<td>
+<input type="text" name="rooms" id="objects_rooms" value="<?=strip_tags(htmlspecialchars($this->item["rooms"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	этаж
+                                            			</td>
+                                            			<td>
+<input type="text" name="floor" id="objects_floor" value="<?=strip_tags(htmlspecialchars($this->item["floor"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	кол. этажей
+                                            			</td>
+                                            			<td>
+<input type="text" name="all_floors" id="objects_all_floors" value="<?=strip_tags(htmlspecialchars($this->item["all_floors"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	кол. ваных ком.
+                                            			</td>
+                                            			<td>
+<input type="text" name="bath_rooms" id="objects_bath_rooms" value="<?=strip_tags(htmlspecialchars($this->item["bath_rooms"]))?>" class="objects-field " />
+</td>
+                                                		</tr><tr>
+                                            			<td>
+                                            	           	Состояние
+                                            			</td>
+                                            			<td>
+<select type="text" name="state" id="objects_state"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->state, $this->item["state"])?></select>
 </td>
                                                 		</tr>      
     

@@ -14,32 +14,106 @@
 		<table cellspacing="0" cellpadding="0" border="0" class="display">
 			<thead>
 				<tr>
-                     <th class="ui-state-default" rowspan="1" colspan="1" style="width:40px;">
+                     <th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
 <div class="DataTables_sort_wrapper">ID<br/>
-<input type="text" name="id" <?=isset($_GET['id'])? 'value="'.strip_tags(htmlspecialchars($_GET["id"])).'"' : ""?>  id="objects_id" style="width:40px;" class="objects-field" />
+<input type="text" name="id" <?=isset($_GET['id'])? 'value="'.strip_tags(htmlspecialchars($_GET["id"])).'"' : ""?>  id="objects_id" style="width:30px;" class="objects-field" />
 </div>
 </th>
-<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:70px;">
 <div class="DataTables_sort_wrapper">Страна<br/>
-<select type="text" name="country" id="objects_country" style="width:80px;"  class="objects-field"  >
+<select type="text" name="country" id="objects_country" style="width:70px;"  class="objects-field"  >
 <?=K_jformhelper::options($this->selects->country, isset($_GET['country'])? strip_tags(htmlspecialchars($_GET["country"])) : null)?></select>
 </div>
 </th>
-<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:70px;">
 <div class="DataTables_sort_wrapper">Регион<br/>
-<select type="text" name="category" id="objects_category" style="width:80px;"  class="objects-field"  >
-<?=K_jformhelper::options($this->selects->category, isset($_GET['category'])? strip_tags(htmlspecialchars($_GET["category"])) : null)?></select>
+<select type="text" name="region" id="objects_region" style="width:70px;"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->region, isset($_GET['region'])? strip_tags(htmlspecialchars($_GET["region"])) : null)?></select>
 </div>
 </th>
-<th class="ui-state-default" rowspan="1" colspan="1" style="width:80px;">
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:70px;">
+<div class="DataTables_sort_wrapper">Город<br/>
+<select type="text" name="city" id="objects_city" style="width:70px;"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->city, isset($_GET['city'])? strip_tags(htmlspecialchars($_GET["city"])) : null)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Рынок<br/>
+<select type="text" name="market" id="objects_market" style="width:50px;"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->market, isset($_GET['market'])? strip_tags(htmlspecialchars($_GET["market"])) : null)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:60px;">
 <div class="DataTables_sort_wrapper">Тип<br/>
-<select type="text" name="type" id="objects_type" style="width:80px;"  class="objects-field"  >
+<select type="text" name="type" id="objects_type" style="width:60px;"  class="objects-field"  >
 <?=K_jformhelper::options($this->selects->type, isset($_GET['type'])? strip_tags(htmlspecialchars($_GET["type"])) : null)?></select>
 </div>
 </th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">Пл.<br/>
+<input type="text" name="area" <?=isset($_GET['area'])? 'value="'.strip_tags(htmlspecialchars($_GET["area"])).'"' : ""?>  id="objects_area" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">вся жилая пл.<br/>
+<input type="text" name="all_sq" <?=isset($_GET['all_sq'])? 'value="'.strip_tags(htmlspecialchars($_GET["all_sq"])).'"' : ""?>  id="objects_all_sq" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">жилая пл.<br/>
+<input type="text" name="living_sq" <?=isset($_GET['living_sq'])? 'value="'.strip_tags(htmlspecialchars($_GET["living_sq"])).'"' : ""?>  id="objects_living_sq" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">пл. кухни<br/>
+<input type="text" name="kithcen_sq" <?=isset($_GET['kithcen_sq'])? 'value="'.strip_tags(htmlspecialchars($_GET["kithcen_sq"])).'"' : ""?>  id="objects_kithcen_sq" style="width:30px;" class="objects-field" />
+</div>
+</th>
 <th class="ui-state-default" rowspan="1" colspan="1" style="width:40px;">
-<div class="DataTables_sort_wrapper">площадь<br/>
-<input type="text" name="area" <?=isset($_GET['area'])? 'value="'.strip_tags(htmlspecialchars($_GET["area"])).'"' : ""?>  id="objects_area" style="width:40px;" class="objects-field" />
+<div class="DataTables_sort_wrapper">цена<br/>
+<input type="text" name="price" <?=isset($_GET['price'])? 'value="'.strip_tags(htmlspecialchars($_GET["price"])).'"' : ""?>  id="objects_price" style="width:40px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:50px;">
+<div class="DataTables_sort_wrapper">Валюта<br/>
+<select type="text" name="cur" id="objects_cur" style="width:50px;"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->cur, isset($_GET['cur'])? strip_tags(htmlspecialchars($_GET["cur"])) : null)?></select>
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">раст. до моря<br/>
+<input type="text" name="to_sea" <?=isset($_GET['to_sea'])? 'value="'.strip_tags(htmlspecialchars($_GET["to_sea"])).'"' : ""?>  id="objects_to_sea" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">раст. до аероп.<br/>
+<input type="text" name="to_airport" <?=isset($_GET['to_airport'])? 'value="'.strip_tags(htmlspecialchars($_GET["to_airport"])).'"' : ""?>  id="objects_to_airport" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">кол. ком.<br/>
+<input type="text" name="rooms" <?=isset($_GET['rooms'])? 'value="'.strip_tags(htmlspecialchars($_GET["rooms"])).'"' : ""?>  id="objects_rooms" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">этаж<br/>
+<input type="text" name="floor" <?=isset($_GET['floor'])? 'value="'.strip_tags(htmlspecialchars($_GET["floor"])).'"' : ""?>  id="objects_floor" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">кол. этажей<br/>
+<input type="text" name="all_floors" <?=isset($_GET['all_floors'])? 'value="'.strip_tags(htmlspecialchars($_GET["all_floors"])).'"' : ""?>  id="objects_all_floors" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:30px;">
+<div class="DataTables_sort_wrapper">кол. ваных ком.<br/>
+<input type="text" name="bath_rooms" <?=isset($_GET['bath_rooms'])? 'value="'.strip_tags(htmlspecialchars($_GET["bath_rooms"])).'"' : ""?>  id="objects_bath_rooms" style="width:30px;" class="objects-field" />
+</div>
+</th>
+<th class="ui-state-default" rowspan="1" colspan="1" style="width:70px;">
+<div class="DataTables_sort_wrapper">Состояние<br/>
+<select type="text" name="state" id="objects_state" style="width:70px;"  class="objects-field"  >
+<?=K_jformhelper::options($this->selects->state, isset($_GET['state'])? strip_tags(htmlspecialchars($_GET["state"])) : null)?></select>
 </div>
 </th>
 
@@ -145,7 +219,7 @@ $(function(){
    			"renderItems": function(items) {
     				var itemsHtml = [];
     				$.each(items, function(id, v) {
-    				itemsHtml.push('<tr class="objects_row" id="objects-row-' + v.id + '" rel="' + v.idname + '" ><td>' + v.id + '</td><td>' + v.country + '</td><td>' + v.category + '</td><td>' + v.type + '</td><td>' + v.area + '</td><td><a href="javascript:void(0);" data-id="' + v.id + ' "class="crud-edit"></a><a title="Удалить запись" href="javascript:void(0);" data-id="' + v.id + '" class="crud-delete"></a></td></tr>');
+    				itemsHtml.push('<tr class="objects_row" id="objects-row-' + v.id + '" rel="' + v.idname + '" ><td>' + v.id + '</td><td>' + v.country + '</td><td>' + v.region + '</td><td>' + v.city + '</td><td>' + v.market + '</td><td>' + v.type + '</td><td>' + v.area + '</td><td>' + v.all_sq + '</td><td>' + v.living_sq + '</td><td>' + v.kithcen_sq + '</td><td>' + v.price + '</td><td>' + v.cur + '</td><td>' + v.to_sea + '</td><td>' + v.to_airport + '</td><td>' + v.rooms + '</td><td>' + v.floor + '</td><td>' + v.all_floors + '</td><td>' + v.bath_rooms + '</td><td>' + v.state + '</td><td><a href="javascript:void(0);" data-id="' + v.id + ' "class="crud-edit"></a><a title="Удалить запись" href="javascript:void(0);" data-id="' + v.id + '" class="crud-delete"></a></td></tr>');
                     });
                     
     				return itemsHtml;

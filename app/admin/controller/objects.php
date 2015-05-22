@@ -18,7 +18,21 @@ $res = k_q::query("SELECT * FROM type_region");
 foreach( $res as $t){
 $options[$t['type_region_name']] = array('value'=>$t['type_region_id']);
 };
-$this->view->selects->category = $options;
+$this->view->selects->region = $options;
+
+$options = array('Любой'=>array('value'=>''));
+$res = k_q::query("SELECT * FROM type_city");
+foreach( $res as $t){
+$options[$t['type_city_name']] = array('value'=>$t['type_city_id']);
+};
+$this->view->selects->city = $options;
+
+$options = array('Любой'=>array('value'=>''));
+$res = k_q::query("SELECT * FROM market");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->market = $options;
 
 $options = array('Любой'=>array('value'=>''));
 $res = k_q::query("SELECT * FROM type_typejk");
@@ -26,6 +40,20 @@ foreach( $res as $t){
 $options[$t['type_typejk_name']] = array('value'=>$t['type_typejk_id']);
 };
 $this->view->selects->type = $options;
+
+$options = array('Любой'=>array('value'=>''));
+$res = k_q::query("SELECT * FROM currency");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->cur = $options;
+
+$options = array('Любой'=>array('value'=>''));
+$res = k_q::query("SELECT * FROM state");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->state = $options;
 
 
         //[%/selects-index%]
@@ -68,12 +96,14 @@ $this->view->selects->type = $options;
         //[%/preaperPage%]
         
         //[%loadQuery%]
-	    $itemsRes = K_q::query("SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name category,jk.type_typejk_id type,a.area area  FROM `objects` a
-
+	    $itemsRes = K_q::query("SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name region,ci.type_city_name city,m.name market,jk.type_typejk_name type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,cu.name cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,s.name state  FROM `objects` a
                       LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
                       LEFT JOIN type_region r ON r.type_region_id=a.region
                       LEFT JOIN type_city ci ON ci.type_city_id=a.city
                       LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
+                      LEFT JOIN market m ON m.id=a.market
+                      LEFT JOIN currency cu ON cu.id=a.cur
+                      LEFT JOIN state s ON s.id=a.state
                       $where ORDER BY id ASC LIMIT $start, $onPage");
         //[%/loadQuery%] 
                 
@@ -87,9 +117,23 @@ $this->view->selects->type = $options;
                 $itemRow=array();
 $itemRow["id"] = strip_tags(htmlspecialchars($v["id"]));
 $itemRow["country"] = strip_tags(htmlspecialchars($v["country"]));
-$itemRow["category"] = strip_tags(htmlspecialchars($v["category"]));
+$itemRow["region"] = strip_tags(htmlspecialchars($v["region"]));
+$itemRow["city"] = strip_tags(htmlspecialchars($v["city"]));
+$itemRow["market"] = strip_tags(htmlspecialchars($v["market"]));
 $itemRow["type"] = strip_tags(htmlspecialchars($v["type"]));
 $itemRow["area"] = strip_tags(htmlspecialchars($v["area"]));
+$itemRow["all_sq"] = strip_tags(htmlspecialchars($v["all_sq"]));
+$itemRow["living_sq"] = strip_tags(htmlspecialchars($v["living_sq"]));
+$itemRow["kithcen_sq"] = strip_tags(htmlspecialchars($v["kithcen_sq"]));
+$itemRow["price"] = strip_tags(htmlspecialchars($v["price"]));
+$itemRow["cur"] = strip_tags(htmlspecialchars($v["cur"]));
+$itemRow["to_sea"] = strip_tags(htmlspecialchars($v["to_sea"]));
+$itemRow["to_airport"] = strip_tags(htmlspecialchars($v["to_airport"]));
+$itemRow["rooms"] = strip_tags(htmlspecialchars($v["rooms"]));
+$itemRow["floor"] = strip_tags(htmlspecialchars($v["floor"]));
+$itemRow["all_floors"] = strip_tags(htmlspecialchars($v["all_floors"]));
+$itemRow["bath_rooms"] = strip_tags(htmlspecialchars($v["bath_rooms"]));
+$itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
 
             //[%loadArray%]
             
@@ -117,15 +161,13 @@ $itemRow["area"] = strip_tags(htmlspecialchars($v["area"]));
         
         // LEFT JOIN obj_rooms r ON r.id = o.id
         
-        $this->view->item= $itemModel->row("SELECT a.id id,a.country country,a.category category,a.type type,a.area area  FROM `objects` a
-                                                                
-                                                                                     LEFT JOIN users u ON u.id=a.user
-                                                                                     LEFT JOIN transac t ON t.id=a.type_transac
-                                                                                     LEFT JOIN ads_sec c ON c.id=a.category
-                                                                                     LEFT JOIN ads_subsec p ON p.id=a.type_propert
-                                                                                     LEFT JOIN region r ON r.id=a.region
-                                                                                     
-                                                                                WHERE a.id = $id");
+        $this->view->item= $itemModel->row("SELECT a.id id,a.country country,a.region region,a.city city,a.market market,a.type type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,a.cur cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,a.state state  FROM `objects` a
+                      LEFT JOIN users u ON u.id=a.user
+                      LEFT JOIN transac t ON t.id=a.type_transac
+                      LEFT JOIN ads_sec c ON c.id=a.category
+                      LEFT JOIN ads_subsec p ON p.id=a.type_propert
+                      LEFT JOIN region r ON r.id=a.region
+                      WHERE a.id = $id");
                                     
         //[%selects-edit%]                            
             $options = array();
@@ -140,7 +182,21 @@ $res = k_q::query("SELECT * FROM type_region");
 foreach( $res as $t){
 $options[$t['type_region_name']] = array('value'=>$t['type_region_id']);
 };
-$this->view->selects->category = $options;
+$this->view->selects->region = $options;
+
+$options = array();
+$res = k_q::query("SELECT * FROM type_city");
+foreach( $res as $t){
+$options[$t['type_city_name']] = array('value'=>$t['type_city_id']);
+};
+$this->view->selects->city = $options;
+
+$options = array();
+$res = k_q::query("SELECT * FROM market");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->market = $options;
 
 $options = array();
 $res = k_q::query("SELECT * FROM type_typejk");
@@ -148,6 +204,20 @@ foreach( $res as $t){
 $options[$t['type_typejk_name']] = array('value'=>$t['type_typejk_id']);
 };
 $this->view->selects->type = $options;
+
+$options = array();
+$res = k_q::query("SELECT * FROM currency");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->cur = $options;
+
+$options = array();
+$res = k_q::query("SELECT * FROM state");
+foreach( $res as $t){
+$options[$t['name']] = array('value'=>$t['id']);
+};
+$this->view->selects->state = $options;
 
      
         //[%selects-edit%]

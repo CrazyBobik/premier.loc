@@ -114,199 +114,193 @@ class AllConfig{
          * makes them an extremely powerful and flexible way to generate internal links.
          */
                
-        static public $routes = array(
-                                        'sitemap'=> array(
-                                                          'url'=> 'sitemap.xml',
+    static public $routes = array(
+        'sitemap'=> array(
+            'url'=> 'sitemap.xml',
     													
-                                                          'valids'=>array(
-                                                                        'controller'=>'.*',
-                                                                        'action'=>'.*',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'.*',
+                'action'=>'.*',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'site',
-                                                                           'controller'=>'system',
-                                                                           'action'=>'sitemap',
-                                                                           'params'=>array()
+            'defaults'=>array(
+                'module'=>'site',
+                'controller'=>'system',
+                'action'=>'sitemap',
+                'params'=>array()
                                                                          
-                                                          ),
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all'// validonly, none
+            'get'=>'all',// validonly, none
+            'params'=>'all'// validonly, none
                                                       
-                                                     ), 
-                                         'debugoutput'=> array(
-                                                          'url'=>'debugoutput',
+        ),
+        'debugoutput'=> array(
+            'url'=>'debugoutput',
     													
-                                                          'valids'=>array(
-                                                                        'controller'=>'.*',
-                                                                        'action'=>'.*',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'.*',
+                'action'=>'.*',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'site',
-                                                                           'controller'=>'system',
-                                                                           'action'=>'debugoutput',
-                                                                           'params'=>array()
+            'defaults'=>array(
+                'module'=>'site',
+                'controller'=>'system',
+                'action'=>'debugoutput',
+                'params'=>array()
                                                                          
-                                                          ),
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all'// validonly, none
+            'get'=>'all',// validonly, none
+            'params'=>'all'// validonly, none
                                                       
-                                                     ),
-                                	   'ajax'=> array(
-                                                          'url'=> 'ajax/<controller>/<action>(/<params>)',
+        ),
+        'ajax'=> array(
+            'url'=> 'ajax/<controller>/<action>(/<params>)',
     													
-                                                          'valids'=>array(
-                                                                        'controller'=>'[a-z0-9_-]+',
-                                                                        'action'=>'[a-z0-9_-]+',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'[a-z0-9_-]+',
+                'action'=>'[a-z0-9_-]+',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'ajax',
-                                                                           'controller'=>'index',
-                                                                           'action'=>'index',
-                                                                           'params'=>array()
+            'defaults'=>array(
+                'module'=>'ajax',
+                'controller'=>'index',
+                'action'=>'index',
+                'params'=>array()
                                                                          
-                                                          ),
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all'// validonly, none
+            'get'=>'all',// validonly, none
+            'params'=>'all'// validonly, none
                                                       
-                                                     ),   
+        ),
                                                      
-                                       'api' => array(
-                                                         'url'=> 'api/<controller>/<action>(/<params>)',
+        'api' => array(
+            'url'=> 'api/<controller>/<action>(/<params>)',
     													
-                                                         'valids'=>array(
-                                                                        'controller'=>'[a-z0-9_-]+',
-                                                                        'action'=>'[a-z0-9_-]+',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'[a-z0-9_-]+',
+                'action'=>'[a-z0-9_-]+',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'api',
-                                                                           'controller'=>'index',
-                                                                           'action'=>'index',
-                                                                           'params'=>array()
+            'defaults'=>array(
+                'module'=>'api',
+                'controller'=>'index',
+                'action'=>'index',
+                'params'=>array()
                                                                          
-                                                           ),
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all'// validonly, none
+            'get'=>'all',// validonly, none
+            'params'=>'all'// validonly, none
                                                     
-													),
+        ),
                                       
-                                       'admin' => array(  'url'=> 'admin(/<controller>(/<action>(/<params>)))',
+        'admin' => array(  'url'=> 'admin(/<controller>(/<action>(/<params>)))',
     													
-                                                          'valids'=>array(
-                                                                        'controller'=>'[a-z0-9_-]+',
-                                                                        'action'=>'[a-z0-9_-]+',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'[a-z0-9_-]+',
+                'action'=>'[a-z0-9_-]+',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'admin',
-                                                                           'controller'=>'index',
-                                                                           'action'=>'index',
-                                                                           'params'=>array()
+            'defaults'=>array(
+                'module'=>'admin',
+                'controller'=>'index',
+                'action'=>'index',
+                'params'=>array()
                                                                          
-                                                          ),
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all',// validonly, none
-                                                          'loadconfigs'=>array('admin_config'),
-                                                          'loaderError'=>'/admin/404/', // редирект если в лоудере ошибка 
-                                                          'debug'=>true // дебаг для кждой записи в роутере
-                                                         ),
+            'get'=>'all',// validonly, none
+            'params'=>'all',// validonly, none
+            'loadconfigs'=>array('admin_config'),
+            'loaderError'=>'/admin/404/', // редирект если в лоудере ошибка
+            'debug'=>true // дебаг для кждой записи в роутере
+        ),
                                                          
-                                      'dev' => array(  'url'=> 'dev(/<controller>(/<action>(/<params>)))',
+        'dev' => array(  'url'=> 'dev(/<controller>(/<action>(/<params>)))',
     													
-                                                          'valids'=>array(
-                                                                        'controller'=>'[a-z0-9_-]+',
-                                                                        'action'=>'[a-z0-9_-]+',
-                                                                        'params'=>'.*',
-                                                          ),
+            'valids'=>array(
+                'controller'=>'[a-z0-9_-]+',
+                'action'=>'[a-z0-9_-]+',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array(                                                      
-                                                                           'module'=>'dev',
-                                                                           'controller'=>'index',
-                                                                           'action'=>'index',
-                                                                           'params'=>array()
-                                                          ),
+            'defaults'=>array(
+                'module'=>'dev',
+                'controller'=>'index',
+                'action'=>'index',
+                'params'=>array()
+            ),
                                                           
-                                                          'get'=>'all',// validonly, none
-                                                          'params'=>'all',// validonly, none
-                                                          'loadconfigs'=>array('domplizinfo'),
-                                                          'loaderError'=>'/admin/404/',
-                                                          'debug'=>true // дебаг для каждой записи в роутере
+            'get'=>'all',// validonly, none
+            'params'=>'all',// validonly, none
+            'loadconfigs'=>array('domplizinfo'),
+            'loaderError'=>'/admin/404/',
+            'debug'=>true // дебаг для каждой записи в роутере
                                                      
-                                                      ),                   
+        ),
                                                        
-                                       'treerouter'=> array('url'=>'<treeurl>',
+        'treerouter'=> array('url'=>'<treeurl>',
                                        
-    													    'valids'=>array('treeurl'=>'.*'
+            'valids'=>array('treeurl'=>'.*'
                                                             
-                                                             ),
+            ),
                                                              
-                                                            'defaults'=>array('module'=>'site',
-                                                                              'controller'=>'index',
-                                                                              'action'=>'page',
-                                                                              'params'=>array(),                                                                         
-                                                             ),
+            'defaults'=>array('module'=>'site',
+                'controller'=>'index',
+                'action'=>'page',
+                'params'=>array(),
+            ),
                                                              
-    											    	    'get'=>'all'// all, validonly, none  // валидация гет происходит внутри треероутера 
+            'get'=>'all'// all, validonly, none  // валидация гет происходит внутри треероутера
                                                            
-												            ),
+        ),
                                                     
-                                       'site'=> array(   'url'=>'(<controller>(/<action>(/<params>)))', // оставил для примера.
+        'site'=> array(   'url'=>'(<controller>(/<action>(/<params>)))', // оставил для примера.
                                        
-													     'valids'=>array('controller'=>'[a-z0-9_-]+',
-                                                                         'action'=>'[a-z0-9_-]+',
-                                                                         'params'=>'.*',
-                                                          ),
+            'valids'=>array('controller'=>'[a-z0-9_-]+',
+                'action'=>'[a-z0-9_-]+',
+                'params'=>'.*',
+            ),
                                                           
-                                                          'defaults'=>array('module'=>'site',
-                                                                            'controller'=>'index',
-                                                                            'action'=>'index',
-                                                                            'params'=>array(),                                                                         
-                                                          ),
+            'defaults'=>array('module'=>'site',
+                'controller'=>'index',
+                'action'=>'index',
+                'params'=>array(),
+            ),
 											      
-                                                          //валедирование гет запроса
-                                                          'getvalids'=>array('site/index/index'=>'none',
-                                                                             'site/reg/index'=>'none',
-                                                                             'site/reg/restore'=>array('rl'=>array('len'=>32                                                                                                            
+            //валедирование гет запроса
+            'getvalids'=>array('site/index/index'=>'none',
+                'site/reg/index'=>'none',
+                'site/reg/restore'=>array('rl'=>array('len'=>32
                                                                              
-                                                                                                                   )
-                                                                                                       )
+                )
+                )
                                                                     
-                                                          ),
+            ),
                                                       
-                                                          'paramsFormat'=>array('/<key>:<value>/'), // '/<key>:<value>/' 
+            'paramsFormat'=>array('/<key>:<value>/'), // '/<key>:<value>/'
                                                             
-                                                          'paramsvalids'=>array(
+            'paramsvalids'=>array(
                                                                        
-                                                           ),
+            ),
                                                            
-                                                          'params'=>'all',// validonly, none
-													)              
-							      	);
+            'params'=>'all',// validonly, none
+        )
+    );
       
-      	static public $adsImgPaths = array();
+    static public $adsImgPaths = array();
 		
-		static public $sr = array();
+    static public $sr = array();
 				
-		static public $site;
-
-    public $cur_ru = array("Долар"=>1, "Евро"=>2, "Гривна"=>3, "Рубль"=>4);
-    public $cur_en = array("USD"=>1, "EUR"=>2, "UAN"=>3, "RUB"=>4);
-    public $market_ru = array("Первичный"=>1, "Вторичный"=>2);
-    public $garden_ru = array("нет", "да");
-    public $state_ru = array("Под ремонт"=>1, "От строителей"=>2, "С ремонтом"=>3, "Жилое"=>4);
+    static public $site;
 
     // разные установки, которые используют дефайны
     static function set(){
@@ -325,5 +319,5 @@ class AllConfig{
 }
 
 AllConfig::set();  
-  
+
 ?>
