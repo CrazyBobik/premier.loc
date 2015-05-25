@@ -370,8 +370,8 @@ class K_Tree{
         }
       $query=('SELECT *
 				FROM tree where tree_pid='.$pid.'
-				ORDER BY tree_lkey');  
-                
+				ORDER BY tree_lkey');
+
       $childs = $treeTable->fetchArray( $query );  
       
       return $childs;  

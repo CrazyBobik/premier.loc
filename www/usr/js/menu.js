@@ -50,20 +50,5 @@ $(document).ready(function(){
         });
 
         openLeftMenu(getCookie('leftmenuopenlink'));
-
-        $('body').on('click', '.hidden-link,.jlinkn', function () {
-            window.open($(this).data('link'));
-            return false;
-        });
-
-        $('body').on('click', '.hidden-link-this', function () {
-            window.location.href = $(this).data('link');
-            return false;
-        });
-
-        $('body').on('click', '.hidden-link-toplink,.hidden-link-blink,.jlink', function () {
-            window.location.href = $(this).data('link');
-            return false;
-        });
     });
 });

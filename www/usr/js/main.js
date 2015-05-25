@@ -148,4 +148,37 @@ $(function(){
     $("#slider-doc").slides({
         responsive: true
     });
+
+    $(".show-form").click(function(){$(".form").slideToggle(1000)});
+
+    function selectLoad(a, selId, params, checkOpt) {
+        var items = [];
+        $(selId).empty();
+        if ($(a).find(':selected').attr('treeid')) {
+            $.post('/ajax/forms/loadChilds', 'field=' + params + '&treeid=' + $(a).find(':selected').attr('treeid'), function (data) {
+                items.push('<option value="">Все</option>');
+                $.each(data, function (k, v) {
+                    var cheked = '';
+                    if (v.value == checkOpt) {
+                        cheked = 'selected=\"selected\"';
+                    }
+                    items.push('<option treeid=\"' + k + '\" value=\"' + v.value + '\" ' + cheked + ' > ' + v.title + '</option>');
+                });
+                $(selId).html(items.join(''));
+                $(selId).removeAttr('disabled');
+            }, 'json');
+        } else {
+            items.push('<option value="">Все</option>');
+            $(selId).html(items.join(''));
+            $(selId).attr('disabled','disabled');
+            if (!$('#country').find(':selected').attr('treeid')) {
+                $('#city').html(items.join('')).attr('disabled','disabled');
+            }
+        }
+    }
+
+
+    $('#country').on('change',function(){selectLoad(this,'#region','id','')});
+    $('#region').on('change',function(){selectLoad(this,'#city','id','')});
+
 });

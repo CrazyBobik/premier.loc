@@ -1,0 +1,34 @@
+<div class="country-block">
+    <div class="obj-list">
+        <?php foreach ($this->fav as $v) { ?>
+            <div class="obj-item">
+
+                <div class="item-photo">
+                    <a href="#">
+                        <img src="/upload/<?= $v[''] ?>" width="100" height="100">
+                    </a>
+                </div>
+
+                <div class="item-info">
+                    <div class="item-name"><?= $v[''] ?></div>
+
+                    <div class="item-position">
+                        <?= $v['country'] ?> / <?= $v['region']; ?> <br> <?= $v['city'] ?>
+                    </div>
+
+                    <div class="item-area">
+                        Общая площадь: <span><?= $v['area']; ?> м²</span>
+                    </div>
+
+                    <div class="item-price">
+                        Цена: <span><?= $v['price'] ?> <?= $v['cur'] ?></span>
+                    </div>
+
+                    <span class="flink jlinkn more" data-link="/object-31318">Подробнее...</span>
+                    <div class="fix"></div>
+                    <button type="button" data-id="<?= $v['id'] ?>" class="favorit-btn favorit-btn-add">В избраное</button>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>

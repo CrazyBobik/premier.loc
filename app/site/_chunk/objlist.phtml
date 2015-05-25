@@ -1,0 +1,28 @@
+<div class="obj-item">
+
+    <div class="item-photo">
+        <a href="#">
+            <img src="/upload/<?= $row[''] ?>" width="100" height="100">
+        </a>
+    </div>
+
+    <div class="item-info">
+        <div class="item-name"><?= $row[''] ?></div>
+
+        <div class="item-position">
+            <?= $row['country'] ?> / <?= $row['region']; ?> <br> <?= $row['city'] ?>
+        </div>
+
+        <div class="item-area">
+            Общая площадь: <span><?= $row['area']; ?> м²</span>
+        </div>
+
+        <div class="item-price">
+            Цена: <span><?= $row['price'] ?> <?= $row['cur'] ?></span>
+        </div>
+
+        <span class="flink jlinkn more" data-link="/object-31318">Подробнее...</span>
+        <div class="fix"></div>
+        <button type="button" data-id="<?= $row['id'] ?>" class="favorit-btn favorit-btn-add">В избраное</button>
+    </div>
+</div>

@@ -3,6 +3,7 @@
 // отдельный класс выделенный специально для функций данного сайта
 
 class spot {
+	
 	public static function getObject($ind) {
 		if (!$ind) {
 			return false;
@@ -40,6 +41,95 @@ class spot {
 		};
 	}
 
+	public static function seacrhe($query = array()) {
+        $html = '';
+
+        if (isset($query['id'])){
+            $row = K_Q::row('SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name region,ci.type_city_name city,m.name market,jk.type_typejk_name type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,cu.name cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,s.name state  FROM `objects` a
+                      LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
+                      LEFT JOIN type_region r ON r.type_region_id=a.region
+                      LEFT JOIN type_city ci ON ci.type_city_id=a.city
+                      LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
+                      LEFT JOIN market m ON m.id=a.market
+                      LEFT JOIN currency cu ON cu.id=a.cur
+                      LEFT JOIN state s ON s.id=a.state WHERE a.id='.$query['id']);
+            ob_start();
+
+            include(CHUNK_PATH.'/objlist.phtml');
+
+            $html .= ob_get_contents();
+            ob_end_clean();
+            return $html;
+        }
+		
+		$where = array();
+
+        if (isset($query['country'])) {
+            $where[] = 'a.country='.$query['country'];
+        }
+        if (isset($query['region'])) {
+            $where[] = 'a.region='.$query['region'];
+        }
+        if (isset($query['city'])){
+            $where[] = 'a.city='.$query['city'];
+        }
+        if (isset($query['type'])){
+            $where[] = 'a.type='.$query['type'];
+        }
+        if (isset($query['market'])){
+            $where[] = 'a.market='.$query['market'];
+        }
+        if (isset($query['sq'])){
+            $where[] = 'a.area<='.$query['sq'];
+        }
+        if (isset($query['rooms'])){
+            if ($query['rooms'] == 6) {
+                $where[] = 'a.rooms>5';
+            } else {
+                $where[] = 'a.rooms='.$query['rooms'];
+            }
+        }
+        if (isset($query['state'])){
+            $where[] = 'a.state='.$query['state'];
+        }
+        if (isset($query['price_from'])){
+            $where[] = 'a.price>='.$query['price_from'];
+        }
+        if (isset($query['price_to'])){
+            $where[] = 'a.price<='.$query['price_to'];
+        }
+
+        if (count($where) > 0){
+            $where = " WHERE ".implode(' AND ', $where);
+        } else {
+            $where = "";
+        }
+
+        $rows = K_Q::data('SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name region,ci.type_city_name city,m.name market,jk.type_typejk_name type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,cu.name cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,s.name state  FROM `objects` a
+                      LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
+                      LEFT JOIN type_region r ON r.type_region_id=a.region
+                      LEFT JOIN type_city ci ON ci.type_city_id=a.city
+                      LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
+                      LEFT JOIN market m ON m.id=a.market
+                      LEFT JOIN currency cu ON cu.id=a.cur
+                      LEFT JOIN state s ON s.id=a.state'.$where);
+
+        foreach($rows as $row){
+
+            ob_start();
+
+            include(CHUNK_PATH.'/objlist.phtml');
+
+            $html .= ob_get_contents();
+//     для рекламы       if ($k == 2) $html .= '<div style="margin: 5px auto; width: 720px;"><span data-link="http://zlkhome.com" class="jlinkn flink"><img src="/img/banners/34.jpg" width="720px" height="80px"></span></div>';
+            ob_end_clean();
+
+//     для рекламы       $k++;
+        }
+
+		return $html;
+	}	
+	
 	// функция генерирует маленькую картинку объекта для вывода на главной
 	public static function minipictd($id, $street, $rooms, $price, $photos, $descr, $id1c, $filial_info, $filial_pref, $dtype, $status, $orient, $type, $url) {
 

@@ -89,13 +89,13 @@
     <div id="top-slider"></div>
 
     <div class="left-part">
-        <a href="#">
+        <a href="/favorite">
             <div class="favorites">
                 <div class="favorites-img"></div>
 
                 <div class="fav-label">
                     <p class="fav-title">Избранное</p>
-                    <p class="fav-text">0 в списке</p>
+                    <p class="fav-text"><span id="count-fav"></span> в списке</p>
                 </div>
             </div>
         </a>
@@ -115,81 +115,79 @@
             </div>
 
             <div class="search-form">
-                <form action="#" method="post">
+                <form action="/resultsearch" method="post" id="search-form">
                     <div class="block">
-                        <select>
-                            <option>text1</option>
-                            <option>text1</option>
-                            <option>text1</option>
-                            <option>text1</option>
+                        <select id="country" name="country">
+                            <option value="">Страна</option>
+                            <?php $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
+                            foreach ($country as $v) {?>
+                                <option treeid="<?= $v['tree_id'] ?>" value="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
                         </select>
 
-                        <select>
-                            <option>text2</option>
-                            <option>text2</option>
-                            <option>text2</option>
-                            <option>text2</option>
+                        <select id="region" disabled="disabled" name="region">
+                            <option value="">Регион</option>
                         </select>
 
-                        <select>
-                            <option>text3</option>
-                            <option>text3</option>
-                            <option>text3</option>
-                            <option>text3</option>
+                        <select id="city" disabled="disabled" name="city">
+                            <option value="">Город</option>
                         </select>
 
-                        <select>
-                            <option>text4</option>
-                            <option>text4</option>
-                            <option>text4</option>
-                            <option>text4</option>
+                        <select name="type">
+                            <option value="">Тип</option>
+                            <?php $country = K_TreeQuery::crt('/type/')->type(array('typejk'))->go();
+                            foreach ($country as $v) {?>
+                                <option treeid="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="block">
-                        <select>
-                            <option>text5</option>
-                            <option>text5</option>
-                            <option>text5</option>
-                            <option>text5</option>
+                        <select name="market">
+                            <option value="">Рынок</option>
+                            <?php
+                            $market = K_Q::data('SELECT * FROM market');
+                            foreach ($market as $v) {?>
+                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
                         </select>
 
-                        <select>
-                            <option>text6</option>
-                            <option>text6</option>
-                            <option>text6</option>
-                            <option>text6</option>
+                        <select name="rooms">
+                            <option value="">Кол-во ком.</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">>5</option>
                         </select>
 
-                        <select>
-                            <option>text7</option>
-                            <option>text7</option>
-                            <option>text7</option>
-                            <option>text7</option>
-                        </select>
+                        <input type="text" placeholder="Площадь до" name="sq">
 
-                        <select>
-                            <option>text8</option>
-                            <option>text8</option>
-                            <option>text8</option>
-                            <option>text8</option>
+                        <select name="state">
+                            <option value="">Состояние</option>
+                            <?php
+                            $country = K_Q::data('SELECT * FROM state');
+                            foreach ($country as $v) {?>
+                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="block">
                         <span>ID</span>
-                        <input class="field-id" type="text">
+                        <input class="field-id" type="text" name="id">
 
                         <span>от</span>
-                        <input class="field-price" type="text">
+                        <input class="field-price" type="text" name="price_from">
 
                         <span class="label-price">Цена</span>
 
                         <span>до</span>
-                        <input class="field-price" type="text">
+                        <input class="field-price" type="text" name="price_to">
                     </div>
                 </form>
             </div>
 
-            <a href="#">
+            <a href="#"  onclick="document.getElementById('search-form').submit(); return false;">
                 <div class="find">
                     <span>НАЙТИ</span>
                 </div>
@@ -214,6 +212,6 @@
         <script type="text/javascript" src="/usr/js/misc.js"></script>
 
         <script type="text/javascript" src="/usr/js/slides.js"></script>
-        <script type="text/javascript" src="/usr/js/show-form.js"></script>
+        <script type="text/javascript" src="/usr/js/favorite.js"></script>
 </body>
 </html>

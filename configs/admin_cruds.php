@@ -502,12 +502,14 @@ $crudTables = array (
                       LEFT JOIN currency cu ON cu.id=<%alias%>.cur
                       LEFT JOIN state s ON s.id=<%alias%>.state
                       $where ORDER BY id ASC LIMIT $start, $onPage',
-    'editQuery' => 'SELECT <%fields%>  FROM `<%table%>` <%alias%>
-                      LEFT JOIN users u ON u.id=<%alias%>.user
-                      LEFT JOIN transac t ON t.id=<%alias%>.type_transac
-                      LEFT JOIN ads_sec c ON c.id=<%alias%>.category
-                      LEFT JOIN ads_subsec p ON p.id=<%alias%>.type_propert
-                      LEFT JOIN region r ON r.id=<%alias%>.region
+    'editQuery' => 'SELECT SQL_CALC_FOUND_ROWS <%fields%>  FROM `<%table%>` <%alias%>
+                      LEFT JOIN type_country cunt ON cunt.type_country_id=<%alias%>.country
+                      LEFT JOIN type_region r ON r.type_region_id=<%alias%>.region
+                      LEFT JOIN type_city ci ON ci.type_city_id=<%alias%>.city
+                      LEFT JOIN type_typejk jk ON jk.type_typejk_id=<%alias%>.type
+                      LEFT JOIN market m ON m.id=<%alias%>.market
+                      LEFT JOIN currency cu ON cu.id=<%alias%>.cur
+                      LEFT JOIN state s ON s.id=<%alias%>.state
                       WHERE <%prefixid%> = $id',
     'fields' => 
     array (
@@ -671,7 +673,7 @@ $crudTables = array (
       'to_airport' => 
       array (
         'width' => '30',
-        'lable' => 'раст. до аероп.',
+        'lable' => 'раст. до аэроп.',
         'set' => 'like',
         'type' => 'int',
       ),

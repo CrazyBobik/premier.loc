@@ -161,12 +161,14 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
         
         // LEFT JOIN obj_rooms r ON r.id = o.id
         
-        $this->view->item= $itemModel->row("SELECT a.id id,a.country country,a.region region,a.city city,a.market market,a.type type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,a.cur cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,a.state state  FROM `objects` a
-                      LEFT JOIN users u ON u.id=a.user
-                      LEFT JOIN transac t ON t.id=a.type_transac
-                      LEFT JOIN ads_sec c ON c.id=a.category
-                      LEFT JOIN ads_subsec p ON p.id=a.type_propert
-                      LEFT JOIN region r ON r.id=a.region
+        $this->view->item= $itemModel->row("SELECT SQL_CALC_FOUND_ROWS a.id id,a.country country,a.region region,a.city city,a.market market,a.type type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,a.cur cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,a.state state  FROM `objects` a
+                      LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
+                      LEFT JOIN type_region r ON r.type_region_id=a.region
+                      LEFT JOIN type_city ci ON ci.type_city_id=a.city
+                      LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
+                      LEFT JOIN market m ON m.id=a.market
+                      LEFT JOIN currency cu ON cu.id=a.cur
+                      LEFT JOIN state s ON s.id=a.state
                       WHERE a.id = $id");
                                     
         //[%selects-edit%]                            

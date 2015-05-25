@@ -145,7 +145,8 @@
     width: 220px;
     float: left;
 }
-.search-form select {
+.search-form select,
+.search-form input {
     width: 100px;
     height: 25px;
     margin: 3px;
@@ -406,6 +407,9 @@
     margin: 15px auto;
     display: none;
 }
+.form h1 {
+    color: #1b5fb3;
+}
 .form .label {
     padding: 0 15px 20px 0;
 }
@@ -439,6 +443,22 @@
 .warning {color: #9F6000;background-color: #FEEFB3;background-image: url('/usr/img/msg/warning.png')}
 .error {color: #D8000C;background-color: #FFBABA;background-image: url('/usr/img/msg/error.png')}
 .validation {color: #D63301;background-color: #FFCCBA;background-image: url('/usr/img/msg/validation.png')}
+
+.obj-list {
+    padding-top: 15px;
+}
+.obj-list .obj-item,
+.obj-list .obj-item .item-photo,
+.obj-list .obj-item .item-info {
+    float: left;
+}
+.obj-list .obj-item {
+    margin-right: 15px;
+}
+.obj-list .obj-item .item-info {
+    text-align: left;
+    margin-left: 15px;
+}
 
 .clear {
     clear: both

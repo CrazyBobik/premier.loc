@@ -87,4 +87,23 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
         $this->putJSON($jsonReturn);
     }
 
+    public function loadChildsAction() {
+        $nodeChilds = array();
+        $treeid=intval($_POST['treeid']);
+        if ($treeid) {
+            $nodeChilds = K_Tree::getChilds($treeid);
+        }
+
+        $field = 'tree_' . $_POST['field'];
+        $returnJSON = array();
+        foreach ($nodeChilds as $v) {
+            $id = $v['tree_id'];
+            $child['title'] = $v["tree_title"];
+            $child['value'] = $v[$field];
+
+            $returnJSON[$id] = $child;
+        }
+
+        $this->putJSON($returnJSON);
+    }
 }
