@@ -4,15 +4,13 @@ $(function(){
 
         var form = $(this);
 
-        var hideForm = function()
-        {
+        var hideForm = function(){
             showHide(form, 'hide');
-        }
+        };
 
-        var cleanForm = function()
-        {
+        var cleanForm = function(){
             form.trigger( 'reset' );
-        }
+        };
 
         $(form).ajaxSubmit(
             {
@@ -91,76 +89,7 @@ $(function(){
         return false;
     });
 
-    $( ".product-title" ).hover(
-	  function() {
-		$( this ).find('span').css('color','orange');
-		
-	  }, function() {
-		$( this ).find('.product-title-longtitle').css('color','#00BED2');
-		$( this ).find('.product-title-name').css('color','black');
-	  }
-	);
-	
-	$( ".top-menu-title" ).hover(
-	  function() {
-		$( this ).find('span').css('color','orange');
-		
-	  }, function() {
-		$( this ).find('.top-menu-title-longtitle').css('color','#00BED2');
-		$( this ).find('.top-menu-title-name').css('color','black');
-	  }
-	);
-	
-	if($('#silder-cont').length>0){   
-			
-			$('#silder-cont').bjqs({
-					height : 550,
-					width  : 750,
-					responsive : true,
-					animspeed : 4000,
-					animtype : 'slide', // accepts 'fade' or 'slide'
-					showcontrols  : false,
-					centercontrols : false,   
-					showmarkers  : false, 
-			});
-					
-	};
-	var other;
-	
-	$('#otherlangs').on('change',	
-			function () {
-				$(this).find('option:first-child').show();
-				
-				window.location.href = $(this).val();
-				
-			}
-	);
-	
-	$('#otherlangs').hover(
-	
-			 function () {
-			    //other = $(this).find('option:first-child');
-			 
-				$(this).find('option:first-child').hide();
-			 
-				var element = $("#otherlangs")[0], worked = false;
-				if (document.createEvent) { // all browsers
-					var e = document.createEvent("MouseEvents");
-					e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-					worked = element.dispatchEvent(e);
-				} else if (element.fireEvent) { // ie
-					worked = element.fireEvent("onmousedown");
-        }
-			//   $('#otherlangs').trigger('mousedown')
-			   
-			 }, 
-			 function () {
-			 
-			 
-			   
-			 }
-	);
-    // слайдер в шапке на главной
+   // слайдер в шапке на главной
     if($('#top-slider').length>0){
         $.ajax({
             url:'/ajax/loadslider/topslider',
@@ -213,5 +142,10 @@ $(function(){
         });
     }
 
+    $( '#mi-slider' ).catslider();
+    $( '#mi-slider2' ).catslider();
 
+    $("#slider-doc").slides({
+        responsive: true
+    });
 });

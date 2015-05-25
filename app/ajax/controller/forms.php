@@ -9,7 +9,6 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
         $dictionary = array(
 
             'name' => 'Ваше имя',
-            'lname' => 'Ваша фамилия',
             'phone' => 'Ваш телефон',
             'email' => 'E-mail',
             'mess' => 'Текст письма'
@@ -19,7 +18,6 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
         $data = array(
 
             'name' => substr(htmlspecialchars(trim($_POST['name'])), 0, 125),
-            'lname' => substr(htmlspecialchars(trim($_POST['lname'])), 0, 30),
             'phone' => substr(htmlspecialchars(trim($_POST['phone'])), 0, 30),
             'email' => substr(htmlspecialchars(trim($_POST['email'])), 0, 50),
             'mess' => substr(htmlspecialchars(trim($_POST['mess'])), 0, 10000)
@@ -33,10 +31,6 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
             'mess' => array('required' => true)
 
         );
-
-        if(!empty($data['lname'])){
-            $validate['lname'] = array('required' => true);
-        }
 
         if(!empty($data['email'])){
             $validate['email'] = array('required' => true,
@@ -57,7 +51,6 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
         }
 
         $mess = ' <b>Имя отправителя:</b>'.$data['name'].'<br />
-                  <b>Фамилия отправителя:</b>'.$data['lname'].'<br />
                   <b>Контактный телефон:</b>'.$data['phone'].'<br />
                   <b>Контактный email:</b>'.$data['email'].'<br />
                   <b>Сообшение:</b>'.$data['mess'].'<br /> ';
@@ -87,10 +80,11 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
 
             $jsonReturn['error'] = false;
             $jsonReturn['msg'] = "Сообщение успешно добавленно";
-          //  $jsonReturn['clean'] = true;
+            //  $jsonReturn['clean'] = true;
 
         }
 
         $this->putJSON($jsonReturn);
     }
+
 }

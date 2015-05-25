@@ -286,7 +286,7 @@
     color: #0030ff;
     margin: 15px;
 }
-.question a {
+.question button {
     border-radius: 10px;
     padding: 10px 45px;
     color: #ffffff;
@@ -400,6 +400,45 @@
 .paginator ul li{display:inline-block;margin:0 1px 0 5px;}
 .paginator ul li a{color:#00f;font-family: "Calibri";font-size:18px;line-height:20px;text-decoration:none;}
 .paginator ul li a.active{color:#009;}
+
+.form {
+    width: 350px;
+    margin: 15px auto;
+    display: none;
+}
+.form .label {
+    padding: 0 15px 20px 0;
+}
+.form .in-field {
+    border-radius: 5px;
+    height: 25px;
+}
+.form textarea {
+    height: 130px;
+    width: 220px;
+    border-radius: 5px;
+}
+.form .btn-sub {
+    width: 135px;
+    height: 35px;
+    border-radius: 10px;
+    background: linear-gradient(to top, #ba6c0f, #fac68f);
+    color: #fff;
+    font-size: 17px;
+}
+.form .btn-sub:hover {
+    background: linear-gradient(to top, #fac68f, #ba6c0f);
+}
+
+
+.info2, .info, .success, .warning, .error,.validation {border: 1px solid;margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat;background-position: 10px center;font-size: 16px}
+.info2 {color: #00529B;background-color: #BDE5F8;background-image: url('/usr/img/msg/info.png')}
+.info {color: #00529B;background-color: #BDE5F8;background-image: url('/usr/img/msg/info.png')}
+.success {color: #4F8A10;background-color: #DFF2BF;background-image: url('/usr/img/msg/success.png')}
+.successneverhide {color: #4F8A10}
+.warning {color: #9F6000;background-color: #FEEFB3;background-image: url('/usr/img/msg/warning.png')}
+.error {color: #D8000C;background-color: #FFBABA;background-image: url('/usr/img/msg/error.png')}
+.validation {color: #D63301;background-color: #FFCCBA;background-image: url('/usr/img/msg/validation.png')}
 
 .clear {
     clear: both
