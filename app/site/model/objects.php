@@ -41,9 +41,6 @@ class Site_Model_Objects extends Model {
             $this->type[] = $v['tree_id'];
         }
 
-        $this->cur = array(1, 2, 3, 4);
-        $this->garden = array(0, 1);
-
         $this->isInit = true;
     }
 

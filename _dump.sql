@@ -10,7 +10,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Дамп структуры для таблица novostroika.od.ua.admins
+-- Дамп структуры для таблица premier.loc.admins
 CREATE TABLE IF NOT EXISTS `admins` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
   `admin_login` varchar(40) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
   PRIMARY KEY (`admin_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.admins: 3 rows
+-- Дамп данных таблицы premier.loc.admins: 3 rows
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
 INSERT INTO `admins` (`admin_id`, `admin_login`, `admin_name`, `admin_password`, `admin_email`) VALUES
 	(102, 'manager', 'Менеджер', '4d7181d2395dadc5af9835ea220175c5', 'manager@ukr.net'),
@@ -29,7 +29,7 @@ INSERT INTO `admins` (`admin_id`, `admin_login`, `admin_name`, `admin_password`,
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.admins_roles
+-- Дамп структуры для таблица premier.loc.admins_roles
 CREATE TABLE IF NOT EXISTS `admins_roles` (
   `asrol_id` int(11) NOT NULL AUTO_INCREMENT,
   `asrol_admin_id` int(11) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `admins_roles` (
   KEY `usrol_role_id` (`asrol_role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.admins_roles: ~3 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.admins_roles: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `admins_roles` DISABLE KEYS */;
 INSERT INTO `admins_roles` (`asrol_id`, `asrol_admin_id`, `asrol_role_id`) VALUES
 	(26, 102, 48),
@@ -48,7 +48,139 @@ INSERT INTO `admins_roles` (`asrol_id`, `asrol_admin_id`, `asrol_role_id`) VALUE
 /*!40000 ALTER TABLE `admins_roles` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.privilege
+-- Дамп структуры для таблица premier.loc.currency
+CREATE TABLE IF NOT EXISTS `currency` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.currency: ~4 rows (приблизительно)
+/*!40000 ALTER TABLE `currency` DISABLE KEYS */;
+INSERT INTO `currency` (`id`, `name`) VALUES
+	(1, 'Долар'),
+	(2, 'Евро'),
+	(3, 'Гривна'),
+	(4, 'Рубль');
+/*!40000 ALTER TABLE `currency` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.import
+CREATE TABLE IF NOT EXISTS `import` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `import_url` varchar(255) NOT NULL,
+  `format` varchar(10) NOT NULL,
+  `limit` int(11) NOT NULL,
+  `infeed` int(11) NOT NULL,
+  `processed` int(11) NOT NULL,
+  `publicated` int(11) NOT NULL,
+  `updated` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  `work_now` tinyint(4) NOT NULL,
+  `errors` int(11) NOT NULL,
+  `proxy` varchar(50) NOT NULL,
+  `add_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `start_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+-- Дамп данных таблицы premier.loc.import: 18 rows
+/*!40000 ALTER TABLE `import` DISABLE KEYS */;
+INSERT INTO `import` (`id`, `import_url`, `format`, `limit`, `infeed`, `processed`, `publicated`, `updated`, `deleted`, `work_now`, `errors`, `proxy`, `add_date`, `start_date`) VALUES
+	(1, 'http://expert-realty.com.ua/export/dompliz/dompliz.xml', '', 0, 0, 0, 0, 0, 1748, 1, 0, '', '2014-12-31 22:00:00', '2015-05-10 22:15:02'),
+	(2, 'http://kpss.com.ua/vk/to_xml_pliz.php', '', 0, 4306, 4306, 14, 4292, 29, 0, 0, '', '2014-12-31 22:00:00', '2015-05-25 22:00:04'),
+	(3, 'http://citybase.in.ua/d/Kharkovdom.pliz.info.xml', '', 0, 2098, 2098, 0, 1909, 0, 0, 189, '', '2014-12-31 22:00:00', '2015-05-25 22:00:01'),
+	(4, 'http://dom-plus.com.ua/test/yandex.php?importer=pliz', 'est', 0, 4469, 4469, 31, 4380, 19, 0, 58, '', '2014-12-31 22:00:00', '2015-05-25 23:00:01'),
+	(5, 'http://www.lbereg.kiev.ua/xml_lun.xml', 'lun', 0, 1177, 1177, 67, 1003, 1, 0, 107, '', '2014-12-31 22:00:00', '2015-05-25 23:00:05'),
+	(6, 'http://www.alians.com.ua/realty_apartments_adress.xml', 'adress', 0, 3883, 3883, 24, 3859, 90, 0, 0, '', '2014-12-31 22:00:00', '2015-05-26 00:00:05'),
+	(7, 'http://infoservice.com.ua/administrator/objects.xml', 'lun', 0, 1264, 1264, 0, 1232, 0, 0, 32, '', '2014-12-31 22:00:00', '2015-05-26 00:00:05'),
+	(8, 'http://continents.com.ua/xml/estfeed.xml', 'est', 0, 1148, 1148, 0, 1099, 0, 0, 49, '', '2014-12-31 22:00:00', '2015-05-26 00:00:05'),
+	(9, 'http://dom.pliz.info/fonts/est.kievrealty.xml', 'est2', 0, 5079, 5079, 0, 5073, 0, 0, 6, '', '2014-12-31 22:00:00', '2015-05-26 01:00:02'),
+	(10, 'http://www.avers.in.ua/files/aversnew.xml', 'est', 0, 7030, 7030, 9, 6974, 28, 0, 47, '', '2015-02-26 22:00:00', '2015-05-26 01:00:02'),
+	(12, 'http://kvartira.zhitomir.ua/yandex.xml', 'est', 0, 950, 950, 5, 739, 1, 0, 206, '', '2015-03-10 22:00:00', '2015-05-26 01:30:01'),
+	(13, 'http://premier-odessa.com.ua/export/pliz/export_pliz.xml', 'premier', 0, 6000, 6000, 6, 5831, 6, 0, 163, '', '2015-03-24 22:00:00', '2015-05-26 02:00:01'),
+	(16, 'http://dneprdom.ua/xml_export_yandex_realty_feeds/d8cisj67pl0ll6io04b0/3doma_yandex_realty_feed.xml', 'est', 0, 583, 583, 13, 570, 2, 0, 0, '', '2015-03-29 22:00:00', '2015-05-26 02:00:04'),
+	(17, 'http://maximuszt.com/maximusFull.xml', 'ria', 0, 3481, 3481, 0, 3377, 0, 0, 104, '', '2015-04-09 22:00:00', '2015-05-26 02:00:04'),
+	(18, 'http://realestates.com.ua/yandex_market.xml?hash_tag=1212e13242ac6ac9383044fd10b3e20c', 'atlanta', 0, 0, 0, 0, 0, 0, 0, 0, '', '2015-04-15 22:00:00', '2015-05-26 02:00:04'),
+	(21, 'http://eurorealt.in.ua/yandexrealty', 'lun', 1550, 3868, 1550, 0, 0, 0, 0, 1550, '', '2015-05-21 21:00:00', '2015-05-22 14:39:28'),
+	(19, 'https://dl.dropboxusercontent.com/u/37042388/xan_Dom_Pliz_Yandex.xml', 'est', 0, 3199, 3199, 98, 2480, 246, 0, 621, '', '2015-05-12 21:00:00', '2015-05-26 02:00:01'),
+	(20, 'http://re.plektan.com/feeds/dompliz/hg2.xml', 'est', 1500, 1300, 1300, 0, 1300, 7, 0, 0, '', '2015-05-12 21:00:00', '2015-05-26 02:00:04');
+/*!40000 ALTER TABLE `import` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.market
+CREATE TABLE IF NOT EXISTS `market` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.market: ~2 rows (приблизительно)
+/*!40000 ALTER TABLE `market` DISABLE KEYS */;
+INSERT INTO `market` (`id`, `name`) VALUES
+	(1, 'Первичный'),
+	(2, 'Вторичный');
+/*!40000 ALTER TABLE `market` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.objects
+CREATE TABLE IF NOT EXISTS `objects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country` int(11) DEFAULT NULL,
+  `region` int(11) DEFAULT NULL,
+  `city` int(11) DEFAULT NULL,
+  `market` tinyint(4) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `area` float DEFAULT NULL,
+  `all_sq` float DEFAULT NULL,
+  `living_sq` float DEFAULT NULL,
+  `kithcen_sq` float DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `cur` tinyint(4) DEFAULT NULL,
+  `to_sea` tinyint(4) DEFAULT NULL,
+  `to_airport` float DEFAULT NULL,
+  `rooms` tinyint(4) DEFAULT NULL,
+  `floor` tinyint(4) DEFAULT NULL,
+  `all_floors` tinyint(4) DEFAULT NULL,
+  `garden` tinyint(4) DEFAULT NULL,
+  `bath_rooms` tinyint(4) DEFAULT NULL,
+  `state` tinyint(4) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `country` (`country`),
+  KEY `region` (`region`),
+  KEY `city` (`city`),
+  KEY `price` (`price`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.objects: ~2 rows (приблизительно)
+/*!40000 ALTER TABLE `objects` DISABLE KEYS */;
+INSERT INTO `objects` (`id`, `country`, `region`, `city`, `market`, `type`, `area`, `all_sq`, `living_sq`, `kithcen_sq`, `price`, `cur`, `to_sea`, `to_airport`, `rooms`, `floor`, `all_floors`, `garden`, `bath_rooms`, `state`, `description`) VALUES
+	(5, 12099, 12106, 12108, 1, 12136, 70, 60, 40, 20, 60000.00, 3, 11, 15, 3, 5, 10, 0, 1, 3, 'очень хорошая квартира'),
+	(6, 12097, 12103, 12104, 2, 12141, 165, 160, 100, 30, 160000.00, 1, 17, 12.5, 7, 1, 1, 1, 2, 4, 'очень хороший дом');
+/*!40000 ALTER TABLE `objects` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.objects_img
+CREATE TABLE IF NOT EXISTS `objects_img` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first` tinyint(4) NOT NULL DEFAULT '0',
+  `obj_id` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.objects_img: ~4 rows (приблизительно)
+/*!40000 ALTER TABLE `objects_img` DISABLE KEYS */;
+INSERT INTO `objects_img` (`id`, `first`, `obj_id`, `img`) VALUES
+	(1, 1, 5, '81a4bcde1b87501d726ebe72534f077d.jpg'),
+	(2, 1, 6, '54ce60adef9bed3054ccc963b7f8ca60.jpg'),
+	(3, 0, 5, '456d5b25c79b02284769a34689193e0d.png'),
+	(4, 0, 6, 'c58281104ea4df01b0b11701bc827086.jpg');
+/*!40000 ALTER TABLE `objects_img` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.privilege
 CREATE TABLE IF NOT EXISTS `privilege` (
   `privilege_id` int(11) NOT NULL AUTO_INCREMENT,
   `privilege_name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -59,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `privilege` (
   UNIQUE KEY `name_UNIQUE` (`privilege_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Дамп данных таблицы novostroika.od.ua.privilege: ~5 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.privilege: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `privilege` DISABLE KEYS */;
 INSERT INTO `privilege` (`privilege_id`, `privilege_name`, `privilege_acl_key`, `privilege_status`, `privilege_description`) VALUES
 	(5, NULL, NULL, 1, 'Полный доступ'),
@@ -70,7 +202,7 @@ INSERT INTO `privilege` (`privilege_id`, `privilege_name`, `privilege_acl_key`, 
 /*!40000 ALTER TABLE `privilege` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.resource
+-- Дамп структуры для таблица premier.loc.resource
 CREATE TABLE IF NOT EXISTS `resource` (
   `resource_id` int(11) NOT NULL AUTO_INCREMENT,
   `resource_status` tinyint(4) NOT NULL DEFAULT '0',
@@ -83,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `resource` (
   KEY `fk_resource_resource1` (`resource_parent_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Дамп данных таблицы novostroika.od.ua.resource: ~8 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.resource: ~8 rows (приблизительно)
 /*!40000 ALTER TABLE `resource` DISABLE KEYS */;
 INSERT INTO `resource` (`resource_id`, `resource_status`, `resource_name`, `resource_parent_id`, `resource_deny_action`, `resource_level`) VALUES
 	(1, 1, NULL, NULL, NULL, 0),
@@ -97,7 +229,7 @@ INSERT INTO `resource` (`resource_id`, `resource_status`, `resource_name`, `reso
 /*!40000 ALTER TABLE `resource` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.role
+-- Дамп структуры для таблица premier.loc.role
 CREATE TABLE IF NOT EXISTS `role` (
   `role_id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(45) COLLATE utf8_bin NOT NULL,
@@ -111,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   KEY `fk_role_role1` (`role_parent_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Дамп данных таблицы novostroika.od.ua.role: ~5 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.role: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 INSERT INTO `role` (`role_id`, `role_name`, `role_acl_key`, `role_status`, `role_parent_id`, `role_level`) VALUES
 	(44, 'Гость', 'guests', 1, NULL, 0),
@@ -122,7 +254,7 @@ INSERT INTO `role` (`role_id`, `role_name`, `role_acl_key`, `role_status`, `role
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.rule
+-- Дамп структуры для таблица premier.loc.rule
 CREATE TABLE IF NOT EXISTS `rule` (
   `rule_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `rule_role_id` int(11) NOT NULL,
@@ -138,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `rule` (
   KEY `fk_rule_privilege1` (`rule_privilege_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Дамп данных таблицы novostroika.od.ua.rule: ~8 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.rule: ~8 rows (приблизительно)
 /*!40000 ALTER TABLE `rule` DISABLE KEYS */;
 INSERT INTO `rule` (`rule_id`, `rule_role_id`, `rule_resource_id`, `rule_privilege_id`, `rule_order`, `rule_type`, `rule_status`) VALUES
 	(86, 44, 8, 6, 0, 'allow', 1),
@@ -152,7 +284,24 @@ INSERT INTO `rule` (`rule_id`, `rule_role_id`, `rule_resource_id`, `rule_privile
 /*!40000 ALTER TABLE `rule` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.tree
+-- Дамп структуры для таблица premier.loc.state
+CREATE TABLE IF NOT EXISTS `state` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.state: ~4 rows (приблизительно)
+/*!40000 ALTER TABLE `state` DISABLE KEYS */;
+INSERT INTO `state` (`id`, `name`) VALUES
+	(1, 'Под ремонт'),
+	(2, 'От строителей'),
+	(3, 'С ремонтом'),
+	(4, 'Жилое');
+/*!40000 ALTER TABLE `state` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.tree
 CREATE TABLE IF NOT EXISTS `tree` (
   `tree_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tree_lkey` int(10) unsigned NOT NULL,
@@ -176,94 +325,247 @@ CREATE TABLE IF NOT EXISTS `tree` (
   `tree_meta_canonical` varchar(255) NOT NULL,
   `tree_meta_canonical_uk` varchar(255) NOT NULL,
   PRIMARY KEY (`tree_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11937 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12186 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.tree: 79 rows
+-- Дамп данных таблицы premier.loc.tree: 232 rows
 /*!40000 ALTER TABLE `tree` DISABLE KEYS */;
 INSERT INTO `tree` (`tree_id`, `tree_lkey`, `tree_rkey`, `tree_level`, `tree_pid`, `tree_type`, `tree_name`, `tree_link`, `tree_title`, `tree_added`, `tree_modified`, `tree_stype`, `tree_bloked`, `tree_meta_title`, `tree_meta_description`, `tree_meta_keywords`, `tree_meta_title_uk`, `tree_meta_keywords_uk`, `tree_meta_description_uk`, `tree_meta_canonical`, `tree_meta_canonical_uk`) VALUES
-	(1, 1, 170, 0, 0, 'site', 'site', '/', 'Весь сайт', 1336134191, 1336134191, '', 0, '', '', '', '', '', '', '', ''),
-	(8, 21, 22, 2, 7, 'form', 'add_type', '/forms/add_type/', 'Добавление нового типа', 1336727140, 1336727140, '', 0, '', '', '', '', '', '', '', ''),
-	(7, 20, 31, 1, 1, 'folder', 'forms', '/forms/', 'Формы', 1336726996, 1336726996, '', 0, '', '', '', '', '', '', '', ''),
-	(9, 25, 26, 2, 7, 'form', 'add_element', '/forms/add_element/', 'Добавление нового элемента', 1336727140, 1336727140, '', 0, '', '', '', '', '', '', '', ''),
-	(10, 27, 28, 2, 7, 'form', 'edit_element', '/forms/edit_element/', 'Редактирование элемента', 1337175034, 1337175034, '', 0, '', '', '', '', '', '', '', ''),
-	(90, 23, 24, 2, 7, 'form', 'edit_type', '/forms/edit_type/', 'Редактирование типа', 1338196271, 1338196271, '', 0, '', '', '', '', '', '', '', ''),
-	(449, 36, 61, 1, 1, 'folder', 'hmvcblocks', '/hmvcblocks/', 'Программные блоки', 1342605083, 1342605083, '', 0, '', '', '', '', '', '', '', ''),
-	(184, 32, 35, 1, 1, 'folder', 'client_forms', '/client_forms/', 'Клиентские формы', 1338564408, 1338564408, '', 0, '', '', '', '', '', '', '', ''),
-	(768, 68, 129, 1, 1, 'list', 'pages', '/pages/', 'Страницы', 1344347118, 1344347118, '', 0, '', '', '', '', '', '', '', ''),
-	(11876, 158, 159, 3, 11881, 'news', 'new2', '/news/ru/new2/', 'Новость 2', 1430907417, 1430907417, '', 0, '', '', '', '', '', '', '', ''),
-	(2429, 62, 67, 1, 1, 'folder', 'templates', '/templates/', 'Шаблоны', 1355929549, 1355929549, '', 0, '', '', '', '', '', '', '', ''),
-	(10662, 65, 66, 2, 2429, 'node', 'maintext', '/templates/maintext/', 'Текст на главной', 1424363591, 1424363591, '', 0, '', '', '', '', '', '', '', ''),
-	(2572, 63, 64, 2, 2429, 'node', 'typepage', '/templates/typepage/', 'Типовая страница', 1356017444, 1356017444, '', 0, '', '', '', '', '', '', '', ''),
-	(11604, 142, 147, 1, 1, 'list', 'settings', '/settings/', 'Настройки сайта', 1424993667, 1424993667, '', 0, '', '', '', '', '', '', '', ''),
-	(11605, 143, 144, 2, 11604, 'sitesettings', 'ru', '/settings/ru/', 'Русский', 1424993711, 1424993711, '', 0, '', '', '', '', '', '', '', ''),
-	(6733, 33, 34, 2, 184, 'form', 'stoimost', '/client_forms/stoimost/', 'Узнать стоимость', 1382624865, 1382624865, '', 0, '', '', '', '', '', '', '', ''),
-	(11905, 51, 52, 2, 449, 'node', 'altair', '/hmvcblocks/altair/', 'Альтаир', 1431076792, 1431076792, '', 0, '', '', '', '', '', '', '', ''),
-	(6989, 29, 30, 2, 7, 'form', 'seo', '/forms/seo/', 'Сео', 1383076382, 1383076382, '', 0, '', '', '', '', '', '', '', ''),
-	(7465, 68, 69, 3, 7464, 'block', 'search', '/pages/an/search/', 'Поиск на главной', 1384268981, 1384268981, '', 0, '', '', '', '', '', '', '', ''),
-	(7049, 111, 128, 2, 768, 'folder', 'en', '/pages/en/', 'Англиский', 1383550722, 1383550722, '', 0, '', '', '', '', '', '', '', ''),
-	(7476, 68, 69, 3, 7464, 'column', 'right', '/pages/an/right/', 'Правая колонка', 1384269776, 1384269776, '', 0, '', '', '', '', '', '', '', ''),
-	(11918, 55, 56, 2, 449, 'node', 'star2', '/hmvcblocks/star2/', 'Звездный 2', 1431344858, 1431344858, '', 0, '', '', '', '', '', '', '', ''),
-	(7478, 113, 114, 4, 7461, 'block', 'lasnews', '/pages/index/left/lasnews/', 'Блок последних новостей', 1384269830, 1384269830, '', 0, '', '', '', '', '', '', '', ''),
-	(7463, 111, 112, 4, 7461, 'block', 'searchform', '/pages/index/left/searchform/', 'Форма поиска объектов', 1384178085, 1384178085, '', 0, '', '', '', '', '', '', '', ''),
-	(11093, 130, 141, 1, 1, 'list', 'jk', '/jk/', 'Новостройки', 1424684815, 1424684815, '', 0, '', '', '', '', '', '', '', ''),
-	(9965, 76, 81, 3, 10661, 'page', 'index', '/pages/ru/index/', 'Главная страница', 1410815821, 1410815821, '', 0, 'Новострои Одессы|Главная', 'Купить квартиру Вы можете в самых респектабельных новостройках Одессы.ЖК Звёздный городок, Альтаир, Генуэзский ждут Вас', 'новостройка Одесса, новостройка, новострой, купить квартиру Одесса, купить квартиру новострой одесса, квартира купить Одесса, ЖК Звездный городок, ЖК Звездный 2, ЖК звёздный, ЖК Генуэзский, ЖК Альтаир, Будова Одесса', '', '', '', '', ''),
-	(10661, 71, 110, 2, 768, 'folder', 'ru', '/pages/ru/', 'Русский', 1424072586, 1424072586, '', 0, '', '', '', '', '', '', '', ''),
-	(10665, 82, 85, 3, 10661, 'page', '404', '/pages/ru/404/', '404', 1424387248, 1424387248, '', 0, '', '', '', '', '', '', '', ''),
-	(10666, 83, 84, 4, 10665, 'block', 'textonmain', '/pages/ru/404/textonmain/', 'Текст на Странице 404', 1424387257, 1424387257, '', 0, '', '', '', '', '', '', '', ''),
-	(10271, 37, 38, 2, 449, 'node', 'articles', '/hmvcblocks/articles/', 'Статьи', 1412240155, 1412240155, '', 0, '', '', '', '', '', '', '', ''),
-	(10263, 7, 10, 2, 10663, 'page', 'articles', '/system-pages/articles/', 'Статьи', 1412239989, 1412239989, '', 0, '', '', '', '', '', '', '', ''),
-	(10283, 122, 123, 3, 7049, 'page', 'index', '/pages/en/index/', 'Main', 1424031915, 1424031915, '', 0, '', '', '', '', '', '', '', ''),
-	(10663, 2, 19, 1, 1, 'list', 'system-pages', '/system-pages/', 'Система', 1424386035, 1424386035, '', 0, '', '', '', '', '', '', '', ''),
-	(10266, 8, 9, 3, 10263, 'block', 'articles', '/system-pages/articles/articles/', 'Статьи', 1412239990, 1412239990, '', 0, '', '', '', '', '', '', '', ''),
-	(10272, 39, 40, 2, 449, 'node', 'onenews', '/hmvcblocks/onenews/', 'Отдельная новость', 1412240403, 1412240403, '', 0, '', '', '', '', '', '', '', ''),
-	(11871, 154, 161, 1, 1, 'list', 'news', '/news/', 'Новости', 1430905909, 1430905909, '', 0, '', '', '', '', '', '', '', ''),
-	(11711, 145, 146, 2, 11604, 'sitesettings', 'en', '/settings/en/', 'Английский', 1426076158, 1426076158, '', 0, '', '', '', '', '', '', '', ''),
-	(11775, 124, 127, 3, 7049, 'page', '404', '/pages/en/404/', '404', 1426080910, 1426080910, '', 0, '', '', '', '', '', '', '', ''),
-	(11776, 125, 126, 4, 11775, 'block', 'textonmain', '/pages/en/404/textonmain/', 'Текст на Странице 404', 1426080910, 1426080910, '', 0, '', '', '', '', '', '', '', ''),
-	(11840, 148, 153, 1, 1, 'list', 'slider', '/slider/', 'Слайдер', 1430896814, 1430896814, '', 0, '', '', '', '', '', '', '', ''),
-	(11841, 149, 150, 2, 11840, 'image', 'img1', '/slider/img1/', 'Картинка _1', 1430896896, 1430896896, '', 0, '', '', '', '', '', '', '', ''),
-	(11842, 151, 152, 2, 11840, 'image', 'img2', '/slider/img2/', 'Картинка_2', 1430896923, 1430896923, '', 0, '', '', '', '', '', '', '', ''),
-	(11843, 41, 42, 2, 449, 'node', 'slider', '/hmvcblocks/slider/', 'Блок слайдера', 1430897086, 1430897086, '', 0, '', '', '', '', '', '', '', ''),
-	(11844, 43, 44, 2, 449, 'node', 'novostoy', '/hmvcblocks/novostoy/', 'Новостройки на главной', 1430898781, 1430898781, '', 0, '', '', '', '', '', '', '', ''),
-	(11929, 138, 139, 3, 11882, 'novostoy', 'saharova', '/jk/ru/saharova/', 'Ак. Сахарова, 64', 1431346147, 1431346147, '', 0, '', '', '', '', '', '', '', ''),
-	(11919, 94, 97, 3, 10661, 'page', 'gen', '/pages/ru/gen/', 'Генуэзский', 1431344922, 1431344922, '', 0, 'ЖК Генуэзский. Новостройка в Одессе', 'ЖК Генуэзский респектабельный новойстрой в Одессе для того, чтобы купить квартиру.', 'новостройка Одесса, новостройка, квартира купить Одесса, ЖК Генуэзский', '', '', '', '', ''),
-	(11920, 95, 96, 4, 11919, 'block', 'gen', '/pages/ru/gen/gen/', 'Генуэзский', 1431344942, 1431344942, '', 0, '', '', '', '', '', '', '', ''),
-	(11921, 98, 101, 3, 10661, 'page', 'star2', '/pages/ru/star2/', 'Звездный2', 1431344976, 1431344976, '', 0, 'ЖК Звездный. Купить квартиру в новострое Одессы', 'Новостройка Одессы ЖК Звёздный предоставляет возможность покупки квартиры любой квадратуры', 'новостройка Одесса, купить квартиру Одесса, купить квартиру новострой одесса, квартира купить Одесса, ЖК Звездный городок, ЖК Звездный 2, ЖК звёздный, Будова Одесса', '', '', '', '', ''),
-	(11922, 99, 100, 4, 11921, 'block', 'star2', '/pages/ru/star2/star2/', 'Звездный 2', 1431344994, 1431344994, '', 0, '', '', '', '', '', '', '', ''),
-	(11923, 57, 58, 2, 449, 'node', 'objects', '/hmvcblocks/objects/', 'Сданные обекты', 1431345856, 1431345856, '', 0, '', '', '', '', '', '', '', ''),
-	(11924, 102, 105, 3, 10661, 'page', 'objects', '/pages/ru/objects/', 'Сданные бекты', 1431345901, 1431345901, '', 0, 'Продажа квартир в новостройках Одессы', 'Купить квартиру в новом доме в Одессе. Сданные объекты недвижимости ЖК новостройки', 'новостройка Одесса, купить квартиру Одесса, купить квартиру новострой одесса, ЖК Руслан и Людмила, ЖК Белая акация, ЖК Аркадия Хиллс, дом ак. Сахарова, Будова Одесса', '', '', '', '', ''),
-	(11925, 103, 104, 4, 11924, 'block', 'objects', '/pages/ru/objects/objects/', 'Сданные обекты', 1431345920, 1431345920, '', 0, '', '', '', '', '', '', '', ''),
-	(11928, 136, 137, 3, 11882, 'novostoy', 'belaya-akacia', '/jk/ru/belaya-akacia/', 'ЖК Белая Акация', 1431346127, 1431346127, '', 0, '', '', '', '', '', '', '', ''),
-	(11935, 77, 78, 4, 9965, 'block', 'slider', '/pages/ru/index/slider/', 'Слайдер', 1431517570, 1431517570, '', 0, '', '', '', '', '', '', '', ''),
-	(11926, 132, 133, 3, 11882, 'novostoy', 'arcady-hills', '/jk/ru/arcady-hills/', 'ЖК Аркадия Хиллс', 1431346044, 1431346044, '', 0, '', '', '', '', '', '', '', ''),
-	(11927, 134, 135, 3, 11882, 'novostoy', 'ruslan-and-ludmila', '/jk/ru/ruslan-and-ludmila/', 'ЖК Руслан и Людмила', 1431346091, 1431346091, '', 0, '', '', '', '', '', '', '', ''),
-	(11870, 45, 46, 2, 449, 'node', 'newsonmain', '/hmvcblocks/newsonmain/', 'Новости на главной', 1430905840, 1430905840, '', 0, '', '', '', '', '', '', '', ''),
-	(11875, 156, 157, 3, 11881, 'news', 'news1', '/news/ru/news1/', 'Новость 1', 1430907101, 1430907101, '', 0, '', '', '', '', '', '', '', ''),
-	(11879, 3, 6, 2, 10663, 'page', 'oneNews', '/system-pages/oneNews/', 'Одна новость', 1430912040, 1430912040, '', 0, '', '', '', '', '', '', '', ''),
-	(11880, 4, 5, 3, 11879, 'block', 'news', '/system-pages/oneNews/news/', 'Новость', 1430912063, 1430912063, '', 0, '', '', '', '', '', '', '', ''),
-	(11881, 155, 160, 2, 11871, 'lang', 'ru', '/news/ru/', 'Русский', 1430915158, 1430915158, '', 0, '', '', '', '', '', '', '', ''),
-	(11882, 131, 140, 2, 11093, 'lang', 'ru', '/jk/ru/', 'Русский', 1430915196, 1430915196, '', 0, '', '', '', '', '', '', '', ''),
-	(11883, 47, 48, 2, 449, 'node', 'onenovostroy', '/hmvcblocks/onenovostroy/', 'Один новострой', 1430918169, 1430918169, '', 0, '', '', '', '', '', '', '', ''),
-	(11884, 11, 14, 2, 10663, 'page', 'oneNovostroy', '/system-pages/oneNovostroy/', 'Один новострой', 1430918696, 1430918696, '', 0, '', '', '', '', '', '', '', ''),
-	(11902, 72, 75, 3, 10661, 'page', 'altair', '/pages/ru/altair/', 'Альаир', 1431076689, 1431076689, '', 0, 'ЖК Альтаир', 'ЖК Альтаир. Приобрести квартиры в Одессе в новострое', 'новостройка Одесса, новостройка, новострой, квартира купить Одесса, ЖК Альтаир', '', '', '', '', ''),
-	(11890, 15, 18, 2, 10663, 'page', 'objects', '/system-pages/objects/', 'Обекты', 1430978785, 1430978785, '', 0, '', '', '', '', '', '', '', ''),
-	(11891, 16, 17, 3, 11890, 'block', 'objects', '/system-pages/objects/objects/', 'Обекты', 1430978813, 1430978813, '', 0, '', '', '', '', '', '', '', ''),
-	(11892, 49, 50, 2, 449, 'node', 'contactus', '/hmvcblocks/contactus/', 'Связь с нами', 1430990013, 1430990013, '', 0, '', '', '', '', '', '', '', ''),
-	(11910, 73, 74, 4, 11902, 'block', 'altair', '/pages/ru/altair/altair/', 'Альтаир', 1431077080, 1431077080, '', 0, '', '', '', '', '', '', '', ''),
-	(11899, 87, 88, 4, 11895, 'block', 'contactus', '/pages/ru/contactus/contactus/', 'Связь с нами', 1430990572, 1430990572, '', 0, '', '', '', '', '', '', '', ''),
-	(11895, 86, 89, 3, 10661, 'page', 'contactus', '/pages/ru/contactus/', 'Связь с нами', 1430990357, 1430990357, '', 0, '', '', '', '', '', '', '', ''),
-	(11912, 90, 93, 3, 10661, 'page', 'news', '/pages/ru/news/', 'Новости', 1431084174, 1431084174, '', 0, '', '', '', '', '', '', '', ''),
-	(11913, 91, 92, 4, 11912, 'block', 'news', '/pages/ru/news/news/', 'Новости', 1431084195, 1431084195, '', 0, '', '', '', '', '', '', '', ''),
-	(11917, 53, 54, 2, 449, 'node', 'gen', '/hmvcblocks/gen/', 'Генуэзский', 1431344834, 1431344834, '', 0, '', '', '', '', '', '', '', ''),
-	(11930, 106, 109, 3, 10661, 'page', 'map', '/pages/ru/map/', 'Карта сайта', 1431347981, 1431347981, '', 0, 'Карта сайта Новостройки Одессы', 'Новостройки в Одессы от самых лучших, профессиональных застройщиков. Продажа квартир', 'продажа квартир новострой, новостройка Одесса, новостройка, купить квартиру Одесса, купить квартиру новострой одесса, квартира купить Одесса, ЖК Звездный 2', '', '', '', '', ''),
-	(11931, 107, 108, 4, 11930, 'block', 'map', '/pages/ru/map/map/', 'Карта сайта', 1431348001, 1431348001, '', 0, '', '', '', '', '', '', '', ''),
-	(11933, 59, 60, 2, 449, 'node', 'map', '/hmvcblocks/map/', 'Карта сайта', 1431348105, 1431348105, '', 0, '', '', '', '', '', '', '', ''),
-	(11936, 79, 80, 4, 9965, 'block', 'novostroy', '/pages/ru/index/novostroy/', 'Новостройки', 1431517658, 1431517658, '', 0, '', '', '', '', '', '', '', ''),
-	(11934, 12, 13, 3, 11884, 'block', 'oneNovostroy', '/system-pages/oneNovostroy/oneNovostroy/', 'Один новострой', 1431354054, 1431354054, '', 0, '', '', '', '', '', '', '', '');
+	(1, 1, 476, 0, 0, 'site', 'site', '/', 'Весь сайт', 1336134191, 1336134191, '', 0, '', '', '', '', '', '', '', ''),
+	(8, 61, 62, 2, 7, 'form', 'add_type', '/forms/add_type/', 'Добавление нового типа', 1336727140, 1336727140, '', 0, '', '', '', '', '', '', '', ''),
+	(7, 60, 71, 1, 1, 'folder', 'forms', '/forms/', 'Формы', 1336726996, 1336726996, '', 0, '', '', '', '', '', '', '', ''),
+	(9, 65, 66, 2, 7, 'form', 'add_element', '/forms/add_element/', 'Добавление нового элемента', 1336727140, 1336727140, '', 0, '', '', '', '', '', '', '', ''),
+	(10, 67, 68, 2, 7, 'form', 'edit_element', '/forms/edit_element/', 'Редактирование элемента', 1337175034, 1337175034, '', 0, '', '', '', '', '', '', '', ''),
+	(90, 63, 64, 2, 7, 'form', 'edit_type', '/forms/edit_type/', 'Редактирование типа', 1338196271, 1338196271, '', 0, '', '', '', '', '', '', '', ''),
+	(449, 76, 107, 1, 1, 'folder', 'hmvcblocks', '/hmvcblocks/', 'Программные блоки', 1342605083, 1342605083, '', 0, '', '', '', '', '', '', '', ''),
+	(184, 72, 75, 1, 1, 'folder', 'client_forms', '/client_forms/', 'Клиентские формы', 1338564408, 1338564408, '', 0, '', '', '', '', '', '', '', ''),
+	(768, 114, 203, 1, 1, 'list', 'pages', '/pages/', 'Страницы', 1344347118, 1344347118, '', 0, '', '', '', '', '', '', '', ''),
+	(11876, 373, 374, 4, 11881, 'news', 'in-new2', '/news/news-compain/ru/in-new2/', 'Новость 2', 1430907417, 1430907417, '', 0, '', '', '', '', '', '', '', ''),
+	(2429, 108, 113, 1, 1, 'folder', 'templates', '/templates/', 'Шаблоны', 1355929549, 1355929549, '', 0, '', '', '', '', '', '', '', ''),
+	(10662, 111, 112, 2, 2429, 'node', 'maintext', '/templates/maintext/', 'Текст на главной', 1424363591, 1424363591, '', 0, '', '', '', '', '', '', '', ''),
+	(2572, 109, 110, 2, 2429, 'node', 'typepage', '/templates/typepage/', 'Типовая страница', 1356017444, 1356017444, '', 0, '', '', '', '', '', '', '', ''),
+	(11604, 238, 245, 1, 1, 'list', 'settings', '/settings/', 'Настройки сайта', 1424993667, 1424993667, '', 0, '', '', '', '', '', '', '', ''),
+	(11605, 239, 240, 2, 11604, 'sitesettings', 'ru', '/settings/ru/', 'Русский', 1424993711, 1424993711, '', 0, '', '', '', '', '', '', '', ''),
+	(6733, 73, 74, 2, 184, 'form', 'stoimost', '/client_forms/stoimost/', 'Узнать стоимость', 1382624865, 1382624865, '', 0, '', '', '', '', '', '', '', ''),
+	(11952, 119, 126, 4, 9965, 'column', 'left', '/pages/ru/index/left/', 'Левая', 1432026258, 1432026258, '', 0, '', '', '', '', '', '', '', ''),
+	(6989, 69, 70, 2, 7, 'form', 'seo', '/forms/seo/', 'Сео', 1383076382, 1383076382, '', 0, '', '', '', '', '', '', '', ''),
+	(7465, 114, 115, 3, 7464, 'block', 'search', '/pages/an/search/', 'Поиск на главной', 1384268981, 1384268981, '', 0, '', '', '', '', '', '', '', ''),
+	(7049, 185, 202, 2, 768, 'folder', 'en', '/pages/en/', 'Англиский', 1383550722, 1383550722, '', 0, '', '', '', '', '', '', '', ''),
+	(7476, 114, 115, 3, 7464, 'column', 'right', '/pages/an/right/', 'Правая колонка', 1384269776, 1384269776, '', 0, '', '', '', '', '', '', '', ''),
+	(11949, 257, 258, 2, 11947, 'image', 'doc2', '/sliderDoc/doc2/', 'Документ 2', 1432024712, 1432024712, '', 0, '', '', '', '', '', '', '', ''),
+	(7478, 187, 188, 4, 7461, 'block', 'lasnews', '/pages/index/left/lasnews/', 'Блок последних новостей', 1384269830, 1384269830, '', 0, '', '', '', '', '', '', '', ''),
+	(7463, 185, 186, 4, 7461, 'block', 'searchform', '/pages/index/left/searchform/', 'Форма поиска объектов', 1384178085, 1384178085, '', 0, '', '', '', '', '', '', '', ''),
+	(11093, 204, 237, 1, 1, 'list', 'jk', '/jk/', 'Новостройки', 1424684815, 1424684815, '', 0, '', '', '', '', '', '', '', ''),
+	(9965, 118, 133, 3, 10661, 'page', 'index', '/pages/ru/index/', 'Главная страница', 1410815821, 1410815821, '', 0, 'Новострои Одессы|Главная', 'Купить квартиру Вы можете в самых респектабельных новостройках Одессы.ЖК Звёздный городок, Альтаир, Генуэзский ждут Вас', 'новостройка Одесса, новостройка, новострой, купить квартиру Одесса, купить квартиру новострой одесса, квартира купить Одесса, ЖК Звездный городок, ЖК Звездный 2, ЖК звёздный, ЖК Генуэзский, ЖК Альтаир, Будова Одесса', '', '', '', '', ''),
+	(10661, 117, 184, 2, 768, 'folder', 'ru', '/pages/ru/', 'Русский', 1424072586, 1424072586, '', 0, '', '', '', '', '', '', '', ''),
+	(10665, 134, 137, 3, 10661, 'page', '404', '/pages/ru/404/', '404', 1424387248, 1424387248, '', 0, '', '', '', '', '', '', '', ''),
+	(10666, 135, 136, 4, 10665, 'block', 'textonmain', '/pages/ru/404/textonmain/', 'Текст на Странице 404', 1424387257, 1424387257, '', 0, '', '', '', '', '', '', '', ''),
+	(11955, 93, 94, 2, 449, 'node', 'menu', '/hmvcblocks/menu/', 'Меню', 1432027662, 1432027662, '', 0, '', '', '', '', '', '', '', ''),
+	(11956, 120, 121, 5, 11952, 'block', 'menu', '/pages/ru/index/left/menu/', 'Меню', 1432027694, 1432027694, '', 0, '', '', '', '', '', '', '', ''),
+	(10283, 196, 197, 3, 7049, 'page', 'index', '/pages/en/index/', 'Main', 1424031915, 1424031915, '', 0, '', '', '', '', '', '', '', ''),
+	(10663, 2, 59, 1, 1, 'list', 'system-pages', '/system-pages/', 'Система', 1424386035, 1424386035, '', 0, '', '', '', '', '', '', '', ''),
+	(11959, 265, 266, 2, 11957, 'menu', 'turc', '/menu/turc/', 'Турция', 1432028121, 1432028121, '', 0, '', '', '', '', '', '', '', ''),
+	(10272, 77, 78, 2, 449, 'node', 'onenews', '/hmvcblocks/onenews/', 'Отдельная новость', 1412240403, 1412240403, '', 0, '', '', '', '', '', '', '', ''),
+	(11871, 369, 376, 2, 12038, 'list', 'news-compain', '/news/news-compain/', 'Новости компании', 1430905909, 1430905909, '', 0, '', '', '', '', '', '', '', ''),
+	(11711, 241, 242, 2, 11604, 'sitesettings', 'en', '/settings/en/', 'Английский', 1426076158, 1426076158, '', 0, '', '', '', '', '', '', '', ''),
+	(11775, 198, 201, 3, 7049, 'page', '404', '/pages/en/404/', '404', 1426080910, 1426080910, '', 0, '', '', '', '', '', '', '', ''),
+	(11776, 199, 200, 4, 11775, 'block', 'textonmain', '/pages/en/404/textonmain/', 'Текст на Странице 404', 1426080910, 1426080910, '', 0, '', '', '', '', '', '', '', ''),
+	(11840, 246, 253, 1, 1, 'list', 'slider', '/slider/', 'Слайдер', 1430896814, 1430896814, '', 0, '', '', '', '', '', '', '', ''),
+	(11938, 249, 250, 2, 11840, 'slideritem', 'slide2', '/slider/slide2/', 'Второй', 1432017693, 1432017693, '', 0, '', '', '', '', '', '', '', ''),
+	(11937, 247, 248, 2, 11840, 'slideritem', 'slide1', '/slider/slide1/', 'Первый', 1432017523, 1432017523, '', 0, '', '', '', '', '', '', '', ''),
+	(11843, 79, 80, 2, 449, 'node', 'slider', '/hmvcblocks/slider/', 'Блок слайдера', 1430897086, 1430897086, '', 0, '', '', '', '', '', '', '', ''),
+	(11954, 127, 132, 4, 9965, 'column', 'middle', '/pages/ru/index/middle/', 'Основная', 1432026379, 1432026379, '', 0, '', '', '', '', '', '', '', ''),
+	(11988, 206, 207, 3, 11882, 'novostoy', 'domInBolg', '/jk/ru/domInBolg/', '2 уровневый дом Болгария', 1432034709, 1432034709, '', 0, '', '', '', '', '', '', '', ''),
+	(11970, 280, 281, 3, 11968, 'alias', 'domOnBitchBolg', '/slider1/bolg/domOnBitchBolg/', 'Второй', 1432034272, 1432034272, '', 0, '', '', '', '', '', '', '', ''),
+	(11971, 282, 283, 3, 11968, 'alias', 'floatInBolg', '/slider1/bolg/floatInBolg/', 'Третий', 1432034285, 1432034285, '', 0, '', '', '', '', '', '', '', ''),
+	(11972, 285, 292, 2, 11966, 'list', 'turc', '/slider1/turc/', 'Турция', 1432034328, 1432034328, '', 0, '', '', '', '', '', '', '', ''),
+	(11973, 286, 287, 3, 11972, 'alias', 'domInTurc', '/slider1/turc/domInTurc/', 'Первый', 1432034328, 1432034328, '', 0, '', '', '', '', '', '', '', ''),
+	(11968, 277, 284, 2, 11966, 'list', 'bolg', '/slider1/bolg/', 'Болгария', 1432034207, 1432034207, '', 0, '', '', '', '', '', '', '', ''),
+	(11961, 269, 270, 2, 11957, 'menu', 'ispain', '/menu/ispain/', 'Испания', 1432028158, 1432028158, '', 0, '', '', '', '', '', '', '', ''),
+	(11962, 271, 272, 2, 11957, 'menu', 'franc', '/menu/franc/', 'Франция', 1432028176, 1432028176, '', 0, '', '', '', '', '', '', '', ''),
+	(11963, 273, 274, 2, 11957, 'menu', 'service', '/menu/service/', 'Услуги', 1432028198, 1432028198, '', 0, '', '', '', '', '', '', '', ''),
+	(11964, 128, 129, 5, 11954, 'block', 'main', '/pages/ru/index/middle/main/', 'Главая', 1432030830, 1432030830, '', 0, '', '', '', '', '', '', '', ''),
+	(11965, 95, 96, 2, 449, 'node', 'main', '/hmvcblocks/main/', 'Главная', 1432030889, 1432030889, '', 0, '', '', '', '', '', '', '', ''),
+	(11966, 276, 317, 1, 1, 'list', 'slider1', '/slider1/', 'Слайдер 1 на главной', 1432034021, 1432034021, '', 0, '', '', '', '', '', '', '', ''),
+	(11969, 278, 279, 3, 11968, 'alias', 'domInBolg', '/slider1/bolg/domInBolg/', 'Первый', 1432034257, 1432034257, '', 0, '', '', '', '', '', '', '', ''),
+	(11960, 267, 268, 2, 11957, 'menu', 'grec', '/menu/grec/', 'Греция', 1432028135, 1432028135, '', 0, '', '', '', '', '', '', '', ''),
+	(11939, 251, 252, 2, 11840, 'slideritem', 'slide3', '/slider/slide3/', 'Третий', 1432017715, 1432017715, '', 0, '', '', '', '', '', '', '', ''),
+	(11941, 89, 90, 2, 449, 'node', 'reklama', '/hmvcblocks/reklama/', 'Реклама', 1432022318, 1432022318, '', 0, '', '', '', '', '', '', '', ''),
+	(11942, 122, 123, 5, 11952, 'block', 'reklama', '/pages/ru/index/left/reklama/', 'Реклама', 1432022407, 1432022407, '', 0, '', '', '', '', '', '', '', ''),
+	(11948, 255, 256, 2, 11947, 'image', 'doc1', '/sliderDoc/doc1/', 'Документ 1', 1432024696, 1432024696, '', 0, '', '', '', '', '', '', '', ''),
+	(11945, 91, 92, 2, 449, 'node', 'sliderdoc', '/hmvcblocks/sliderdoc/', 'Слайдер документов', 1432024458, 1432024458, '', 0, '', '', '', '', '', '', '', ''),
+	(11946, 124, 125, 5, 11952, 'block', 'sliderDoc', '/pages/ru/index/left/sliderDoc/', 'Слайдер документов', 1432024522, 1432024522, '', 0, '', '', '', '', '', '', '', ''),
+	(11947, 254, 261, 1, 1, 'list', 'sliderDoc', '/sliderDoc/', 'Слайдер для документов', 1432024654, 1432024654, '', 0, '', '', '', '', '', '', '', ''),
+	(11989, 208, 209, 3, 11882, 'novostoy', 'domInTurc', '/jk/ru/domInTurc/', '2 уровневый дом Турция', 1432034776, 1432034776, '', 0, '', '', '', '', '', '', '', ''),
+	(11980, 301, 308, 2, 11966, 'list', 'ispan', '/slider1/ispan/', 'Испания', 1432034385, 1432034385, '', 0, '', '', '', '', '', '', '', ''),
+	(11990, 210, 211, 3, 11882, 'novostoy', 'domInGrec', '/jk/ru/domInGrec/', '2 уровневый дом Греция', 1432034778, 1432034778, '', 0, '', '', '', '', '', '', '', ''),
+	(11870, 81, 82, 2, 449, 'node', 'newsonmain', '/hmvcblocks/newsonmain/', 'Новости на главной', 1430905840, 1430905840, '', 0, '', '', '', '', '', '', '', ''),
+	(11875, 371, 372, 4, 11881, 'news', 'in-news1', '/news/news-compain/ru/in-news1/', 'Новость 1', 1430907101, 1430907101, '', 0, '', '', '', '', '', '', '', ''),
+	(11879, 3, 16, 2, 10663, 'page', 'oneNews', '/system-pages/oneNews/', 'Одна новость', 1430912040, 1430912040, '', 0, '', '', '', '', '', '', '', ''),
+	(11880, 5, 6, 4, 12042, 'block', 'news', '/system-pages/oneNews/middle/news/', 'Новость', 1430912063, 1430912063, '', 0, '', '', '', '', '', '', '', ''),
+	(11881, 370, 375, 3, 11871, 'lang', 'ru', '/news/news-compain/ru/', 'Русский', 1430915158, 1430915158, '', 0, '', '', '', '', '', '', '', ''),
+	(11882, 205, 236, 2, 11093, 'lang', 'ru', '/jk/ru/', 'Русский', 1430915196, 1430915196, '', 0, '', '', '', '', '', '', '', ''),
+	(11883, 83, 84, 2, 449, 'node', 'onenovostroy', '/hmvcblocks/onenovostroy/', 'Один новострой', 1430918169, 1430918169, '', 0, '', '', '', '', '', '', '', ''),
+	(11884, 17, 30, 2, 10663, 'page', 'oneobject', '/system-pages/oneobject/', 'Один обект', 1430918696, 1430918696, '', 0, '', '', '', '', '', '', '', ''),
+	(11976, 293, 300, 2, 11966, 'list', 'grec', '/slider1/grec/', 'Греция', 1432034375, 1432034375, '', 0, '', '', '', '', '', '', '', ''),
+	(11977, 294, 295, 3, 11976, 'alias', 'domInGrec', '/slider1/grec/domInGrec/', 'Первый', 1432034375, 1432034375, '', 0, '', '', '', '', '', '', '', ''),
+	(11978, 296, 297, 3, 11976, 'alias', 'domOnBitchGrec', '/slider1/grec/domOnBitchGrec/', 'Второй', 1432034375, 1432034375, '', 0, '', '', '', '', '', '', '', ''),
+	(11958, 263, 264, 2, 11957, 'menu', 'bolg', '/menu/bolg/', 'Болгария', 1432028103, 1432028103, '', 0, '', '', '', '', '', '', '', ''),
+	(11957, 262, 275, 1, 1, 'list', 'menu', '/menu/', 'Меню', 1432027866, 1432027866, '', 0, '', '', '', '', '', '', '', ''),
+	(11892, 85, 86, 2, 449, 'node', 'contactus', '/hmvcblocks/contactus/', 'Связь с нами', 1430990013, 1430990013, '', 0, '', '', '', '', '', '', '', ''),
+	(11975, 290, 291, 3, 11972, 'alias', 'third', '/slider1/turc/third/', 'Третий', 1432034328, 1432034328, '', 0, '', '', '', '', '', '', '', ''),
+	(11974, 288, 289, 3, 11972, 'alias', 'domOnBitchTurc', '/slider1/turc/domOnBitchTurc/', 'Второй', 1432034328, 1432034328, '', 0, '', '', '', '', '', '', '', ''),
+	(11912, 138, 151, 3, 10661, 'page', 'news', '/pages/ru/news/', 'Новости', 1431084174, 1431084174, '', 0, '', '', '', '', '', '', '', ''),
+	(11913, 148, 149, 5, 12080, 'block', 'news', '/pages/ru/news/middle/news/', 'Новости', 1431084195, 1431084195, '', 0, '', '', '', '', '', '', '', ''),
+	(11950, 259, 260, 2, 11947, 'image', 'doc3', '/sliderDoc/doc3/', 'Документ 3', 1432024724, 1432024724, '', 0, '', '', '', '', '', '', '', ''),
+	(11930, 152, 155, 3, 10661, 'page', 'map', '/pages/ru/map/', 'Карта сайта', 1431347981, 1431347981, '', 0, 'Карта сайта Новостройки Одессы', 'Новостройки в Одессы от самых лучших, профессиональных застройщиков. Продажа квартир', 'продажа квартир новострой, новостройка Одесса, новостройка, купить квартиру Одесса, купить квартиру новострой одесса, квартира купить Одесса, ЖК Звездный 2', '', '', '', '', ''),
+	(11931, 153, 154, 4, 11930, 'block', 'map', '/pages/ru/map/map/', 'Карта сайта', 1431348001, 1431348001, '', 0, '', '', '', '', '', '', '', ''),
+	(11933, 87, 88, 2, 449, 'node', 'map', '/hmvcblocks/map/', 'Карта сайта', 1431348105, 1431348105, '', 0, '', '', '', '', '', '', '', ''),
+	(11979, 298, 299, 3, 11976, 'alias', 'floatInGrec', '/slider1/grec/floatInGrec/', 'Третий', 1432034375, 1432034375, '', 0, '', '', '', '', '', '', '', ''),
+	(11934, 27, 28, 4, 12052, 'block', 'onenovostroy', '/system-pages/oneobject/middle/onenovostroy/', 'Один новострой', 1431354054, 1431354054, '', 0, '', '', '', '', '', '', '', ''),
+	(11991, 212, 213, 3, 11882, 'novostoy', 'domInIspan', '/jk/ru/domInIspan/', '2 уровневый дом Испания', 1432034780, 1432034780, '', 0, '', '', '', '', '', '', '', ''),
+	(11981, 302, 303, 3, 11980, 'alias', 'domInIspan', '/slider1/ispan/domInIspan/', 'Первый', 1432034385, 1432034385, '', 0, '', '', '', '', '', '', '', ''),
+	(11982, 304, 305, 3, 11980, 'alias', 'domOnBitchIspan', '/slider1/ispan/domOnBitchIspan/', 'Второй', 1432034385, 1432034385, '', 0, '', '', '', '', '', '', '', ''),
+	(11983, 306, 307, 3, 11980, 'alias', 'floatInIspan', '/slider1/ispan/floatInIspan/', 'Третий', 1432034385, 1432034385, '', 0, '', '', '', '', '', '', '', ''),
+	(11984, 309, 316, 2, 11966, 'list', 'franc', '/slider1/franc/', 'Франция', 1432034389, 1432034389, '', 0, '', '', '', '', '', '', '', ''),
+	(11985, 310, 311, 3, 11984, 'alias', 'domInFrance', '/slider1/franc/domInFrance/', 'Первый', 1432034389, 1432034389, '', 0, '', '', '', '', '', '', '', ''),
+	(11986, 312, 313, 3, 11984, 'alias', 'domOnBitchFranc', '/slider1/franc/domOnBitchFranc/', 'Второй', 1432034389, 1432034389, '', 0, '', '', '', '', '', '', '', ''),
+	(11987, 314, 315, 3, 11984, 'alias', 'floatInFranc', '/slider1/franc/floatInFranc/', 'Третий', 1432034389, 1432034389, '', 0, '', '', '', '', '', '', '', ''),
+	(11992, 214, 215, 3, 11882, 'novostoy', 'domInFrance', '/jk/ru/domInFrance/', '2 уровневый дом Франция', 1432034782, 1432034782, '', 0, '', '', '', '', '', '', '', ''),
+	(11993, 216, 217, 3, 11882, 'novostoy', 'domOnBitchBolg', '/jk/ru/domOnBitchBolg/', 'дом на побереже Болгария', 1432035011, 1432035011, '', 0, '', '', '', '', '', '', '', ''),
+	(11994, 218, 219, 3, 11882, 'novostoy', 'domOnBitcTurc', '/jk/ru/domOnBitcTurc/', 'дом на побереже Турция', 1432035020, 1432035020, '', 0, '', '', '', '', '', '', '', ''),
+	(11995, 220, 221, 3, 11882, 'novostoy', 'domOnBitchGrec', '/jk/ru/domOnBitchGrec/', 'дом на побереже Греция', 1432035022, 1432035022, '', 0, '', '', '', '', '', '', '', ''),
+	(11996, 222, 223, 3, 11882, 'novostoy', 'domOnBitchIspan', '/jk/ru/domOnBitchIspan/', 'дом на побереже Испания', 1432035024, 1432035024, '', 0, '', '', '', '', '', '', '', ''),
+	(11997, 224, 225, 3, 11882, 'novostoy', 'domOnBitchFranc', '/jk/ru/domOnBitchFranc/', 'дом на побереже Франции', 1432035025, 1432035025, '', 0, '', '', '', '', '', '', '', ''),
+	(11998, 226, 227, 3, 11882, 'novostoy', 'floatInBolg', '/jk/ru/floatInBolg/', 'квартира Болгария', 1432035256, 1432035256, '', 0, '', '', '', '', '', '', '', ''),
+	(11999, 228, 229, 3, 11882, 'novostoy', 'floatInTurc', '/jk/ru/floatInTurc/', 'квартира Турция', 1432035292, 1432035292, '', 0, '', '', '', '', '', '', '', ''),
+	(12000, 230, 231, 3, 11882, 'novostoy', 'floatInGrec', '/jk/ru/floatInGrec/', 'квартира Греция', 1432035296, 1432035296, '', 0, '', '', '', '', '', '', '', ''),
+	(12001, 232, 233, 3, 11882, 'novostoy', 'floatInIspan', '/jk/ru/floatInIspan/', 'квартира Испания', 1432035298, 1432035298, '', 0, '', '', '', '', '', '', '', ''),
+	(12002, 234, 235, 3, 11882, 'novostoy', 'floatInFranc', '/jk/ru/floatInFranc/', 'квартира Франция', 1432035300, 1432035300, '', 0, '', '', '', '', '', '', '', ''),
+	(12068, 344, 345, 3, 12067, 'alias', 'domInIspan', '/slider2/ispan/domInIspan/', 'Первый', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12067, 343, 350, 2, 12054, 'list', 'ispan', '/slider2/ispan/', 'Испания 2', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12066, 340, 341, 3, 12063, 'alias', 'floatInGrec', '/slider2/grec/floatInGrec/', 'Третий', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12065, 338, 339, 3, 12063, 'alias', 'domOnBitchGrec', '/slider2/grec/domOnBitchGrec/', 'Второй', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12064, 336, 337, 3, 12063, 'alias', 'domInGrec', '/slider2/grec/domInGrec/', 'Первый', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12063, 335, 342, 2, 12054, 'list', 'grec', '/slider2/grec/', 'Греция 2', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12062, 332, 333, 3, 12059, 'alias', 'third', '/slider2/turc/third/', 'Третий', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12061, 330, 331, 3, 12059, 'alias', 'domOnBitchTurc', '/slider2/turc/domOnBitchTurc/', 'Второй', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12060, 328, 329, 3, 12059, 'alias', 'domInTurc', '/slider2/turc/domInTurc/', 'Первый', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12059, 327, 334, 2, 12054, 'list', 'turc', '/slider2/turc/', 'Турция 2', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12058, 324, 325, 3, 12055, 'alias', 'floatInBolg', '/slider2/bolg/floatInBolg/', 'Третий', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12057, 322, 323, 3, 12055, 'alias', 'domOnBitchBolg', '/slider2/bolg/domOnBitchBolg/', 'Второй', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12056, 320, 321, 3, 12055, 'alias', 'domInBolg', '/slider2/bolg/domInBolg/', 'Первый', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12055, 319, 326, 2, 12054, 'list', 'bolg', '/slider2/bolg/', 'Болгария 2', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12054, 318, 359, 1, 1, 'list', 'slider2', '/slider2/', 'Слайдер 2 на главной', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12024, 361, 368, 2, 12038, 'list', 'news-out', '/news/news-out/', 'Новости зарубежные', 1432040525, 1432040525, '', 0, '', '', '', '', '', '', '', ''),
+	(12025, 362, 367, 3, 12024, 'lang', 'ru', '/news/news-out/ru/', 'Русский', 1432040560, 1432040560, '', 0, '', '', '', '', '', '', '', ''),
+	(12026, 363, 364, 4, 12025, 'news', 'out-news1', '/news/news-out/ru/out-news1/', 'Новость 1', 1432040602, 1432040602, '', 0, '', '', '', '', '', '', '', ''),
+	(12027, 365, 366, 4, 12025, 'news', 'out-news2', '/news/news-out/ru/out-news2/', 'Новость 2', 1432040625, 1432040625, '', 0, '', '', '', '', '', '', '', ''),
+	(12028, 130, 131, 5, 11954, 'block', 'news', '/pages/ru/index/middle/news/', 'Новости', 1432040798, 1432040798, '', 0, '', '', '', '', '', '', '', ''),
+	(12047, 13, 14, 4, 12044, 'block', 'sliderDoc', '/system-pages/oneNews/left/sliderDoc/', 'Слайдер документов', 1432105224, 1432105224, '', 0, '', '', '', '', '', '', '', ''),
+	(12046, 11, 12, 4, 12044, 'block', 'reklama', '/system-pages/oneNews/left/reklama/', 'Реклама', 1432105224, 1432105224, '', 0, '', '', '', '', '', '', '', ''),
+	(12045, 9, 10, 4, 12044, 'block', 'menu', '/system-pages/oneNews/left/menu/', 'Меню', 1432105224, 1432105224, '', 0, '', '', '', '', '', '', '', ''),
+	(12044, 8, 15, 3, 11879, 'column', 'left', '/system-pages/oneNews/left/', 'Левая', 1432105224, 1432105224, '', 0, '', '', '', '', '', '', '', ''),
+	(12042, 4, 7, 3, 11879, 'column', 'middle', '/system-pages/oneNews/middle/', 'Основная', 1432105012, 1432105012, '', 0, '', '', '', '', '', '', '', ''),
+	(12038, 360, 377, 1, 1, 'list', 'news', '/news/', 'Новости', 1432043436, 1432043436, '', 0, '', '', '', '', '', '', '', ''),
+	(12041, 243, 244, 2, 11604, 'newsonmain', 'newsOnMain', '/settings/newsOnMain/', 'Новости на главной', 1432044237, 1432044237, '', 0, '', '', '', '', '', '', '', ''),
+	(12048, 18, 25, 3, 11884, 'column', 'left', '/system-pages/oneobject/left/', 'Левая', 1432107177, 1432107177, '', 0, '', '', '', '', '', '', '', ''),
+	(12049, 19, 20, 4, 12048, 'block', 'menu', '/system-pages/oneobject/left/menu/', 'Меню', 1432107177, 1432107177, '', 0, '', '', '', '', '', '', '', ''),
+	(12050, 21, 22, 4, 12048, 'block', 'reklama', '/system-pages/oneobject/left/reklama/', 'Реклама', 1432107177, 1432107177, '', 0, '', '', '', '', '', '', '', ''),
+	(12051, 23, 24, 4, 12048, 'block', 'sliderDoc', '/system-pages/oneobject/left/sliderDoc/', 'Слайдер документов', 1432107177, 1432107177, '', 0, '', '', '', '', '', '', '', ''),
+	(12052, 26, 29, 3, 11884, 'column', 'middle', '/system-pages/oneobject/middle/', 'Основная', 1432107183, 1432107183, '', 0, '', '', '', '', '', '', '', ''),
+	(12069, 346, 347, 3, 12067, 'alias', 'domOnBitchIspan', '/slider2/ispan/domOnBitchIspan/', 'Второй', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12075, 97, 98, 2, 449, 'node', 'allnews', '/hmvcblocks/allnews/', 'Все новости', 1432107908, 1432107908, '', 0, '', '', '', '', '', '', '', ''),
+	(12070, 348, 349, 3, 12067, 'alias', 'floatInIspan', '/slider2/ispan/floatInIspan/', 'Третий', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12071, 351, 358, 2, 12054, 'list', 'franc', '/slider2/franc/', 'Франция 2', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12072, 352, 353, 3, 12071, 'alias', 'domInFrance', '/slider2/franc/domInFrance/', 'Первый', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12073, 354, 355, 3, 12071, 'alias', 'domOnBitchFranc', '/slider2/franc/domOnBitchFranc/', 'Второй', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12074, 356, 357, 3, 12071, 'alias', 'floatInFranc', '/slider2/franc/floatInFranc/', 'Третий', 1432107223, 1432107223, '', 0, '', '', '', '', '', '', '', ''),
+	(12076, 139, 146, 4, 11912, 'column', 'left', '/pages/ru/news/left/', 'Левая', 1432108604, 1432108604, '', 0, '', '', '', '', '', '', '', ''),
+	(12077, 140, 141, 5, 12076, 'block', 'menu', '/pages/ru/news/left/menu/', 'Меню', 1432108604, 1432108604, '', 0, '', '', '', '', '', '', '', ''),
+	(12078, 142, 143, 5, 12076, 'block', 'reklama', '/pages/ru/news/left/reklama/', 'Реклама', 1432108604, 1432108604, '', 0, '', '', '', '', '', '', '', ''),
+	(12079, 144, 145, 5, 12076, 'block', 'sliderDoc', '/pages/ru/news/left/sliderDoc/', 'Слайдер документов', 1432108604, 1432108604, '', 0, '', '', '', '', '', '', '', ''),
+	(12080, 147, 150, 4, 11912, 'column', 'middle', '/pages/ru/news/middle/', 'Основная', 1432108611, 1432108611, '', 0, '', '', '', '', '', '', '', ''),
+	(12084, 380, 381, 3, 12093, 'articles', 'about', '/articles/ru/about/', 'О компании', 1432111975, 1432111975, '', 0, '', '', '', '', '', '', '', ''),
+	(12083, 378, 387, 1, 1, 'list', 'articles', '/articles/', 'Статьи', 1432111911, 1432111911, '', 0, '', '', '', '', '', '', '', ''),
+	(12085, 31, 44, 2, 10663, 'page', 'articles', '/system-pages/articles/', 'Одна статья', 1432112062, 1432112062, '', 0, '', '', '', '', '', '', '', ''),
+	(12086, 32, 39, 3, 12085, 'column', 'left', '/system-pages/articles/left/', 'Левая', 1432112072, 1432112072, '', 0, '', '', '', '', '', '', '', ''),
+	(12087, 33, 34, 4, 12086, 'block', 'menu', '/system-pages/articles/left/menu/', 'Меню', 1432112072, 1432112072, '', 0, '', '', '', '', '', '', '', ''),
+	(12088, 35, 36, 4, 12086, 'block', 'reklama', '/system-pages/articles/left/reklama/', 'Реклама', 1432112072, 1432112072, '', 0, '', '', '', '', '', '', '', ''),
+	(12089, 37, 38, 4, 12086, 'block', 'sliderDoc', '/system-pages/articles/left/sliderDoc/', 'Слайдер документов', 1432112072, 1432112072, '', 0, '', '', '', '', '', '', '', ''),
+	(12090, 40, 43, 3, 12085, 'column', 'middle', '/system-pages/articles/middle/', 'Основная', 1432112080, 1432112080, '', 0, '', '', '', '', '', '', '', ''),
+	(12091, 41, 42, 4, 12090, 'block', 'articles', '/system-pages/articles/middle/articles/', 'Статья', 1432112080, 1432112080, '', 0, '', '', '', '', '', '', '', ''),
+	(12092, 99, 100, 2, 449, 'node', 'articles', '/hmvcblocks/articles/', 'Статья', 1432112313, 1432112313, '', 0, '', '', '', '', '', '', '', ''),
+	(12093, 379, 386, 2, 12083, 'lang', 'ru', '/articles/ru/', 'Русский', 1432112599, 1432112599, '', 0, '', '', '', '', '', '', '', ''),
+	(12094, 382, 383, 3, 12093, 'articles', 'contacts', '/articles/ru/contacts/', 'Контакты', 1432112727, 1432112727, '', 0, '', '', '', '', '', '', '', ''),
+	(12095, 384, 385, 3, 12093, 'articles', 'service', '/articles/ru/service/', 'Услуги', 1432112859, 1432112859, '', 0, '', '', '', '', '', '', '', ''),
+	(12096, 388, 429, 1, 1, 'list', 'allcountry', '/allcountry/', 'Все страны', 1432114855, 1432114855, '', 0, '', '', '', '', '', '', '', ''),
+	(12097, 389, 396, 2, 12096, 'country', 'bolg', '/allcountry/bolg/', 'Болгария', 1432114886, 1432114886, '', 0, '', '', '', '', '', '', '', ''),
+	(12099, 397, 404, 2, 12096, 'country', 'turc', '/allcountry/turc/', 'Турция', 1432123249, 1432123249, '', 0, '', '', '', '', '', '', '', ''),
+	(12100, 405, 412, 2, 12096, 'country', 'grec', '/allcountry/grec/', 'Греция', 1432123277, 1432123277, '', 0, '', '', '', '', '', '', '', ''),
+	(12101, 413, 420, 2, 12096, 'country', 'ispain', '/allcountry/ispain/', 'Испания', 1432123306, 1432123306, '', 0, '', '', '', '', '', '', '', ''),
+	(12102, 421, 428, 2, 12096, 'country', 'franc', '/allcountry/franc/', 'Франция', 1432123335, 1432123335, '', 0, '', '', '', '', '', '', '', ''),
+	(12103, 390, 395, 3, 12097, 'region', 'regionb', '/allcountry/bolg/regionb/', 'Регион Болгарии', 1432123893, 1432123893, '', 0, '', '', '', '', '', '', '', ''),
+	(12104, 391, 392, 4, 12103, 'city', 'city1', '/allcountry/bolg/regionb/city1/', 'Город 1', 1432123977, 1432123977, '', 0, '', '', '', '', '', '', '', ''),
+	(12105, 393, 394, 4, 12103, 'city', 'city2', '/allcountry/bolg/regionb/city2/', 'Город 2', 1432124003, 1432124003, '', 0, '', '', '', '', '', '', '', ''),
+	(12106, 398, 403, 3, 12099, 'region', 'regiont', '/allcountry/turc/regiont/', 'Регион Турции', 1432124017, 1432124017, '', 0, '', '', '', '', '', '', '', ''),
+	(12107, 399, 400, 4, 12106, 'city', 'city1', '/allcountry/turc/regiont/city1/', 'Город 1', 1432124017, 1432124017, '', 0, '', '', '', '', '', '', '', ''),
+	(12108, 401, 402, 4, 12106, 'city', 'city2', '/allcountry/turc/regiont/city2/', 'Город 2', 1432124017, 1432124017, '', 0, '', '', '', '', '', '', '', ''),
+	(12109, 406, 411, 3, 12100, 'region', 'regiong', '/allcountry/grec/regiong/', 'Регион Греции', 1432124026, 1432124026, '', 0, '', '', '', '', '', '', '', ''),
+	(12110, 407, 408, 4, 12109, 'city', 'city1', '/allcountry/grec/regiong/city1/', 'Город 1', 1432124026, 1432124026, '', 0, '', '', '', '', '', '', '', ''),
+	(12111, 409, 410, 4, 12109, 'city', 'city2', '/allcountry/grec/regiong/city2/', 'Город 2', 1432124026, 1432124026, '', 0, '', '', '', '', '', '', '', ''),
+	(12112, 414, 419, 3, 12101, 'region', 'regioni', '/allcountry/ispain/regioni/', 'Регион Испании', 1432124030, 1432124030, '', 0, '', '', '', '', '', '', '', ''),
+	(12113, 415, 416, 4, 12112, 'city', 'city1', '/allcountry/ispain/regioni/city1/', 'Город 1', 1432124030, 1432124030, '', 0, '', '', '', '', '', '', '', ''),
+	(12114, 417, 418, 4, 12112, 'city', 'city2', '/allcountry/ispain/regioni/city2/', 'Город 2', 1432124030, 1432124030, '', 0, '', '', '', '', '', '', '', ''),
+	(12115, 422, 427, 3, 12102, 'region', 'regionf', '/allcountry/franc/regionf/', 'Регион Франции', 1432124038, 1432124038, '', 0, '', '', '', '', '', '', '', ''),
+	(12116, 423, 424, 4, 12115, 'city', 'city1', '/allcountry/franc/regionf/city1/', 'Город 1', 1432124038, 1432124038, '', 0, '', '', '', '', '', '', '', ''),
+	(12117, 425, 426, 4, 12115, 'city', 'city2', '/allcountry/franc/regionf/city2/', 'Город 2', 1432124038, 1432124038, '', 0, '', '', '', '', '', '', '', ''),
+	(12118, 430, 467, 1, 1, 'list', 'type', '/type/', 'Типы', 1432190641, 1432190641, '', 0, '', '', '', '', '', '', '', ''),
+	(12119, 45, 58, 2, 10663, 'page', 'onecountry', '/system-pages/onecountry/', 'Одна страна', 1432193097, 1432193097, '', 0, '', '', '', '', '', '', '', ''),
+	(12120, 46, 53, 3, 12119, 'column', 'left', '/system-pages/onecountry/left/', 'Левая', 1432193112, 1432193112, '', 0, '', '', '', '', '', '', '', ''),
+	(12121, 47, 48, 4, 12120, 'block', 'menu', '/system-pages/onecountry/left/menu/', 'Меню', 1432193112, 1432193112, '', 0, '', '', '', '', '', '', '', ''),
+	(12122, 49, 50, 4, 12120, 'block', 'reklama', '/system-pages/onecountry/left/reklama/', 'Реклама', 1432193112, 1432193112, '', 0, '', '', '', '', '', '', '', ''),
+	(12123, 51, 52, 4, 12120, 'block', 'sliderDoc', '/system-pages/onecountry/left/sliderDoc/', 'Слайдер документов', 1432193112, 1432193112, '', 0, '', '', '', '', '', '', '', ''),
+	(12124, 54, 57, 3, 12119, 'column', 'middle', '/system-pages/onecountry/middle/', 'Основная', 1432193117, 1432193117, '', 0, '', '', '', '', '', '', '', ''),
+	(12125, 55, 56, 4, 12124, 'block', 'country', '/system-pages/onecountry/middle/country/', 'Страна', 1432193117, 1432193117, '', 0, '', '', '', '', '', '', '', ''),
+	(12126, 101, 102, 2, 449, 'node', 'country', '/hmvcblocks/country/', 'Страна', 1432193208, 1432193208, '', 0, '', '', '', '', '', '', '', ''),
+	(12154, 156, 169, 3, 10661, 'page', 'resultsearch', '/pages/ru/resultsearch/', 'Результат поиска', 1432560534, 1432560534, '', 0, '', '', '', '', '', '', '', ''),
+	(12155, 157, 164, 4, 12154, 'column', 'left', '/pages/ru/resultsearch/left/', 'Левая', 1432560548, 1432560548, '', 0, '', '', '', '', '', '', '', ''),
+	(12142, 443, 444, 2, 12118, 'typejk', 'pomeschenie', '/type/pomeschenie/', 'помещение', 1432213878, 1432213878, '', 0, '', '', '', '', '', '', '', ''),
+	(12141, 441, 442, 2, 12118, 'typejk', 'bungalo', '/type/bungalo/', 'бунгало', 1432213853, 1432213853, '', 0, '', '', '', '', '', '', '', ''),
+	(12140, 439, 440, 2, 12118, 'typejk', 'studiya', '/type/studiya/', 'студия', 1432213835, 1432213835, '', 0, '', '', '', '', '', '', '', ''),
+	(12139, 437, 438, 2, 12118, 'typejk', 'taunhaus', '/type/taunhaus/', 'таунхаус', 1432213807, 1432213807, '', 0, '', '', '', '', '', '', '', ''),
+	(12138, 435, 436, 2, 12118, 'typejk', 'kvartira', '/type/kvartira/', 'квартира', 1432213753, 1432213753, '', 0, '', '', '', '', '', '', '', ''),
+	(12137, 433, 434, 2, 12118, 'typejk', 'villa', '/type/villa/', 'Вилла', 1432213694, 1432213694, '', 0, '', '', '', '', '', '', '', ''),
+	(12136, 431, 432, 2, 12118, 'typejk', 'penthaus', '/type/penthaus/', 'Пентхаус', 1432213658, 1432213658, '', 0, '', '', '', '', '', '', '', ''),
+	(12143, 445, 446, 2, 12118, 'typejk', 'zagorodnyiydom', '/type/zagorodnyiydom/', 'Загородный дом', 1432213920, 1432213920, '', 0, '', '', '', '', '', '', '', ''),
+	(12144, 447, 448, 2, 12118, 'typejk', 'chastvillyi', '/type/chastvillyi/', 'часть виллы', 1432213950, 1432213950, '', 0, '', '', '', '', '', '', '', ''),
+	(12145, 449, 450, 2, 12118, 'typejk', 'dom', '/type/dom/', 'дом', 1432213968, 1432213968, '', 0, '', '', '', '', '', '', '', ''),
+	(12146, 451, 452, 2, 12118, 'typejk', 'kommercheskayanedvizhimost', '/type/kommercheskayanedvizhimost/', 'коммерческая недвижимость', 1432214013, 1432214013, '', 0, '', '', '', '', '', '', '', ''),
+	(12147, 453, 454, 2, 12118, 'typejk', 'uchastok', '/type/uchastok/', 'участок', 1432214032, 1432214032, '', 0, '', '', '', '', '', '', '', ''),
+	(12148, 455, 456, 2, 12118, 'typejk', 'ofis', '/type/ofis/', 'офис', 1432214058, 1432214058, '', 0, '', '', '', '', '', '', '', ''),
+	(12149, 457, 458, 2, 12118, 'typejk', 'restoran', '/type/restoran/', 'ресторан', 1432214080, 1432214080, '', 0, '', '', '', '', '', '', '', ''),
+	(12150, 459, 460, 2, 12118, 'typejk', 'gostinitsa', '/type/gostinitsa/', 'гостиница', 1432214102, 1432214102, '', 0, '', '', '', '', '', '', '', ''),
+	(12151, 461, 462, 2, 12118, 'typejk', 'proizvodstvo', '/type/proizvodstvo/', 'производство', 1432214123, 1432214123, '', 0, '', '', '', '', '', '', '', ''),
+	(12152, 463, 464, 2, 12118, 'typejk', 'skladyi', '/type/skladyi/', 'склады', 1432214140, 1432214140, '', 0, '', '', '', '', '', '', '', ''),
+	(12153, 465, 466, 2, 12118, 'typejk', 'raznoe', '/type/raznoe/', 'разное', 1432214166, 1432214166, '', 0, '', '', '', '', '', '', '', ''),
+	(12156, 158, 159, 5, 12155, 'block', 'menu', '/pages/ru/resultsearch/left/menu/', 'Меню', 1432560548, 1432560548, '', 0, '', '', '', '', '', '', '', ''),
+	(12157, 160, 161, 5, 12155, 'block', 'reklama', '/pages/ru/resultsearch/left/reklama/', 'Реклама', 1432560548, 1432560548, '', 0, '', '', '', '', '', '', '', ''),
+	(12158, 162, 163, 5, 12155, 'block', 'sliderDoc', '/pages/ru/resultsearch/left/sliderDoc/', 'Слайдер документов', 1432560548, 1432560548, '', 0, '', '', '', '', '', '', '', ''),
+	(12159, 165, 168, 4, 12154, 'column', 'middle', '/pages/ru/resultsearch/middle/', 'Основная', 1432560553, 1432560553, '', 0, '', '', '', '', '', '', '', ''),
+	(12162, 103, 104, 2, 449, 'node', 'searchresult', '/hmvcblocks/searchresult/', 'Результат поиска', 1432560776, 1432560776, '', 0, '', '', '', '', '', '', '', ''),
+	(12161, 166, 167, 5, 12159, 'block', 'searchresult', '/pages/ru/resultsearch/middle/searchresult/', 'Результат поиска', 1432560553, 1432560553, '', 0, '', '', '', '', '', '', '', ''),
+	(12163, 170, 183, 3, 10661, 'page', 'favorite', '/pages/ru/favorite/', 'Избраное', 1432564172, 1432564172, '', 0, '', '', '', '', '', '', '', ''),
+	(12164, 171, 178, 4, 12163, 'column', 'left', '/pages/ru/favorite/left/', 'Левая', 1432564197, 1432564197, '', 0, '', '', '', '', '', '', '', ''),
+	(12165, 172, 173, 5, 12164, 'block', 'menu', '/pages/ru/favorite/left/menu/', 'Меню', 1432564197, 1432564197, '', 0, '', '', '', '', '', '', '', ''),
+	(12166, 174, 175, 5, 12164, 'block', 'reklama', '/pages/ru/favorite/left/reklama/', 'Реклама', 1432564197, 1432564197, '', 0, '', '', '', '', '', '', '', ''),
+	(12167, 176, 177, 5, 12164, 'block', 'sliderDoc', '/pages/ru/favorite/left/sliderDoc/', 'Слайдер документов', 1432564197, 1432564197, '', 0, '', '', '', '', '', '', '', ''),
+	(12168, 179, 182, 4, 12163, 'column', 'middle', '/pages/ru/favorite/middle/', 'Основная', 1432564203, 1432564203, '', 0, '', '', '', '', '', '', '', ''),
+	(12169, 180, 181, 5, 12168, 'block', 'favorite', '/pages/ru/favorite/middle/favorite/', 'Избраное', 1432564203, 1432564203, '', 0, '', '', '', '', '', '', '', ''),
+	(12171, 105, 106, 2, 449, 'node', 'favorite', '/hmvcblocks/favorite/', 'Избраное', 1432564299, 1432564299, '', 0, '', '', '', '', '', '', '', '');
 /*!40000 ALTER TABLE `tree` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.tree_rule
+-- Дамп структуры для таблица premier.loc.tree_rule
 CREATE TABLE IF NOT EXISTS `tree_rule` (
   `tree_rule_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tree_rule_role_id` int(11) NOT NULL,
@@ -279,7 +581,7 @@ CREATE TABLE IF NOT EXISTS `tree_rule` (
   KEY `fk_rule_privilege1` (`tree_rule_privilege_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Дамп данных таблицы novostroika.od.ua.tree_rule: ~69 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.tree_rule: ~69 rows (приблизительно)
 /*!40000 ALTER TABLE `tree_rule` DISABLE KEYS */;
 INSERT INTO `tree_rule` (`tree_rule_id`, `tree_rule_role_id`, `tree_rule_resource_id`, `tree_rule_privilege_id`, `tree_rule_order`, `tree_rule_type`, `tree_rule_status`) VALUES
 	(1, 44, 128, 3, 0, 'deny', 1),
@@ -354,7 +656,7 @@ INSERT INTO `tree_rule` (`tree_rule_id`, `tree_rule_role_id`, `tree_rule_resourc
 /*!40000 ALTER TABLE `tree_rule` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.types
+-- Дамп структуры для таблица premier.loc.types
 CREATE TABLE IF NOT EXISTS `types` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type_name` varchar(200) NOT NULL,
@@ -364,9 +666,9 @@ CREATE TABLE IF NOT EXISTS `types` (
   `type_added` int(11) NOT NULL,
   `type_modified` int(11) NOT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.types: 40 rows
+-- Дамп данных таблицы premier.loc.types: 47 rows
 /*!40000 ALTER TABLE `types` DISABLE KEYS */;
 INSERT INTO `types` (`type_id`, `type_name`, `type_desc`, `type_fields`, `types_module`, `type_added`, `type_modified`) VALUES
 	(1, 'page', 'Текстовая страница', 'a:1:{s:14:"form_structure";s:923:"[{"type":"input_text","values":{"placeholder":"\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 \\u0437\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a...","label":"TITLE","id":"title","class":"b-field","name":"title","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 meta-keys...","label":"KEYWORDS","id":"mkeys","class":"b-field","name":"mkeys","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 meta-description...","label":"DESCRIPTION","id":"mdesc","class":"b-textarea","name":"mdesc","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c \\u043a\\u0430\\u0442\\u0430\\u043b\\u043e\\u0433","id":"save_button","class":"b-button greyishBtn submitForm","name":"save_button"}}]";}', 'type', 1336400922, 1379332541),
@@ -382,7 +684,7 @@ INSERT INTO `types` (`type_id`, `type_name`, `type_desc`, `type_fields`, `types_
 	(35, 'node', 'Сущьность', 'a:1:{s:14:"form_structure";s:550:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"node-name","class":"node-name","name":"title","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0438\\u043c\\u043e\\u0435","id":"node-content","class":"node-content","name":"content"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1340803783, 1343048073),
 	(54, 'filter', 'Страница списка с фильтром', 'a:1:{s:14:"form_structure";s:1675:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0422\\u0438\\u043f\\u044b \\u0447\\u0435\\u0440\\u0435\\u0437 \\u0437\\u0430\\u043f\\u044f\\u0442\\u0443\\u044e  \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0435 \\u043e\\u0441\\u0442\\u0430\\u0432\\u0438\\u0442\\u044c","id":"filter-types","class":"filter-types","name":"types","table":"","field":"","default":"","filter":""},"vlds":["length255"]},{"type":"input_text","values":{"placeholder":"","label":"\\u041f\\u043e\\u043b\\u044f \\u0434\\u043b\\u044f \\u0442\\u0438\\u043f\\u043e\\u0432 \\u043f\\u043e \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0438\\u0445 \\u0433\\u0440\\u0443\\u043f\\u043f\\u0438\\u0440\\u043e\\u0432\\u0430\\u0442\\u044c \\u043f\\u0440\\u0438\\u043c\\u0435\\u0440  -  { \\"\\u0442\\u0438\\u043f1\\":\\"\\u043f\\u043e\\u043b\\u04351\\" , \\"\\u0442\\u0438\\u043f2\\":{\\"\\u043f\\u043e\\u043b\\u04351\\",\\"\\u043f\\u043e\\u043b\\u04352\\"} }} ","id":"filter-group","class":"filter-group","name":"group","table":"","field":"","default":"","filter":""},"vlds":["length255"]},{"type":"input_text","values":{"placeholder":"","label":"\\u0414\\u043e\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0443\\u0441\\u043b\\u043e\\u0432\\u0438\\u0435","id":"condition-id","class":"condition-class","name":"condition","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a h1","id":"header1-id","class":"header1-class","name":"header1","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm add_node_button","name":""}}]";}', 'type', 1343123919, 1357651933),
 	(56, 'list', 'Список', 'a:1:{s:14:"form_structure";s:617:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0420\\u0430\\u0437\\u0440\\u0435\\u0448\\u0435\\u043d\\u043d\\u044b\\u0435 \\u0442\\u0438\\u043f\\u044b \\u0434\\u043b\\u044f \\u044d\\u0442\\u043e\\u0433\\u043e \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430, \\u0447\\u0435\\u0440\\u0435\\u0437 \\u0437\\u0430\\u043f\\u044f\\u0442\\u0443\\u044e","id":"list-types","class":"list-types","name":"types","table":"","field":"","default":"","filter":""},"vlds":["length255"]},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1343980207, 1343982513),
-	(114, 'news', 'Новости', 'a:1:{s:14:"form_structure";s:947:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u041f\\u043e\\u043b\\u043d\\u044b\\u0439 \\u0442\\u0435\\u043a\\u0441\\u0442 \\u043d\\u043e\\u0432\\u043e\\u0441\\u0442\\u0438","id":"","class":"","name":"fullText","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"","class":"","name":"image","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1430906909, 1431350472),
+	(114, 'news', 'Новости', 'a:1:{s:14:"form_structure";s:1122:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u041f\\u043e\\u043b\\u043d\\u044b\\u0439 \\u0442\\u0435\\u043a\\u0441\\u0442 \\u043d\\u043e\\u0432\\u043e\\u0441\\u0442\\u0438","id":"","class":"","name":"fullText","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0414\\u0430\\u0442\\u0430","id":"","class":"datepicker","name":"date","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"","class":"","name":"image","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1430906909, 1432041910),
 	(96, 'produkciya', 'Тип продукции', 'a:1:{s:14:"form_structure";s:1953:"[{"type":"input_text","values":{"placeholder":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a-\\u0440\\u0443\\u0441","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a-\\u0440\\u0443\\u0441","id":"","class":"","name":"header","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a-\\u0443\\u043a\\u0440","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a-\\u0443\\u043a\\u0440","id":"","class":"","name":"header_uk","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u0424\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044f \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0435","id":"","class":"","name":"foto","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"\\u041a\\u043e\\u0440\\u043e\\u0442\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435-\\u0440\\u0443\\u0441","label":"\\u041a\\u043e\\u0440\\u043e\\u0442\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435-\\u0440\\u0443\\u0441","id":"","class":"","name":"short","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"\\u041a\\u043e\\u0440\\u043e\\u0442\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435-\\u0443\\u043a\\u0440","label":"\\u041a\\u043e\\u0440\\u043e\\u0442\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435-\\u0443\\u043a\\u0440","id":"","class":"","name":"short_uk","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442-\\u0440\\u0443\\u0441","id":"","class":"","name":"content"}},{"type":"wysiwyg","values":{"label":"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442-\\u0443\\u043a\\u0440","id":"","class":"","name":"content_uk"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"","class":"","name":""}}]";}', 'type', 1382708592, 1383039080),
 	(100, 'filial', 'Филиалы', 'a:1:{s:14:"form_structure";s:2400:"[{"type":"input_text","values":{"placeholder":"\\u0413\\u043e\\u0440\\u043e\\u0434-\\u0440\\u0443\\u0441","label":"\\u0413\\u043e\\u0440\\u043e\\u0434-\\u0440\\u0443\\u0441","id":"","class":"","name":"city","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0413\\u043e\\u0440\\u043e\\u0434-\\u0443\\u043a\\u0440","label":"\\u0413\\u043e\\u0440\\u043e\\u0434-\\u0443\\u043a\\u0440","id":"","class":"","name":"city_uk","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u041d\\u043e\\u043c\\u0435\\u0440\\u0430 \\u0438 \\u043a\\u0440\\u0430\\u0441\\u043e\\u0442\\u0430","id":"","class":"","name":"art_number"}},{"type":"textarea","values":{"placeholder":"\\u041d\\u043e\\u043c\\u0435\\u0440\\u0430","label":"\\u041d\\u043e\\u043c\\u0435\\u0440\\u0430","id":"","class":"","name":"number","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"email","label":"email","id":"","class":"","name":"email","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0410\\u0434\\u0440\\u0435\\u0441-\\u0440\\u0443\\u0441","label":"\\u0410\\u0434\\u0440\\u0435\\u0441-\\u0440\\u0443\\u0441","id":"","class":"","name":"address","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0410\\u0434\\u0440\\u0435\\u0441-\\u0443\\u043a\\u0440","label":"\\u0410\\u0434\\u0440\\u0435\\u0441-\\u0443\\u043a\\u0440","id":"","class":"","name":"address_uk","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"\\u041a\\u0430\\u0440\\u0442\\u0430","label":"\\u041a\\u0430\\u0440\\u0442\\u0430","id":"","class":"","name":"map","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0421\\u043a\\u043b\\u043e\\u043d\\u0435\\u043d\\u0438\\u0435 \\u0440\\u0443\\u0441","label":"\\u0441\\u043a\\u043b\\u043e\\u043d\\u0435\\u043d\\u0438\\u0435 \\u0440\\u0443\\u0441","id":"","class":"","name":"sklon","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u0421\\u043a\\u043b\\u043e\\u043d\\u0435\\u043d\\u0438\\u0435 \\u0443\\u043a\\u0440","label":"\\u0421\\u043a\\u043b\\u043e\\u043d\\u0435\\u043d\\u0438\\u0435 \\u0443\\u043a\\u0440","id":"","class":"","name":"sklon_uk","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"","class":"","name":""}}]";}', 'type', 1383052346, 1383224858),
 	(74, 'alias', 'Алиас', 'a:1:{s:14:"form_structure";s:626:"[{"type":"select","values":{"label":"\\u042d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442 \\u043d\\u0430 \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0439 \\u0441\\u0441\\u044b\\u043b\\u0430\\u0435\\u0442\\u0441\\u044f \\u0430\\u043b\\u0438\\u0430\\u0441 ","id":"element-id","class":"element-class","name":"elementid","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"novostoy\\",\\"node\\":\\"\\/jk\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"checked"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1355913703, 1430902494),
@@ -399,20 +701,27 @@ INSERT INTO `types` (`type_id`, `type_name`, `type_desc`, `type_fields`, `types_
 	(99, 'manager', 'Менеджер', 'a:1:{s:14:"form_structure";s:1156:"[{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441 \\u043f\\u043e\\u0434 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0435\\u0439","id":"","class":"","name":"text","table":"","field":"","default":"","filter":""},"vlds":["string"]},{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441 \\u043f\\u043e\\u0434 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0435\\u0439 \\u0443\\u043a\\u0440","id":"","class":"","name":"text_uk","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"\\u043f\\u043e\\u0447\\u0442\\u0430 \\u043c\\u0435\\u043d\\u0435\\u0434\\u0436\\u0435\\u0440\\u0430","label":"\\u043f\\u043e\\u0447\\u0442\\u0430 \\u043c\\u0435\\u043d\\u0435\\u0434\\u0436\\u0435\\u0440\\u0430","id":"","class":"","name":"email","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u0444\\u043e\\u0442\\u043e","id":"","class":"","name":"foto","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u041e\\u0431\\u043d\\u043e\\u0432\\u0438\\u0442\\u044c","id":"","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1382620738, 1383044648),
 	(101, 'column', 'Колонка', 'a:1:{s:14:"form_structure";s:93:"[{"type":"hidden","values":{"id":"","class":"","name":"","table":"","field":"","method":""}}]";}', 'type', 1384176346, 1384176346),
 	(102, 'cpage', 'Закрытая страница', 'a:1:{s:14:"form_structure";s:93:"[{"type":"hidden","values":{"id":"","class":"","name":"","table":"","field":"","method":""}}]";}', 'type', 1384269370, 1384269370),
-	(103, 'city', 'Город', 'a:1:{s:14:"form_structure";s:4959:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a \\u0441\\u0435\\u043e \\u0442\\u0435\\u043a\\u0441\\u0442\\u0430","id":"seoh1","class":"seoh1","name":"seoh1","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u0433\\u043e\\u0440\\u043e\\u0434\\u0430","id":"cityid","class":"cityid","name":"cityid","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0421\\u0435\\u043e \\u0442\\u0435\\u043a\\u0441\\u0442","id":"seo","class":"seo","name":"seo"}},{"type":"select","values":{"label":"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u0442\\u044c","id":"pub","class":"pub","name":"pub","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21161","id":"","class":"","name":"fav_1","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21162","id":"","class":"","name":"fav_2","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21163","id":"","class":"","name":"fav_3","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21164","id":"","class":"","name":"fav_4","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21165","id":"","class":"","name":"fav_5","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21166","id":"","class":"","name":"fav_6","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21167","id":"","class":"","name":"fav_7","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21168","id":"","class":"","name":"fav_8","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u21169","id":"","class":"","name":"fav_9","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211610","id":"","class":"","name":"fav_10","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211611","id":"","class":"","name":"fav_11","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211612","id":"","class":"","name":"fav_12","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211613","id":"","class":"","name":"fav_13","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211614","id":"","class":"","name":"fav_14","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211615","id":"","class":"","name":"fav_15","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0418\\u0437\\u0431\\u0440\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442 \\u211616","id":"","class":"","name":"fav_16","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1385942303, 1389656392),
+	(103, 'city', 'Город', 'a:1:{s:14:"form_structure";s:993:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"seoh1","class":"seoh1","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"cityid","class":"cityid","name":"head","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"seo","class":"seo","name":"text"}},{"type":"select","values":{"label":"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u0442\\u044c","id":"pub","class":"pub","name":"pub","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1385942303, 1432203495),
 	(104, 'nedvijimost', 'Недвижимость', 'a:1:{s:14:"form_structure";s:2381:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"seoh1","class":"seoh1","name":"seoh1","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0421\\u0435\\u043e \\u0442\\u0435\\u043a\\u0441\\u0442","id":"seo","class":"seo","name":"seo"}},{"type":"input_text","values":{"placeholder":"","label":"\\u0423\\u0441\\u043b\\u043e\\u0432\\u0438\\u044f \\u0434\\u043b\\u044f \\u043f\\u043e\\u0438\\u0441\\u043a\\u0430","id":"conditions","class":"conditions","name":"conditions","table":"","field":"","default":"","filter":""}},{"type":"select","values":{"label":"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b","id":"icon","class":"icon","name":"icon","method":""},"multiple":"undefined","options":{"1":{"value":"novostroi","baseline":"undefined"},"2":{"value":"kvartiry","baseline":"undefined"},"3":{"value":"doma","baseline":"undefined"},"4":{"value":"ychastki","baseline":"undefined"},"5":{"value":"kommercheskaya","baseline":"undefined"},"6":{"value":"komnat","baseline":"undefined"},"7":{"value":"office","baseline":"undefined"},"8":{"value":"garage","baseline":"undefined"},"9":{"value":"business","baseline":"undefined"},"10":{"value":"warehouse","baseline":"undefined"},"11":{"value":"arendadoma","baseline":"undefined"},"12":{"value":"arendakommercheskaya","baseline":"undefined"},"13":{"value":"arendakvartir","baseline":"undefined"},"14":{"value":"arendakomnat","baseline":"undefined"},"15":{"value":"arendaoffice","baseline":"undefined"},"16":{"value":"arendagarage","baseline":"undefined"},"17":{"value":"arendabusiness","baseline":"undefined"},"18":{"value":"arendawarehouse","baseline":"undefined"},"19":{"value":"arendaychastki","baseline":"undefined"},"20":{"value":"obmendoma","baseline":"undefined"},"21":{"value":"obmenkvartir","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u0442\\u044c","id":"pub","class":"pub","name":"pub","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"","class":"b-button greyishBtn submitForm add_type_button","name":""}}]";}', 'type', 1385943799, 1396336520),
 	(105, 'lang', 'Язык', 'a:1:{s:14:"form_structure";s:93:"[{"type":"hidden","values":{"id":"","class":"","name":"","table":"","field":"","method":""}}]";}', 'type', 1424034043, 1424034043),
 	(106, 'product', 'Продукт', 'a:1:{s:14:"form_structure";s:1247:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"name","class":"name","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041a\\u043e\\u0434\\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430","id":"longtitle","class":"longtitle","name":"longtitle","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435","id":"img","class":"img","name":"img","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u043d\\u0430 \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u0435","id":"imginner","class":"imginner","name":"imginner","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u0435 \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b","id":"content","class":"content","name":"content"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1424649392, 1425205201),
 	(107, 'productcategory', 'Раздел продукта', 'a:1:{s:14:"form_structure";s:1695:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"name","class":"name","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041c\\u0435\\u0442\\u043a\\u0430","id":"longtitle","class":"longtitle","name":"longtitle","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0438\\u043c\\u043e\\u0435","id":"content","class":"content","name":"content"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}},{"type":"select","values":{"label":"\\u0412\\u044b\\u0432\\u043e\\u0434\\u0438\\u0442\\u044c \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u044b \\u0438\\u0437 \\u043a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u0438","id":"showproducts","class":"showproducts","name":"showproducts","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"img","class":"img","name":"img","table":"","field":"","default":"","filter":""}},{"type":"select","values":{"label":"\\u0421\\u043a\\u0440\\u044b\\u0432\\u0430\\u0442\\u044c \\u0445\\u043b\\u0435\\u0431\\u043d\\u0443\\u044e \\u043a\\u0440\\u043e\\u0448\\u043a\\u0443","id":"hide-crumb","class":"hide-crumb","name":"hide-crumb","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}}]";}', 'type', 1424652771, 1425305575),
-	(108, 'sitesettings', 'Настройки сайта', 'a:1:{s:14:"form_structure";s:1387:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d 1","id":"tel1","class":"tel1","name":"tel1","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041f\\u043e\\u0434\\u043f\\u0438\\u0441\\u044c","id":"podpis","class":"podpis","name":"podpis","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u0424\\u0430\\u0432\\u0438\\u043a\\u043e\\u043d","id":"setfavicon","class":"setfavicon","name":"favicon","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430 \\u0434\\u043b\\u044f \\u0440\\u0435\\u043a\\u043b\\u0430\\u043c\\u044b","id":"","class":"","name":"imgReklam","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"JavaScript \\u0434\\u043b\\u044f \\u0412\\u043a\\u043e\\u043d\\u0442\\u0430\\u043a\\u0442\\u0435","id":"","class":"","name":"jsForVk","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"JavaScript \\u0434\\u043b\\u044f Facebook","id":"","class":"","name":"jsForFacebook","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1424993618, 1431006860),
+	(108, 'sitesettings', 'Настройки сайта', 'a:1:{s:14:"form_structure";s:585:"[{"type":"file","values":{"label":"\\u0424\\u0430\\u0432\\u0438\\u043a\\u043e\\u043d","id":"setfavicon","class":"setfavicon","name":"favicon","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430 \\u0434\\u043b\\u044f \\u0440\\u0435\\u043a\\u043b\\u0430\\u043c\\u044b","id":"","class":"","name":"imgReklam","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1424993618, 1432197491),
 	(113, 'novostoy', 'Новострой', 'a:1:{s:14:"form_structure";s:845:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name_build","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"","class":"","name":"image","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u041f\\u043e\\u043b\\u043d\\u044b\\u0439 \\u0442\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"fullText"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1430900658, 1431352863),
 	(110, 'productlink', 'Ссылка на продук', 'a:1:{s:14:"form_structure";s:493:"[{"type":"select","values":{"label":"\\u0412\\u044b\\u0431\\u043e\\u0440 \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430 ","id":"product","class":"product","name":"product","method":"{\\"field\\":\\"id\\",\\"node\\":\\"\\/products\\/\\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1425163207, 1425219132),
-	(111, 'newonmain', 'Новость на главной', 'a:1:{s:14:"form_structure";s:2450:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"header","class":"header","name":"header","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"P\\u0430\\u0437\\u043c\\u0435\\u0440 \\u0448\\u0440\\u0438\\u0444\\u0442\\u0430","id":"fontsize","class":"fontsize","name":"fontsize","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0426\\u0432\\u0435\\u0442 \\u0432 \\u0445\\u0435\\u043a\\u0441","id":"hexcolor","class":"hexcolor","name":"hexcolor","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0448\\u0440\\u0438\\u0444\\u0442\\u0430","id":"fontname","class":"fontname","name":"fontname","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"img","class":"img","name":"img","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0428\\u0438\\u0440\\u0438\\u043d\\u0430 \\u043a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0438","id":"img-width","class":"img-width","name":"img-width","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0412\\u044b\\u0441\\u043e\\u0442\\u0430 \\u043a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0438","id":"img-hight","class":"img-hight","name":"img-hight","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441","id":"text","class":"text","name":"text"}},{"type":"input_text","values":{"placeholder":"","label":"\\u0421\\u0441\\u044b\\u043b\\u043a\\u0430 \\u0443\\u0437\\u043d\\u0430\\u0442\\u044c \\u0431\\u043e\\u043b\\u044c\\u0448\\u0435","id":"more","class":"more","name":"more","table":"","field":"","default":"","filter":""}},{"type":"select","values":{"label":"\\u041f\\u043e\\u043a\\u0430\\u0437\\u044b\\u0432\\u0430\\u0442\\u044c \\u043d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c","id":"shownew","class":"shownew","name":"shownew","method":""},"multiple":"undefined","options":{"1":{"value":"\\u0414\\u0430","baseline":"undefined"},"2":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1425209552, 1425574700),
-	(112, 'contentlang', 'Язык конетна', 'a:1:{s:14:"form_structure";s:1127:"[{"type":"select","values":{"label":"\\u0412\\u043a\\u043b\\u044e\\u0447\\u0438\\u0442\\u044c","id":"on","class":"on","name":"on","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041e\\u0442\\u043e\\u0431\\u0440\\u0430\\u0436\\u0430\\u0442\\u044c \\u043e\\u0442\\u0434\\u0435\\u043b\\u044c\\u043d\\u043e\\u0439 \\u0433\\u0430\\u043b\\u043e\\u0447\\u043a\\u043e\\u0439","id":"showcheck","class":"showcheck","name":"showcheck","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u043b\\u044f \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435","id":"others","class":"others","name":"others","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1425947289, 1426069579);
+	(119, 'country', 'Страна', 'a:1:{s:14:"form_structure";s:657:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432114819, 1432114819),
+	(120, 'region', 'Регион', 'a:1:{s:14:"form_structure";s:657:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432115110, 1432115110),
+	(121, 'regcity', 'Город', 'a:1:{s:14:"form_structure";s:657:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432115620, 1432115620),
+	(122, 'typejk', 'Тип недвижимости', 'a:1:{s:14:"form_structure";s:657:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"","class":"","name":"head","table":"","field":"","default":"","filter":""}},{"type":"wysiwyg","values":{"label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text"}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432115908, 1432115908),
+	(112, 'contentlang', 'Язык конетна', 'a:1:{s:14:"form_structure";s:1127:"[{"type":"select","values":{"label":"\\u0412\\u043a\\u043b\\u044e\\u0447\\u0438\\u0442\\u044c","id":"on","class":"on","name":"on","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041e\\u0442\\u043e\\u0431\\u0440\\u0430\\u0436\\u0430\\u0442\\u044c \\u043e\\u0442\\u0434\\u0435\\u043b\\u044c\\u043d\\u043e\\u0439 \\u0433\\u0430\\u043b\\u043e\\u0447\\u043a\\u043e\\u0439","id":"showcheck","class":"showcheck","name":"showcheck","method":""},"multiple":"undefined","options":{"1":{"value":"\\u041d\\u0435\\u0442","baseline":"undefined"},"2":{"value":"\\u0414\\u0430","baseline":"undefined"}}},{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u043b\\u044f \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435","id":"others","class":"others","name":"others","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1425947289, 1426069579),
+	(115, 'slideritem', 'Елемент слайдера', 'a:1:{s:14:"form_structure";s:687:"[{"type":"input_text","values":{"placeholder":"","label":"\\u0422\\u0438\\u0442\\u0443\\u043b\\u043a\\u0430","id":"","class":"","name":"title","table":"","field":"","default":"","filter":""}},{"type":"textarea","values":{"placeholder":"","label":"\\u0422\\u0435\\u043a\\u0441\\u0442","id":"","class":"","name":"text","table":"","field":"","default":"","filter":""}},{"type":"file","values":{"label":"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430","id":"","class":"","name":"img","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432017358, 1432017654),
+	(116, 'reklama', 'Реклама', 'a:1:{s:14:"form_structure";s:310:"[{"type":"file","values":{"label":"\\u0424\\u043e\\u0442\\u043e","id":"","class":"","name":"img","table":"","field":"","default":"","filter":""}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432022819, 1432022819),
+	(117, 'menu', 'Меню', 'a:1:{s:14:"form_structure";s:864:"[{"type":"input_text","values":{"placeholder":"","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"","class":"","name":"name","table":"","field":"","default":"","filter":""}},{"type":"input_text","values":{"placeholder":"","label":"\\u041a\\u043b\\u0430\\u0441\\u0441 \\u0438\\u043a\\u043e\\u043d\\u043a\\u0438","id":"","class":"","name":"class","table":"","field":"","default":"","filter":""}},{"type":"select","values":{"label":"\\u041f\\u0435\\u0440\\u0432\\u043e\\u0435 \\u043c\\u0435\\u043d\\u044e","id":"firstid","class":"","name":"first","method":""},"multiple":"undefined","options":{"1":{"value":"\\u043d\\u0435\\u0442","baseline":"checked"},"2":{"value":"\\u0434\\u0430","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":"save"}}]";}', 'type', 1432028049, 1432028674),
+	(118, 'newsonmain', 'Новости на главной', 'a:1:{s:14:"form_structure";s:2580:"[{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u0437\\u0430\\u0440\\u0443\\u0431\\u0435\\u0436\\u043d\\u043e\\u0439 \\u043d\\u0435\\u0434\\u0432\\u0438\\u0436\\u0438\\u043c\\u043e\\u0441\\u0442\\u0438 1","id":"znewId","class":"","name":"znew1","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-out\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u0437\\u0430\\u0440\\u0443\\u0431\\u0435\\u0436\\u043d\\u043e\\u0439 \\u043d\\u0435\\u0434\\u0432\\u0438\\u0436\\u0438\\u043c\\u043e\\u0441\\u0442\\u0438 2","id":"znewId","class":"","name":"znew2","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-out\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u0437\\u0430\\u0440\\u0443\\u0431\\u0435\\u0436\\u043d\\u043e\\u0439 \\u043d\\u0435\\u0434\\u0432\\u0438\\u0436\\u0438\\u043c\\u043e\\u0441\\u0442\\u0438 3","id":"znewId","class":"","name":"znew3","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-out\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u043a\\u043e\\u043c\\u043f\\u0430\\u043d\\u0438\\u0438 1","id":"knewId","class":"","name":"knew1","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-compain\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u043a\\u043e\\u043c\\u043f\\u0430\\u043d\\u0438\\u0438 2","id":"knewId","class":"","name":"knew2","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-compain\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c \\u043a\\u043e\\u043c\\u043f\\u0430\\u043d\\u0438\\u0438 3","id":"knewId","class":"","name":"knew3","method":"{\\"field\\":\\"id\\",\\"filter\\":\\"news\\",\\"node\\":\\"\\/news\\/news-compain\\/ \\",\\"title\\":[\\"tree_title\\"]}"},"multiple":"undefined","options":{"1":{"value":"","baseline":"undefined"}}},{"type":"submit","values":{"label":"\\u0421\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u044c","id":"save-button","class":"b-button greyishBtn submitForm","name":""}}]";}', 'type', 1432043570, 1432047751);
 /*!40000 ALTER TABLE `types` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_alias
+-- Дамп структуры для таблица premier.loc.type_alias
 CREATE TABLE IF NOT EXISTS `type_alias` (
   `type_alias_id` int(10) unsigned NOT NULL,
   `type_alias_pid` int(10) unsigned NOT NULL,
@@ -420,12 +729,43 @@ CREATE TABLE IF NOT EXISTS `type_alias` (
   PRIMARY KEY (`type_alias_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_alias: 0 rows
+-- Дамп данных таблицы premier.loc.type_alias: 30 rows
 /*!40000 ALTER TABLE `type_alias` DISABLE KEYS */;
+INSERT INTO `type_alias` (`type_alias_id`, `type_alias_pid`, `type_alias_elementid`) VALUES
+	(11969, 0, '11988'),
+	(11970, 0, '11993'),
+	(11971, 0, '11998'),
+	(11973, 0, '11989'),
+	(11974, 0, '11994'),
+	(11975, 0, '11999'),
+	(11977, 0, '11990'),
+	(11978, 0, '11995'),
+	(11979, 0, '12000'),
+	(11981, 0, '11991'),
+	(11982, 0, '11996'),
+	(11983, 0, '12001'),
+	(11985, 0, '11992'),
+	(11986, 0, '11997'),
+	(11987, 0, '12002'),
+	(12074, 0, '12002'),
+	(12073, 0, '11997'),
+	(12072, 0, '11992'),
+	(12070, 0, '12001'),
+	(12069, 0, '11996'),
+	(12068, 0, '11991'),
+	(12066, 0, '12000'),
+	(12065, 0, '11995'),
+	(12064, 0, '11990'),
+	(12062, 0, '11999'),
+	(12061, 0, '11994'),
+	(12060, 0, '11989'),
+	(12058, 0, '11998'),
+	(12057, 0, '11993'),
+	(12056, 0, '11988');
 /*!40000 ALTER TABLE `type_alias` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_articles
+-- Дамп структуры для таблица premier.loc.type_articles
 CREATE TABLE IF NOT EXISTS `type_articles` (
   `type_articles_id` int(10) unsigned NOT NULL,
   `type_articles_pid` int(10) unsigned NOT NULL,
@@ -435,12 +775,16 @@ CREATE TABLE IF NOT EXISTS `type_articles` (
   FULLTEXT KEY `type_articles_content` (`type_articles_content`,`type_articles_header`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_articles: 0 rows
+-- Дамп данных таблицы premier.loc.type_articles: 3 rows
 /*!40000 ALTER TABLE `type_articles` DISABLE KEYS */;
+INSERT INTO `type_articles` (`type_articles_id`, `type_articles_pid`, `type_articles_content`, `type_articles_header`) VALUES
+	(12084, 0, '<p>Текст текст текс</p>\r\n', 'О компании'),
+	(12094, 0, '<p>Текст текс текст</p>\r\n', 'Контакты'),
+	(12095, 0, '<p>Текст текст текст</p>\r\n', 'Услуги');
 /*!40000 ALTER TABLE `type_articles` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_block
+-- Дамп структуры для таблица premier.loc.type_block
 CREATE TABLE IF NOT EXISTS `type_block` (
   `type_block_id` int(10) unsigned NOT NULL,
   `type_block_name` varchar(500) NOT NULL,
@@ -450,31 +794,52 @@ CREATE TABLE IF NOT EXISTS `type_block` (
   PRIMARY KEY (`type_block_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_block: 18 rows
+-- Дамп данных таблицы premier.loc.type_block: 39 rows
 /*!40000 ALTER TABLE `type_block` DISABLE KEYS */;
 INSERT INTO `type_block` (`type_block_id`, `type_block_name`, `type_block_action`, `type_block_content`, `type_block_template`) VALUES
-	(11922, '', 'star2', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11913, '', 'newsonmain', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12028, '', 'newsonmain', '', 'Стандартный шаблон блока контента(block-content)'),
+	(11913, '', 'allnews', '', 'Стандартный шаблон блока контента(block-content)'),
 	(7463, '', 'sform', '', 'Стандартный шаблон старшего модуля'),
 	(7465, '', 'adssearch', '<div id="content">\n<h1>Закаленное стекло</h1>\n\n<div class="text">\n<p>Стекло &mdash; универсальный материал, обладающий широчайшим разнообразием свойств и характеристик. Благодаря мастерству человека и его безграничной фантазии, в современном мире закаленное стекло используется чрезвычайно широко, &mdash; в оформлении витрин, балконов, фасадов, дверей и перегородок, а также во множестве других вариаций.</p>\n\n<p>Компания &laquo;Glassok&raquo; предлагает вашему вниманию широкий ассортимент изделий.</p>\n\n<p>Обращаясь к нам, вы начинаете сотрудничество с мастерами своего дела. Гарантией качественного выполнения работ является опыт компании: на 2013 год он составляет уже более восьми лет. Реализуемая продукция обладает отличительным качеством и наивысшими характеристиками. Так, изделия из закаленного стекла могут быть использованы при создании витрин, а разнообразные экспозиции из стекла в интерьере тонко подчеркнут вкус владельца.</p>\n\n<p>При создании стеклянных конструкции очень многое зависит от свойств самого материала. Сотрудничая с компанией &laquo;Glassok&raquo; вы можете быть абсолютно уверены в высоком качестве реализуемой продукции и фурнитуры для стекла.</p>\n\n<p>Несмотря на то, что главный офис ТМ &laquo;Glassok&raquo; находится в Одессе, мы открыты для клиентов по всей Украине: в Киеве, Николаеве, Симферополе, Львове и других городах.</p>\n\n<p>Если вы планируете приобретение светопрозрачных конструкций, мы рекомендуем вам ознакомиться с представленным на нашем сайте каталогом изделий (двери из стекла, стеклянные перегородки и т.п.) и комплектующих (фурнитура для стекла). При возникновении вопросов связывайтесь с нами при помощи указанной на сайте контактной информации &mdash; в каком городе бы вы не находились, &mdash; Одесса или Киев, Львов или Симферополь, &mdash; квалифицированные консультанты с радостью ответят на любой вопрос.</p>\n</div>\n\n<h2>Что мы предлагаем</h2>\n\n<div class="services-content">\n<div>\n<div><img alt="Фасады" height="148" src="/upload/images/fasad.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/vitriny-steklyannye/" title="Фасады">Фасады</a></p>\n</div>\n\n<div>\n<div><img alt="Двери из стекла" height="148" src="/upload/images/dver.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/dveri-iz-stekla/" title="Двери из стекла">Двери из стекла</a></p>\n</div>\n\n<div>\n<div><img alt="Перегородки из стекла" height="148" src="/upload/images/peregor.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/peregorodki-iz-stekla/" title="Перегородки из стекла">Перегородки из стекла</a></p>\n</div>\n\n<div>\n<div><img alt="Козырьки из стекла" height="148" src="/upload/images/kozir.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/steklyannye-kozyrki/" title="Козырьки из стекла">Козырьки из стекла</a></p>\n</div>\n\n<div>\n<div><img alt="Лестницы из стекла" height="148" src="/upload/images/lest.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/lestnicy-iz-stekla/" title="Лестницы из стекла">Лестницы из стекла</a></p>\n</div>\n\n<div>\n<div><img alt="Стеклянный пол" height="148" src="/upload/images/pol.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/steklyannyi-pol/" title="Стеклянный пол">Стеклянный пол</a></p>\n</div>\n\n<div>\n<div><img alt="Душевые кабины" height="148" src="/upload/images/duw.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/dushevye-kabiny/" title="Душевые кабины">Душевые кабины</a></p>\n</div>\n\n<div>\n<div><img alt="Автоматика" height="148" src="/upload/images/avto.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/avtomatika/" title="Автоматика">Автоматика</a></p>\n</div>\n\n<div>\n<div><img alt="Фурнитура" height="148" src="/upload/images/furnitura.png" width="148" /></div>\n\n<p class="service-link"><a href="http://www.glassok.ua/casma-furnitura-katalogi/" title="Фурнитура">Фурнитура</a></p>\n</div>\n</div>\n\n<div style="text-align:center;"><iframe allowfullscreen="" frameborder="0" height="360" src="//www.youtube.com/embed/maO_Z5xUa18" width="480"></iframe></div>\n</div>\n', 'Без шаблона'),
 	(10666, '', '', '', 'Вывод только содержимого как ест( notemplate )'),
 	(7478, '', 'newsblock', '', 'Стандартный шаблон старшего модуля'),
-	(10266, '', 'articles', '', 'Стандартный шаблон старшего модуля'),
-	(11935, '', 'slider', '', 'Стандартный шаблон блока контента(block-content)'),
+	(11964, '', 'main', '', 'Стандартный шаблон блока контента(block-content)'),
 	(11776, '', '', '<div class="white">\r\n<div class="error">\r\n<div class="text">&nbsp;</div>\r\n</div>\r\n\r\n<div class="text-info">&nbsp;</div>\r\n</div>\r\n', 'Вывод только содержимого как ест( notemplate )'),
-	(11910, '', 'altair', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11936, '', 'novostoy', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12046, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
 	(11880, '', 'onenews', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11920, '', 'gen', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11891, '', 'novostoy', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11899, '', 'contactus', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11925, '', 'objects', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12045, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(11942, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(11946, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(11956, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
 	(11931, '', 'map', '', 'Стандартный шаблон блока контента(block-content)'),
-	(11934, '', 'onenovostroy', '', 'Стандартный шаблон блока контента(block-content)');
+	(11934, '', 'onenovostroy', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12047, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12049, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12050, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12051, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12077, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12078, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12079, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12088, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12087, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12089, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12091, '', 'articles', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12121, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12122, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12123, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12125, '', 'country', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12165, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12158, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12157, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12156, '', 'menu', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12161, '', 'searchresult', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12166, '', 'reklama', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12167, '', 'sliderdoc', '', 'Стандартный шаблон блока контента(block-content)'),
+	(12169, '', 'favorite', '', 'Стандартный шаблон блока контента(block-content)');
 /*!40000 ALTER TABLE `type_block` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_blockform
+-- Дамп структуры для таблица premier.loc.type_blockform
 CREATE TABLE IF NOT EXISTS `type_blockform` (
   `type_blockform_id` int(10) unsigned NOT NULL,
   `type_blockform_form_title` varchar(500) NOT NULL,
@@ -482,12 +847,165 @@ CREATE TABLE IF NOT EXISTS `type_blockform` (
   PRIMARY KEY (`type_blockform_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_blockform: 0 rows
+-- Дамп данных таблицы premier.loc.type_blockform: 0 rows
 /*!40000 ALTER TABLE `type_blockform` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_blockform` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_contentlang
+-- Дамп структуры для таблица premier.loc.type_city
+CREATE TABLE IF NOT EXISTS `type_city` (
+  `type_city_id` int(10) unsigned NOT NULL,
+  `type_city_pub` varchar(500) NOT NULL,
+  `type_city_name` varchar(500) NOT NULL,
+  `type_city_head` varchar(500) NOT NULL,
+  `type_city_text` text NOT NULL,
+  PRIMARY KEY (`type_city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_city: ~10 rows (приблизительно)
+/*!40000 ALTER TABLE `type_city` DISABLE KEYS */;
+INSERT INTO `type_city` (`type_city_id`, `type_city_pub`, `type_city_name`, `type_city_head`, `type_city_text`) VALUES
+	(12104, 'Нет', 'Город Болгарии 1', 'Город Болгарии 1', '<p>Город Болгарии 1Город Болгарии 1Город Болгарии 1Город Болгарии 1</p>\r\n'),
+	(12105, 'Нет', 'Город Болгарии 2', 'Город Болгарии 2', '<p>Город Болгарии 2Город Болгарии 2</p>\r\n'),
+	(12107, 'Нет', 'Город Турции 1', 'Город Турции 1', '<p>Город Турции 1Город Турции 1Город Турции 1</p>\r\n'),
+	(12108, 'Нет', 'Город Турции 2', 'Город Турции 2', '<p>Город Турции 2</p>\r\n'),
+	(12110, 'Нет', 'Город Греции 1', 'Город Греции 1', '<p>Город Греции 1</p>\r\n\r\n<p>Город Греции 1</p>\r\n\r\n<p>Город Греции 1</p>\r\n\r\n<p>Город Греции 1</p>\r\n\r\n<p>&nbsp;</p>\r\n'),
+	(12111, 'Нет', 'Город Греции 2', 'Город Греции 2', '<p>Город Греции 2</p>\r\n'),
+	(12113, 'Нет', 'Город Испании 1', 'Город Испании 1', '<p>Город Испании 1</p>\r\n\r\n<p>Город Испании 1</p>\r\n'),
+	(12114, 'Нет', 'Город Испании 2', 'Город Испании 2', '<p>Город Испании 2</p>\r\n\r\n<p>Город Испании 2Город Испании 2</p>\r\n'),
+	(12116, 'Нет', 'Город Франции 1', 'Город Франции 1', '<p>Город Франции 1</p>\r\n\r\n<p>Город Франции 1</p>\r\n\r\n<p>Город Франции 1</p>\r\n'),
+	(12117, 'Нет', 'Город Франции 2', 'Город Франции 2', '<p>Город Франции 2</p>\r\n\r\n<p>Город Франции 2</p>\r\n');
+/*!40000 ALTER TABLE `type_city` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_column
+CREATE TABLE IF NOT EXISTS `type_column` (
+  `type_column_id` int(10) unsigned NOT NULL,
+  `type_column_pid` int(10) unsigned NOT NULL,
+  `type_column_` varchar(500) NOT NULL,
+  PRIMARY KEY (`type_column_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_column: 113 rows
+/*!40000 ALTER TABLE `type_column` DISABLE KEYS */;
+INSERT INTO `type_column` (`type_column_id`, `type_column_pid`, `type_column_`) VALUES
+	(7461, 0, ''),
+	(9999, 0, ''),
+	(10259, 0, ''),
+	(9971, 0, ''),
+	(7476, 0, ''),
+	(7477, 0, ''),
+	(12146, 0, ''),
+	(12142, 0, ''),
+	(10001, 0, ''),
+	(10007, 0, ''),
+	(10009, 0, ''),
+	(10019, 0, ''),
+	(10021, 0, ''),
+	(10025, 0, ''),
+	(10027, 0, ''),
+	(10032, 0, ''),
+	(10034, 0, ''),
+	(10040, 0, ''),
+	(10042, 0, ''),
+	(10046, 0, ''),
+	(10048, 0, ''),
+	(10053, 0, ''),
+	(10055, 0, ''),
+	(10060, 0, ''),
+	(10062, 0, ''),
+	(10068, 0, ''),
+	(10070, 0, ''),
+	(10075, 0, ''),
+	(10077, 0, ''),
+	(10082, 0, ''),
+	(10084, 0, ''),
+	(10089, 0, ''),
+	(10091, 0, ''),
+	(10096, 0, ''),
+	(10098, 0, ''),
+	(10103, 0, ''),
+	(10105, 0, ''),
+	(10110, 0, ''),
+	(10112, 0, ''),
+	(10117, 0, ''),
+	(10229, 0, ''),
+	(10125, 0, ''),
+	(10232, 0, ''),
+	(10133, 0, ''),
+	(10135, 0, ''),
+	(10285, 0, ''),
+	(10282, 0, ''),
+	(10328, 0, ''),
+	(10330, 0, ''),
+	(10342, 0, ''),
+	(10338, 0, ''),
+	(10336, 0, ''),
+	(10353, 0, ''),
+	(10350, 0, ''),
+	(10345, 0, ''),
+	(10195, 0, ''),
+	(10256, 0, ''),
+	(10264, 0, ''),
+	(10267, 0, ''),
+	(10562, 0, ''),
+	(10559, 0, ''),
+	(10384, 0, ''),
+	(10387, 0, ''),
+	(10391, 0, ''),
+	(10394, 0, ''),
+	(10670, 0, ''),
+	(10667, 0, ''),
+	(10575, 0, ''),
+	(10578, 0, ''),
+	(10716, 0, ''),
+	(10719, 0, ''),
+	(10891, 0, ''),
+	(10895, 0, ''),
+	(10901, 0, ''),
+	(10904, 0, ''),
+	(10909, 0, ''),
+	(10913, 0, ''),
+	(10917, 0, ''),
+	(10921, 0, ''),
+	(10925, 0, ''),
+	(10929, 0, ''),
+	(11042, 0, ''),
+	(11046, 0, ''),
+	(11654, 0, ''),
+	(11657, 0, ''),
+	(11661, 0, ''),
+	(11664, 0, ''),
+	(11668, 0, ''),
+	(11671, 0, ''),
+	(11675, 0, ''),
+	(11678, 0, ''),
+	(11682, 0, ''),
+	(11685, 0, ''),
+	(11689, 0, ''),
+	(11692, 0, ''),
+	(11879, 0, ''),
+	(11875, 0, ''),
+	(11952, 0, ''),
+	(11954, 0, ''),
+	(12042, 0, ''),
+	(12044, 0, ''),
+	(12048, 0, ''),
+	(12052, 0, ''),
+	(12076, 0, ''),
+	(12080, 0, ''),
+	(12086, 0, ''),
+	(12090, 0, ''),
+	(12120, 0, ''),
+	(12124, 0, ''),
+	(12159, 0, ''),
+	(12155, 0, ''),
+	(12164, 0, ''),
+	(12168, 0, '');
+/*!40000 ALTER TABLE `type_column` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_contentlang
 CREATE TABLE IF NOT EXISTS `type_contentlang` (
   `type_contentlang_id` int(10) unsigned NOT NULL,
   `type_contentlang_pid` int(10) unsigned NOT NULL,
@@ -497,12 +1015,37 @@ CREATE TABLE IF NOT EXISTS `type_contentlang` (
   PRIMARY KEY (`type_contentlang_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_contentlang: 0 rows
+-- Дамп данных таблицы premier.loc.type_contentlang: 0 rows
 /*!40000 ALTER TABLE `type_contentlang` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_contentlang` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_cpage
+-- Дамп структуры для таблица premier.loc.type_country
+CREATE TABLE IF NOT EXISTS `type_country` (
+  `type_country_id` int(10) unsigned NOT NULL,
+  `type_country_pid` int(10) unsigned NOT NULL,
+  `type_country_name` varchar(500) NOT NULL,
+  `type_country_head` varchar(500) NOT NULL,
+  `type_country_text` text NOT NULL,
+  `seo_title` varchar(500) NOT NULL,
+  `seo_keys` varchar(500) NOT NULL,
+  `seo_h1` varchar(500) NOT NULL,
+  `seo_desc` varchar(500) NOT NULL,
+  PRIMARY KEY (`type_country_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_country: 5 rows
+/*!40000 ALTER TABLE `type_country` DISABLE KEYS */;
+INSERT INTO `type_country` (`type_country_id`, `type_country_pid`, `type_country_name`, `type_country_head`, `type_country_text`, `seo_title`, `seo_keys`, `seo_h1`, `seo_desc`) VALUES
+	(12097, 0, 'Болгария', 'Заголовок для Болгарии', '<p>Текст о болгарии</p>\r\n', '', '', '', ''),
+	(12099, 0, 'Турция', 'заголовок турции', '<p>текст&nbsp;<span style="line-height: 20.7999992370605px;">текст&nbsp;текст</span></p>\r\n', '', '', '', ''),
+	(12100, 0, 'Греция ', 'заголовок греции', '<p><span style="line-height: 20.7999992370605px;">текст&nbsp;текст&nbsp;текст</span></p>\r\n', '', '', '', ''),
+	(12101, 0, 'Испания', 'заголовок испании', '<p><span style="line-height: 20.7999992370605px;">текст&nbsp;текст&nbsp;текст</span></p>\r\n', '', '', '', ''),
+	(12102, 0, 'Франция', 'заголовок франции', '<p><span style="line-height: 20.7999992370605px;">текст&nbsp;текст&nbsp;текст</span></p>\r\n', '', '', '', '');
+/*!40000 ALTER TABLE `type_country` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_cpage
 CREATE TABLE IF NOT EXISTS `type_cpage` (
   `type_cpage_id` int(10) unsigned NOT NULL,
   `type_cpage_pid` int(10) unsigned NOT NULL,
@@ -510,12 +1053,12 @@ CREATE TABLE IF NOT EXISTS `type_cpage` (
   PRIMARY KEY (`type_cpage_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_cpage: 0 rows
+-- Дамп данных таблицы premier.loc.type_cpage: 0 rows
 /*!40000 ALTER TABLE `type_cpage` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_cpage` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_folder
+-- Дамп структуры для таблица premier.loc.type_folder
 CREATE TABLE IF NOT EXISTS `type_folder` (
   `type_folder_id` int(11) NOT NULL,
   `type_folder_title` varchar(500) NOT NULL,
@@ -525,7 +1068,7 @@ CREATE TABLE IF NOT EXISTS `type_folder` (
   PRIMARY KEY (`type_folder_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_folder: 39 rows
+-- Дамп данных таблицы premier.loc.type_folder: 39 rows
 /*!40000 ALTER TABLE `type_folder` DISABLE KEYS */;
 INSERT INTO `type_folder` (`type_folder_id`, `type_folder_title`, `type_folder_mkeys`, `type_folder_mdesc`, `type_folder_aaccess`) VALUES
 	(105, '', '', '', ''),
@@ -570,14 +1113,14 @@ INSERT INTO `type_folder` (`type_folder_id`, `type_folder_title`, `type_folder_m
 /*!40000 ALTER TABLE `type_folder` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_form
+-- Дамп структуры для таблица premier.loc.type_form
 CREATE TABLE IF NOT EXISTS `type_form` (
   `type_form_id` int(11) NOT NULL,
   `type_form_title` varchar(500) NOT NULL,
   `type_form_content` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_form: 27 rows
+-- Дамп данных таблицы premier.loc.type_form: 27 rows
 /*!40000 ALTER TABLE `type_form` DISABLE KEYS */;
 INSERT INTO `type_form` (`type_form_id`, `type_form_title`, `type_form_content`) VALUES
 	(8, 'Форма добавления типа', 'a:1:{s:14:"form_structure";s:3628:"[{"type":"input_text","values":{"placeholder":"\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 \\u0437\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a...","label":"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a","id":"type_desc","class":"b-field","name":"type_desc","table":"types","field":"type_desc","default":"","filter":""},"vlds":["requred"]},{"type":"input_text","values":{"placeholder":"\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 \\u043d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0442\\u0438\\u043f\\u0430... [a-z]","label":"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435","id":"type_name","class":"b-field","name":"type_name","table":"types","field":"type_name","default":"","filter":""},"vlds":["requred","regexp"]},{"type":"select","values":{"label":"\\u0420\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\\u0441\\u043a\\u0438\\u0435 \\u044d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442\\u044b","id":"type_parent_elements","class":"b-select multiple","name":"type_parent_elements","method":"loadAllTypes"},"multiple":"undefined","options":{"1":{"value":"all","baseline":"undefined"},"2":{"value":"none","baseline":"undefined"},"3":{"value":"folder","baseline":"undefined"},"4":{"value":"site","baseline":"undefined"},"5":{"value":"page","baseline":"undefined"},"6":{"value":"form","baseline":"undefined"}}},{"type":"select","values":{"label":"\\u0414\\u043e\\u0447\\u0435\\u0440\\u043d\\u0438\\u0435 \\u044d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442\\u044b","id":"type_children_elements","class":"b-select multiple","name":"type_children_elements","method":"loadAllTypes"},"multiple":"undefined","options":{"1":{"value":"all","baseline":"undefined"},"2":{"value":"none","baseline":"undefined"},"3":{"value":"folder","baseline":"undefined"},"4":{"value":"site","baseline":"undefined"},"5":{"value":"page","baseline":"undefined"},"6":{"value":"form","baseline":"undefined"}}},{"type":"file","values":{"label":"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430","id":"icon","class":"b-file","name":"icon","table":"","field":"","default":"","filter":"","multiupload":""}},{"type":"checkbox","values":{"label":"HMVC","id":"ck-hmvc","class":"ck-hmvc","name":"ck_hmvc"},"options":{"1":{"value":"\\u0421\\u043e\\u0437\\u0434\\u0430\\u0442\\u044c \\u043c\\u043e\\u0434\\u0443\\u043b\\u044c HMVC \\u0434\\u043b\\u044f \\u044d\\u0442\\u043e\\u0433\\u043e \\u0442\\u0438\\u043f\\u0430","baseline":"undefined"}}},{"type":"radio","values":{"label":"\\u0421\\u0443\\u043f\\u0435\\u0440\\u0442\\u0438\\u043f","id":"stype","class":"stype","name":"stype"},"options":{"1":{"value":"\\u041e\\u0431\\u044b\\u0447\\u043d\\u044b\\u0439","baseline":"checked"},"2":{"value":"\\u041f\\u0443\\u0441\\u0442\\u044b\\u0448\\u043a\\u0430 (\\u043d\\u0435 \\u0431\\u0443\\u0434\\u0443\\u0442 \\u0441\\u043e\\u0437\\u0434\\u0430\\u0432\\u0430\\u0442\\u0441\\u044f \\u0438\\u043d\\u0442\\u0435\\u043c\\u044b \\u0434\\u043b\\u044f \\u044d\\u0442\\u043e\\u0433\\u043e \\u0442\\u0438\\u043f\\u0430)","baseline":"undefined"},"3":{"value":"\\u0425\\u043e\\u043b\\u0434\\u0435\\u0440 (\\u0441\\u0430\\u043c \\u0432 \\u0441\\u0435\\u0431\\u0435 \\u0441\\u043e\\u0434\\u0435\\u0440\\u0436\\u0438\\u0442 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0438\\u0442\\u0435\\u043c\\u043e\\u0432 \\u043e\\u0434\\u043d\\u043e\\u0433\\u043e \\u0442\\u0438\\u043f\\u0430)","baseline":"undefined"}}},{"type":"formbuilder","values":{"label":"\\u041f\\u043e\\u043b\\u044f","name":"type_fields"}},{"type":"submit","values":{"label":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c","id":"add_button","class":"b-button greyishBtn submitForm add_type_button","name":"add_button"}},{"type":"reset","values":{"label":"\\u041e\\u0447\\u0438\\u0441\\u0442\\u0438\\u0442\\u044c","id":"clear","class":"b-button greyishBtn submitForm","name":"clear"}}]";}'),
@@ -610,7 +1153,7 @@ INSERT INTO `type_form` (`type_form_id`, `type_form_title`, `type_form_content`)
 /*!40000 ALTER TABLE `type_form` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_image
+-- Дамп структуры для таблица premier.loc.type_image
 CREATE TABLE IF NOT EXISTS `type_image` (
   `type_image_id` int(10) unsigned NOT NULL,
   `type_image_name` varchar(500) NOT NULL,
@@ -620,17 +1163,18 @@ CREATE TABLE IF NOT EXISTS `type_image` (
   PRIMARY KEY (`type_image_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_image: 4 rows
+-- Дамп данных таблицы premier.loc.type_image: 5 rows
 /*!40000 ALTER TABLE `type_image` DISABLE KEYS */;
 INSERT INTO `type_image` (`type_image_id`, `type_image_name`, `type_image_image`, `type_image_desc`, `type_image_link`) VALUES
 	(189, 'Египет', '2074b295b94f3f1d998de2f7648e9e92.png', '<strong>Египет - страна пирамид и коралловых рифов</strong><br />За окном +30', ''),
 	(190, 'shina', '4d0f66e9456fd594067fbbaee96439e8.png', '', ''),
-	(11841, '', '4bc38fd4ed65c6fbd18d3e518cf0992a.png', '', ''),
-	(11842, '', 'f660b65454f3b1cc74b5a6632c56ed4d.jpg', '', '');
+	(11949, '', '0b9ad5b42c20820a88a5bf4189f3c57d.jpg', '', ''),
+	(11948, '', '809d89768b1dce9b6bbd5e972e265858.jpg', '', ''),
+	(11950, '', '8a892a033e438cc5d9100088f6bc289d.jpg', '', '');
 /*!40000 ALTER TABLE `type_image` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_lang
+-- Дамп структуры для таблица premier.loc.type_lang
 CREATE TABLE IF NOT EXISTS `type_lang` (
   `type_lang_id` int(10) unsigned NOT NULL,
   `type_lang_pid` int(10) unsigned NOT NULL,
@@ -638,15 +1182,17 @@ CREATE TABLE IF NOT EXISTS `type_lang` (
   PRIMARY KEY (`type_lang_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_lang: 2 rows
+-- Дамп данных таблицы premier.loc.type_lang: 4 rows
 /*!40000 ALTER TABLE `type_lang` DISABLE KEYS */;
 INSERT INTO `type_lang` (`type_lang_id`, `type_lang_pid`, `type_lang_`) VALUES
 	(11882, 0, ''),
-	(11881, 0, '');
+	(11881, 0, ''),
+	(12025, 0, ''),
+	(12093, 0, '');
 /*!40000 ALTER TABLE `type_lang` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_link
+-- Дамп структуры для таблица premier.loc.type_link
 CREATE TABLE IF NOT EXISTS `type_link` (
   `type_link_id` int(10) unsigned NOT NULL,
   `type_link_description` varchar(500) NOT NULL,
@@ -657,12 +1203,12 @@ CREATE TABLE IF NOT EXISTS `type_link` (
   PRIMARY KEY (`type_link_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_link: 0 rows
+-- Дамп данных таблицы premier.loc.type_link: 0 rows
 /*!40000 ALTER TABLE `type_link` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_link` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_list
+-- Дамп структуры для таблица premier.loc.type_list
 CREATE TABLE IF NOT EXISTS `type_list` (
   `type_list_id` int(10) unsigned NOT NULL,
   `type_list_pid` int(10) unsigned NOT NULL,
@@ -670,7 +1216,7 @@ CREATE TABLE IF NOT EXISTS `type_list` (
   PRIMARY KEY (`type_list_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_list: 9 rows
+-- Дамп данных таблицы premier.loc.type_list: 28 rows
 /*!40000 ALTER TABLE `type_list` DISABLE KEYS */;
 INSERT INTO `type_list` (`type_list_id`, `type_list_pid`, `type_list_types`) VALUES
 	(11871, 0, 'lang'),
@@ -678,14 +1224,55 @@ INSERT INTO `type_list` (`type_list_id`, `type_list_pid`, `type_list_types`) VAL
 	(768, 0, 'page,cpage,list,folder'),
 	(637, 0, 'shinadiametr'),
 	(7492, 0, 'city,nedvijimost'),
-	(11604, 0, 'sitesettings'),
+	(11604, 0, 'sitesettings,newsonmain'),
 	(10663, 0, 'page'),
 	(11093, 0, 'lang'),
-	(11840, 0, 'image');
+	(11840, 0, 'slideritem'),
+	(11947, 0, 'image'),
+	(11957, 0, 'menu'),
+	(11966, 0, 'list'),
+	(11968, 0, 'alias'),
+	(11972, 0, 'alias'),
+	(11976, 0, 'alias'),
+	(11980, 0, 'alias'),
+	(11984, 0, 'alias'),
+	(12071, 0, 'alias'),
+	(12067, 0, 'alias'),
+	(12063, 0, 'alias'),
+	(12059, 0, 'alias'),
+	(12055, 0, 'alias'),
+	(12054, 0, 'list'),
+	(12024, 0, 'lang'),
+	(12096, 0, 'country,lang'),
+	(12083, 0, 'articles,lang'),
+	(12038, 0, 'list'),
+	(12118, 0, 'typejk');
 /*!40000 ALTER TABLE `type_list` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_menucat
+-- Дамп структуры для таблица premier.loc.type_menu
+CREATE TABLE IF NOT EXISTS `type_menu` (
+  `type_menu_id` int(10) unsigned NOT NULL,
+  `type_menu_pid` int(10) unsigned NOT NULL,
+  `type_menu_name` varchar(500) NOT NULL,
+  `type_menu_class` varchar(500) NOT NULL,
+  `type_menu_first` varchar(500) NOT NULL,
+  PRIMARY KEY (`type_menu_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_menu: 6 rows
+/*!40000 ALTER TABLE `type_menu` DISABLE KEYS */;
+INSERT INTO `type_menu` (`type_menu_id`, `type_menu_pid`, `type_menu_name`, `type_menu_class`, `type_menu_first`) VALUES
+	(11958, 0, 'Болгария', 'flag-b', 'да'),
+	(11959, 0, 'Турция', 'flag-t', ''),
+	(11960, 0, 'Греция', 'flag-g', ''),
+	(11961, 0, 'Испания', 'flag-i', ''),
+	(11962, 0, 'Франция', 'flag-f', ''),
+	(11963, 0, 'Услуги', 'flag-ok', '');
+/*!40000 ALTER TABLE `type_menu` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_menucat
 CREATE TABLE IF NOT EXISTS `type_menucat` (
   `type_menucat_id` int(10) unsigned NOT NULL,
   `type_menucat_pid` int(10) unsigned NOT NULL,
@@ -694,12 +1281,12 @@ CREATE TABLE IF NOT EXISTS `type_menucat` (
   PRIMARY KEY (`type_menucat_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_menucat: 0 rows
+-- Дамп данных таблицы premier.loc.type_menucat: 0 rows
 /*!40000 ALTER TABLE `type_menucat` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_menucat` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_menulink
+-- Дамп структуры для таблица premier.loc.type_menulink
 CREATE TABLE IF NOT EXISTS `type_menulink` (
   `type_menulink_id` int(10) unsigned NOT NULL,
   `type_menulink_pid` int(10) unsigned NOT NULL,
@@ -712,34 +1299,12 @@ CREATE TABLE IF NOT EXISTS `type_menulink` (
   PRIMARY KEY (`type_menulink_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_menulink: 0 rows
+-- Дамп данных таблицы premier.loc.type_menulink: 0 rows
 /*!40000 ALTER TABLE `type_menulink` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_menulink` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_newonmain
-CREATE TABLE IF NOT EXISTS `type_newonmain` (
-  `type_newonmain_id` int(10) unsigned NOT NULL,
-  `type_newonmain_pid` int(10) unsigned NOT NULL,
-  `type_newonmain_header` varchar(500) NOT NULL,
-  `type_newonmain_text` text NOT NULL,
-  `type_newonmain_more` varchar(500) NOT NULL,
-  `type_newonmain_shownew` varchar(500) NOT NULL,
-  `type_newonmain_img` varchar(500) NOT NULL,
-  `type_newonmain_img-hight` varchar(500) NOT NULL,
-  `type_newonmain_img-width` varchar(500) NOT NULL,
-  `type_newonmain_fontsize` varchar(500) NOT NULL,
-  `type_newonmain_hexcolor` varchar(500) NOT NULL,
-  `type_newonmain_fontname` varchar(500) NOT NULL,
-  PRIMARY KEY (`type_newonmain_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- Дамп данных таблицы novostroika.od.ua.type_newonmain: 0 rows
-/*!40000 ALTER TABLE `type_newonmain` DISABLE KEYS */;
-/*!40000 ALTER TABLE `type_newonmain` ENABLE KEYS */;
-
-
--- Дамп структуры для таблица novostroika.od.ua.type_news
+-- Дамп структуры для таблица premier.loc.type_news
 CREATE TABLE IF NOT EXISTS `type_news` (
   `type_news_id` int(10) unsigned NOT NULL,
   `type_news_pid` int(10) unsigned NOT NULL,
@@ -747,18 +1312,39 @@ CREATE TABLE IF NOT EXISTS `type_news` (
   `type_news_text` text NOT NULL,
   `type_news_image` varchar(500) NOT NULL,
   `type_news_fullText` text NOT NULL,
+  `type_news_date` varchar(500) NOT NULL,
   PRIMARY KEY (`type_news_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_news: 2 rows
+-- Дамп данных таблицы premier.loc.type_news: 4 rows
 /*!40000 ALTER TABLE `type_news` DISABLE KEYS */;
-INSERT INTO `type_news` (`type_news_id`, `type_news_pid`, `type_news_head`, `type_news_text`, `type_news_image`, `type_news_fullText`) VALUES
-	(11875, 0, 'Началось строительство нового новостроя 1', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', '448b100779c7063410a7a6275290445c.png', 'Полный текст'),
-	(11876, 0, 'Началось строительство нового новостроя 2', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', '3bc7877e334e59c7ff3adb1b673b7246.jpg', 'Полный текст');
+INSERT INTO `type_news` (`type_news_id`, `type_news_pid`, `type_news_head`, `type_news_text`, `type_news_image`, `type_news_fullText`, `type_news_date`) VALUES
+	(11875, 0, 'Началось строительство нового новостроя 1', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', '6f913d91d1e6a4ee2bd1446caa4a54fd.jpg', 'Полный текст', '2015-05-01 09:53:07'),
+	(11876, 0, 'Началось строительство нового новостроя 2', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', 'f883d37e45df8dc8cea1e1519cab14aa.jpg', 'Полный текст', '2015-05-21 09:53:20'),
+	(12026, 0, 'Началось строительство нового новостроя 1', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', 'af46a090ae3f03719bcada6a3136f254.jpg', 'Полный текст', '2015-05-31 05:41:30'),
+	(12027, 0, 'Началось строительство нового новостроя 2', 'Клор лаопр волрпловар орплрл влоапр лврп рллрлд лор лрл лрл вопрловарп рпловар ор рпожд лвпрлдраопрлорлллл роап ро оор лваопр овар оро оапр и вавфпрсмирлрлрлрпллр рапр оро ооии...', '85c6a9ebc29407c1406830c4a3d7f833.jpg', 'Полный текст', '2015-05-19 04:28:12');
 /*!40000 ALTER TABLE `type_news` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_node
+-- Дамп структуры для таблица premier.loc.type_newsonmain
+CREATE TABLE IF NOT EXISTS `type_newsonmain` (
+  `type_newsonmain_id` int(11) DEFAULT NULL,
+  `type_newsonmain_znew1` varchar(500) NOT NULL,
+  `type_newsonmain_znew2` varchar(500) NOT NULL,
+  `type_newsonmain_znew3` varchar(500) NOT NULL,
+  `type_newsonmain_knew1` varchar(500) NOT NULL,
+  `type_newsonmain_knew2` varchar(500) NOT NULL,
+  `type_newsonmain_knew3` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_newsonmain: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `type_newsonmain` DISABLE KEYS */;
+INSERT INTO `type_newsonmain` (`type_newsonmain_id`, `type_newsonmain_znew1`, `type_newsonmain_znew2`, `type_newsonmain_znew3`, `type_newsonmain_knew1`, `type_newsonmain_knew2`, `type_newsonmain_knew3`) VALUES
+	(12041, '12026', '12027', '12026', '11876', '11875', '11876');
+/*!40000 ALTER TABLE `type_newsonmain` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_node
 CREATE TABLE IF NOT EXISTS `type_node` (
   `type_node_id` int(10) unsigned NOT NULL,
   `type_node_pid` int(10) unsigned NOT NULL,
@@ -767,7 +1353,7 @@ CREATE TABLE IF NOT EXISTS `type_node` (
   PRIMARY KEY (`type_node_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_node: 16 rows
+-- Дамп данных таблицы premier.loc.type_node: 19 rows
 /*!40000 ALTER TABLE `type_node` DISABLE KEYS */;
 INSERT INTO `type_node` (`type_node_id`, `type_node_pid`, `type_node_title`, `type_node_content`) VALUES
 	(539, 0, '', ''),
@@ -775,21 +1361,24 @@ INSERT INTO `type_node` (`type_node_id`, `type_node_pid`, `type_node_title`, `ty
 	(10662, 0, '', ''),
 	(2572, 0, '', ''),
 	(10272, 0, '', ''),
-	(10271, 0, '', ''),
+	(12092, 0, '', ''),
 	(11843, 0, '', ''),
-	(11844, 0, '', ''),
+	(12075, 0, '', ''),
 	(11870, 0, '', ''),
 	(11883, 0, '', ''),
 	(11892, 0, '', ''),
-	(11905, 0, '', ''),
-	(11917, 0, '', ''),
-	(11918, 0, '', ''),
-	(11923, 0, '', ''),
-	(11933, 0, '', '');
+	(11965, 0, '', ''),
+	(11955, 0, '', ''),
+	(11945, 0, '', ''),
+	(11941, 0, '', ''),
+	(11933, 0, '', ''),
+	(12126, 0, '', ''),
+	(12162, 0, '', ''),
+	(12171, 0, '', '');
 /*!40000 ALTER TABLE `type_node` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_novostoy
+-- Дамп структуры для таблица premier.loc.type_novostoy
 CREATE TABLE IF NOT EXISTS `type_novostoy` (
   `type_novostoy_id` int(10) unsigned NOT NULL,
   `type_novostoy_pid` int(10) unsigned NOT NULL,
@@ -800,29 +1389,40 @@ CREATE TABLE IF NOT EXISTS `type_novostoy` (
   PRIMARY KEY (`type_novostoy_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_novostoy: 4 rows
+-- Дамп данных таблицы premier.loc.type_novostoy: 15 rows
 /*!40000 ALTER TABLE `type_novostoy` DISABLE KEYS */;
 INSERT INTO `type_novostoy` (`type_novostoy_id`, `type_novostoy_pid`, `type_novostoy_name_build`, `type_novostoy_image`, `type_novostoy_text`, `type_novostoy_fullText`) VALUES
-	(11926, 0, 'ЖК Аркадия Хиллс', '9fe60a3032dba1eec8a14276f25bfbae.jpg', 'ЖК Аркадия Хиллс - это современный комплекс, расположенный в Аркадиевском переулке, экологически чистом районе. Это удивительное место на побережье, где слились воедино городской комфорт и природная гармония. Лучшее ценовое предложение, преимущества престижного района и близость к центру города подчеркивает уникальность дома. ...', '<p><span style="color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; font-size: 14px; line-height: normal;">ЖК Аркадия Хиллс - это современный комплекс, расположенный в Аркадиевском переулке, экологически чистом районе. Это удивительное место на побережье, где слились воедино городской комфорт и природная гармония. Лучшее ценовое предложение, преимущества престижного района и близость к центру города подчеркивает уникальность дома.</span></p>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/1.jpg" style="width: 463px; height: 357px;" /></p>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/2.jpg" style="width: 457px; height: 371px;" /></p>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/3.jpg" style="width: 457px; height: 334px;" /></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">&nbsp;</span><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">Цены от 10450 грн/кв.м</span></strong></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">Аппартаменты от 24 кв.м до 54 кв.м</span></strong></span></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">Цена 12000 грн/кв.м&nbsp;</span></strong></span></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">Офисы 1 этаж от 80 кв.м - 540 кв.м</span></strong></span></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">Цена от 16000 грн/кв.м</span></strong></span></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 22.3999996185303px; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 22.3999996185303px; background: transparent;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 22.3999996185303px; line-height: 1.5; background: transparent;">Индивидуальные скидки</span></strong></span></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</p>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 30.7999992370605px; color: rgb(17, 17, 17); letter-spacing: 1px; line-height: 1.5; text-align: left; background: transparent;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+38 048 704 91 34</span></h1>\r\n'),
-	(11927, 0, 'ЖК Руслан и Людмила', '', 'ЖК Руслан и Людмила - это современный жилой комплекс премиум-класса. Расположен комплекс на берегу Черного моря. Со всех окон дома открывается великолепный вид на Одесский залив. Каждое утро станет для Вас особенным, ведь Вашими соседями теперь будут ласковое Одесское солнце и лазурное море. «Руслан и Людмила» предлагает Вам этот шанс, который позволит воплотить желание в жизнь! Компания «Будова» Вам может предложить квартиры как от строителей так и с ремонтом в сданном доме. 1-комн, 2-комн, 3-комн и 4-комнатные. ...', '<p><span class="intro" style="margin: 10px 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">ЖК Руслан и Людмила - это современный жилой комплекс премиум-класса. Расположен комплекс на берегу Черного моря. Со всех окон дома открывается великолепный вид на Одесский залив. Каждое утро станет для Вас особенным, ведь Вашими соседями теперь будут ласковое Одесское солнце и лазурное море. &laquo;Руслан и Людмила&raquo; предлагает Вам этот шанс, который позволит воплотить желание в жизнь! Компания &laquo;Будова&raquo; Вам может предложить квартиры как от строителей так и с ремонтом в сданном доме. 1-комн, 2-комн, 3-комн и 4-комнатные.</span></p>\r\n\r\n<div class="clear" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; clear: both; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</div>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</p>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;">&nbsp; &nbsp; &nbsp;1 секция</span></strong></h1>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/11.jpg" style="width: 628px; height: 671px;" /></p>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 19.6000003814697px; background: transparent;">&nbsp;&nbsp; <strong>&nbsp;2 секция</strong></span></h1>\r\n\r\n<p><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 19.6000003814697px; background: transparent;"><strong><img alt="" src="/upload/content/images/novostroy/12.jpg" style="width: 752px; height: 578px;" /></strong></span></p>\r\n'),
-	(11928, 0, 'ЖК Белая Акация', 'ae997726a3dd501a00d8b731ac2425d6.jpg', 'ЖК Белая Акация новый современный дом в историческом районе Одессы, отличается от всех предложений в Приморском районе. Малоквартирный девятиэтажный дом (всего 28 квартир) с индивидуальными котлами, высотой потолков 3,6 м, мраморными лестничными маршами, подземным паркингом делает этот дом уникальным и позволяет наслаждаться превосходством!Старинный парк акаций и близость моря приносит в вашу квартиру свежесть и вдохновение, сохраняя Вашу молодость на много лет. ...', '<p><span class="intro" style="margin: 10px 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">ЖК Белая Акация новый современный дом в историческом районе Одессы, отличается от всех предложений в Приморском районе. Малоквартирный девятиэтажный дом (всего 28 квартир) с индивидуальными котлами, высотой потолков 3,6 м, мраморными лестничными маршами, подземным паркингом делает этот дом уникальным и позволяет наслаждаться превосходством!Старинный парк акаций и близость моря приносит в вашу квартиру свежесть и вдохновение, сохраняя Вашу молодость на много лет.</span></p>\r\n\r\n<div class="clear" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; clear: both; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</div>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 19.6000003814697px; font-family: \'times new roman\', times; background: transparent;">Планировки типового &nbsp;этажа</span></strong></h1>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/21.jpg" style="width: 638px; height: 656px;" /></p>\r\n\r\n<p><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; text-align: center; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 36.4000015258789px; font-family: \'times new roman\', times; background: transparent;">Цена от 2100 у.е/кв.м</span></strong></p>\r\n'),
-	(11929, 0, 'Ак. Сахарова, 64', '4c3497ecb5cc77492c16a99d4e0ae263.jpg', 'Уже в продаже! Ак. Сахарова, 64 Жилой дом на поселке Котовского, между ул. Ген. Бочарова и В. Высоцкого в застроенном районе. ...', '<p><span class="intro" style="margin: 10px 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">Уже в продаже! Ак. Сахарова, 64 Жилой дом на поселке Котовского, между ул. Ген. Бочарова и В. Высоцкого в застроенном районе.</span></p>\r\n\r\n<div class="clear" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; clear: both; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</div>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<ol style="margin: 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">\r\n</ol>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; line-height: 1.5; background: transparent;">16-этажный, монолитно-каркасный дом на 128 квартир.&nbsp;</strong></h1>\r\n\r\n<h2 style="margin: 10px 0px; padding: 15px 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 19px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;">По проекту предусмотрены 1-комнатные и 2-комнатные квартиры.&nbsp;</strong></span></h2>\r\n\r\n<p><img alt="" src="/upload/content/images/novostroy/31.jpg" style="width: 1024px; height: 690px;" /></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;">Сдача дома 1 квартал 2015 года.</strong></p>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;">Цена от 6000 грн/кв.м. Гибкая поэтапная оплата от 10 %.&nbsp;</strong></p>\r\n\r\n<h1 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +38 048 704 91 34</span></h1>\r\n\r\n<p style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 14px; color: rgb(0, 0, 0); font-family: Verdana, \'Geneva CY\', \'DejaVu Sans\', sans-serif; line-height: normal; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</p>\r\n');
+	(11988, 0, '2 уровневый дом Б', '5b2b04267d0b38f7bf2e8baa88ebcf01.jpg', '', '<p>Полный текст</p>\r\n'),
+	(11989, 0, '2 уровневый дом T', '7edd4dd9358cdb60005687472474c962.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11990, 0, '2 уровневый дом Г', 'b20cb03391311dc84f172d10a8fe0abf.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11991, 0, '2 уровневый дом И', '81a4bcde1b87501d726ebe72534f077d.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11992, 0, '2 уровневый дом Ф', '983575b2a7b69df0ca53077036d2a45d.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11993, 0, 'дом на побереже Б', '54ce60adef9bed3054ccc963b7f8ca60.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11994, 0, 'дом на побереже T', 'e50a4a3d36e565d3e19b11c34214d3e4.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11995, 0, 'дом на побереже Г', '8ea1f26a9d6eea30e6967af004873618.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11996, 0, 'дом на побереже И', 'c035c58c2930757b8483d3c9f32976ae.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11997, 0, 'дом на побереже Ф', '10a361cdbfce6b85887c9220ebfb65cd.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11998, 0, '3 комнатная квартира Б', '0ca2dc5e7f0b94f445c76c0e5ca8020b.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(11999, 0, '3 комнатная квартира Т', '5390d012193075ed56cf5c41d9c93439.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(12000, 0, '3 комнатная квартира Г', '0f4b35b90ee499b9c12105d74fc3a76b.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(12001, 0, '3 комнатная квартира И', 'b63cd84098905eef9d720f4417ecca28.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n'),
+	(12002, 0, '3 комнатная квартира Ф', '3b31a77f6140ab24acb0b86af1d04af6.jpg', '', '<p><span style="line-height: 20.7999992370605px;">Полный текст</span></p>\r\n');
 /*!40000 ALTER TABLE `type_novostoy` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_page
+-- Дамп структуры для таблица premier.loc.type_page
 CREATE TABLE IF NOT EXISTS `type_page` (
   `type_page_id` int(11) NOT NULL,
   `type_page_css-js` varchar(500) NOT NULL,
   `type_page_loyaut` varchar(500) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_page: 20 rows
+-- Дамп данных таблицы premier.loc.type_page: 17 rows
 /*!40000 ALTER TABLE `type_page` DISABLE KEYS */;
 INSERT INTO `type_page` (`type_page_id`, `type_page_css-js`, `type_page_loyaut`) VALUES
 	(9965, '', ''),
 	(10665, '', ''),
-	(10263, '', ''),
+	(12163, '', ''),
 	(10281, 'ads_dop/ads_dop', ''),
 	(10327, '', ''),
 	(10194, '', ''),
@@ -832,18 +1432,15 @@ INSERT INTO `type_page` (`type_page_id`, `type_page_css-js`, `type_page_loyaut`)
 	(11775, '', ''),
 	(11879, '', ''),
 	(11884, '', ''),
-	(11890, '', ''),
-	(11902, '', ''),
-	(11895, '', ''),
-	(11921, '', ''),
-	(11919, '', ''),
+	(12085, '', ''),
+	(12119, '', ''),
+	(12154, '', ''),
 	(11912, '', ''),
-	(11924, '', ''),
 	(11930, '', '');
 /*!40000 ALTER TABLE `type_page` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_product
+-- Дамп структуры для таблица premier.loc.type_product
 CREATE TABLE IF NOT EXISTS `type_product` (
   `type_product_id` int(10) unsigned NOT NULL,
   `type_product_pid` int(10) unsigned NOT NULL,
@@ -856,12 +1453,12 @@ CREATE TABLE IF NOT EXISTS `type_product` (
   FULLTEXT KEY `type_product_content` (`type_product_content`,`type_product_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_product: 0 rows
+-- Дамп данных таблицы premier.loc.type_product: 0 rows
 /*!40000 ALTER TABLE `type_product` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_product` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_productcategory
+-- Дамп структуры для таблица premier.loc.type_productcategory
 CREATE TABLE IF NOT EXISTS `type_productcategory` (
   `type_productcategory_id` int(10) unsigned NOT NULL,
   `type_productcategory_pid` int(10) unsigned NOT NULL,
@@ -875,12 +1472,12 @@ CREATE TABLE IF NOT EXISTS `type_productcategory` (
   FULLTEXT KEY `type_productcategory_content` (`type_productcategory_content`,`type_productcategory_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_productcategory: 0 rows
+-- Дамп данных таблицы premier.loc.type_productcategory: 0 rows
 /*!40000 ALTER TABLE `type_productcategory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_productcategory` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_productlink
+-- Дамп структуры для таблица premier.loc.type_productlink
 CREATE TABLE IF NOT EXISTS `type_productlink` (
   `type_productlink_id` int(10) unsigned NOT NULL,
   `type_productlink_pid` int(10) unsigned NOT NULL,
@@ -888,33 +1485,131 @@ CREATE TABLE IF NOT EXISTS `type_productlink` (
   PRIMARY KEY (`type_productlink_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_productlink: 0 rows
+-- Дамп данных таблицы premier.loc.type_productlink: 0 rows
 /*!40000 ALTER TABLE `type_productlink` DISABLE KEYS */;
 /*!40000 ALTER TABLE `type_productlink` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.type_sitesettings
+-- Дамп структуры для таблица premier.loc.type_regcity
+CREATE TABLE IF NOT EXISTS `type_regcity` (
+  `type_regcity_id` int(10) unsigned NOT NULL,
+  `type_regcity_pid` int(10) unsigned NOT NULL,
+  `type_regcity_name` varchar(500) NOT NULL,
+  `type_regcity_head` varchar(500) NOT NULL,
+  `type_regcity_text` text NOT NULL,
+  PRIMARY KEY (`type_regcity_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_regcity: 0 rows
+/*!40000 ALTER TABLE `type_regcity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `type_regcity` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_region
+CREATE TABLE IF NOT EXISTS `type_region` (
+  `type_region_id` int(10) unsigned NOT NULL,
+  `type_region_pid` int(10) unsigned NOT NULL,
+  `type_region_name` varchar(500) NOT NULL,
+  `type_region_head` varchar(500) NOT NULL,
+  `type_region_text` text NOT NULL,
+  PRIMARY KEY (`type_region_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_region: 5 rows
+/*!40000 ALTER TABLE `type_region` DISABLE KEYS */;
+INSERT INTO `type_region` (`type_region_id`, `type_region_pid`, `type_region_name`, `type_region_head`, `type_region_text`) VALUES
+	(12103, 0, 'регион Болгарии', 'красивый регион Болгарии', '<p>красивый регион Болгарии</p>\r\n\r\n<p>красивый регион Болгарии</p>\r\n\r\n<p>красивый регион Болгарии</p>\r\n\r\n<p>красивый регион Болгарии</p>\r\n\r\n<p>красивый регион Болгарии</p>\r\n'),
+	(12106, 0, 'регион Турции', 'красивый регион Турции', '<p>красивый регион Турции</p>\r\n\r\n<p>красивый регион Турции</p>\r\n\r\n<p>красивый регион Турции</p>\r\n\r\n<p>красивый регион Турции</p>\r\n'),
+	(12109, 0, 'регион Греции', 'красивый регион Греции', '<p>красивый регион Греции</p>\r\n\r\n<p>красивый регион Греции</p>\r\n\r\n<p>красивый регион Греции</p>\r\n\r\n<p>красивый регион Греции</p>\r\n'),
+	(12112, 0, 'регион Испании', 'красивый регион Испании', '<p>красивый регион Испании</p>\r\n\r\n<p>красивый регион Испании</p>\r\n\r\n<p>красивый регион Испании</p>\r\n'),
+	(12115, 0, 'Регион Франции', 'красивый регион Франции', '<p>красивый регион Франции&nbsp;красивый регион Франции&nbsp;красивый регион Франции</p>\r\n');
+/*!40000 ALTER TABLE `type_region` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_reklama
+CREATE TABLE IF NOT EXISTS `type_reklama` (
+  `type_reklama_id` int(10) unsigned NOT NULL,
+  `type_reklama_pid` int(10) unsigned NOT NULL,
+  `type_reklama_img` varchar(500) NOT NULL,
+  PRIMARY KEY (`type_reklama_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_reklama: 0 rows
+/*!40000 ALTER TABLE `type_reklama` DISABLE KEYS */;
+/*!40000 ALTER TABLE `type_reklama` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_sitesettings
 CREATE TABLE IF NOT EXISTS `type_sitesettings` (
   `type_sitesettings_id` int(10) unsigned NOT NULL,
   `type_sitesettings_pid` int(10) unsigned NOT NULL,
-  `type_sitesettings_tel1` varchar(500) NOT NULL,
   `type_sitesettings_favicon` varchar(500) NOT NULL,
-  `type_sitesettings_podpis` varchar(500) NOT NULL,
   `type_sitesettings_imgReklam` varchar(500) NOT NULL,
-  `type_sitesettings_jsForVk` text NOT NULL,
-  `type_sitesettings_jsForFacebook` text NOT NULL,
   PRIMARY KEY (`type_sitesettings_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.type_sitesettings: 2 rows
+-- Дамп данных таблицы premier.loc.type_sitesettings: 2 rows
 /*!40000 ALTER TABLE `type_sitesettings` DISABLE KEYS */;
-INSERT INTO `type_sitesettings` (`type_sitesettings_id`, `type_sitesettings_pid`, `type_sitesettings_tel1`, `type_sitesettings_favicon`, `type_sitesettings_podpis`, `type_sitesettings_imgReklam`, `type_sitesettings_jsForVk`, `type_sitesettings_jsForFacebook`) VALUES
-	(11605, 0, '8 (048) 000-00-01', 'e21e6c1097f77ad13c5f591f86b38f0e.png', 'Одесстрой 2015. Недвижимость в Одессе.', '25ebb9066d9a30829d4e625aaee9925d.jpg', '<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>\r\n        \r\n\r\n        <!-- VK Widget -->\r\n        <div id="vk_groups"></div>\r\n\r\n<script type="text/javascript">\r\n            VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: \'FFFFFF\', color2: \'2B587A\', color3: \'5B7FA6\'}, 20003922);\r\n        </script>', 'Тут будет джава скрипт для Facebook'),
-	(11711, 0, '', '61231fd26dcee12054b162472f5338a5.ico', '', '', '', '');
+INSERT INTO `type_sitesettings` (`type_sitesettings_id`, `type_sitesettings_pid`, `type_sitesettings_favicon`, `type_sitesettings_imgReklam`) VALUES
+	(11605, 0, 'e5b6b6c75878101a17f4016f68a99e47.png', 'feda84d401edf42f44465e49f7df5c90.png'),
+	(11711, 0, '61231fd26dcee12054b162472f5338a5.ico', '');
 /*!40000 ALTER TABLE `type_sitesettings` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица novostroika.od.ua.users
+-- Дамп структуры для таблица premier.loc.type_slideritem
+CREATE TABLE IF NOT EXISTS `type_slideritem` (
+  `type_slideritem_id` int(10) unsigned NOT NULL,
+  `type_slideritem_pid` int(10) unsigned NOT NULL,
+  `type_slideritem_title` varchar(500) NOT NULL,
+  `type_slideritem_text` text NOT NULL,
+  `type_slideritem_img` varchar(500) NOT NULL,
+  PRIMARY KEY (`type_slideritem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_slideritem: 3 rows
+/*!40000 ALTER TABLE `type_slideritem` DISABLE KEYS */;
+INSERT INTO `type_slideritem` (`type_slideritem_id`, `type_slideritem_pid`, `type_slideritem_title`, `type_slideritem_text`, `type_slideritem_img`) VALUES
+	(11937, 0, 'Текст', 'Текст текст текст', '7fa7f81d90c566dae88ccf30c13f4610.png'),
+	(11938, 0, 'Текст2', 'Текст2 текст2 текст2', 'c58281104ea4df01b0b11701bc827086.jpg'),
+	(11939, 0, 'Текст3', 'Текст3 текст3 текст3', '535969381686b8205d8cd651a8ac3d0f.png');
+/*!40000 ALTER TABLE `type_slideritem` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.type_typejk
+CREATE TABLE IF NOT EXISTS `type_typejk` (
+  `type_typejk_id` int(10) unsigned NOT NULL,
+  `type_typejk_pid` int(10) unsigned NOT NULL,
+  `type_typejk_name` varchar(500) NOT NULL,
+  `type_typejk_head` varchar(500) NOT NULL,
+  `type_typejk_text` text NOT NULL,
+  PRIMARY KEY (`type_typejk_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы premier.loc.type_typejk: 18 rows
+/*!40000 ALTER TABLE `type_typejk` DISABLE KEYS */;
+INSERT INTO `type_typejk` (`type_typejk_id`, `type_typejk_pid`, `type_typejk_name`, `type_typejk_head`, `type_typejk_text`) VALUES
+	(12136, 0, 'Пентхаус', '', ''),
+	(12137, 0, 'Вилла', '', ''),
+	(12138, 0, 'Квартира', '', ''),
+	(12139, 0, 'Таунхаус', '', ''),
+	(12140, 0, 'Студия', '', ''),
+	(12141, 0, 'Бунгало', '', ''),
+	(12142, 0, 'Помещение', '', ''),
+	(12143, 0, 'Загородный дом', '', ''),
+	(12144, 0, 'Часть виллы', '', ''),
+	(12145, 0, 'Дом', '', ''),
+	(12146, 0, 'Комерческая недвижимость', '', ''),
+	(12147, 0, 'Участок', '', ''),
+	(12148, 0, 'Офис', '', ''),
+	(12149, 0, 'Ресторан', '', ''),
+	(12150, 0, 'Гостиница', '', ''),
+	(12151, 0, 'Производство', '', ''),
+	(12152, 0, 'Склады', '', ''),
+	(12153, 0, 'Разное', '', '');
+/*!40000 ALTER TABLE `type_typejk` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица premier.loc.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `person` int(1) NOT NULL,
@@ -954,7 +1649,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `activation` (`activation`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1548 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы novostroika.od.ua.users: ~1 303 rows (приблизительно)
+-- Дамп данных таблицы premier.loc.users: ~1 310 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `person`, `pkt`, `pkt_date`, `colpub`, `colpub_all`, `mail`, `pass`, `name`, `fam`, `code`, `phone`, `region`, `zone`, `city`, `zone2`, `ras`, `pis`, `balans`, `avatar`, `vote`, `vote_min`, `user_type`, `pr`, `date`, `obmen`, `recovery_cod`, `recovery_date`, `referal_link`, `referals_count`, `ip_reg`, `ip_last_login`, `activation`, `present`) VALUES
 	(4, 0, 1, '2014-12-25 10:49:37', 15, 5, 'premier-site@ua.fm', '0648314cb770ad01f60fb7c5123931b4', 'Иван', 'Петров', '093', '8173185', 15, 41, 41, 23, 1, 1, 300, '4.jpg', 44, 6, 1, 1, '2013-04-10 11:47:45', 0, 'c871570d4aabe7599da30638e0f4d3f5', '2014-10-20 12:08:30', '64a43c0da408b144308e98d41499a3a7', 0, '', '', NULL, NULL),

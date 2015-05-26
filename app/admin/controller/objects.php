@@ -105,8 +105,9 @@ $this->view->selects->state = $options;
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
                       $where ORDER BY id ASC LIMIT $start, $onPage");
-        //[%/loadQuery%] 
-                
+        //[%/loadQuery%]
+
+
         $countItems = K_q::one("SELECT FOUND_ROWS() as countItems;",'countItems');
      
         $items = array();

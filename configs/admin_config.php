@@ -57,7 +57,7 @@ class AdminConfig{
                 'menuTabs'=>array(
 
                     'acl'=> array('title'=>'Обекты',
-                        'href'=>'/admin/acl'
+                        'href'=>'/admin/objects'
                     ),
 
                     'import'=> array('title'=>'Выгрузки',

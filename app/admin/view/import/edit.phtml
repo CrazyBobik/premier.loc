@@ -1,0 +1,114 @@
+<div style="margin-top: 8px;" class="table">
+            	<div class="head">
+            		<h5 class="iFrames">
+                    
+                     <?=$this->item? "Редактирование записи":'Добавление запсии'?>
+                     
+            		</h5>
+            	</div>
+<form action="/admin/import/save/id/<?=$this->item['id']?>" class="ajax-form" method="post">                
+<table cellspacing="0" cellpadding="0" border="0" class="display edit-table" id="con-edit" >
+            <thead>
+				<tr>
+               		<th class="ui-state-default" rowspan="1" colspan="1" style="width: 120px;">
+						<div class="DataTables_sort_wrapper">
+					    Характеристика
+						</div>
+					</th>
+					<th class="ui-state-default" rowspan="1" colspan="1" style="width: 129px;">
+						<div class="DataTables_sort_wrapper">
+						Значение
+						</div>
+					</th>
+		          
+      			</tr>
+		 	</thead>
+  	<tbody>
+      <a></a>
+        
+      <?if($this->item): ?>
+      
+		<tr>
+			<td>
+			ID
+			</td>
+			<td>
+		       <?=htmlspecialchars(strip_tags($this->item['id']))?>
+               <input type="hidden" name="id" value="<?=htmlspecialchars(strip_tags($this->item['id']))?>"/>
+			</td>
+		</tr>
+        
+      <?endif;?>
+      
+      <tr>
+                                            			<td>
+                                            	           	Запускался
+                                            			</td>
+                                            			<td>
+<input type="text" name="start_date" id="import_start_date" value="<?=strip_tags(htmlspecialchars($this->item["start_date"]))?>" class="import-field datepicker" />
+</td></tr><tr>
+                                            			<td>
+                                            	           	В файле импорта
+                                            			</td>
+                                            			<td>
+<input type="text" name="infeed" id="import_infeed" value="<?=strip_tags(htmlspecialchars($this->item["infeed"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Обработ.
+                                            			</td>
+                                            			<td>
+<input type="text" name="processed" id="import_processed" value="<?=strip_tags(htmlspecialchars($this->item["processed"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Опубликован
+                                            			</td>
+                                            			<td>
+<input type="text" name="publicated" id="import_publicated" value="<?=strip_tags(htmlspecialchars($this->item["publicated"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Обновлен
+                                            			</td>
+                                            			<td>
+<input type="text" name="updated" id="import_updated" value="<?=strip_tags(htmlspecialchars($this->item["updated"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Удален
+                                            			</td>
+                                            			<td>
+<input type="text" name="deleted" id="import_deleted" value="<?=strip_tags(htmlspecialchars($this->item["deleted"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Ошибок
+                                            			</td>
+                                            			<td>
+<input type="text" name="errors" id="import_errors" value="<?=strip_tags(htmlspecialchars($this->item["errors"]))?>" class="import-field " />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Добавлен
+                                            			</td>
+                                            			<td>
+<input type="text" name="add_date" id="import_add_date" value="<?=strip_tags(htmlspecialchars($this->item["add_date"]))?>" class="import-field datepicker" />
+</td></tr><tr>
+                                            			<td>
+                                            	           	Лимит
+                                            			</td>
+                                            			<td>
+<input type="text" name="limit" id="import_limit" value="<?=strip_tags(htmlspecialchars($this->item["limit"]))?>" class="import-field " />
+</td></tr>      
+    
+             
+</tbody>
+
+</table>
+
+<input type="submit" value="<?=$this->item? "Обновить":'Создать'?>" id="add_button" class="b-button greyishBtn submitForm add_node_button"/>
+<div style="display:none" class="nNote hideit" id="flash-msg-nNote">
+	<p>
+	</p>
+</div>
+</form>
+
+</div>
+        
+   
+        
