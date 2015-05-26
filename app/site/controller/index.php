@@ -347,14 +347,25 @@ class Site_Controller_Index extends Controller {
 
 
         //******************* Новострой отдельно.
-        $novostroyNode = K_TreeQuery::gOne('/jk'.$link, 'novostoy');
+        $linkObj = substr($link, 11, strlen($link)-12);
+
+        $novostroyNode = K_Q::row('SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name region,ci.type_city_name city,m.name market,jk.type_typejk_name type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,cu.name cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,s.name state,imf.img first_img,GROUP_CONCAT(DISTINCT im.img ORDER BY im.img) imgs FROM `objects` a
+                      LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
+                      LEFT JOIN type_region r ON r.type_region_id=a.region
+                      LEFT JOIN type_city ci ON ci.type_city_id=a.city
+                      LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
+                      LEFT JOIN market m ON m.id=a.market
+                      LEFT JOIN currency cu ON cu.id=a.cur
+                      LEFT JOIN state s ON s.id=a.state
+                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
+                      LEFT JOIN objects_img im ON im.obj_id=a.id WHERE a.id='.$linkObj.' GROUP BY a.id');
 
         if (!empty($novostroyNode)){
             //если есть новострой с такой же ссылкой переходим на него
             K_Registry::write('novostroy', $novostroyNode);
             K_SEO::set($novostroyNode);
 
-            return $link = '/system-pages/oneNovostroy/';
+            return $link = '/system-pages/oneobject/';
         }
 
         //******************* Все новострои.

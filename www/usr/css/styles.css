@@ -446,6 +446,7 @@
 
 .obj-list {
     padding-top: 15px;
+    margin-bottom: 10px;
 }
 .obj-list .obj-item,
 .obj-list .obj-item .item-photo,
@@ -458,6 +459,17 @@
 .obj-list .obj-item .item-info {
     text-align: left;
     margin-left: 15px;
+}
+
+.obj-list {
+    margin-left: 25px;
+}
+.obj-list .one-obj {
+    text-align: left;
+}
+.obj-list .one-obj .images {
+    float: left;
+    margin-right: 20px;
 }
 
 .clear {

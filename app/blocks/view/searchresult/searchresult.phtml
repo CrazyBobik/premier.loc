@@ -2,8 +2,14 @@
     <h1>Резульат поиска</h1>
 
     <div class="obj-list">
-        <?= $this->result ?>
+        <?= $this->result['html'] ?>
 
         <div class="clear"></div>
     </div>
+
+    <?
+    $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
+
+    echo K_paginator::simple($this -> result['page'], $this -> result['pages'], $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
+    ?>
 </div>
