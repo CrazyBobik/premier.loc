@@ -113,6 +113,13 @@
     color: #fff;
     font-size: 21px;
 }
+.fav-btn{
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: #3074c8;
+    color: #fff;
+}
 
 .search {
     background: linear-gradient(to top, #256cc4, #bfd9f7);
@@ -474,6 +481,14 @@
 .obj-list .one-obj .images {
     float: left;
     margin-right: 20px;
+}
+
+.detal {
+    color: #0030ff;
+    font-size: 19px;
+}
+.detal:hover {
+    color: #5e71ff;
 }
 
 .clear {

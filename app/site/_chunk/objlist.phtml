@@ -21,8 +21,8 @@
             Цена: <span><?= $row['price'] ?> <?= $row['cur'] ?></span>
         </div>
 
-        <a href="/object-<?= $row['id'] ?>">Подробнее...</a>
+        <a href="/object-<?= $row['id'] ?>" class="detal"><u>Подробнее...</u></a>
         <div class="fix"></div>
-        <button type="button" data-id="<?= $row['id'] ?>" class="favorit-btn favorit-btn-add">В избраное</button>
+        <button type="button" data-id="<?= $row['id'] ?>" class="favorit-btn favorit-btn-add fav-btn">В избраное</button>
     </div>
 </div>

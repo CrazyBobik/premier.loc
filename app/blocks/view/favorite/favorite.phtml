@@ -1,5 +1,5 @@
 <div class="country-block">
-    <button class="clear-fav">Очистить список</button>
+    <button class="clear-fav fav-btn">Очистить список</button>
     <div class="clear"></div>
 
     <div class="obj-list">
@@ -27,9 +27,9 @@
                         Цена: <span><?= $v['price'] ?> <?= $v['cur'] ?></span>
                     </div>
 
-                    <a href="/object-<?= $v['id'] ?>">Подробнее...</a>
+                    <a href="/object-<?= $v['id'] ?>" class="detal"><u>Подробнее...</u></a>
                     <div class="fix"></div>
-                    <button type="button" data-id="<?= $v['id'] ?>" class="favorit-btn favorit-btn-add">В избраное</button>
+                    <button type="button" data-id="<?= $v['id'] ?>" class="favorit-btn favorit-btn-add fav-btn">В избраное</button>
                 </div>
             </div>
         <?php } ?>
