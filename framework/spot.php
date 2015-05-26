@@ -44,6 +44,16 @@ class spot {
 	public static function seacrhe($query = array()) {
         $html = '';
 
+        $page = 1;
+        $onPage = 15;
+        if (isset($_GET['page'])){
+            $page = (int) $_GET['page'];
+        }
+
+        $pag_info = K_Paginator::prepear($page, $onPage);
+
+        $limit = " LIMIT ".$pag_info['start'].", ".$pag_info['onPage'];
+
         if (isset($query['id'])){
             $row = K_Q::row('SELECT SQL_CALC_FOUND_ROWS a.id id,cunt.type_country_name country,r.type_region_name region,ci.type_city_name city,m.name market,jk.type_typejk_name type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,cu.name cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,s.name state  FROM `objects` a
                       LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
@@ -112,7 +122,7 @@ class spot {
                       LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
                       LEFT JOIN market m ON m.id=a.market
                       LEFT JOIN currency cu ON cu.id=a.cur
-                      LEFT JOIN state s ON s.id=a.state'.$where);
+                      LEFT JOIN state s ON s.id=a.state'.$where.$limit);
 
         foreach($rows as $row){
 
@@ -126,8 +136,15 @@ class spot {
 
 //     для рекламы       $k++;
         }
+        $countItems = K_Q::one("SELECT FOUND_ROWS() as countItems;",'countItems');
+        $pages = ceil($countItems/$pag_info['onPage']);
 
-		return $html;
+        $arrReturn = array();
+        $arrReturn['html'] = $html;
+        $arrReturn['page'] = $page;
+        $arrReturn['pages'] = $pages;
+
+		return $arrReturn;
 	}	
 	
 	// функция генерирует маленькую картинку объекта для вывода на главной

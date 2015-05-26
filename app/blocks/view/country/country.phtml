@@ -2,10 +2,16 @@
     <h1><?= $this->country['name']?></h1>
 
     <div class="obj-list">
-        <?= $this->objects ?>
+        <?= $this->objects['html'] ?>
 
         <div class="clear"></div>
     </div>
+
+    <?
+    $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
+
+    echo K_paginator::simple($this -> objects['page'], $this -> objects['pages'], $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
+    ?>
 
     <div class="country-head">
         <?= $this->country['head']?>
