@@ -385,6 +385,7 @@
 .country-block {
     max-width: 750px;
     padding-left: 25px;
+    padding-top: 15px;
 }
 .country-block .country-head {
     background: linear-gradient(to top, #286ec5, #b9d5f5);
@@ -444,6 +445,9 @@
 .error {color: #D8000C;background-color: #FFBABA;background-image: url('/usr/img/msg/error.png')}
 .validation {color: #D63301;background-color: #FFCCBA;background-image: url('/usr/img/msg/validation.png')}
 
+.clear-fav {
+    float: left;
+}
 .obj-list {
     padding-top: 15px;
     margin-bottom: 10px;

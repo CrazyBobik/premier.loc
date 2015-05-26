@@ -1,11 +1,14 @@
 <div class="country-block">
+    <button class="clear-fav">Очистить список</button>
+    <div class="clear"></div>
+
     <div class="obj-list">
         <?php foreach ($this->fav as $v) { ?>
             <div class="obj-item">
 
                 <div class="item-photo">
-                    <a href="#">
-                        <img src="/upload/<?= $v[''] ?>" width="100" height="100">
+                    <a href="/object-<?= $v['id'] ?>">
+                        <img src="/upload/<?= $v['first_img'] ?>" width="100" height="100">
                     </a>
                 </div>
 
@@ -24,11 +27,18 @@
                         Цена: <span><?= $v['price'] ?> <?= $v['cur'] ?></span>
                     </div>
 
-                    <span class="flink jlinkn more" data-link="/object-31318">Подробнее...</span>
+                    <a href="/object-<?= $v['id'] ?>">Подробнее...</a>
                     <div class="fix"></div>
                     <button type="button" data-id="<?= $v['id'] ?>" class="favorit-btn favorit-btn-add">В избраное</button>
                 </div>
             </div>
         <?php } ?>
     </div>
+    <div class="clear"></div>
+
+    <?
+    $cleanUrl = preg_replace('/[\?\&]page=\d*/si', '', $_SERVER['REQUEST_URI']);
+
+    echo K_paginator::simple($this -> page, $this -> pages, $cleanUrl . (strpos($cleanUrl, '?') === false ? '?' : '&') . 'page={#}');
+    ?>
 </div>

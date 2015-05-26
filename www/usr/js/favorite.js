@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    function removeCookie(name){
+        document.cookie=name+"="+"; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+
     function addHTMLCode(){
         var item = getCoockieArray('favoritearray');
         var itemcount = item.length;
@@ -47,6 +51,14 @@ $(document).ready(function(){
         addClazz(id);
 
         addHTMLCode();
+    });
+
+    $('.clear-fav').on('click', function(){
+        if (confirm('Вы действительно хотите очистить избранное')){
+            removeCookie('favoritearray');
+            addHTMLCode();
+            location.reload();
+        }
     });
 
     $(function(){
