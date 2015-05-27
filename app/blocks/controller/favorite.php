@@ -14,7 +14,7 @@ class Blocks_Controller_Favorite  extends K_Controller_Blocks {
         $arrId = $_COOKIE['favoritearray'];
 
         $this->view->page = 1;
-        $onPage = 15;
+        $onPage = 10;
         if (isset($_GET['page'])){
             $this->view->page = (int) $_GET['page'];
         }

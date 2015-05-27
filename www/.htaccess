@@ -5,12 +5,12 @@ RewriteBase /
 
 # Rewrite www.domain.com -> domain.com -- used with SEO Strict URLs plugin
  RewriteCond %{HTTP_HOST} .
- RewriteCond %{HTTP_HOST} !^premier\.loc [NC]
- RewriteRule (.*) http://premier.loc/$1 [R=301,L]
+ RewriteCond %{HTTP_HOST} !^premier-estate\.com\.ua [NC]
+ RewriteRule (.*) http://premier-estate.com.ua/$1 [R=301,L]
 
 #Rewrite used with SEO Strict URLs plugin
  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|shtml|html|aspx|htm)(.*)\ HTTP/ 
-    RewriteRule ^index\.(php|shtml|html|aspx|htm)(.*)$ http://premier.loc/$2 [R=301,L]
+    RewriteRule ^index\.(php|shtml|html|aspx|htm)(.*)$ http://premier-estate.com.ua/$2 [R=301,L]
  
 #Без слеша на конце
  RewriteCond %{REQUEST_URI} !^/admin/

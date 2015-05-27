@@ -7,7 +7,8 @@
     background-color: #ebebeb;
 }
 .head .logo {
-    float: left
+    float: left;
+    margin-top: 10px;
 }
 .menu {
     border-top: solid #1b5fb3 5px;
@@ -301,16 +302,19 @@
     background: linear-gradient(to top, #b96a0d, #fdca94);
     text-decoration: none;
 }
+.question button:hover {
+    background: linear-gradient(to top, #fdca94, #b96a0d);
+}
 .bottom-part {
     position: relative;
     width: 100%;
     background-color: #f3f3f3;
+    margin-top: 15px;
 }
 .bottom-part .top-part{
     height: 30px;
     width: 100%;
     background: linear-gradient(to top, #f3f3f3, #d6d6d6);
-    position: absolute;
     top: -30px;
 }
 .bottom-part .down-part {
@@ -383,6 +387,7 @@
 .one-news .intro {
     float: left;
     padding: 20px;
+    text-align: left;
 }
 .one-news .more {
     border-bottom: solid 3px #1b5fb3;
@@ -394,6 +399,9 @@
     padding-left: 25px;
     padding-top: 15px;
 }
+.country-block h1 {
+    color: #3a7bcb;
+}
 .country-block .country-head {
     background: linear-gradient(to top, #286ec5, #b9d5f5);
     color: #fff;
@@ -401,14 +409,44 @@
 }
 .country-block .country-text{
     text-align: left;
+    margin-top: 10px;
 }
 
-.paginator{width:100%;color:#00f;font-family: "Calibri";font-size:18px;margin:40px 0 10px 0;}
-.paginator p {float:right;}
-.paginator ul{list-style:none;margin:0;padding:0; float: right}
-.paginator ul li{display:inline-block;margin:0 1px 0 5px;}
-.paginator ul li a{color:#00f;font-family: "Calibri";font-size:18px;line-height:20px;text-decoration:none;}
-.paginator ul li a.active{color:#009;}
+.paginator{
+    width:100%;
+    color:#fff;
+    font-family: "Calibri";
+    font-size:18px;
+    margin:40px 0 10px 0;
+}
+.paginator p {
+    float:right;
+}
+.paginator ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    float: right;
+}
+.paginator ul li{
+    display:inline-block;
+    margin:0 1px 0 5px;
+    min-width: 25px;
+    height: 25px;
+    background-color: #2063b4;
+    border-radius: 5px;
+    padding: 1px 5px;
+}
+.paginator .active{
+    background-color: #b5d2f3;
+}
+.paginator ul a{
+    color:#fff;
+    font-family: "Calibri";
+    font-size:18px;
+    line-height:20px;
+    text-decoration:none;
+}
 
 .form {
     width: 350px;
@@ -466,6 +504,7 @@
 }
 .obj-list .obj-item {
     margin-right: 15px;
+    min-width: 310px;
 }
 .obj-list .obj-item .item-info {
     text-align: left;

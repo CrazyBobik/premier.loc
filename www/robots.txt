@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /cp/
@@ -11,5 +12,5 @@ Disallow: /debug/
 Disallow: /dev/
 Disallow: /searche
 Disallow: /en
-Host: odesstroy.com
-Sitemap: http://odesstroy.com/sitemap.xml
+Host: premier-estate.com.ua
+Sitemap: http://premier-estate.com.ua/sitemap.xml

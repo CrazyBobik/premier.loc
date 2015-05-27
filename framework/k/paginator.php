@@ -68,7 +68,7 @@ class K_Paginator{
             } else {
                 $link = str_replace('{#}', ($page-1), $url);
             }
-            $html .= '<li>« <a href="'.$link.'" > Назад</a></li>';
+            $html .= '<a href="'.$link.'" ><li>Назад</li></a>';
             K_SEO::setPrev($link);
         } else {
             $html .= '';
@@ -86,11 +86,11 @@ class K_Paginator{
                 }
                 if($index==$page){
 
-                    $html .= '<li><a class="active" href="'.$link.'">'.($index).'</a></li>';
+                    $html .= '<a href="'.$link.'"><li class="active">'.($index).'</li></a>';
 
                 }else{
 
-                    $html .= '<li><a href="'.$link.'">'.($index).'</a>';
+                    $html .= '<a href="'.$link.'"><li>'.($index).'</li></a>';
 
                 }
 
@@ -99,14 +99,14 @@ class K_Paginator{
 
           if ( $page > 0 && $page < $cntPages ) {
 			$link = str_replace('{#}', ($page+1), $url);
-			$html .= '<li><a href="'.$link.'" >Вперед </a> »</li>';
+			$html .= '<li><a href="'.$link.'" >Вперед</a></li>';
               K_SEO::setNext($link);
 		} else {
 			$html .= '';
 		}
         $html .= '</ul>';
 
-        $html .= '<p>стр.</p><div class="clear"></div></div>';
+        $html .= '<div class="clear"></div></div>';
         return $html;
     }
 

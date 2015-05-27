@@ -40,14 +40,14 @@
   
 class AllConfig{
      
-		static public $domen='premier.loc';
+		static public $domen='premier-estate.com.ua';
 	 
         static public $mysqBDConf = array(
 		
                         'host' => '127.0.0.1',
-                        'user' => 'root',
-                        'password' => '',
-                        'database' => 'premier.loc'
+                        'user' => 'premier_estate',
+                        'password' => 's4W2GG8Aa6',
+                        'database' => 'premier_estate'
 						
 					 );
                     

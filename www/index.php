@@ -1,4 +1,8 @@
 <?php
+
+if($_SERVER['REMOTE_ADDR']!='195.138.90.140'){
+    exit();
+}
 // костыл с редиректами, в хтацесс не хотели работать редиректы
 
 function my_redirect( $url, $code = null ) {
@@ -21,79 +25,6 @@ if(isset($_GET['page']) && $_GET['page']<=1){
 
 }
 
-$qpos = strpos($_SERVER['REQUEST_URI'], '?');
-
-if ($qpos) {
-
-$url = $expuri  = substr( $_SERVER['REQUEST_URI'], 0, strpos( $_SERVER['REQUEST_URI'], '?'));
-	
-}else{
-	
-$url = $expuri  = $_SERVER['REQUEST_URI'];
-
-};		
-
-
-$redirects = array(
-
-	'/iskra.htm'=>'/iskra-sloveniya',
-	'/vch_r.htm'=>'/iskra-sloveniya',
-	'/et8_r.htm'=>'/iskra-sloveniya/sparkenergy--czifrovoe-oborudovanie-vch-svyazi-i-rz/apparatura-vch-svyazi',
-	'/nf8_r.htm'=>'/iskra-sloveniya/sparkenergy--czifrovoe-oborudovanie-vch-svyazi-i-rz/nch-terminal-dostupa',
-	'/dz8_r.htm'=>'/iskra-sloveniya/sparkenergy--czifrovoe-oborudovanie-vch-svyazi-i-rz/czifrovaya-apparatura-peredachi-komand-rz',
-	'/esv6_r.htm'=>'/iskra-sloveniya/oborudovanie-prisoedineniya-k-vl/filtr-prisoedineniya-esv6',
-	'/esc8_r.htm'=>'/',
-	'/aster5_r.htm'=>'/iskra-sloveniya/sparkenergy--czifrovoe-oborudovanie-vch-svyazi-i-rz/vneshnij-modem-dlya-peredachi-dannyix',
-	'/vfz6_r.htm'=>'/iskra-sloveniya/oborudovanie-prisoedineniya-k-vl/razdelitelnyj-filtr-vfz6-1',
-	'/pdf/dz9.pdf'=>'/iskra-sloveniya/sparkenergy--czifrovoe-oborudovanie-vch-svyazi-i-rz/czifrovaya-apparatura-peredachi-komand-rz',
-	'/transmission/sparkwave.htm'=>'/iskra-sloveniya',
-	'/transmission/sparkwave_7_8.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/radiorelejnaya-sistema-srednei-jomkosti',
-	
-	'/transmission/sparkwave_13.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/radiorelejnaya-sistema-srednei-jomkosti',
-	'/transmission/sparkwave_15_18_23.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/radiorelejnaya-sistema-srednei-jomkosti',
-	'/transmission/sparkwave_18_23ar.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/aktivniy-retranslyator',
-	'/transmission/eym34_a1.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/apparatura-peredachi-ezernet-po-rrl',
-	'/transmission/ewm34_a1.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/apparatura-peredachi-gigabit-ezernet-po-rrl',
-	'/transmission/ewm34_a2.htm'=>'/iskra-sloveniya/sparkwave--radiorelejnyie-sistemyi-peredachi/apparatura-peredachi-gigabit-ezernet-po-rrl',
-	'/sparklight_adm.htm'=>'/iskra-sloveniya/sparklight--volokon-opticheskie-sistemyi-peredachi/vyisokoskorosnoi-pdh-multipleksor',
-	'/transmission/eu8.htm'=>'/iskra-sloveniya/sparklight--volokon-opticheskie-sistemyi-peredachi/vyisokoskorosnoi-pdh-multipleksor',
-	'/transmission/vu2.htm'=>'/iskra-sloveniya/sparklight--volokon-opticheskie-sistemyi-peredachi/vyisokoskorosnoi-pdh-multipleksor',
-	'/transmission/sparklight_wdm.htm'=>'/iskra-sloveniya/sparklight--volokon-opticheskie-sistemyi-peredachi/mnogofunctionalniy-sdh-multipleksor',
-	'/transmission/sparkline.htm'=>'/iskra-sloveniya/sparklight--volokon-opticheskie-sistemyi-peredachi/sdh-multiplexor-vvoda-vivoda',
-	'/transmission/sparkview.htm'=>'/iskra-sloveniya/sparkview--sistema-upravleniya-elementami-seti/apparatura-peredachi-komand-rz-i-pa',
-	'/cap_r.htm'=>'/drugaya-produkcziya',
-	'/cs_r.htm'=>'/drugaya-produkcziya/kondensatoryi-svyazi',
-	'/zv_r.htm'=>'/sobstvennoe-proizvodstvo/vyisokochastotnyie-zagraditeli-vz',
-	'/fp.htm'=>'/sobstvennoe-proizvodstvo/filtryi-prisoedineniya-fp',
-	'/shonk_r.htm'=>'/drugaya-produkcziya/shkafyi-otbora-napryazheniya',
-	'/shonp_r.htm'=>'/drugaya-produkcziya/shkafyi-otbora-napryazheniya',
-	'/shon_r.htm'=>'/drugaya-produkcziya/shkafyi-otbora-napryazheniya',
-	'/measuring.htm'=>'/',
-	'/pdf/et_70da.pdf'=>'/',
-	'/m8_r.htm'=>'/',
-	'/adress.html'=>'/contacts',
-
-	'/iskra.htm'=>'/iskra-sloveniya'
-
-);
-
-
-if(isset($redirects[$url])){
-	
-	my_redirect($redirects[$url], '301');
-
-};
-
-
-$expuri = explode('/', 	$expuri);
-
- 
-if( $expuri['1'] == 'transfer'){
-
-    require_once('../cli/transfer.php');
-    exit();
-	
-}
 session_start();
 //var_dump( $HTTP_RAW_POST_DATA);
 

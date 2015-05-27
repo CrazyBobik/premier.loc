@@ -8,7 +8,7 @@
 }
 .button-bg-img1 {
     width: 32px;
-    height: 28px;
+    height: 26px;
     background: url("/usr/img/sprite.png") -23px -173px;
 }
 .button-bg-img2 {
@@ -98,5 +98,5 @@
     background: url("/usr/img/sprite.png") -5px -299px;
 }
 .bottom-down-img {
-    background: url("/usr/img/sprite.png") 9px -344px;
+    background: url("/usr/img/sprite.png") 9px -344px no-repeat;
 }

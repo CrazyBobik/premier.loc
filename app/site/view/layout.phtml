@@ -106,102 +106,100 @@
             <?php } ?>
         <?php } ?>
 
-
-    <div class="main-part">
-        <div class="clear"></div>
-        <div class="search">
-            <div class="search-img">
-                <p>Поиск</p>
-            </div>
-
-            <div class="search-form">
-                <form action="/resultsearch" method="post" id="search-form">
-                    <div class="block">
-                        <select id="country" name="country">
-                            <option value="">Страна</option>
-                            <?php $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
-                            foreach ($country as $v) {?>
-                                <option treeid="<?= $v['tree_id'] ?>" value="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
-                            <?php } ?>
-                        </select>
-
-                        <select id="region" disabled="disabled" name="region">
-                            <option value="">Регион</option>
-                        </select>
-
-                        <select id="city" disabled="disabled" name="city">
-                            <option value="">Город</option>
-                        </select>
-
-                        <select name="type">
-                            <option value="">Тип</option>
-                            <?php $country = K_TreeQuery::crt('/type/')->type(array('typejk'))->go();
-                            foreach ($country as $v) {?>
-                                <option treeid="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="block">
-                        <select name="market">
-                            <option value="">Рынок</option>
-                            <?php
-                            $market = K_Q::data('SELECT * FROM market');
-                            foreach ($market as $v) {?>
-                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-                            <?php } ?>
-                        </select>
-
-                        <select name="rooms">
-                            <option value="">Кол-во ком.</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">>5</option>
-                        </select>
-
-                        <input type="text" placeholder="Площадь до" name="sq">
-
-                        <select name="state">
-                            <option value="">Состояние</option>
-                            <?php
-                            $country = K_Q::data('SELECT * FROM state');
-                            foreach ($country as $v) {?>
-                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="block">
-                        <span>ID</span>
-                        <input class="field-id" type="text" name="id">
-
-                        <span>от</span>
-                        <input class="field-price" type="text" name="price_from">
-
-                        <span class="label-price">Цена</span>
-
-                        <span>до</span>
-                        <input class="field-price" type="text" name="price_to">
-                    </div>
-                </form>
-            </div>
-
-            <a href="#"  onclick="document.getElementById('search-form').submit(); return false;">
-                <div class="find">
-                    <span>НАЙТИ</span>
+        <div class="main-part">
+            <div class="clear"></div>
+            <div class="search">
+                <div class="search-img">
+                    <p>Поиск</p>
                 </div>
-            </a>
-        </div>
-        <div class="clear"></div>
 
-        <?php if ($this->content['middle']) { ?>
-            <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
-                <?=$this->content['middle'][$i]?>
+                <div class="search-form">
+                    <form action="/resultsearch" method="post" id="search-form">
+                        <div class="block">
+                            <select id="country" name="country">
+                                <option value="">Страна</option>
+                                <?php $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
+                                foreach ($country as $v) {?>
+                                    <option treeid="<?= $v['tree_id'] ?>" value="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
+                                <?php } ?>
+                            </select>
+
+                            <select id="region" disabled="disabled" name="region">
+                                <option value="">Регион</option>
+                            </select>
+
+                            <select id="city" disabled="disabled" name="city">
+                                <option value="">Город</option>
+                            </select>
+
+                            <select name="type">
+                                <option value="">Тип</option>
+                                <?php $country = K_TreeQuery::crt('/type/')->type(array('typejk'))->go();
+                                foreach ($country as $v) {?>
+                                    <option treeid="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="block">
+                            <select name="market">
+                                <option value="">Рынок</option>
+                                <?php
+                                $market = K_Q::data('SELECT * FROM market');
+                                foreach ($market as $v) {?>
+                                    <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                                <?php } ?>
+                            </select>
+
+                            <select name="rooms">
+                                <option value="">Кол-во ком.</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">>5</option>
+                            </select>
+
+                            <input type="text" placeholder="Площадь до" name="sq">
+
+                            <select name="state">
+                                <option value="">Состояние</option>
+                                <?php
+                                $country = K_Q::data('SELECT * FROM state');
+                                foreach ($country as $v) {?>
+                                    <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="block">
+                            <span>ID</span>
+                            <input class="field-id" type="text" name="id">
+
+                            <span>от</span>
+                            <input class="field-price" type="text" name="price_from">
+
+                            <span class="label-price">Цена</span>
+
+                            <span>до</span>
+                            <input class="field-price" type="text" name="price_to">
+                        </div>
+                    </form>
+                </div>
+
+                <a href="#"  onclick="document.getElementById('search-form').submit(); return false;">
+                    <div class="find">
+                        <span>НАЙТИ</span>
+                    </div>
+                </a>
+            </div>
+            <div class="clear"></div>
+
+            <?php if ($this->content['middle']) { ?>
+                <?php for ($i = 0; $i < sizeof($this->content['middle']); $i++) { ?>
+                    <?=$this->content['middle'][$i]?>
+                <?php } ?>
             <?php } ?>
-        <?php } ?>
 
-    </div>
 
         <script type="text/javascript" src="/usr/js/jquery.form.js"></script>
 

@@ -13,7 +13,7 @@ class Blocks_Controller_SliderDoc  extends K_Controller_Blocks {
 
         $this->view->img = K_TreeQuery::crt("/sliderDoc/")->type(array("image"))->go();
 	
-		$this->render('sliderDoc'); 
+		$this->render('sliderdoc');
  	}
   
 }

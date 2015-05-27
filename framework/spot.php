@@ -46,7 +46,7 @@ class spot {
         $arrReturn = array();
 
         $page = 1;
-        $onPage = 15;
+        $onPage = 10;
         if (isset($_GET['page'])){
             $page = (int) $_GET['page'];
         }

@@ -37,24 +37,25 @@
     </div>
 
     <div id="mi-slider" class="mi-slider">
-        <?php
-        $first = array_shift($this->slider);
-        foreach($first['tree_childs'] as $country) { ?>
+        <?php foreach($this->menu1 as $m) { ?>
             <ul>
-                <?php foreach($country['tree_childs'] as $v) { ?>
+                <?php foreach($this->slider as $s) {
+                    if ($s['id'] == $m['idelem1']
+                        || $s['id'] == $m['idelem2']
+                        || $s['id'] == $m['idelem3']) {?>
                     <li>
-                        <a href="<?= $v['tree_name'] ?>">
-                            <img src="/upload/<?= $v['image']?>">
-                            <h4><?= $v['name_build'] ?></h4>
+                        <a href="/object-<?= $s['id'] ?>">
+                            <img src="/upload/<?= $s['first_img']?>">
+                            <h4><?= $s['city'] ?></h4>
                         </a>
                     </li>
-                <?php }?>
+                <?php }}?>
             </ul>
         <?php } ?>
 
         <nav>
-            <?php foreach($first['tree_childs'] as $country) { ?>
-                <a href="#"><?= $country['tree_title'] ?></a>
+            <?php foreach($this->menu1 as $m) { ?>
+                <a href="#"><?= $m['tree_title'] ?></a>
             <?}?>
         </nav>
 
@@ -63,24 +64,25 @@
     </div>
 
     <div id="mi-slider2" class="mi-slider">
-        <?php
-        $first = array_shift($this->slider2);
-        foreach($first['tree_childs'] as $country) { ?>
+        <?php foreach($this->menu2 as $m) { ?>
             <ul>
-                <?php foreach($country['tree_childs'] as $v) { ?>
-                    <li>
-                        <a href="<?= $v['tree_name'] ?>">
-                            <img src="/upload/<?= $v['image']?>">
-                            <h4><?= $v['name_build'] ?></h4>
-                        </a>
-                    </li>
-                <?php }?>
+                <?php foreach($this->slider2 as $s) {
+                    if ($s['id'] == $m['idelem1']
+                        || $s['id'] == $m['idelem2']
+                        || $s['id'] == $m['idelem3']) {?>
+                        <li>
+                            <a href="/object-<?= $s['id'] ?>">
+                                <img src="/upload/<?= $s['first_img']?>">
+                                <h4><?= $s['city'] ?></h4>
+                            </a>
+                        </li>
+                    <?php }}?>
             </ul>
         <?php } ?>
 
         <nav>
-            <?php foreach($first['tree_childs'] as $country) { ?>
-                <a href="#"><?= $country['tree_title'] ?></a>
+            <?php foreach($this->menu2 as $m) { ?>
+                <a href="#"><?= $m['tree_title'] ?></a>
             <?}?>
         </nav>
 
