@@ -1,8 +1,4 @@
 <?php
-
-if($_SERVER['REMOTE_ADDR']!='195.138.90.140'){
-    exit();
-}
 // костыл с редиректами, в хтацесс не хотели работать редиректы
 
 function my_redirect( $url, $code = null ) {

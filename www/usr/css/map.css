@@ -1,0 +1,85 @@
+.container-map {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background-color: #f3f3f3;
+    margin-top: 120px;
+    border-bottom: solid 3px #808080;
+    position: relative;
+}
+
+.container-map .top-part{
+    height: 30px;
+    width: 100%;
+    background: linear-gradient(to top, #f3f3f3, #d6d6d6);
+    top: -30px;
+    text-align: center;
+    color: #265d9e;
+    font-size: 22px;
+}
+
+#map {
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+
+.container-map .country-list {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 35px;
+    right: 25px;
+}
+.container-map .country-list .country-item {
+    float: left;
+    margin: 0 20px;
+    height: 30px;
+    padding: 5px 0;
+}
+.container-map .country-list .country-items {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid 2px #e6e6e6;
+}
+.container-map .country-list .city-item {
+    float: left;
+    margin-left: 20px;
+    width: 145px;
+}
+.container-map .country-list .active {
+    background-color: #e6e6e6;
+    border-radius: 4px;
+}
+
+.container-map .recommended {
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+}
+.container-map .recommended .rec-head {
+    color: #c03f53;
+    text-align: center;
+    font-size: 23px;
+}
+.container-map .recommended .rec-img {
+    position: relative;
+}
+.container-map .recommended .rec-info {
+    color: #fff;
+    text-align: center;
+    font-size: 21px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 125px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.container-map .recommended .rec-info span {
+    color: #c03f53;
+    font-size: 34px;
+}

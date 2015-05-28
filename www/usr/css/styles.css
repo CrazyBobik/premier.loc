@@ -530,6 +530,11 @@
     color: #5e71ff;
 }
 
+.map {
+    width: 300px;
+    height: 300px;
+}
+
 .clear {
     clear: both
 }

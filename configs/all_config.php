@@ -39,17 +39,17 @@
 	 || define('CLI_PATH', ROOT_PATH.'/cli' );  	
   
 class AllConfig{
-     
-		static public $domen='premier-estate.com.ua';
-	 
-        static public $mysqBDConf = array(
-		
-                        'host' => '127.0.0.1',
-                        'user' => 'premier_estate',
-                        'password' => 's4W2GG8Aa6',
-                        'database' => 'premier_estate'
-						
-					 );
+
+    static public $domen='premier.loc';
+
+    static public $mysqBDConf = array(
+
+        'host' => '127.0.0.1',
+        'user' => 'root',
+        'password' => '',
+        'database' => 'premier.loc'
+
+    );
                     
         static public $mysqlDump = array(
        
