@@ -39,53 +39,7 @@
 <body>
 <div class="content">
 
-    <div class="head">
 
-        <a href="/">
-            <div class="logo"></div>
-        </a>
-
-        <div class="menu">
-            <a href="/about">
-                <div class="menu-item">
-                    <div class="button-bg">
-                        <div class="button-bg-img1"></div>
-                    </div >
-                    <div class="button-label"><span>О компании</span></div>
-                </div>
-            </a>
-
-            <a href="/contacts">
-                <div class="menu-item">
-                    <div class="button-bg">
-                        <div class="button-bg-img2"></div>
-                    </div >
-                    <div class="button-label"><span>Контакты</span></div>
-                </div>
-            </a>
-
-            <a href="/service">
-                <div class="menu-item">
-                    <div class="button-bg">
-                        <div class="button-bg-img3"></div>
-                    </div >
-                    <div class="button-label"><span>Услуги</span></div>
-                </div>
-            </a>
-
-            <div class="enter">
-                <a href="#">
-                    <div class="btn">
-                        <p>Вход</p>
-                        <div class="enter-img"></div>
-                    </div>
-                </a>
-                <div class="clear"></div>
-                <a class="registration" href="#">Регистрация</a>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
 
     <div id="top-slider"></div>
 
@@ -211,28 +165,28 @@
 
                 <div class="country-list">
                     <div class="country-items">
-                        <a href="">
-                            <div class="country-item">
+                        <a href="javascript:false">
+                            <div class="country-item" data-country="bolg">
                                 Болгария
                             </div>
                         </a>
-                        <a href="">
-                            <div class="country-item">
+                        <a href="javascript:false">
+                            <div class="country-item" data-country="turc">
                                 Турция
                             </div>
                         </a>
-                        <a href="">
-                            <div class="country-item">
+                        <a href="javascript:false">
+                            <div class="country-item" data-country="grec">
                                 Греция
                             </div>
                         </a>
-                        <a href="">
-                            <div class="country-item active">
+                        <a href="javascript:false">
+                            <div class="country-item active" data-country="ispan">
                                 Испания
                             </div>
                         </a>
-                        <a href="">
-                            <div class="country-item">
+                        <a href="javascript:false">
+                            <div class="country-item" data-country="franc">
                                 Франция
                             </div>
                         </a>
@@ -272,6 +226,54 @@
                 </div>
             </div>
 
+            <div class="head">
+
+                <a href="/">
+                    <div class="logo"></div>
+                </a>
+
+                <div class="menu">
+                    <a href="/about">
+                        <div class="menu-item">
+                            <div class="button-bg">
+                                <div class="button-bg-img1"></div>
+                            </div >
+                            <div class="button-label"><span>О компании</span></div>
+                        </div>
+                    </a>
+
+                    <a href="/contacts">
+                        <div class="menu-item">
+                            <div class="button-bg">
+                                <div class="button-bg-img2"></div>
+                            </div >
+                            <div class="button-label"><span>Контакты</span></div>
+                        </div>
+                    </a>
+
+                    <a href="/service">
+                        <div class="menu-item">
+                            <div class="button-bg">
+                                <div class="button-bg-img3"></div>
+                            </div >
+                            <div class="button-label"><span>Услуги</span></div>
+                        </div>
+                    </a>
+
+                    <div class="enter">
+                        <a href="#">
+                            <div class="btn">
+                                <p>Вход</p>
+                                <div class="enter-img"></div>
+                            </div>
+                        </a>
+                        <div class="clear"></div>
+                        <a class="registration" href="#">Регистрация</a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
             <br>
             <br>
             <br>
@@ -299,5 +301,7 @@
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgHkEihEPahT0h0EisUC3vsZv2cMnu5iU&sensor=false">
             </script>
             <script type="text/javascript" src="/usr/js/map.js"></script>
+
+
 </body>
 </html>

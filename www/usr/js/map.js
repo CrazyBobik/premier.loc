@@ -4,54 +4,84 @@ function initialize() {
     // задаем параметры карты
     var mapOptions = {
         //Это центр куда спозиционируется наша карта при загрузке
-        center: new google.maps.LatLng(48.5, 35),
+        center: new google.maps.LatLng(55, 15),
         //увеличение под которым будет карта, от 0 до 18
         // 0 - минимальное увеличение - карта мира
         // 18 - максимально детальный масштаб
-        zoom: 7,
+        zoom: 3,
         //Тип карты - обычная дорожная карта
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     //Инициализируем карту
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions);
 
-    //Объявляем массив с нашими местами и маркерами
-    var markers = [],
-        myPlaces = [];
-    //Добавляем места в массив
-    myPlaces.push(new Place('Киев', 50.453242, 30.525513, 'Столица Украины'));
-    myPlaces.push(new Place('Крым', 45.052181, 34.157867, 'Автономная республика Украины'));
+    //  var triangles = {};
+    // var iterator = 0;
 
-    //Теперь добавим маркеры для каждого места
-    for (var i = 0, n = myPlaces.length; i < n; i++) {
-        var marker = new google.maps.Marker({
-            //расположение на карте
-            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
-            map: map,
-            //То что мы увидим при наведении мышкой на маркер
-            title: myPlaces[i].name
-        });
-        //Добавим попап, который будет появляться при клике на маркер
-        var infowindow = new google.maps.InfoWindow({
-            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
-        });
-        //привязываем попап к маркеру на карте
-        makeInfoWindowEvent(map, infowindow, marker);
-        markers.push(marker);
-    }
-}
-function makeInfoWindowEvent(map, infowindow, marker) {
-    //Привязываем событие КЛИК к маркеру
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
+    $.each(mapCouuntries,function(k, v){
+
+        var i = 1;
+        triangles[k] = [];
+
+        while (typeof v['latlng_'+i] != 'undefined') {
+
+            var triangleCoords = [];
+
+            $.each(v['latlng_'+i], function (k, v) {
+
+                triangleCoords.push(new google.maps.LatLng(k, v));
+
+            });
+
+            triangles[k].push(new google.maps.Polygon({
+                paths: triangleCoords,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 1,
+                fillColor: v['color'],
+                fillOpacity: 0.1
+            }));
+
+            i++;
+        }
+        //triangles.setMap(map);
+
+        //google.maps.event.addListener(triangles, 'click');
     });
 }
-//Это класс для удобного манипулирования местами
-function Place(name, latitude, longitude, description){
-    this.name = name;  // название
-    this.latitude = latitude;  // широта
-    this.longitude = longitude;  // долгота
-    this.description = description;  // описание места
-}
-//Когда документ загружен полностью - запускаем инициализацию карты.
-google.maps.event.addDomListener(window, 'load', initialize);
+
+$(function() {
+
+    //Когда документ загружен полностью - запускаем инициализацию карты.
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+});
+
+$('.country-item').on({
+    mouseenter: function () {
+        triangles[$(this).data("country")].forEach(function(v){
+            v.setMap(map);
+        });
+    },
+    mouseleave: function () {
+        triangles[$(this).data("country")].forEach(function(v){
+            v.setMap(null);
+        });
+    }
+});
+
+$('.country-items').on('click', '.country-item', function(){
+    $('.country-item').removeClass('active');
+    $(this).addClass('active');
+    triangles.forEach(function(v){
+        v.forEach(function(v1){
+            v1.setMap(null);
+        });
+    });
+
+    triangles[$(this).data("country")].forEach(function(v){
+        v.setMap(map);
+    });
+});

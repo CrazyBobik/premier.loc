@@ -5,6 +5,9 @@
 
 .head {
     background-color: #ebebeb;
+    position: fixed;
+    top: 0;
+    width: 1000px;
 }
 .head .logo {
     float: left;
@@ -107,7 +110,7 @@
     padding: 0 0 0 80px;
 }
 .favorites .fav-title {
-    color: #00ffff;
+    color: #fff;
     font-size: 24px;
 }
 .favorites .fav-text{
