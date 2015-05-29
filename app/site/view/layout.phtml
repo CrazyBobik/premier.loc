@@ -165,50 +165,26 @@
 
                 <div class="country-list">
                     <div class="country-items">
+                        <?php
+                            $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
+                            foreach ($country as $v) {
+                        ?>
                         <a href="javascript:false">
-                            <div class="country-item" data-country="bolg">
-                                Болгария
+                            <div class="country-item" data-country="<?= $v['tree_name']?>"
+                                 data-id="<?= $v['tree_id']?>"
+                                 data-idobj="<?= $v['idobj']?>">
+                                <?= $v['name']?>
                             </div>
                         </a>
-                        <a href="javascript:false">
-                            <div class="country-item" data-country="turc">
-                                Турция
-                            </div>
-                        </a>
-                        <a href="javascript:false">
-                            <div class="country-item" data-country="grec">
-                                Греция
-                            </div>
-                        </a>
-                        <a href="javascript:false">
-                            <div class="country-item active" data-country="ispan">
-                                Испания
-                            </div>
-                        </a>
-                        <a href="javascript:false">
-                            <div class="country-item" data-country="franc">
-                                Франция
-                            </div>
-                        </a>
+
+                        <?php } ?>
                         <div class="clear"></div>
                     </div>
 
 
-                    <a href="">
-                        <div class="city-item">Коста Бланка</div>
-                    </a>
-                    <a href="">
-                        <div class="city-item">Дания</div>
-                    </a>
-                    <a href="">
-                        <div class="city-item">Кальпе</div>
-                    </a>
-                    <a href="">
-                        <div class="city-item">Альбир</div>
-                    </a>
-                    <a href="">
-                        <div class="city-item">Сан Хуан</div>
-                    </a>
+                    <div class="city-items">
+
+                    </div>
                 </div>
 
                 <div class="recommended">

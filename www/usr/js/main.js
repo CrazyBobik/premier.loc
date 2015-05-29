@@ -1266,7 +1266,7 @@ var mapCouuntries  ={
         },
         color: '#f00'
     },
-    ispan:{
+    span:{
         latlng_1: {
             '42.59714889526366':'1.435246944427491',
             '42.57220840454102':'1.446388006210327',
@@ -2273,7 +2273,7 @@ var mapCouuntries  ={
 };
 
 var map;
-var triangles = [];
+var triangles ={};
 
 $(function(){
     $('.ajax-form').on('submit', function()

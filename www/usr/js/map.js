@@ -55,8 +55,6 @@ $(function() {
 
     //Когда документ загружен полностью - запускаем инициализацию карты.
     google.maps.event.addDomListener(window, 'load', initialize);
-
-
 });
 
 $('.country-item').on({
@@ -66,16 +64,29 @@ $('.country-item').on({
         });
     },
     mouseleave: function () {
-        triangles[$(this).data("country")].forEach(function(v){
-            v.setMap(null);
+        var isActive = true;
+
+        var classList =$(this).attr('class').split(/\s+/);
+
+        classList.forEach(function(item){
+            if (item === 'active') {
+                isActive = false;
+            }
         });
+
+        if (isActive) {
+            triangles[$(this).data("country")].forEach(function (v) {
+                v.setMap(null);
+            });
+        }
     }
 });
 
 $('.country-items').on('click', '.country-item', function(){
     $('.country-item').removeClass('active');
     $(this).addClass('active');
-    triangles.forEach(function(v){
+
+    $.each(triangles, function (k, v) {
         v.forEach(function(v1){
             v1.setMap(null);
         });
@@ -83,5 +94,28 @@ $('.country-items').on('click', '.country-item', function(){
 
     triangles[$(this).data("country")].forEach(function(v){
         v.setMap(map);
+    });
+
+    $.ajax({
+        url: '/ajax/loadmap/map',
+        data: {id:$(this).data('id'),
+            idobj:$(this).data('idobj')
+        },
+        dataType: "html",
+        success: function (data) {
+            $('.city-items').html(data);
+        }
+    });
+});
+
+$('.city-items').on('click', '.region-item', function(){
+    $.ajax({
+        url: '/ajax/loadmap/map',
+        data: {id:$(this).data('id')},
+        dataType: "html",
+        success: function (data) {
+            $('.city-items').html(data);
+        }
+
     });
 });
