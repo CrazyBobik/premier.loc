@@ -21,6 +21,8 @@ RewriteBase /
  RewriteCond %{REQUEST_URI} !^/upload/
  RewriteRule ^(.*)\/$ /$1 [R=301,L]
 
+ RewriteCond %{REQUEST_URI} !/greece-realties-frame.php
+ RewriteCond %{REQUEST_URI} !/greece-realties-frame-loader.php
 
 # to index.php and set the cultureKey parameter
    

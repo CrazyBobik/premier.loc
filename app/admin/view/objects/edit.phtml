@@ -174,9 +174,18 @@
                         <?=K_jformhelper::options($this->selects->state, $this->item["state"])?></select>
                 </td>
             </tr>
-    
+            <tr>
+                <td>
+                    Описание
+                </td>
+                <td>
+                    <textarea id="description" name="description" cols="100" rows="10"><?=$this->item["des"]?></textarea>
+                </td>
+            </tr>
 
-</tbody>
+
+
+            </tbody>
 
         </table>
 
@@ -185,8 +194,95 @@
             <p>
             </p>
         </div>
+
+
     </form>
 
+    <div style="padding: 20px;padding-top: 30px;">
+        <?if($this->item):?>
+
+            Изображения для объекта:
+
+            <div id="object_images" data-filename="object_images" class="multifile" >
+
+                <div id="object-images-conteiner" >
+
+                    <?
+
+                    $images = explode(',',$this->objectRow['photos_nums']);
+
+                    foreach($images as $i):
+
+                        if (file_exists(UPLOAD_PATH . "/objects/s" . $this->objectRow['id'] . "_".$i.".jpg")):
+
+                            ?>
+
+                            <div style="margin:15px 0" id="img_<?= $this->objectRow['id']?>_<?=$i?>">
+
+                                <form action="/admin/objects/imageadd" method="POST" enctype="multipart/form-data">
+                                    <div>
+
+                                        <div class="fll" style="margin-right:10px">
+                                            <img src="/upload/objects/s<?=$this->objectRow['id']?>_<?=$i?>.jpg" class="rounded" width="100"/>
+                                        </div>
+
+                                        <?if($i!=0):?>
+
+
+                                            <input type="checkbox" class="setplan" data-object-id="<?=$this->objectRow['id']?>" data-image-id="<?=$i?>"  name="setplan" <?=in_array($i,$this->plansArray)? 'checked="checked"': "" ?>> Установить как планировку
+
+                                        <?else:?>
+
+                                            Это изображение показываеться как превью.
+
+                                        <?endif;?>
+
+
+                                        <br/>
+                                        <br/>
+                                        <input style="width:220px" class="object_images" id="object_images_f_0" type="file" name="images_f">
+
+                                        <input type="hidden" name="imgid" value="<?=$i?>">
+
+                                        <input type="hidden" name="objectid" value="<?=$this->objectRow['id']?>">
+
+                                        <a data-fileid="<?=$i?>" class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></a>
+
+                                        <a data-image="<?=$i?>" data-id="<?=$this->objectRow['id']?>" class="file_field_delete remove-image" href="javascript:void(0);" title="Удалить"></a><br/>
+                                        <div class="fix"></div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        <?
+                        endif;
+                    endforeach;?>
+
+                </div>
+
+                Добавить ещё картинку
+                <div class="add-image-container">
+
+                    <form action="/admin/objects/imageadd" class="add-image"  method="POST" enctype="multipart/form-data">
+
+                        <input style="width:220px" class="object_images" type="file" name="images_f">
+
+                        <input type="hidden" name="objectid" value="<?=$this->objectRow['id']?>">
+
+                        <input type="submit" name="image_add" value="Добавить">
+
+                    </form>
+
+                </div>
+
+            </div>
+        <?else:?>
+
+            Картинки можно будет добавить после создания объекта.
+
+        <?endif;?>
+
+    </div>
 </div>
         
    

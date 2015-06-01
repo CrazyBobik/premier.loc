@@ -357,8 +357,8 @@ class Site_Controller_Index extends Controller {
                       LEFT JOIN market m ON m.id=a.market
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
-                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
-                      LEFT JOIN objects_img im ON im.obj_id=a.id WHERE a.id='.$linkObj.' GROUP BY a.id');
+                      LEFT JOIN objects_img imf ON imf.id_add=a.id_add AND imf.first=1
+                      LEFT JOIN objects_img im ON im.id_add=a.id_add  WHERE a.id='.$linkObj.' GROUP BY a.id');
 
         if (!empty($novostroyNode)){
             //если есть новострой с такой же ссылкой переходим на него

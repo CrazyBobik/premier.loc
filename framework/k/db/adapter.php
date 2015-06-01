@@ -257,7 +257,7 @@ class K_Db_Adapter {
 			$queryDuration = $this->lastQueryDuration; // for debug
 		}
         
-        //echo $sql."\n";
+//        echo $sql."\n";
 		K_Debug::get()->addSql( $sql, $numRows, $queryDuration );
         
         $this->noDbRow = false;	

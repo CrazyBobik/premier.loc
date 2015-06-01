@@ -1,4 +1,25 @@
 <div style="margin-top: 8px;" class="table" id="objects_table_wrapper">
+
+    <a class="btnIconLeft mr10 mt5 mb10 fll" title="Добавить обьект" onclick="editObject('add')" href="javascript:;">
+        <img class="icon" alt="" src="/adm/img/icons/dark/building.png">
+        <span>Добавить обьект</span>
+    </a>
+
+    <?if(count($this->types)>0):?>
+
+        <?foreach($this->types as &$v):?>
+
+            <a class="btnIconLeft mr10 mt5 mb10 flr object-types-button" title="Переключиться на <?=$v['type_typejk_name']?>" data-type="<?=$v['type_typejk_id']?>"  onclick="changeType(<?=$v['type_typejk_id']?>)" href="javascript:;">
+                <span><?=$v['type_typejk_name']?></span>
+            </a>
+
+        <?endforeach;
+        unset ($v);?>
+    <?endif;?>
+
+    <div class="fix"></div>
+
+
 	<div class="head">
 		<h5 class="iFrames">
 		    <?=$this->crudTitle?>
@@ -231,7 +252,8 @@ $(function(){
             var id = $(this).data('id');
             
             $.get('/admin/objects/edit','id='+id, function(data){
-                  flyboxOpen(900+44,700, 'Управление', '<div style="padding:0 10px;width:900px;height:700px;overflow-x:auto">'+data+'</div>');
+                flyboxOpen(900+44,700, 'Управление', '<div style="padding:0 10px;width:900px;height:700px;overflow-x:auto">'+data+'</div>');
+                setTimeout(setObjectForm,500);
             },'html');
                     
    });

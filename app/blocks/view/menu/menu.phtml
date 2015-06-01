@@ -5,29 +5,30 @@
         <?php if ($v['first'] === 'да'){
                 echo "first ";
             }
-            if (K_Url::get()->expPath[0] == $v['tree_name']){
+            if (K_Url::get()->expPath[0] == (empty($v['link']) ? $v['tree_name'] : $v['link'])){
                 echo "active";
             } ?>">
-                <a href="/<?= $v['tree_name'] ?>">
+                <a href="/<?= empty($v['link']) ? $v['tree_name'] : $v['link'] ?>">
                     <div class="<?= $v['class'] ?>"></div>
                     <div class="separ"></div>
                     <span><?= $v['name'] ?></span>
                     <div class="link-area"></div>
                 </a>
-                <?php if ($v['tree_name'] !== 'service') { ?>
+                <?php if ($v['tree_name'] !== 'service' && empty($v['link'])) { ?>
                     <div rel="<?= $v['tree_name'] ?>" class="menu-arr hide-control-open"></div>
                 <?php } ?>
             </div>
-
-            <div class="sub-menu">
-                <?php foreach ($this->regionForCountry[$v['tree_name']] as $reg) {?>
-                    <a href="/<?= $v['tree_name'] ?>/<?= $reg['tree_name'] ?>">
-                        <div class="sub-item">
-                            <span><?= $reg['tree_title'] ?></span>
-                        </div>
-                    </a>
-                <?php } ?>
-            </div>
+            <?php if ($v['tree_name'] !== 'service' && empty($v['link'])) {?>
+                <div class="sub-menu">
+                    <?php foreach ($this->regionForCountry[$v['tree_name']] as $reg) {?>
+                        <a href="/<?= $v['tree_name'] ?>/<?= $reg['tree_name'] ?>">
+                            <div class="sub-item">
+                                <span><?= $reg['tree_title'] ?></span>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </div>
+            <?php } ?>
         </div>
     <?php } ?>
 </div>

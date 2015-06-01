@@ -64,8 +64,8 @@ class spot {
                       LEFT JOIN market m ON m.id=a.market
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
-                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
-                      LEFT JOIN objects_img im ON im.obj_id=a.id WHERE a.id='.$query['id'].'GROUP BY a.id');
+                      LEFT JOIN objects_img imf ON imf.id_add=a.id_add AND imf.first=1
+                      LEFT JOIN objects_img im ON im.id_add=a.id_add WHERE a.id='.$query['id'].'GROUP BY a.id');
             ob_start();
 
             include(CHUNK_PATH.'/objlist.phtml');
@@ -129,8 +129,8 @@ class spot {
                       LEFT JOIN market m ON m.id=a.market
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
-                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
-                      LEFT JOIN objects_img im ON im.obj_id=a.id'.$where.' GROUP BY a.id'.$limit);
+                      LEFT JOIN objects_img imf ON imf.id_add=a.id_add AND imf.first=1
+                      LEFT JOIN objects_img im ON im.id_add=a.id_add'.$where.' GROUP BY a.id'.$limit);
 
         foreach($rows as $row){
             ob_start();

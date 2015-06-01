@@ -305,12 +305,12 @@ class AllConfig{
     // разные установки, которые используют дефайны
     static function set(){
             
-        self::$adsImgPaths['temp'] = TEMP_PATH.'/';
-        self::$adsImgPaths['original'] = BACKUP_PATH."/original_images/";
-        self::$adsImgPaths['big'] =  WWW_PATH."/img/apartment/";
-        self::$adsImgPaths['thumb'] = self::$adsImgPaths['big'].'/thumb/';
-        self::$adsImgPaths['watermark'] = WWW_PATH."/img/system/w.png";
-        self::$adsImgPaths['watermarkImport'] = WWW_PATH."/img/system/w_i.png";
+        self::$objImgPaths['temp'] = TEMP_PATH.'/';
+        self::$objImgPaths['original'] = BACKUP_PATH."/original_images/";
+        self::$objImgPaths['big'] =  WWW_PATH."/upload/objects/";
+        self::$objImgPaths['thumb'] = self::$objImgPaths['big'].'/thumb/';
+        self::$objImgPaths['watermark'] = WWW_PATH."/img/system/w.png";
+        self::$objImgPaths['watermarkImport'] = WWW_PATH."/img/system/w_i.png";
 			  
         self::$site = 'http://'.self::$domen;
            

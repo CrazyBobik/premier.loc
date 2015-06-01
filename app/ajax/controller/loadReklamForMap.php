@@ -14,7 +14,7 @@ class Ajax_Controller_LoadReklamForMap  extends K_Controller_Ajax {
                       WHERE a.id='.$_GET['idobj'].' GROUP BY a.id');
 
 
-        $html = $html . '<div class="rec-head">Рекомендуем в '.$items['country'].'</div>
+        $html = $html . '<div class="rec-head">Рекомендуем в стране '.$items['country'].'</div>
                     <div class="rec-img">
                         <img src="/upload/'.$items['first_img'].'" width="500px" height="120px" />
 

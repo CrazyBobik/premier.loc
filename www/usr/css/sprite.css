@@ -100,3 +100,11 @@
 .bottom-down-img {
     background: url("/usr/img/sprite.png") 9px -344px no-repeat;
 }
+.search-map-img {
+    width: 19px;
+    height: 27px;
+    background: url("/usr/img/sprite.png") -293px 0px;
+}
+.search-map-img:hover {
+   background: url("/usr/img/sprite.png") -271px 0px;
+}

@@ -140,12 +140,21 @@
     top: -6px;
     width: 240px;
     height: 36px;
+    padding: 3px 45px 0 0;
     text-align: center;
 }
 .search-img p {
     margin: 0;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: -135px;
+}
+.search-img .search-map-img {
+    position: absolute;
+    top: 5px;
+    right: 45px;
 }
 .search-form {
     color: #fff;
@@ -536,6 +545,11 @@
 .map {
     width: 300px;
     height: 300px;
+}
+
+#grecRealties {
+    width: 100%;
+    height: 2600px;
 }
 
 .clear {

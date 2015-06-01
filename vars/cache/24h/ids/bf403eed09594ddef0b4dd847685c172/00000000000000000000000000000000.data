@@ -1,0 +1,898 @@
+s:46696:"
+<div>
+    
+    <div>
+        <div>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9057  объектов на 604 страницах  </span>
+            
+             
+    <ul class="pagination">
+
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(1)}">1</a>
+            </li>
+            <li class="active" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(2)}">2</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(3)}">3</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(4)}">4</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(5)}">5</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(6)}">6</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(7)}">7</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(8)}">8</a>
+            </li>
+    </ul>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1472?companyid=303" onclick="window.open('/realtyobject/1472?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1472/15021.jpg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1472?companyid=303" onclick="window.open('/realtyobject/1472?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 75 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду квартира 75 кв.м в курортном поселке на п-ове Кассандра. Расположенная на третьем этаже, квартира включает гостиную с кухней, 2 комнаты, ванную с душем. Дом полностью меблирован, кухня оборудована, установлен кондиционер. В поселке...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>55 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1472</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">75 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1377?companyid=303" onclick="window.open('/realtyobject/1377?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1377/13942.jpg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1377?companyid=303" onclick="window.open('/realtyobject/1377?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 32 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>СУПЕР ПРЕДЛОЖЕНИЕ! Сдается в аренду полностью меблированная квартира на первом этаже в жилом комплексе на п-ове Кассандра. Площадь квартиры 32 кв.м, состоит она из гостиной с кухней, спальной и ванной с душем. Место расположения очень удобное: вся...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>55 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1377</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">32 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">50 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/289?companyid=303" onclick="window.open('/realtyobject/289?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/289/28510.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/289?companyid=303" onclick="window.open('/realtyobject/289?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 55 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>В одном из самых больших и живописных городков полуострова Халкидики, в Калифее сдаётся в аренду квартира 55 кв.м. Квартира расположена на второмэтаже и состоит из 2 спальных комнат, гостиной с кухней, одной ванной комнаты.
+Указана ориентировочная...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>55 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">289</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">55 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">600 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/7538?companyid=303" onclick="window.open('/realtyobject/7538?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/7538/94455.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/7538?companyid=303" onclick="window.open('/realtyobject/7538?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Коттедж на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Предлагаются в аренду квартиры на сезон в одном из живописных и крупных поселков п-ова Ситония, Халкидики. Квартиры расположены в одном здании, близко к морю и пляжу. Все квартиры имеют гостиную с кухней, полностью меблированы с бытовой техникой....</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>56 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7538</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">0 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">100 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/6673?companyid=303" onclick="window.open('/realtyobject/6673?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/6673/82035.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/6673?companyid=303" onclick="window.open('/realtyobject/6673?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Таунхаус 58 m&#178; на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду таунхаус, расположенный на полуострове Халкидики (Ситония). Двухэтажный дом, полностью меблированный и оборудованный бытовой техникой, включает: гостиную с кухней, 2 спальни, 2 ванные. В доме есть камин, установлены кондиционеры,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">6673</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">58 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">300 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/6725?companyid=303" onclick="window.open('/realtyobject/6725?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/6725/116140.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/6725?companyid=303" onclick="window.open('/realtyobject/6725?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 75 m&#178; на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается квартира площадью 75 кв.м на полуострове Ситония, региона Халкидики. Квартира расположена на первом этаже и состоит из одной спальной комнаты, большой гостиной с кухней, одной душевой комнаты. Имеет вид на море, на лес, также есть мебель,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">6725</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">75 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">80 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/8363?companyid=303" onclick="window.open('/realtyobject/8363?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/8363/103246.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/8363?companyid=303" onclick="window.open('/realtyobject/8363?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 53 m&#178; в Халкидиках</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду квартира площадью 53 кв.м в Халкидиках. Квартира расположена на первом этаже и состоит из 2 спальных комнат, гостиной, одной кухонной комнаты, одной душевой комнаты. Имеет вид на море, также есть мебель, камин, кондиционер, тенды,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">8363</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">53 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">50 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/9954?companyid=303" onclick="window.open('/realtyobject/9954?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/9954/122213.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/9954?companyid=303" onclick="window.open('/realtyobject/9954?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 125 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся квартира площадью 125 кв.м на полуострове Кассандра, региона Халкидики. Квартира расположена на втором этаже и состоит из 3 спальных комнат, гостиной с кухней, 2 душевых комнат.
+Квартира имеет угловое расположение. Имеет великолепный  вид на...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">9954</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">125 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">150 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10689?companyid=303" onclick="window.open('/realtyobject/10689?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10689/132281.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10689?companyid=303" onclick="window.open('/realtyobject/10689?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 110 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается квартира площадью 110 кв.м в Пальури, полуостров Халкидики. Квартира расположена на первом этаже и состоит из двух комнат, гостинной, кладовой и душевой. Возможно размещение до 5 человек. В первой комнате есть двуспальная кровать, во второй -...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10689</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">110 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1100 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10831?companyid=303" onclick="window.open('/realtyobject/10831?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10831/133311.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10831?companyid=303" onclick="window.open('/realtyobject/10831?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 70 m&#178; на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся квартира площадью 70 кв.м на полуострове Ситония, региона Халкидики. Квартира расположена на первом этаже и состоит из 2 спальных комнат, гостиной с кухней, одной ванной комнаты.
+Квартира имеет угловое расположение. также есть мебель,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10831</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">70 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">270 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1831?companyid=303" onclick="window.open('/realtyobject/1831?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1831/19213.jpg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1831?companyid=303" onclick="window.open('/realtyobject/1831?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 80 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду квартира на западном мысе п-ова Кассандра. Площадь 80 кв.м вмещает гостиную с камином и кухней, 2 спальные и ванную комнату. Квартира полностью меблирована и находится в очень хорошем состоянии. Установлена система отопления, есть...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1831</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">80 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">600 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1895?companyid=303" onclick="window.open('/realtyobject/1895?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1895/23365.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1895?companyid=303" onclick="window.open('/realtyobject/1895?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 32 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду двухкомнатная квартира в популярном поселке, расположенном на восточном мысе п-ова Кассандра. Площадь 32 кв.м вмещает гостиную с оборудованной кухней, спальную и ванную комнату с душем. Квартира полностью меблирована, в спальной есть...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>60 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1895</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">32 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">50 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1951?companyid=303" onclick="window.open('/realtyobject/1951?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1951/21638.jpg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1951?companyid=303" onclick="window.open('/realtyobject/1951?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 45 m&#178; в Салониках</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаются новые кв-ры площадью 45 кв.м в самом центре г. Салоники на центральной улице, 200 м от красивой набережной. Состоят из гостиной, отдельной кухни, спальни и ванной. Полностью меблированы и оснащены бытовой техникой. На кухне есть оборудование...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>65 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1951</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">45 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">0 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/1489?companyid=303" onclick="window.open('/realtyobject/1489?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/1489/15191.jpg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/1489?companyid=303" onclick="window.open('/realtyobject/1489?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 62 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду квартира в популярном курортном поселке на п-ове Кассандра. Расположенная на первом этаже, квартира имеет площадь 62 кв.м и включает: гостиную с кухней, 2 спальни и ванную. Квартира полностью меблирована, в ней установлен...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>65 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1489</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">62 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">800 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/5864?companyid=303" onclick="window.open('/realtyobject/5864?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/5864/70789.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/5864?companyid=303" onclick="window.open('/realtyobject/5864?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 200 m&#178; на о. Корфу</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>В элитном районе острова Корфу сдаётся вилла состоящая из 3 отдельных квартир . Перед виллой открывается великолепный вид на море. Квартиры которые имеют отдельный вход состоят из 3-ёх комнат, 2-ух комнат и одной студии. У здания высокие потолки,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>65 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">5864</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">200 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+    <div>
+        <div>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9057  объектов на 604 страницах  </span>
+            
+             
+    <ul class="pagination">
+
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(1)}">1</a>
+            </li>
+            <li class="active" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(2)}">2</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(3)}">3</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(4)}">4</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(5)}">5</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(6)}">6</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(7)}">7</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(8)}">8</a>
+            </li>
+    </ul>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<script type='text/javascript'>
+						$(document).ready(function (){
+							
+							$('.pagination_link').click(function (){
+							
+								loadObjects('companyId=303&type=0&subregion=0&span=0&distance=0&aim=0&squarefrom=&squareto=&pricefrom=&priceto=' + '&page='+ $(this).html());
+								
+							});
+							
+						});
+					</script>";

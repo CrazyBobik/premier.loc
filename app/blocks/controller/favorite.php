@@ -31,8 +31,8 @@ class Blocks_Controller_Favorite  extends K_Controller_Blocks {
                       LEFT JOIN market m ON m.id=a.market
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
-                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
-                      LEFT JOIN objects_img im ON im.obj_id=a.id WHERE a.id IN ('.$arrId.')
+                      LEFT JOIN objects_img imf ON imf.id_add=a.id_add AND imf.first=1
+                      LEFT JOIN objects_img im ON im.id_add=a.id_add WHERE a.id IN ('.$arrId.')
                       GROUP BY a.id'.$limit);
 
         $countItems = K_Q::one("SELECT FOUND_ROWS() as countItems;",'countItems');

@@ -137,7 +137,22 @@ var mapCouuntries  ={
         lat: 43,
         len: 25,
         zoom: 6,
-        color: '#f00'
+        color: '#00f'
+    },
+    12103: {
+        lat: 43.80,
+        len: 23,
+        zoom: 8
+    },
+    12104: {
+        lat: 43.9900,
+        len: 22.8725,
+        zoom: 13
+    },
+    12105: {
+        lat: 43.69158378,
+        len: 22.97391415,
+        zoom: 13
     },
     turc:{
         latlng_1: {
@@ -641,7 +656,7 @@ var mapCouuntries  ={
         lat: 39.05901,
         len: 34.91155,
         zoom: 5,
-        color: '#f00'
+        color: '#0f0'
     },
     grec:{
         latlng_1: {
@@ -2472,5 +2487,15 @@ $(function(){
 
     $('#country').on('change',function(){selectLoad(this,'#region','id','')});
     $('#region').on('change',function(){selectLoad(this,'#city','id','')});
+
+    $("#down").click(function(){
+        //Необходимо прокрутить в конец страницы
+        var curPos=$(document).scrollTop();
+        var height=$("body").height();
+        var scrollTime=(height-curPos)/3;
+        $("body,html").animate({"scrollTop":height},scrollTime);
+    });
+
+
 
 });

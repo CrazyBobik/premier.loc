@@ -65,7 +65,12 @@
             <div class="clear"></div>
             <div class="search">
                 <div class="search-img">
-                    <p>Поиск</p>
+                    <a href="javascript:false" id="down">
+
+                        <div class="search-map-img">
+                            <p>Поиск на карте</p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="search-form">
@@ -155,7 +160,9 @@
                 <?php } ?>
             <?php } ?>
 
-
+            <!--Конец мейна-->
+        </div>
+            <div class="clear"></div>
             <div class="container-map">
                 <div class="top-part">
                     ПОИСК ПО КАРТЕ
@@ -165,6 +172,11 @@
 
                 <div class="country-list">
                     <div class="country-items">
+                        <a href="javascript:false">
+                            <div class="reset">
+                                Сбросить
+                            </div>
+                        </a>
                         <?php
                             $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
                             foreach ($country as $v) {
@@ -173,6 +185,7 @@
                             <div class="country-item" data-country="<?= $v['tree_name']?>"
                                  data-id="<?= $v['tree_id']?>"
                                  data-idobj="<?= $v['idobj']?>">
+                                <img src="/upload/<?= $v['flag'] ?>" width="40" height="25"><br>
                                 <?= $v['name']?>
                             </div>
                         </a>
@@ -239,18 +252,6 @@
                 </div>
                 <div class="clear"></div>
             </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
 
         <script type="text/javascript" src="/usr/js/jquery.form.js"></script>
 

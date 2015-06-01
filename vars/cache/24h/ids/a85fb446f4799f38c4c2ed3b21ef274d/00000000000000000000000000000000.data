@@ -1,0 +1,911 @@
+s:46549:"
+<div>
+    
+    <div>
+        <div>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9055  объектов на 604 страницах  </span>
+            
+             
+    <ul class="pagination">
+
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(4)}">4</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(5)}">5</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(6)}">6</a>
+            </li>
+            <li class="active" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(7)}">7</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(8)}">8</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(9)}">9</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(10)}">10</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(11)}">11</a>
+            </li>
+    </ul>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10918?companyid=303" onclick="window.open('/realtyobject/10918?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10918/134536.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10918?companyid=303" onclick="window.open('/realtyobject/10918?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 90 m&#178; на Крите</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся 1-этажная вилла площадью 90 кв.м на острове Крит. Вилла состоит из 2 спальных комнат, гостиной, одной кухонной комнаты, одной ванной комнаты.
+
+также есть мебель, солнечные батареи для нагрева воды, кондиционер, бассейн, парковочное место,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>155 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10918</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">90 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/11017?companyid=303" onclick="window.open('/realtyobject/11017?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/11017/136075.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/11017?companyid=303" onclick="window.open('/realtyobject/11017?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 113 m&#178; на Крите</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся 1-этажная вилла площадью 113 кв.м на острове Крит. Вилла состоит из гостиной, одной кухонной комнаты, одного санузла.
+
+Имеет  вид на море,  на горы, также есть мебель, солнечные батареи для нагрева воды, кондиционер, бассейн, парковочное...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>160 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">11017</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">113 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/9953?companyid=303" onclick="window.open('/realtyobject/9953?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/9953/122201.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/9953?companyid=303" onclick="window.open('/realtyobject/9953?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Коттедж 340 m&#178; в центральной Греции</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся 3-этажный коттедж площадью 340 кв.м в центральной Греции. Первый уровень состоит из 2 спальных комнат, одной кладовой.
+Второй уровень состоит из одной спальной комнаты, гостиной с кухней, одного санузла, одной кладовой.
+Третий уровень...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>160 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">9953</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">340 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">150 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/7198?companyid=303" onclick="window.open('/realtyobject/7198?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/7198/88781.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/7198?companyid=303" onclick="window.open('/realtyobject/7198?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 30 m&#178; в Афинах</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Предлагается в аренду квартира площадью 30 кв.м.Квартира расположена на пятом этаже и состоит из одной спальной комнаты,одной кухонной комнаты,одной ванной комнаты.Также есть веранда, бронированные входные двери,встроенные шкафы,кухонная...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>160€ </span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7198</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">30 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7000 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/7158?companyid=303" onclick="window.open('/realtyobject/7158?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/7158/88184.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/7158?companyid=303" onclick="window.open('/realtyobject/7158?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 28 m&#178; в Афинах</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Предлагается в аренду квартира площадью 28 кв.м в Афинах.Квартира расположена на первом этаже и состоит из одной спальной комнаты,одной кухонной комнаты,одной душевой комнаты.Также есть отопление,кондиционер.
+К квартире прилагается дворик площадью...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>160 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7158</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">28 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">9500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/5013?companyid=303" onclick="window.open('/realtyobject/5013?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/5013/60622.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/5013?companyid=303" onclick="window.open('/realtyobject/5013?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Коттедж 90 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается коттедж на полуострове Кассандра, площадью 90кв.м Коттедж полностью мебелирован, имеет две спальни, большую гостиную с кухней. Есть веранда с участком земли. Коттедж находится на окраине поселка, в очень спокойном месте. У коттеджа закрытая...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>160 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">5013</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">90 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10919?companyid=303" onclick="window.open('/realtyobject/10919?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10919/134542.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10919?companyid=303" onclick="window.open('/realtyobject/10919?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 120 m&#178; на Крите</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся 1-этажная вилла площадью 120 кв.м на острове Крит. Вилла состоит из 4 спальных комнат, гостиной, одной кухонной комнаты, 2 ванных комнат.
+
+также есть мебель, солнечные батареи для нагрева воды, кондиционер, бассейн, парковочное место, сад,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>165 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10919</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">120 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10280?companyid=303" onclick="window.open('/realtyobject/10280?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10280/126067.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10280?companyid=303" onclick="window.open('/realtyobject/10280?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 94 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается 2-этажная вилла площадью 94 кв.м на полуострове Кассандра, региона Халкидики. В одном из самых престижный районов, в Сани.
+Первый уровень состоит из 2 спальных комнат, гостиной с кухней, одной ванной комнаты.
+Второй уровень состоит из одной...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>170 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10280</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">94 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1000 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/9263?companyid=303" onclick="window.open('/realtyobject/9263?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/9263/114344.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/9263?companyid=303" onclick="window.open('/realtyobject/9263?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 30 m&#178; в Салониках</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается квартира площадью 30 кв.м в Салониках. Квартира расположена на втором этаже и состоит из одной спальной комнаты, гостиной, одной кухонной комнаты, одной душевой комнаты. также есть бронированные входные двери, кондиционер, лифт.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>170 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">9263</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">30 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">2500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/7905?companyid=303" onclick="window.open('/realtyobject/7905?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/7905/97782.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/7905?companyid=303" onclick="window.open('/realtyobject/7905?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Квартира 28 m&#178; в центральной Греции</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Предлагается в аренду квартира площадью 28 кв.м. в городе Лариса. Квартира расположена на 4 этаже и вмещает гостиную с кухней и ванную комнату. Квартира оснащена кондиционером и отоплением на природном газе а также мебелирована. В доме функционирует...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>170 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7905</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">28 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">40000 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/7590?companyid=303" onclick="window.open('/realtyobject/7590?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/7590/94117.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/7590?companyid=303" onclick="window.open('/realtyobject/7590?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Таунхаус 120 m&#178; на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается таунхаус площадью 120 кв.м на полуострове Ситония, региона Халкидики. Таyнхаус расположен на 1 уровнях. Первый уровень состоит из 3 спальных комнат, гостиной с кухней, одной душевой комнаты, одного санузла. также есть мебель, бронированные...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>180 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">7590</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">120 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">750 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/6406?companyid=303" onclick="window.open('/realtyobject/6406?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/6406/78194.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/6406?companyid=303" onclick="window.open('/realtyobject/6406?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 60 m&#178; на Кассандре (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Вилла в аренду на п-ове Халкидики, Кассандра, в 1200cm участке, в лесу, в красивом месте. Вилла находится на двух уровнях и могут разместиться 4-6 человек. Дом с отделкой из дерева и камня. Первый этаж состоит из просторной и светлой гостиной,...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>180 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">6406</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">60 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">800 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10502?companyid=303" onclick="window.open('/realtyobject/10502?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10502/128774.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10502?companyid=303" onclick="window.open('/realtyobject/10502?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Таунхаус 128 m&#178; на Ситонии (Халкидики)</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся таунхаус площадью 128 кв.м на полуострове Ситония, региона Халкидики. Таyнхаус расположен на 3 уровнях. Первый уровень состоит из 2 спальных комнат, одного санузла.
+Второй уровень состоит из гостиной с кухней, одной душевой комнаты.
+Третий...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>180 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10502</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">128 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">160 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/11016?companyid=303" onclick="window.open('/realtyobject/11016?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/11016/136056.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/11016?companyid=303" onclick="window.open('/realtyobject/11016?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 113 m&#178; на Крите</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдаётся 2-этажная вилла площадью 113 кв.м на острове Крит. Первый уровень состоит из гостиной, одной кухонной комнаты, одного санузла.
+Второй уровень состоит из 3 спальных комнат, одной ванной комнаты.
+
+Вилла имеет угловое расположение. Имеет...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>180 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">11016</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">113 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">1500 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3" style="padding-right: 0 !important; padding-bottom: 10px;">
+
+        <a href="/realtyobject/10592?companyid=303" onclick="window.open('/realtyobject/10592?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank">
+            <img src="http://2a.wcdn.mzt.ru/userfiles/realtyobjects/thumbshd/10592/130130.jpeg" alt="" class="img-thumbnail" width="250" height="165" style="width: 220px !important; height: auto !important; max-height: 165px !important;">
+        </a>
+        
+    </div>
+    <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/realtyobject/10592?companyid=303" onclick="window.open('/realtyobject/10592?companyid=303', 'newWin', 'Toolbar=1, Location=0, Directories=0, Status=0, Menubar=0, Scrollbars=0, Resizable=0, Copyhistory=1, Width=775, Height=755');" target="_blank"><strong>Вилла 180 m&#178; на о. Корфу</strong></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <span>Сдается в аренду прекрасная вилла на острове Корфу. Вилла расположена на возвышенности и имеет собственный земельный участок. Двухэтажная вилла состоит из гостиной с кухней, спальной комнаты и ванной комнаты на первом уровне, и двух спальных комнат...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table>
+                    <tr>
+                        <td>Цена:
+                        </td>
+                        <td class="even-td">
+                                <span>180 €</span>   
+                        </td>
+                        <td>Код объекта:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">10592</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Площадь:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">180 m2</span>
+                        </td>
+                        <td>Расст. от моря:
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;">45 m</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+    <div>
+        <div>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9055  объектов на 604 страницах  </span>
+            
+             
+    <ul class="pagination">
+
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(4)}">4</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(5)}">5</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(6)}">6</a>
+            </li>
+            <li class="active" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(7)}">7</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(8)}">8</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(9)}">9</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(10)}">10</a>
+            </li>
+            <li class="" style="cursor: pointer;">
+                <a class="pagination_link" data-bind="click: function () { $root.Filter.GoToPage(11)}">11</a>
+            </li>
+    </ul>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<script type='text/javascript'>
+						$(document).ready(function (){
+							
+							$('.pagination_link').click(function (){
+							
+								loadObjects('companyId=303&type=0&subregion=0&span=0&distance=0&aim=0&squarefrom=&squareto=&pricefrom=&priceto=' + '&page='+ $(this).html());
+								
+							});
+							
+						});
+					</script>";

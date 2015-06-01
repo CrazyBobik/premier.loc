@@ -36,6 +36,9 @@ a {
     left: 270px;
     width: 220px;
     height: 35px;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 3px;
 }
 
 .mi-slider ul {

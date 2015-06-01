@@ -24,14 +24,14 @@ class Bootstrap implements K_Application_IBootstrap {
 		   			
             if($_SERVER['REMOTE_ADDR']=='95.135.123.100' || $_SERVER['REMOTE_ADDR']=='195.138.90.140' || $_SERVER['REMOTE_ADDR']=='127.0.0.1' || ( $ips[0] == '192' && $ips[1] == '168' )){
 
-              // K_Debug::get()->enable(true);
+//               K_Debug::get()->enable(true);
 
             }else{
 						
 				// K_Debug::get()->enable(false);
 			}	
 				 
-			K_Debug::get()->enable(false);	 
+			K_Debug::get()->enable(false);
 				 
             $this->application = K_Application::get();
 
