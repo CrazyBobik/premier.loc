@@ -76,11 +76,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 125px;
+    width: 150px;
     height: 120px;
     background: rgba(0, 0, 0, 0.5);
 }
 .container-map .recommended .rec-info span {
     color: #c03f53;
-    font-size: 34px;
+    font-size: 30px;
 }

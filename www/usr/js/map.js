@@ -106,6 +106,19 @@ $('.country-items').on('click', '.country-item', function(){
             $('.city-items').html(data);
         }
     });
+    $.ajax({
+        url: '/ajax/loadreklamformap/mapReklam',
+        data: {idobj:$(this).data('idobj')},
+        dataType: "html",
+        success: function (data) {
+            $('.recommended').html(data);
+        }
+    });
+
+    var c = mapCouuntries[$(this).data("country")];
+
+    map.setCenter(new google.maps.LatLng(c['lat'], c['len']));
+    map.setZoom(c['zoom']);
 });
 
 $('.city-items').on('click', '.region-item', function(){
