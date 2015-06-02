@@ -10,7 +10,7 @@ class Ajax_Controller_LoadReklamForMap  extends K_Controller_Ajax {
                       LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
                       LEFT JOIN type_typejk jk ON jk.type_typejk_id=a.type
                       LEFT JOIN currency cu ON cu.id=a.cur
-                      LEFT JOIN objects_img imf ON imf.obj_id=a.id AND imf.first=1
+                      LEFT JOIN objects_img imf ON imf.id_add=a.id_add AND imf.first=1
                       WHERE a.id='.$_GET['idobj'].' GROUP BY a.id');
 
 

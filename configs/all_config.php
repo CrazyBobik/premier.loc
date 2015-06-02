@@ -296,7 +296,7 @@ class AllConfig{
         )
     );
       
-    static public $adsImgPaths = array();
+    static public $objImgPaths = array();
 		
     static public $sr = array();
 				
