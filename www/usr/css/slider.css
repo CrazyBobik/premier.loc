@@ -1,27 +1,10 @@
+#top-slider {
+    margin-top: -25px;
+}
+
 .slider-content{
     margin: 20px 0;
     position: relative;
-}
-
-.left-shadow-top {
-    position: absolute;
-    top: -20px;
-    left: 0;
-}
-.left-shadow-bottom {
-    position: absolute;
-    bottom: -22px;
-    left: 0;
-}
-.right-shadow-top {
-    position: absolute;
-    top: -20px;
-    right: 10px;
-}
-.right-shadow-bottom {
-    position: absolute;
-    bottom: -22px;
-    right: 10px;
 }
 
 .slider{

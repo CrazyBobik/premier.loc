@@ -1,19 +1,51 @@
+@media only screen and  (max-width: 995px) {
+    .head{
+
+    }
+    .main-part {
+        width: 790px;
+    }
+    .search {
+        width: 880px;
+        margin-left: 40px;
+    }
+    .search {
+        width: 800px;
+        margin-left: 60px;
+        height: auto;
+    }
+    .search-img {
+        left: 290px;
+    }
+    .search-form {
+        width: 640px;
+        padding: 50px 0 10px 10px;
+    }
+}
 @media only screen and  (min-width: 981px) {
     .main-part {
-        max-width: 754px;
+        width: 754px;
     }
 }
 @media only screen and  (max-width: 980px) {
     .slider-content {
         display: none;
     }
-    .search,
     .main-part {
         max-width: 670px;
         height: auto;
     }
+    .search {
+        width: 800px;
+        margin-left: 60px;
+        height: auto;
+    }
     .search-img {
-        left: 240px;
+        left: 290px;
+    }
+    .search-form {
+        width: 640px;
+        padding: 50px 0 10px 10px;
     }
     .mi-slider {
         width: 683px;
@@ -31,17 +63,30 @@
     }
     .menu {
         margin-top: 5px;
+        margin-right: 95px;
     }
 }
 
 @media only screen and  (max-width: 920px) {
-    .search,
+    .head {
+        width: 920px;
+        height: 155px;
+    }
+    .head .logo {
+        margin-left: 300px;
+    }
+    .menu {
+        margin-right: 88px;
+    }
+    .search {
+        margin: 65px 0 0 5%;
+    }
+    .search-img {
+        left: 275px;
+    }
     .main-part {
         width: 455px;
         margin: 0 0 0 10%;
-    }
-    .search-img {
-        left: 115px;
     }
     .main-part {
         margin-left: 10%;
@@ -62,24 +107,22 @@
         letter-spacing: 0;
     }
 }
-
-@media only screen and (max-width: 897px) {
-    .head .logo {
-        margin: 0 0 0 40%;
-        float: none;
-    }
-
+@media only screen and (max-width: 845px) {
     .menu {
-        margin: 0 0 0 20%;
-        float: none;
+        margin-right: 145px;
     }
-}
-@media only screen and (max-width: 800px) {
-    .menu {
-        margin: 0 0 0 10%;
+    .head {
+        width: 845px;
     }
     .search {
-        margin-left: 25px;
+        width: 400px;
+        margin-left: 20%;
+    }
+    .search-form {
+        width: 320px;
+    }
+    .search-img {
+        left: 90px;
     }
     .main-part {
         margin-left: 0;
@@ -89,22 +132,37 @@
     .menu {
         margin: 0;
         margin-top: 5px;
-        border-top: 0;
+        margin-right: 55px;
     }
     .left-part {
         display: none;
     }
+    .main-part {
+        margin-left: 13%;
+    }
+    .head {
+         width: 715px;
+     }
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 680px) {
+    .head {
+        width: 680px;
+        height: 193px;
+    }
     .head .logo {
-        margin: 0 0 0 30%;
+        margin-left: 180px;
     }
     .menu {
-        width: auto;
-        margin-left: 10%;
+        border-top: 0;
+        width: 400px;
+        margin-right: 140px;
     }
     .enter {
-        margin-left: 32%;
+        margin-top: -5px;
+        padding: 0 0 0 10px;
+    }
+    .search {
+        margin-top: 115px;
     }
 }
 @media only screen and (max-width: 570px){
@@ -118,6 +176,18 @@
         margin: 5px 8px;
         width: 47%;
         min-width: 209px;
+    }
+    .main-part {
+        margin-left: 0;
+    }
+    .menu {
+        margin-right: 210px;
+    }
+    .search {
+         margin-left: 10%;
+     }
+    .head .logo {
+        margin-left: 100px;
     }
 }
 @media only screen and (max-width: 480px) {
@@ -134,7 +204,16 @@
     .bottom-part .bottom-right-part {
         border-left: 0;
     }
-    .search,
+    .search {
+        width: 325px;
+        margin-left: 20%;
+    }
+    .find {
+        margin: 20px 140px 0 0;
+    }
+    .search .search-img {
+        left: 50px;
+    }
     .main-part {
         width: 235px;
         margin-left: 20%;
@@ -164,10 +243,13 @@
     .menu-item,
     .enter {
         width: 200px;
-        margin: 0 0 0 90px;
+        margin: 0 0 0 35px;
     }
     .menu {
         margin-left: 0;
+    }
+    .head {
+        height: 295px;
     }
     .head .logo {
         margin: 0 0 0 60px;
@@ -175,7 +257,10 @@
     .bottom-part .bottom-down-img {
         left: 35px;
     }
-    .search,
+    .search{
+        margin-top: 220px;
+        margin-left: 35px;
+    }
     .main-part {
         margin-left: 35px;
     }

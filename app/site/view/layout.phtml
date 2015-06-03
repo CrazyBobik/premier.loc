@@ -56,60 +56,84 @@
         <div class="search-form">
             <form action="/resultsearch" method="post" id="search-form">
                 <div class="block">
-                    <select id="country" name="country">
-                        <option value="">Страна</option>
-                        <?php $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
-                        foreach ($country as $v) {?>
-                            <option treeid="<?= $v['tree_id'] ?>" value="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
-                        <?php } ?>
-                    </select>
+                    <div class="label">Страна:</div>
+                    <div class="field">
+                        <select id="country" name="country">
+                            <option value="">Страна</option>
+                            <?php $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
+                            foreach ($country as $v) {?>
+                                <option treeid="<?= $v['tree_id'] ?>" value="<?= $v['tree_id'] ?>" data-name="<?= $v['tree_name'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
-                    <select id="region" disabled="disabled" name="region">
-                        <option value="">Регион</option>
-                    </select>
+                    <div class="label">Регион:</div>
+                    <div class="field">
+                        <select id="region" disabled="disabled" name="region">
+                            <option value="">Регион</option>
+                        </select>
+                    </div>
 
-                    <select id="city" disabled="disabled" name="city">
-                        <option value="">Город</option>
-                    </select>
+                    <div class="label">Город:</div>
+                    <div class="field">
+                        <select id="city" disabled="disabled" name="city">
+                            <option value="">Город</option>
+                        </select>
+                    </div>
 
-                    <select name="type">
-                        <option value="">Тип</option>
-                        <?php $country = K_TreeQuery::crt('/type/')->type(array('typejk'))->go();
-                        foreach ($country as $v) {?>
-                            <option treeid="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
-                        <?php } ?>
-                    </select>
+                    <div class="label">Тип:</div>
+                    <div class="field">
+                        <select name="type">
+                            <option value="">Тип</option>
+                            <?php $country = K_TreeQuery::crt('/type/')->type(array('typejk'))->go();
+                            foreach ($country as $v) {?>
+                                <option treeid="<?= $v['tree_id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="block">
-                    <select name="market">
-                        <option value="">Рынок</option>
-                        <?php
-                        $market = K_Q::data('SELECT * FROM market');
-                        foreach ($market as $v) {?>
-                            <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-                        <?php } ?>
-                    </select>
+                    <div class="label">Рынок:</div>
+                    <div class="field">
+                        <select name="market">
+                            <option value="">Рынок</option>
+                            <?php
+                            $market = K_Q::data('SELECT * FROM market');
+                            foreach ($market as $v) {?>
+                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
-                    <select name="rooms">
-                        <option value="">Кол-во ком.</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">>5</option>
-                    </select>
+                    <div class="label">Комн.:</div>
+                    <div class="field">
+                        <select name="rooms">
+                            <option value="">Кол-во ком.</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">>5</option>
+                        </select>
+                    </div>
 
-                    <input type="text" placeholder="Площадь до" name="sq">
+                    <div class="label">Площ.:</div>
+                    <div class="field">
+                        <input type="text" placeholder="Площадь до" name="sq">
+                    </div>
 
-                    <select name="state">
-                        <option value="">Состояние</option>
-                        <?php
-                        $country = K_Q::data('SELECT * FROM state');
-                        foreach ($country as $v) {?>
-                            <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-                        <?php } ?>
-                    </select>
+                    <div class="label">Сост.:</div>
+                    <div class="field">
+                        <select name="state">
+                            <option value="">Состояние</option>
+                            <?php
+                            $country = K_Q::data('SELECT * FROM state');
+                            foreach ($country as $v) {?>
+                                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="block">
                     <span>ID</span>
@@ -164,24 +188,24 @@
 
             <!--Конец мейна-->
         </div>
-            <div class="clear"></div>
-            <div class="container-map">
-                <div class="top-part">
-                    ПОИСК ПО КАРТЕ
-                </div>
+        <div class="clear"></div>
+        <div class="container-map">
+            <div class="top-part">
+                ПОИСК ПО КАРТЕ
+            </div>
 
-                <div id="map"></div>
+            <div id="map"></div>
 
-                <div class="country-list">
-                    <div class="country-items">
-                        <a href="javascript:false">
-                            <div class="reset">
-                                Сбросить
-                            </div>
-                        </a>
-                        <?php
-                            $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
-                            foreach ($country as $v) {
+            <div class="country-list">
+                <div class="country-items">
+                    <a href="javascript:false">
+                        <div class="reset">
+                            Сбросить
+                        </div>
+                    </a>
+                    <?php
+                    $country = K_TreeQuery::crt('/allcountry/')->type(array('country'))->go();
+                    foreach ($country as $v) {
                         ?>
                         <a href="javascript:false">
                             <div class="country-item" data-country="<?= $v['tree_name']?>"
@@ -192,68 +216,72 @@
                             </div>
                         </a>
 
-                        <?php } ?>
-                        <div class="clear"></div>
-                    </div>
-
-
-                    <div class="city-items">
-
-                    </div>
+                    <?php } ?>
+                    <div class="clear"></div>
                 </div>
 
-                <div class="recommended">
+
+                <div class="city-items">
 
                 </div>
             </div>
 
-            <div class="head">
+            <div class="recommended">
 
-                <a href="/">
-                    <div class="logo"></div>
+            </div>
+        </div>
+
+        <div class="head">
+
+            <a href="/">
+                <div class="logo"></div>
+            </a>
+
+            <div class="menu">
+                <a href="/about">
+                    <div class="menu-item">
+                        <div class="button-label <?= K_Url::get()->expPath[0] == 'about' ? 'active' : ''?>"><span>О компании</span></div>
+                    </div>
                 </a>
 
-                <div class="menu">
-                    <a href="/about">
-                        <div class="menu-item">
-                            <div class="button-bg">
-                                <div class="button-bg-img1"></div>
-                            </div >
-                            <div class="button-label"><span>О компании</span></div>
-                        </div>
-                    </a>
-
-                    <a href="/contacts">
-                        <div class="menu-item">
-                            <div class="button-bg">
-                                <div class="button-bg-img2"></div>
-                            </div >
-                            <div class="button-label"><span>Контакты</span></div>
-                        </div>
-                    </a>
-
-                    <a href="/service">
-                        <div class="menu-item">
-                            <div class="button-bg">
-                                <div class="button-bg-img3"></div>
-                            </div >
-                            <div class="button-label"><span>Услуги</span></div>
-                        </div>
-                    </a>
-
-                    <div class="enter">
-                        <a href="#">
-                            <div class="btn">
-                                <p>Вход</p>
-                                <div class="enter-img"></div>
-                            </div>
-                        </a>
-                        <div class="clear"></div>
-                        <a class="registration" href="#">Регистрация</a>
+                <a href="/contacts">
+                    <div class="menu-item">
+                        <div class="button-label <?= K_Url::get()->expPath[0] == 'contacts' ? 'active' : ''?>"><span>Контакты</span></div>
                     </div>
+                </a>
+
+                <a href="/service">
+                    <div class="menu-item">
+                        <div class="button-label <?= K_Url::get()->expPath[0] == 'service' ? 'active' : ''?>"><span>Услуги</span></div>
+                    </div>
+                </a>
+
+                <div class="enter">
+                    <a href="#">
+                        <div class="menu-item">
+                            <div class="button-label button-label-reg <?= K_Url::get()->expPath[0] == 'enter' ? 'active' : ''?>"><span>Вход</span></div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="menu-item">
+                            <div class="button-label button-label-reg <?= K_Url::get()->expPath[0] == 'registration' ? 'active' : ''?>"><span>Регистрация</span></div>
+                        </div>
+                    </a>
                 </div>
-                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="main-head">
+            <?= $this->settings['mainhead']?>
+        </div>
+        <div class="main-text">
+            <?= $this->settings['maintext']?>
+        </div>
+
+        <br>
+        <br>
+        <br>
 
         <script type="text/javascript" src="/usr/js/jquery.form.js"></script>
 
@@ -266,10 +294,10 @@
         <script type="text/javascript" src="/usr/js/slides.js"></script>
         <script type="text/javascript" src="/usr/js/favorite.js"></script>
 
-            <script type="text/javascript"
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgHkEihEPahT0h0EisUC3vsZv2cMnu5iU&sensor=false">
-            </script>
-            <script type="text/javascript" src="/usr/js/map.js"></script>
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgHkEihEPahT0h0EisUC3vsZv2cMnu5iU&sensor=false">
+        </script>
+        <script type="text/javascript" src="/usr/js/map.js"></script>
 
 
 </body>

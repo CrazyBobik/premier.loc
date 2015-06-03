@@ -20,4 +20,19 @@ class Ajax_Controller_LoadMap  extends K_Controller_Ajax {
 
         $this->putAjax($html);
     }
+
+    public function poligonsAction(){
+        $returnJSON = array();
+
+        $result = K_Q::data('SELECT * FROM poligons');
+
+        foreach ($result as $p){
+            $id = $p['name'];
+            $childs['poligons'] = $p['poligons'];
+
+            $returnJSON[$id] = $childs;
+        }
+
+        $this->putAjax($returnJSON);
+    }
 }

@@ -21,21 +21,6 @@
     height: 25px;
     background: url("/usr/img/sprite.png") -97px -173px;
 }
-.enter-img {
-    width: 32px;
-    height: 27px;
-    background: url("/usr/img/sprite.png") 0 0;
-}
-.left-shadow {
-    width: 265px;
-    height: 48px;
-    background: url("/usr/img/sprite.png") 10px -251px;
-}
-.right-shadow {
-    width: 265px;
-    height: 48px;
-    background: url("/usr/img/sprite.png") 10px -201px;
-}
 .prev_slide-img {
     width: 32px;
     height: 59px;
