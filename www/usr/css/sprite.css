@@ -1,7 +1,16 @@
 .logo {
-    background: url("/usr/img/sprite.png") 0 67px;
-    width: 249px;
+    background: url("/usr/img/sprite.png") -30px -163px;
+    width: 216px;
     height: 65px;
+}
+.menu-about-img{
+    background: url("/usr/img/sprite.png") -67px -1px;
+}
+.menu-contacts-img{
+    background: url("/usr/img/sprite.png") -35px -0px;
+}
+.menu-service-img{
+    background: url("/usr/img/sprite.png") -98px -0px;
 }
 .button-bg {
     background: url("/usr/img/sprite.png") -28px -125px;
@@ -24,18 +33,21 @@
 .prev_slide-img {
     width: 32px;
     height: 59px;
-    background: url("/usr/img/sprite.png") -223px -126px;
+    background: url("/usr/img/sprite.png") -223px -2px;
 }
 .next_slide-img {
     width: 32px;
     height: 59px;
-    background: url("/usr/img/sprite.png") -189px -126px;
+    background: url("/usr/img/sprite.png") -188px -1px;
 }
 .favorites {
-    background: url("/usr/img/sprite.png") -32px -8px;
+    background: url("/usr/img/sprite.png") 0px -226px;
 }
 .favorites-img-active {
-    background: url("/usr/img/sprite.png") -130px -163px;
+    background: url("/usr/img/sprite.png") -261px -2px;
+}
+.contact-img {
+    background: url("/usr/img/sprite.png") -258px -41px;
 }
 .flag-b {
     background: url("/usr/img/sprite.png") 0 -27px;
@@ -60,30 +72,32 @@
     height: 25px;
     background: url("/usr/img/sprite.png") 0 0;
 }
-.hide-control-open {
+.hide-control-open,
+.hide-control-close {
     width: 21px;
     height: 21px;
     background: url("/usr/img/sprite.png") 0 -165px;
 }
 .hide-control-close {
-    width: 21px;
-    height: 21px;
-    background: url("/usr/img/sprite.png") -169px -174px;
+    transform: rotate(180deg);
 }
-.search-img {
-    background: url("/usr/img/sprite.png") 0 -300px;
+.search-img,
+.slider-head-img {
+    background: url("/usr/img/sprite.png") -33px -346px;
 }
 .find {
-    background: url("/usr/img/sprite.png") -149px -122px;
+    background: url("/usr/img/sprite.png") -53px -26px;
 }
 .search-map {
     width: 27px;
     height: 28px;
-    background: url("/usr/img/sprite.png") -267px 0px;
-}
-.slider-head-img {
-    background: url("/usr/img/sprite.png") -5px -299px;
+    background: url("/usr/img/sprite.png") -129px 0px;
 }
 .bottom-down-img {
-    background: url("/usr/img/sprite.png") 9px -344px no-repeat;
+    background: url("/usr/img/sprite.png") -23px -106px;
+}
+.close{
+    width: 28px;
+    height: 28px;
+    background: url("/usr/img/sprite.png") 0px -186px;
 }

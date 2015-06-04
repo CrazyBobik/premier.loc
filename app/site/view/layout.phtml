@@ -37,6 +37,49 @@
     <script src="/usr/js/modernizr.custom.63321.js"></script>
 </head>
 <body>
+<!-- Задний прозрачный фон-->
+<div onclick="show('none')" id="wrap"></div>
+
+<!-- Само окно-->
+<div id="window">
+    <!-- Картинка крестика-->
+    <div class="close" onclick="show('none')"></div>
+
+    <div class="form">
+        <div id="forma">
+            <h1>Ждем Ваших писем</h1>
+            <span class="valid"></span>
+            <br>
+            <form class="ajax-form" method="post" id="form1" name="myform" action="/ajax/forms/contactus">
+                <input type="hidden" name="form1" value="form1">
+                <table cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td class="label">Имя:</td>
+                        <td><input class="in-field" type="text" name="name" maxlength="60" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Ваш телефон:</td>
+                        <td><input class="in-field" type="text" name="phone" maxlength="40" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td class="label">E-mail:</td>
+                        <td><input class="in-field" type="text" name="email" maxlength="40" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Текст письма:</td>
+                        <td><textarea name="mess"></textarea><br><br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input class="btn-sub" type="submit" name="submit" value="Отправить"></td>
+                    </tr>
+                    </tbody></table>
+
+                <input type="hidden" name="formid" value="form1"></form>
+        </div>
+        <div id="flash-msg-note" style="display: none;"></div>
+    </div>
+</div>
+
 <div class="content">
     <div class="left-bg"></div>
     <div class="right-bg"></div>
@@ -50,19 +93,30 @@
         <div class="menu">
             <a href="/about">
                 <div class="menu-item">
-                    <div class="button-label <?= K_Url::get()->expPath[0] == 'about' ? 'active' : ''?>"><span>О компании</span></div>
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'about' ? 'active' : ''?>">
+                        <div class="menu-about-img"></div>
+                        <span>О компании</span>
+                    </div>
                 </div>
             </a>
 
             <a href="/contacts">
                 <div class="menu-item">
-                    <div class="button-label <?= K_Url::get()->expPath[0] == 'contacts' ? 'active' : ''?>"><span>Контакты</span></div>
+
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'contacts' ? 'active' : ''?>">
+                        <div class="menu-contacts-img"></div>
+                        <span>Контакты</span>
+                    </div>
                 </div>
             </a>
 
             <a href="/service">
                 <div class="menu-item">
-                    <div class="button-label <?= K_Url::get()->expPath[0] == 'service' ? 'active' : ''?>"><span>Услуги</span></div>
+
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'service' ? 'active' : ''?>">
+                        <div class="menu-service-img"></div>
+                        <span>Услуги</span>
+                    </div>
                 </div>
             </a>
 
@@ -86,12 +140,9 @@
 
     <div class="search">
         <div class="search-img">
-            <a href="javascript:false" id="down">
-
-                <div class="search-map-img">
-                    <p>Поиск на карте</p>
-                </div>
-            </a>
+            <div class="search-map-img">
+                <p>Поиск</p>
+            </div>
         </div>
 
         <div class="search-form">
@@ -213,11 +264,22 @@
     <div class="left-part">
         <a href="/favorite">
             <div class="favorites">
-                <div class="favorites-img"></div>
+                <div class="favorites-img">
+                    <span id="count-fav"></span>
+                </div>
 
                 <div class="fav-label">
                     <p class="fav-title">Избранное</p>
-                    <p class="fav-text"><span id="count-fav"></span> в списке</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:false" onclick="show('block')">
+            <div class="favorites contacts">
+                <div class="contact-img"></div>
+
+                <div class="fav-label">
+                    <p class="fav-title">Контакты</p>
                 </div>
             </div>
         </a>

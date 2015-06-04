@@ -223,7 +223,7 @@ $(function(){
     });
 
     $('.search-btn').on('click', function(){
-        $('.find').css('background', 'url("/usr/img/sprite.png") -110px -124px')
+        $('.find').css('background', 'url("/usr/img/sprite.png") -25px -26px')
     });
 
     $('.search-map-btn').on({
@@ -244,3 +244,9 @@ $(function(){
         $("body,html").animate({"scrollTop":height},scrollTime);
     });
 });
+
+function show(state){
+
+    document.getElementById('window').style.display = state;
+    document.getElementById('wrap').style.display = state;
+}

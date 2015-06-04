@@ -80,7 +80,7 @@ class Ajax_Controller_Forms  extends K_Controller_Ajax {
 
             $jsonReturn['error'] = false;
             $jsonReturn['msg'] = "Сообщение успешно добавленно";
-            //  $jsonReturn['clean'] = true;
+            $jsonReturn['clean'] = true;
 
         }
 

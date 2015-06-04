@@ -3,7 +3,7 @@ s:46408:"
     
     <div>
         <div>
-            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9077  объектов на 606 страницах  </span>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9112  объектов на 608 страницах  </span>
             
              
     <ul class="pagination">
@@ -850,7 +850,7 @@ s:46408:"
     
     <div>
         <div>
-            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9077  объектов на 606 страницах  </span>
+            <span data-bind="text: TotalItems() + ' объектов на ' + Filter.TotalPagesCounted() + ' страницах'"> 9112  объектов на 608 страницах  </span>
             
              
     <ul class="pagination">
