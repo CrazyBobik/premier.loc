@@ -68,7 +68,8 @@ class AdminConfig{
             ),
 
         );
-        
+
+        public static $objectImgType = array('jpg', 'JPG', 'PNG', 'png', 'JPEG', 'jpeg', 'gif', 'GIF');
         // config настроек 
         public static $settingsConfig = array(
                 

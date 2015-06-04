@@ -1,22 +1,36 @@
 .content {
     max-width: 1000px;
-    margin: 100px auto 0;
+    margin: 0 auto 0;
+    position: relative;
+}
+.left-bg {
+    position: absolute;
+    left: -408px;
+    top: -53px;
+    background: url("/usr/img/left_mini.jpg");
+    width: 409px;
+    height: 565px;
+}
+.right-bg {
+    position: absolute;
+    right: -408px;
+    top: -53px;
+    background: url("/usr/img/right_mini.jpg");
+    width: 408px;
+    height: 564px;
 }
 
 .head {
     background: linear-gradient(to top, #dedede, #ffffff);
-    position: fixed;
     z-index: 1000;
-    top: 0;
     width: 1000px;
     height: 73px;
 }
 .head .logo {
     float: left;
-    margin-top: 10px;
 }
 .menu {
-    margin-top: 10px;
+    margin-top: 23px;
     width: 631px;
     height: 40px;
     float: right;
@@ -96,11 +110,13 @@
 .search {
     margin-top: -17px;
     background: linear-gradient(to top, #256cc4, #bfd9f7);
-    height: 118px;
+    height: 105px;
     float: left;
     position: relative;
     margin-left: 0px;
     width: 1000px;
+    border-bottom-left-radius: 25px 15px;
+    border-bottom-right-radius: 25px 15px;
 }
 .search-img {
     position: absolute;
@@ -133,15 +149,19 @@
     width: 310px;
     float: left;
 }
+.search-form .block-last {
+    width: 224px;
+    float: left;
+}
 .search-form select,
 .search-form input {
-    width: 95px;
+    width: 94px;
     height: 25px;
     margin: 3px;
 }
 .search-form .field-id,
 .search-form .field-price {
-    width: 85px;
+    width: 83px;
     height: 20px;
     margin: 3px;
 }
@@ -156,20 +176,26 @@
 .search-form .field {
     float: left;
 }
+.search-btn,
+.search-map-btn {
+    width: 68px;
+    height: 70px;
+    float: right;
+    margin: 22px 5px 0 0;
+    padding: 12px 0 0 0;
+}
 .find {
     float: right;
     position: relative;
     min-width: 39px;
     min-height: 38px;
-    margin: 60px 20px 0 0;
+    margin: 0 10px 0 0;
 }
-.find:hover {
-    background: url("/usr/img/find-active.png") no-repeat;
+.search-map {
+    margin: 2px 0 0 20px;
 }
-.find span {
-    position: absolute;
-    top: -25px;
-    left: -11px;
+.search-text {
+    text-align: center;
     color: #fff;
 }
 

@@ -187,13 +187,13 @@ class Site_Model_Objects extends Model {
     public function deleteImg($img){
 
         if(file_exists(Allconfig::$objImgPaths['original'].$img)){
-            unlink(Allconfig::$adsImgPaths['original'].$img);
+            unlink(Allconfig::$objImgPaths['original'].$img);
         }
         if(file_exists(Allconfig::$objImgPaths['big'].$img)){
-            unlink(Allconfig::$adsImgPaths['big'].$img);
+            unlink(Allconfig::$objImgPaths['big'].$img);
         }
         if(file_exists(Allconfig::$objImgPaths['thumb'].$img)){
-            unlink(Allconfig::$adsImgPaths['thumb'].$img);
+            unlink(Allconfig::$objImgPaths['thumb'].$img);
         }
 
     }
@@ -289,18 +289,18 @@ class Site_Model_Objects extends Model {
         if($image){
 
             try {
-                $image->saveAsJPG(AllConfig::$adsImgPaths['original'].$newName);
+                $image->saveAsJPG(AllConfig::$objImgPaths['original'].$newName);
 
                 if(file_exists($imgPath)){
                     unlink($imgPath);
                 }
 
                 //  накладываем лого
-                $image->resize(1360, 768)->drawLogo(AllConfig::$adsImgPaths['watermarkImport'],2,10)->save(AllConfig::$adsImgPaths['big'].$newName);
+                $image->resize(1360, 768)->drawLogo(AllConfig::$objImgPaths['watermarkImport'],2,10)->save(AllConfig::$objImgPaths['big'].$newName);
 
-                if($image = AcImage::createImage(AllConfig::$adsImgPaths['big'].$newName)){
+                if($image = AcImage::createImage(AllConfig::$objImgPaths['big'].$newName)){
 
-                    $image->simpleResize(180, 135)->save(AllConfig::$adsImgPaths['thumb'].$newName);
+                    $image->simpleResize(180, 135)->save(AllConfig::$objImgPaths['thumb'].$newName);
 
                 }
 
@@ -308,15 +308,15 @@ class Site_Model_Objects extends Model {
 
                 echo 'Выброшено исключение: ',  $e->getMessage(), ", удалены картинки\n";
 
-                if(file_exists(AllConfig::$adsImgPaths['thumb'].$newName)){
+                if(file_exists(AllConfig::$objImgPaths['thumb'].$newName)){
 
-                    unlink(AllConfig::$adsImgPaths['thumb'].$newName);
+                    unlink(AllConfig::$objImgPaths['thumb'].$newName);
 
                 }
 
-                if(file_exists(AllConfig::$adsImgPaths['thumb'].$newName)){
+                if(file_exists(AllConfig::$objImgPaths['thumb'].$newName)){
 
-                    unlink(AllConfig::$adsImgPaths['big'].$newName);
+                    unlink(AllConfig::$objImgPaths['big'].$newName);
 
                 }
 

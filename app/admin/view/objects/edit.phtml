@@ -209,53 +209,36 @@
 
                     <?
 
-                    $images = explode(',',$this->objectRow['photos_nums']);
+                    foreach($this->objimg as $i):
 
-                    foreach($images as $i):
+                        $thumbSrc = '/upload/objects/thumb/'.$i['img'];
 
-                        if (file_exists(UPLOAD_PATH . "/objects/s" . $this->objectRow['id'] . "_".$i.".jpg")):
+                        ?>
 
-                            ?>
-
-                            <div style="margin:15px 0" id="img_<?= $this->objectRow['id']?>_<?=$i?>">
-
-                                <form action="/admin/objects/imageadd" method="POST" enctype="multipart/form-data">
-                                    <div>
-
-                                        <div class="fll" style="margin-right:10px">
-                                            <img src="/upload/objects/s<?=$this->objectRow['id']?>_<?=$i?>.jpg" class="rounded" width="100"/>
-                                        </div>
-
-                                        <?if($i!=0):?>
+                            <div style="margin:15px 0" id="img_<?= $i['id']?>">
 
 
-                                            <input type="checkbox" class="setplan" data-object-id="<?=$this->objectRow['id']?>" data-image-id="<?=$i?>"  name="setplan" <?=in_array($i,$this->plansArray)? 'checked="checked"': "" ?>> Установить как планировку
 
-                                        <?else:?>
+                                    <form action="/admin/objects/imageadd" class="image-update" method="POST" enctype="multipart/form-data">
 
-                                            Это изображение показываеться как превью.
+                                        <img src="<?=$thumbSrc?>" class="rounded" width="100"/>
 
-                                        <?endif;?>
-
-
-                                        <br/>
-                                        <br/>
                                         <input style="width:220px" class="object_images" id="object_images_f_0" type="file" name="images_f">
 
-                                        <input type="hidden" name="imgid" value="<?=$i?>">
+                                        <input type="hidden" name="img_id" value="<?=$i['id']?>">
 
-                                        <input type="hidden" name="objectid" value="<?=$this->objectRow['id']?>">
+                                        <input type="hidden" name="id_add" value="$id_add">
 
-                                        <a data-fileid="<?=$i?>" class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></a>
+                                        <button class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></button>
 
-                                        <a data-image="<?=$i?>" data-id="<?=$this->objectRow['id']?>" class="file_field_delete remove-image" href="javascript:void(0);" title="Удалить"></a><br/>
-                                        <div class="fix"></div>
-                                    </div>
-                                </form>
+                                        <a data-image="<?=$i['id']?>" class="file_field_delete remove-image" href="javascript:void(0);" title="Удалить"></a><br/>
+                                    </form>
+
+
 
                             </div>
                         <?
-                        endif;
+
                     endforeach;?>
 
                 </div>
@@ -267,7 +250,7 @@
 
                         <input style="width:220px" class="object_images" type="file" name="images_f">
 
-                        <input type="hidden" name="objectid" value="<?=$this->objectRow['id']?>">
+                        <input type="hidden" name="id_add" value="<?=$this->item['id_add']?>">
 
                         <input type="submit" name="image_add" value="Добавить">
 

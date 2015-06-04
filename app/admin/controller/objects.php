@@ -163,7 +163,7 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
         
         // LEFT JOIN obj_rooms r ON r.id = o.id
         
-        $this->view->item= $itemModel->row("SELECT SQL_CALC_FOUND_ROWS a.id id,a.country country,a.region region,a.city city,a.market market,a.type type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,a.cur cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,a.state state, a.description des  FROM `objects` a
+        $this->view->item= $itemModel->row("SELECT a.id_add id_add,a.id id,a.country country,a.region region,a.city city,a.market market,a.type type,a.area area,a.all_sq all_sq,a.living_sq living_sq,a.kithcen_sq kithcen_sq,a.price price,a.cur cur,a.to_sea to_sea,a.to_airport to_airport,a.rooms rooms,a.floor floor,a.all_floors all_floors,a.bath_rooms bath_rooms,a.state state, a.description des  FROM `objects` a
                       LEFT JOIN type_country cunt ON cunt.type_country_id=a.country
                       LEFT JOIN type_region r ON r.type_region_id=a.region
                       LEFT JOIN type_city ci ON ci.type_city_id=a.city
@@ -172,7 +172,9 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
                       LEFT JOIN currency cu ON cu.id=a.cur
                       LEFT JOIN state s ON s.id=a.state
                       WHERE a.id = $id");
-                                    
+
+         $this->view->objimg = K_Q::data('SELECT * FROM objects_img WHERE id_add='.$this->view->item['id_add']);
+//    var_dump('SELECT * FROM object_img WHERE id_add='.$this->view->item['id_add']);
         //[%selects-edit%]                            
          $options = array();
          $res = k_q::query("SELECT * FROM type_country");
@@ -291,26 +293,27 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
 
   public function imageaddAction(){
 
-        $itemModel = new Admin_Model_Object;
-        $id = intval($_POST['objectid']);
+        $itemModel = new Site_Model_Objects();
+        $id_add = intval($_POST['id_add']);
 
-        $imgid = intval($_POST['imgid']);
+        $imgid = intval($_POST['img_id']);
 
-        if($imgid && $imgid <=  $photosRow['photos']){
+      $photoKey = 'images_f';
 
-            $photoNow = $imgid;
-            $updateObject = false;
+        $rows = K_Q::row('SELECT * FROM objects_img  WHERE id='.$imgid);
+
+        if($imgid && $rows){
+
+            $photoNow = $rows['img'];
+            $update = true;
 
         }else{
-
-            $photoNow = $photosRow['photos']+1;
-            $updateObject = true;
-
+            $update = false;
         }
 
         $form = new K_Form();
-        $imagesDir = WWW_PATH . '/upload/objects/';
-        $originalDir = WWW_PATH . '/upload/objects_original/';
+
+        $originalDir = AllConfig::$objImgPaths['original'];
 
         if ($form->hasFiles()){
 
@@ -318,48 +321,52 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
 
             $exArr = explode('/' . $files[$photoKey ]["type"]);
 
-            var_dump($files);
+            $temppi = pathinfo($files[$photoKey ]['name']);
 
+            if ($files[$photoKey ] && $exArr[0] = 'image' &&  in_array($temppi['extension'], AdminConfig::$objectImgType)) {
 
-            if ($files[$photoKey ] && $exArr[0] = 'image' &&  preg_match('/^.*\.(jpg|png|jpeg|gif)$/', $files[$photoKey ]['name'])) {
-
-
-                $pathData = $form->moveUploadedFile($photoKey , $originalDir ,$id.'_'.$photoNow , false);
+                $pathData = $form->moveUploadedFile($photoKey , $originalDir , uniqid(), false);
 
                 if ($pathData) {
 
-                    require_once(ROOT_PATH.'/spot/classes/functions.php');
+                    if ($update) {
+                        $newImgName = $photoNow;
+                    } else {
+                        $newImgName = uniqid().'.jpg';
+                    }
 
-                    genImages($originalDir.strtolower($pathData['filename']), strtolower($pathData['filename']), $imagesDir);
+                    $itemModel->genImages($originalDir.strtolower($pathData['filename']), $newImgName);
 
-                    if($updateObject){
+                    if(!$update) {
+                        K_Q::data('INSERT INTO objects_img (id_add, img) VALUES ('.$id_add.',"'.$newImgName.'")');
 
-                        $photosNumArray[] = $photoNow;
+                        $imgid = K_Q::lastId();
+                    }
 
-                        $itemModel->update(array('photos'=>$photoNow, 'photos_nums'=>implode(',', $photosNumArray)),array('id'=>$id));
+                    $thumbSrc='/upload/objects/thumb/'.$newImgName;
 
-                        $returnAjax =<<<HTML
+                    $returnAjax =<<<HTML
 
-                                       <div style="margin:15px 0" id="img_{$id}_{$photoNow}">
+                                       <div style="margin:15px 0" id="img_{$imgid}">
 
                                             <form action="/admin/objects/imageadd" class="image-update" method="POST" enctype="multipart/form-data">
 
-														<img src="/upload/objects/s{$id}_{$photoNow}.jpg" class="rounded" width="100"/>
+														<img src="{$thumbSrc}" class="rounded" width="100"/>
 
-														<input style="width:220px" class="object_images" id="object_images_f_0" type="file" name="images_f_$photoNow">
+														<input style="width:220px" class="object_images" id="object_images_f_0" type="file" name="images_f">
 
-														<input type="hidden" name="object_image_num" value="$photoNow">
+														<input type="hidden" name="img_id" value="$imgid">
 
-														<input type="hidden" name="object_id" value="$id">
+														<input type="hidden" name="id_add" value="$id_add">
 
-														<a data-fileid="$photoNow" class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></a>
+														<button class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></button>
 
-														<a data-image="{$photoNow}" data-id="{$id}" class="file_field_delete remove-image" href="javascript:void(0);" title="Удалить"></a><br/>
+														<a data-image="{$imgid}" class="file_field_delete remove-image" href="javascript:void(0);" title="Удалить"></a><br/>
                                            </form>
 
                                         </div>
 HTML;
-                    }
+
 
 
                 }else{
@@ -383,78 +390,15 @@ HTML;
 
     public function imageremoveAction(){
 
-        $img = intval($_POST['id']).'_'.intval($_POST['image']);
-        $id = intval($_POST['id']);
+        $obj = new Site_Model_Objects();
 
-        $imgId = intval($_POST['image']);
+        $obj->deleteGallImages(array($_POST['image']));
 
-        if( preg_match('/^\d+_\d+$/', $img)){
+        $this->putJSON(array(
+           'error' => false,
+            'image' => $_POST['image']
+        ));
 
-            unlink(UPLOAD_PATH."/objects/s".$img.'.jpg');
-            unlink(UPLOAD_PATH."/objects/m".$img.'.jpg');
-            unlink(UPLOAD_PATH."/objects/b".$img.'.jpg');
-
-            unlink(UPLOAD_PATH."/objects_original/".$img.'.jpg');
-            $itemModel = new Admin_Model_Object;
-            $photosRow = $itemModel->mfr(select('photos, photos_nums')->where(array('id'=> $id)));
-
-            if($photosRow['photos_nums']==''){
-
-                $photosArray = array();
-
-            }else{
-
-                $photosArray = explode(',', $photosRow['photos_nums']);
-
-            }
-
-            foreach($photosArray as $v){
-
-                if( $v!=$imgId){
-                    $photosArrayNew[] =$v ;
-                }
-
-            }
-
-            $itemModel->update(array('photos_nums'=>implode(',', $photosArrayNew)),array('id'=>$id));
-
-            $this->putJSON(array('error' => false, "image" => $img));
-
-        }else{
-
-            $this->putJSON(array('error' => true, 'msg' =>'Неправильный индитификатор'));
-
-        }
-    }
-
-    private function genImages($imgPath, $v, $savePath){
-
-        $imgPath =  $imgPath .$v;
-
-        //  превьюшка - 100
-        $image = new thumbnail($imgPath);
-
-        $image->size_crop(100);
-
-        $image->save_thumb($savePath.'s'.$v);
-
-
-        //	средняя - 250
-        $image = new thumbnail($imgPath);
-
-        $image->size_crop(250);
-
-        $image->add_logo(UPLOAD_PATH."/m_watermark.png", $savePath.'m'.$v);
-
-
-        //	большая - 600
-
-        $image = new thumbnail($imgPath);
-        if($image->width>1400 || $image->height>1000 )
-        {
-            $image->size_auto(1400);
-        }
-        $image->add_logo(UPLOAD_PATH."/watermark.png", $savePath.'b'.$v);
 
     }
 
@@ -472,5 +416,4 @@ HTML;
         }
 
     }
-   
 }

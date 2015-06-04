@@ -38,8 +38,49 @@
 </head>
 <body>
 <div class="content">
+    <div class="left-bg"></div>
+    <div class="right-bg"></div>
 
+    <div class="head">
 
+        <a href="/">
+            <div class="logo"></div>
+        </a>
+
+        <div class="menu">
+            <a href="/about">
+                <div class="menu-item">
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'about' ? 'active' : ''?>"><span>О компании</span></div>
+                </div>
+            </a>
+
+            <a href="/contacts">
+                <div class="menu-item">
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'contacts' ? 'active' : ''?>"><span>Контакты</span></div>
+                </div>
+            </a>
+
+            <a href="/service">
+                <div class="menu-item">
+                    <div class="button-label <?= K_Url::get()->expPath[0] == 'service' ? 'active' : ''?>"><span>Услуги</span></div>
+                </div>
+            </a>
+
+            <!--                <div class="enter">-->
+            <!--                    <a href="#">-->
+            <!--                        <div class="menu-item">-->
+            <!--                            <div class="button-label button-label-reg --><?//= K_Url::get()->expPath[0] == 'enter' ? 'active' : ''?><!--"><span>Вход</span></div>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                    <a href="#">-->
+            <!--                        <div class="menu-item">-->
+            <!--                            <div class="button-label button-label-reg --><?//= K_Url::get()->expPath[0] == 'registration' ? 'active' : ''?><!--"><span>Регистрация</span></div>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+        </div>
+        <div class="clear"></div>
+    </div>
 
     <div id="top-slider"></div>
 
@@ -135,7 +176,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="block">
+                <div class="block-last">
                     <span>ID</span>
                     <input class="field-id" type="text" name="id">
 
@@ -150,9 +191,19 @@
             </form>
         </div>
 
+        <a href="javascript:false">
+            <div class="search-map-btn">
+                <div class="search-text">На карте</div>
+                <div class="search-map"></div>
+                <div class="clear"></div>
+            </div>
+        </a>
+
         <a href="#"  onclick="document.getElementById('search-form').submit(); return false;">
-            <div class="find">
-                <span>НАЙТИ</span>
+            <div class="search-btn">
+                <div class="search-text">Найти</div>
+                <div class="find"></div>
+                <div class="clear"></div>
             </div>
         </a>
     </div>
@@ -229,47 +280,6 @@
             <div class="recommended">
 
             </div>
-        </div>
-
-        <div class="head">
-
-            <a href="/">
-                <div class="logo"></div>
-            </a>
-
-            <div class="menu">
-                <a href="/about">
-                    <div class="menu-item">
-                        <div class="button-label <?= K_Url::get()->expPath[0] == 'about' ? 'active' : ''?>"><span>О компании</span></div>
-                    </div>
-                </a>
-
-                <a href="/contacts">
-                    <div class="menu-item">
-                        <div class="button-label <?= K_Url::get()->expPath[0] == 'contacts' ? 'active' : ''?>"><span>Контакты</span></div>
-                    </div>
-                </a>
-
-                <a href="/service">
-                    <div class="menu-item">
-                        <div class="button-label <?= K_Url::get()->expPath[0] == 'service' ? 'active' : ''?>"><span>Услуги</span></div>
-                    </div>
-                </a>
-
-                <div class="enter">
-                    <a href="#">
-                        <div class="menu-item">
-                            <div class="button-label button-label-reg <?= K_Url::get()->expPath[0] == 'enter' ? 'active' : ''?>"><span>Вход</span></div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="menu-item">
-                            <div class="button-label button-label-reg <?= K_Url::get()->expPath[0] == 'registration' ? 'active' : ''?>"><span>Регистрация</span></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="clear"></div>
         </div>
 
         <div class="main-head">

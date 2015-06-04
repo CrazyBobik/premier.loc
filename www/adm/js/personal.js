@@ -67,7 +67,7 @@ function setObjectForm(){
 
 
         return false;
-    })
+    });
 
 
 
@@ -85,12 +85,12 @@ function setObjectForm(){
 
             $(upimg).attr("src", $(upimg).attr('src')+"?"+Math.random());
 
-        }
+        };
 
         var cleanForm = function()
         {
             form.trigger( 'reset' );
-        }
+        };
 
         $(form).ajaxSubmit(
             {
@@ -114,7 +114,7 @@ function setObjectForm(){
             }, "html");
 
         return false;
-    })
+    });
 
     // добавление картинки
     $('.add-image').on('submit', function()
@@ -144,7 +144,7 @@ function setObjectForm(){
             }, "html");
 
         return false;
-    })
+    });
 
     // Удаление картинки
     $('.remove-image').live('click', function()

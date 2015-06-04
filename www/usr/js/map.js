@@ -19,45 +19,46 @@ function initialize() {
     //  var triangles = {};
     // var iterator = 0;
 
-    $.post('/ajax/loadmap/poligons', function (data) {
-        mapCouuntries = data;
-        alert(data);
-    });
 
-    $.each(mapCouuntries,function(k, v){
-
-        var i = 1;
-        triangles[k] = [];
-
-        while (typeof v['latlng_'+i] != 'undefined') {
-
-            var triangleCoords = [];
-
-            $.each(v['latlng_'+i], function (k, v) {
-
-                triangleCoords.push(new google.maps.LatLng(k, v));
-
-            });
-
-            triangles[k].push(new google.maps.Polygon({
-                paths: triangleCoords,
-                strokeColor: '#FF0000',
-                strokeOpacity: 0.8,
-                strokeWeight: 1,
-                fillColor: v['color'],
-                fillOpacity: 0.1
-            }));
-
-            i++;
-        }
-        //triangles.setMap(map);
-
-        //google.maps.event.addListener(triangles, 'click');
-    });
 }
 
-$(function() {
+$(function(){
 
+    $.get('/poligons.php', function(data){
+        mapCouuntries = data;
+        $.each(mapCouuntries,function(k, v){
+
+            var i = 1;
+            triangles[k] = [];
+
+            while (typeof v['latlng_'+i] != 'undefined') {
+
+                var triangleCoords = [];
+
+                $.each(v['latlng_'+i], function (k, v) {
+
+                    triangleCoords.push(new google.maps.LatLng(k, v));
+
+                });
+
+                triangles[k].push(new google.maps.Polygon({
+                    paths: triangleCoords,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 1,
+                    fillColor: v['color'],
+                    fillOpacity: 0.1
+                }));
+
+                i++;
+            }
+            //triangles.setMap(map);
+
+            //google.maps.event.addListener(triangles, 'click');
+        });
+
+
+    },'json');
     //Когда документ загружен полностью - запускаем инициализацию карты.
     google.maps.event.addDomListener(window, 'load', initialize);
 });
@@ -165,7 +166,7 @@ function selectRegion(region){
 
     });
 
-    var c = mapCouuntries[$(region).data("id")];
+    var c = mapCouuntries[$(region).data("country")];
 
     map.setCenter(new google.maps.LatLng(c['lat'], c['len']));
     map.setZoom(c['zoom']);
@@ -178,7 +179,7 @@ function selectCity(city){
         });
     });
 
-    var c = mapCouuntries[$(city).data("id")];
+    var c = mapCouuntries[$(city).data("country")];
 
     map.setCenter(new google.maps.LatLng(c['lat'], c['len']));
     map.setZoom(c['zoom']);

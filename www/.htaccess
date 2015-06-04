@@ -23,7 +23,7 @@ RewriteBase /
 
  RewriteCond %{REQUEST_URI} !/greece-realties-frame.php
  RewriteCond %{REQUEST_URI} !/greece-realties-frame-loader.php
-
+ RewriteCond %{REQUEST_URI} !/poligons.php
 # to index.php and set the cultureKey parameter
    
 RewriteRule !\.(js|ico|txt|gif|jpg|png|css|swf|eot|woff|ttf|pdf|zip|dll)$ index.php [L]

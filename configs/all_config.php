@@ -36,7 +36,10 @@
         || define('TEMP_PATH', VARS_PATH.'/temp'); 
 		
 	defined('CLI_PATH')
-	 || define('CLI_PATH', ROOT_PATH.'/cli' );  	
+	 || define('CLI_PATH', ROOT_PATH.'/cli' );
+
+defined('LIB_PATH')
+	 || define('LIB_PATH', ROOT_PATH.'/framework/lib' );
   
 class AllConfig{
 
@@ -309,8 +312,8 @@ class AllConfig{
         self::$objImgPaths['original'] = BACKUP_PATH."/original_images/";
         self::$objImgPaths['big'] =  WWW_PATH."/upload/objects/";
         self::$objImgPaths['thumb'] = self::$objImgPaths['big'].'/thumb/';
-        self::$objImgPaths['watermark'] = WWW_PATH."/img/system/w.png";
-        self::$objImgPaths['watermarkImport'] = WWW_PATH."/img/system/w_i.png";
+        self::$objImgPaths['watermark'] = WWW_PATH."/usr/img/system/w.png";
+        self::$objImgPaths['watermarkImport'] = WWW_PATH."/usr/img/system/w_i.png";
 			  
         self::$site = 'http://'.self::$domen;
            
