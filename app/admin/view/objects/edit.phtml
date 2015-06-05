@@ -227,7 +227,9 @@
 
                                         <input type="hidden" name="img_id" value="<?=$i['id']?>">
 
-                                        <input type="hidden" name="id_add" value="$id_add">
+                                        <input type="hidden" name="id_add" value="<?=$this->item['id_add']?>"><br>
+
+                                        <input type="checkbox" class="first_img" value="Первая картинка" name="first_img" data-idimg="<?=$i['id']?>" data-idadd="<?=$this->item['id_add']?>">
 
                                         <button class="file_field_update update-image" href="javascript:void(0);" title="Обновить"></button>
 

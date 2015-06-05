@@ -275,53 +275,19 @@ class Site_Model_Objects extends Model {
         return $countdelete;
     }
 
-    public function genImages($imgPath, $newName){
+    function genImages($imgPath, $imgName){
 
-        require_once LIB_PATH."/img_tool_kit/AcImage.php";
+        include_once(LIB_PATH.'/imt/AcImage.php');
+        // маленька - 100
 
-        try {
+        if($image = AcImage::createImage($imgPath)){
+
+            $image->sizeCrop(100)->save(AllConfig::$objImgPaths['thumb'].$imgName);
+
+            //  накладываем лого
             $image = AcImage::createImage($imgPath);
-        } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
-            return false;
-        }
 
-        if($image){
-
-            try {
-                $image->saveAsJPG(AllConfig::$objImgPaths['original'].$newName);
-
-                if(file_exists($imgPath)){
-                    unlink($imgPath);
-                }
-
-                //  накладываем лого
-                $image->resize(1360, 768)->drawLogo(AllConfig::$objImgPaths['watermarkImport'],2,10)->save(AllConfig::$objImgPaths['big'].$newName);
-
-                if($image = AcImage::createImage(AllConfig::$objImgPaths['big'].$newName)){
-
-                    $image->simpleResize(180, 135)->save(AllConfig::$objImgPaths['thumb'].$newName);
-
-                }
-
-            }catch(Exception $e){
-
-                echo 'Выброшено исключение: ',  $e->getMessage(), ", удалены картинки\n";
-
-                if(file_exists(AllConfig::$objImgPaths['thumb'].$newName)){
-
-                    unlink(AllConfig::$objImgPaths['thumb'].$newName);
-
-                }
-
-                if(file_exists(AllConfig::$objImgPaths['thumb'].$newName)){
-
-                    unlink(AllConfig::$objImgPaths['big'].$newName);
-
-                }
-
-                return false;
-            }
+            $image->resize(1360, 768)->drawLogoCenter(ROOT_PATH."/www/usr/img/watermark/watermark.png",true)->save(AllConfig::$objImgPaths['big'].$imgName);
 
         }else{
             return false;

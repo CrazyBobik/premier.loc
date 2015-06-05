@@ -189,8 +189,9 @@ $(function(){
     $('#country').on('change',function(){
         selectLoad(this,'#region','id','');
         var item = $('.country-item[data-country="'+$(this).find('option:selected').data("name")+'"]');
+        resetMap();
         selectCountry(item);
-        });
+    });
 
     $('#region').on('change',function(){
         selectLoad(this,'#city','id','');

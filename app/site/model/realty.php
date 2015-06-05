@@ -126,34 +126,4 @@ class Site_Model_Objects extends Model {
 
     }
 
-
-//public function readXML($xml){
-//    $reader = new XMLReader();
-//    $reader->open($xml);
-//
-//    while ($reader->read()) {
-//
-//        if ($reader->localName == 'realty') {
-//            $item = array();
-//            while ($reader->read()){
-//                if ($reader->nodeType == XMLReader::ELEMENT) {
-//                    $name = strtolower($reader->localName);
-//                    $reader->read();
-//                    if (isset($item[$name]) && is_array($item[$name])){
-//                        $item[$name]['value'] = $reader->value;
-//                    }else
-//                        $item[$name] = $reader->value;
-//
-//                }
-//                if ($reader->nodeType == XMLReader::END_ELEMENT && $reader->localName == 'item')
-//                    break;
-//            }
-//            // в этом месте мы уже имеем сформированный массив и можем передать его на какую либо обработку
-//            print_r($item);
-//        }
-//
-//    }
-//}
-
-
 }

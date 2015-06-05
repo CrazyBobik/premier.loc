@@ -14,7 +14,7 @@
                     <span><?= $v['name'] ?></span>
                     <div class="link-area"></div>
                 </a>
-                <?php if ($v['tree_name'] !== 'service' && empty($v['link'])) { ?>
+                <?php if ($v['tree_name'] !== 'service' && !empty($this->regionForCountry[$v['tree_name']]) && empty($v['link'])) { ?>
                     <div rel="<?= $v['tree_name'] ?>" class="menu-arr hide-control-open"></div>
                 <?php } ?>
             </div>

@@ -12,10 +12,26 @@ class Blocks_Controller_Main  extends K_Controller_Blocks {
 	public function indexAction() {
 
         //Для первого слайдера
-        $this->view->menu1 = K_TreeQuery::crt("/slider1/")->type(array('slide'))->go();
+        $this->view->menu1 = array();
+        $temp = K_TreeQuery::crt("/slider1/")->type(array('slide'))->go();
         $id = ' WHERE a.id IN (';
-        foreach($this->view->menu1 as $m){
-            $id = $id.$m["idelem1"].','.$m["idelem2"].','.$m["idelem3"].',';
+        foreach($temp as $m){
+            $hasCountry = false;
+            if (!empty($m["idelem1"])){
+                $id = $id.$m["idelem1"].',';
+                $hasCountry = true;
+            }
+            if (!empty($m["idelem2"])){
+                $id = $id.$m["idelem2"].',';
+                $hasCountry = true;
+            }
+            if (!empty($m["idelem3"])){
+                $id = $id.$m["idelem3"].',';
+                $hasCountry = true;
+            }
+            if ($hasCountry) {
+                $this->view->menu1[] = $m;
+            }
         }
         $id = substr($id, 0, strlen($id)-1);
         $id = $id.')';
@@ -32,10 +48,26 @@ class Blocks_Controller_Main  extends K_Controller_Blocks {
                       '.$id.' GROUP BY a.id');
 
         //для второго слайдера
-        $this->view->menu2 = K_TreeQuery::crt("/slider2/")->type(array('slide'))->go();
+        $this->view->menu2 = array();
+        $temp = K_TreeQuery::crt("/slider2/")->type(array('slide'))->go();
         $id = ' WHERE a.id IN (';
-        foreach($this->view->menu2 as $m){
-            $id = $id.$m["idelem1"].','.$m["idelem2"].','.$m["idelem3"].',';
+        foreach($temp as $m){
+            $hasCountry = false;
+            if (!empty($m["idelem1"])){
+                $id = $id.$m["idelem1"].',';
+                $hasCountry = true;
+            }
+            if (!empty($m["idelem2"])){
+                $id = $id.$m["idelem2"].',';
+                $hasCountry = true;
+            }
+            if (!empty($m["idelem3"])){
+                $id = $id.$m["idelem3"].',';
+                $hasCountry = true;
+            }
+            if ($hasCountry) {
+                $this->view->menu2[] = $m;
+            }
         }
         $id = substr($id, 0, strlen($id)-1);
         $id = $id.')';

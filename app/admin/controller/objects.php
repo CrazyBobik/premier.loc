@@ -240,6 +240,7 @@ $itemRow["state"] = strip_tags(htmlspecialchars($v["state"]));
         
         $data = $this->crudConfig->data($_POST);
         $data['description'] = $_POST['description'];
+        $data['id_add'] = uniqid();
 
         $validate = $this->crudConfig->validate();
           
@@ -386,6 +387,15 @@ HTML;
         }
 
         $this->putAjax($returnAjax);
+    }
+
+    public function setFirstImgAction(){
+
+
+        K_Q::query('UPDATE objects SET first_img='.intval($_GET['id_img']).' WHERE id_add='.intval($_GET['id_add']));
+
+
+        vd1('UPDATE objects SET first_img='.intval($_GET['id_img']).' WHERE id_add='.intval($_GET['id_add']));
     }
 
     public function imageremoveAction(){

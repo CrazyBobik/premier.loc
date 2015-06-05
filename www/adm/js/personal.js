@@ -80,8 +80,7 @@ function setObjectForm(){
         var form = $(this).closest('form');
         var upimg = $(form).find('.rounded');
 
-        var updateObjectImg = function ()
-        {
+        var updateObjectImg = function (){
 
             $(upimg).attr("src", $(upimg).attr('src')+"?"+Math.random());
 
@@ -117,8 +116,7 @@ function setObjectForm(){
     });
 
     // добавление картинки
-    $('.add-image').on('submit', function()
-    {
+    $('.add-image').on('submit', function(){
 
         var form = $(this);
 
@@ -144,6 +142,18 @@ function setObjectForm(){
             }, "html");
 
         return false;
+    });
+
+    $('.first_img').on('click', function(){
+        $.ajax({
+            url: '/admin/objects/setfirstimg',
+            data: {id_img:$(this).data('idimg'),
+                    id_add:$(this).data('idadd')},
+            dataType: 'html'
+        });
+
+        $('.first_img').removeAttr('checked');
+        $(this).attr('checked','checked');
     });
 
     // Удаление картинки

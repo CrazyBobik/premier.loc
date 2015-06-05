@@ -5,11 +5,23 @@
 }
 .left-bg {
     position: absolute;
-    left: -408px;
+    left: -405px;
     top: -53px;
-    background: url("/usr/img/left_mini.jpg");
-    width: 409px;
-    height: 565px;
+    background: url("/usr/img/2.jpg");
+    width: 405px;
+    height: 100%;
+}
+.left-bg .head-left{
+    width: 405px;
+    height: 559px;
+    background: url("/usr/img/1.jpg");
+}
+.left-bg .footer-left{
+    width: 405px;
+    height: 599px;
+    position: absolute;
+    bottom: 0;
+    background: url("/usr/img/3.jpg");
 }
 .right-bg {
     position: absolute;
@@ -99,6 +111,7 @@
     line-height: 2em;
     padding: 10px 0 0 0;
     margin-top: 10px;
+    margin-left: 11px;
 }
 .contacts {
     margin-top: 5px;
@@ -586,6 +599,9 @@
 }
 .obj-list .one-obj {
     text-align: left;
+}
+.one-obj .description {
+    text-align: justify;
 }
 .obj-list .one-obj .images {
     float: left;
